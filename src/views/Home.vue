@@ -32,6 +32,18 @@ const wallpaperStore = useWallpaperStore()
 const popularityStore = usePopularityStore()
 const filterStore = useFilterStore()
 
+function syncSeriesFromRoute() {
+  const routeSeries = route.meta?.series
+  if (routeSeries) {
+    seriesStore.currentSeries = routeSeries
+  }
+  else if (!seriesStore.currentSeries) {
+    seriesStore.initSeries()
+  }
+}
+
+syncSeriesFromRoute()
+
 // ========================================
 // 初始化标记（防止重复加载）
 // ========================================
@@ -215,13 +227,7 @@ watch(() => filterStore.categoryFilter, async (newValue) => {
 
 // 初始化（只执行一次）
 onMounted(async () => {
-  const routeSeries = route.meta?.series
-  if (routeSeries) {
-    seriesStore.currentSeries = routeSeries
-  }
-  else if (!seriesStore.currentSeries) {
-    seriesStore.initSeries()
-  }
+  syncSeriesFromRoute()
 
   // 加载数据
   await loadSeriesData(seriesStore.currentSeries)
