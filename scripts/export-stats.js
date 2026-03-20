@@ -79,6 +79,19 @@ function ensureOutputDir() {
 }
 
 /**
+ * 格式化时间为 YYYY-MM-DD HH:mm:ss
+ */
+function formatDateTime(date = new Date()) {
+  const pad = value => String(value).padStart(2, '0')
+
+  return `${[
+    date.getFullYear(),
+    pad(date.getMonth() + 1),
+    pad(date.getDate()),
+  ].join('-')} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`
+}
+
+/**
  * 写入 JSON 文件
  */
 function writeJsonFile(filename, data) {
@@ -99,7 +112,7 @@ async function main() {
   ensureOutputDir()
 
   const summary = {
-    exportedAt: new Date().toISOString(),
+    exportedAt: formatDateTime(),
     series: {},
   }
 
