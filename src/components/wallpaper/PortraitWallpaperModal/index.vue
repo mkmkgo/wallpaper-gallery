@@ -8,7 +8,7 @@ import { useDevice } from '@/composables/useDevice'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { downloadFile } from '@/utils/common/format'
+import { buildProxyImageUrl, buildRawImageUrl, downloadFile } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 
 import { useDeviceMode } from './composables/useDeviceMode'
@@ -59,6 +59,7 @@ const imageDimensions = ref({ width: 0, height: 0 })
 const imageLoaded = ref(false)
 const downloading = ref(false)
 const savedScrollY = ref(0)
+const fallbackStage = ref('none')
 
 // 统计数据（从 popularityStore 获取，支持乐观更新）
 const downloadCount = computed(() => {
@@ -75,6 +76,18 @@ const viewCount = computed(() => {
 
 // 弹窗显示状态（用于 Transition 控制）
 const isVisible = ref(false)
+
+const displayImageUrl = computed(() => {
+  if (!props.wallpaper?.url)
+    return ''
+
+  if (fallbackStage.value === 'raw')
+    return buildRawImageUrl(props.wallpaper.url)
+  if (fallbackStage.value === 'proxy')
+    return buildProxyImageUrl(props.wallpaper.url)
+
+  return props.wallpaper.url
+})
 
 // 派生状态
 const canUseDeviceMode = computed(() => currentSeries.value === 'mobile')
@@ -97,6 +110,7 @@ watch(() => props.isOpen, async (isOpen) => {
 
 // 监听壁纸变化
 watch(() => props.wallpaper, () => {
+  fallbackStage.value = 'none'
   resetState()
   // 统计数据现在是 computed，从 popularityStore 自动获取
 })
@@ -186,6 +200,18 @@ function handleImageLoad(dimensions) {
 
 // 图片加载失败
 function handleImageError() {
+  if (fallbackStage.value === 'none') {
+    fallbackStage.value = 'raw'
+    imageLoaded.value = false
+    return
+  }
+
+  if (fallbackStage.value === 'raw') {
+    fallbackStage.value = 'proxy'
+    imageLoaded.value = false
+    return
+  }
+
   imageLoaded.value = true
 }
 
@@ -304,7 +330,7 @@ onUnmounted(() => {
             <ModalContent
               v-show="!deviceMode.isDeviceMode.value"
               ref="contentRef"
-              :src="wallpaper.url"
+              :src="displayImageUrl"
               :alt="wallpaper.filename"
               :is-avatar="isAvatarSeries"
               @load="handleImageLoad"

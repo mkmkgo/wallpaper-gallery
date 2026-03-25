@@ -6,7 +6,7 @@ import { useScrollLock } from '@/composables/useScrollLock'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildProxyImageUrl, buildRawImageUrl, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 
 const props = defineProps({
@@ -26,6 +26,7 @@ const imageLoaded = ref(false)
 const downloading = ref(false)
 const imageDimensions = ref({ width: 0, height: 0 })
 const isSquare = ref(false) // 头像形状：false=圆形，true=方形
+const fallbackStage = ref('none')
 
 // 统计数据（从 popularityStore 获取，支持乐观更新）
 const downloadCount = computed(() => {
@@ -38,6 +39,18 @@ const viewCount = computed(() => {
   if (!props.wallpaper)
     return 0
   return popularityStore.getViewCount(props.wallpaper.filename)
+})
+
+const displayImageUrl = computed(() => {
+  if (!props.wallpaper?.url)
+    return ''
+
+  if (fallbackStage.value === 'raw')
+    return buildRawImageUrl(props.wallpaper.url)
+  if (fallbackStage.value === 'proxy')
+    return buildProxyImageUrl(props.wallpaper.url)
+
+  return props.wallpaper.url
 })
 
 // 计算属性 - 优先使用 AI 生成的 displayTitle
@@ -144,7 +157,21 @@ function handleImageLoad(e) {
   }
 }
 
+function handleImageError() {
+  if (fallbackStage.value === 'none') {
+    fallbackStage.value = 'raw'
+    imageLoaded.value = false
+    return
+  }
+
+  if (fallbackStage.value === 'raw') {
+    fallbackStage.value = 'proxy'
+    imageLoaded.value = false
+  }
+}
+
 function resetState() {
+  fallbackStage.value = 'none'
   imageLoaded.value = false
   imageDimensions.value = { width: 0, height: 0 }
   // 统计数据现在是 computed，无需手动重置
@@ -184,10 +211,11 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
                 <LoadingSpinner size="lg" />
               </div>
               <img
-                :src="wallpaper.url"
+                :src="displayImageUrl"
                 :alt="wallpaper.filename"
                 :class="{ loaded: imageLoaded }"
                 @load="handleImageLoad"
+                @error="handleImageError"
               >
             </div>
             <!-- 形状切换 -->

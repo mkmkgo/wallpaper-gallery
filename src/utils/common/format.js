@@ -2,7 +2,7 @@
 // 格式化工具函数
 // ========================================
 
-import { CDN_VERSION, RESOLUTION_THRESHOLDS, SERIES_CONFIG } from '@/utils/config/constants'
+import { CDN_VERSION, IMAGE_PROXY, RESOLUTION_THRESHOLDS, SERIES_CONFIG } from '@/utils/config/constants'
 
 // URL 构建器（运行时动态拼接，防止静态分析提取完整 URL）
 const _urlParts = {
@@ -281,6 +281,19 @@ export function buildRawImageUrl(cdnUrl) {
     return `https://raw.githubusercontent.com/IT-NuanxinPro/nuanXinProPic/${version}${path}`
   }
   return cdnUrl
+}
+
+export function buildProxyImageUrl(imageUrl, options = {}) {
+  if (!imageUrl) {
+    return ''
+  }
+
+  const targetUrl = buildRawImageUrl(imageUrl)
+  const width = options.width || IMAGE_PROXY.THUMB_WIDTH
+  const quality = options.quality || IMAGE_PROXY.THUMB_QUALITY
+  const format = options.format || IMAGE_PROXY.FORMAT
+
+  return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(targetUrl)}&w=${width}&q=${quality}&output=${format}`
 }
 
 // ========================================

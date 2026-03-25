@@ -10,7 +10,7 @@ import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildProxyImageUrl, buildRawImageUrl, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 
 const props = defineProps({
@@ -34,6 +34,7 @@ const isVisible = ref(false)
 const imageLoaded = ref(false)
 const downloading = ref(false)
 const imageDimensions = ref({ width: 0, height: 0 })
+const fallbackStage = ref('none')
 
 // 统计数据（从 popularityStore 获取，支持乐观更新）
 const downloadCount = computed(() => {
@@ -130,10 +131,12 @@ const formattedDate = computed(() =>
 const optimizedImageUrl = computed(() => {
   if (!props.wallpaper?.url)
     return ''
-  // 如果已经是 webp 或者是预览图，直接使用
-  if (props.wallpaper.url.includes('.webp') || props.wallpaper.url.includes('/preview/'))
-    return props.wallpaper.url
-  // 否则返回原图
+
+  if (fallbackStage.value === 'raw')
+    return buildRawImageUrl(props.wallpaper.url)
+  if (fallbackStage.value === 'proxy')
+    return buildProxyImageUrl(props.wallpaper.url)
+
   return props.wallpaper.url
 })
 
@@ -148,6 +151,7 @@ watch(() => props.isOpen, async (isOpen) => {
 })
 
 watch(() => props.wallpaper, () => {
+  fallbackStage.value = 'none'
   resetState()
   // 统计数据现在是 computed，从 popularityStore 自动获取
 })
@@ -208,6 +212,19 @@ function handleImageLoad(e) {
   imageDimensions.value = {
     width: e.target.naturalWidth,
     height: e.target.naturalHeight,
+  }
+}
+
+function handleImageError() {
+  if (fallbackStage.value === 'none') {
+    fallbackStage.value = 'raw'
+    imageLoaded.value = false
+    return
+  }
+
+  if (fallbackStage.value === 'raw') {
+    fallbackStage.value = 'proxy'
+    imageLoaded.value = false
   }
 }
 
@@ -273,6 +290,7 @@ onUnmounted(() => {
                   :alt="wallpaper.filename"
                   :class="{ loaded: imageLoaded }"
                   @load="handleImageLoad"
+                  @error="handleImageError"
                 >
               </div>
 

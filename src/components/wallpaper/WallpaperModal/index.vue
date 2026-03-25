@@ -6,7 +6,7 @@ import { useDevice } from '@/composables/useDevice'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildProxyImageUrl, buildRawImageUrl, downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import ImageCropModal from '../crop/index.vue'
 import DesktopModal from './desktop/DesktopModal.vue'
@@ -88,6 +88,7 @@ const previewLoaded = ref(false)
 const originalLoaded = ref(false)
 const showOriginal = ref(false)
 const loadingOriginal = ref(false)
+const fallbackStage = ref('none')
 
 // 下载次数（从 popularityStore 获取，支持乐观更新）
 const downloadCount = computed(() => {
@@ -107,7 +108,7 @@ const viewCount = computed(() => {
 const hasPreview = computed(() => !!props.wallpaper?.previewUrl)
 
 // 当前显示的图片 URL
-const displayUrl = computed(() => {
+const baseDisplayUrl = computed(() => {
   if (!props.wallpaper)
     return ''
 
@@ -123,6 +124,18 @@ const displayUrl = computed(() => {
 
   // 默认返回预览图 URL
   return props.wallpaper.previewUrl || props.wallpaper.url
+})
+
+const displayUrl = computed(() => {
+  if (!baseDisplayUrl.value)
+    return ''
+
+  if (fallbackStage.value === 'raw')
+    return buildRawImageUrl(baseDisplayUrl.value)
+  if (fallbackStage.value === 'proxy')
+    return buildProxyImageUrl(baseDisplayUrl.value)
+
+  return baseDisplayUrl.value
 })
 
 // GSAP 入场动画
@@ -222,6 +235,7 @@ function animateOut(callback) {
 
 // Reset state when wallpaper changes
 watch(() => props.wallpaper, () => {
+  fallbackStage.value = 'none'
   imageLoaded.value = false
   imageError.value = false
   actualDimensions.value = { width: 0, height: 0 }
@@ -231,6 +245,13 @@ watch(() => props.wallpaper, () => {
   showOriginal.value = false
   loadingOriginal.value = false
   // 统计数据现在是 computed，从 popularityStore 自动获取，无需手动重置
+})
+
+watch(baseDisplayUrl, () => {
+  fallbackStage.value = 'none'
+  imageLoaded.value = false
+  imageError.value = false
+  actualDimensions.value = { width: 0, height: 0 }
 })
 
 // 分辨率信息 - 显示当前加载图片的分辨率（预览图或原图）
@@ -340,6 +361,20 @@ function handleImageLoad(e) {
 }
 
 function handleImageError() {
+  if (fallbackStage.value === 'none') {
+    fallbackStage.value = 'raw'
+    imageLoaded.value = false
+    imageError.value = false
+    return
+  }
+
+  if (fallbackStage.value === 'raw') {
+    fallbackStage.value = 'proxy'
+    imageLoaded.value = false
+    imageError.value = false
+    return
+  }
+
   imageError.value = true
   imageLoaded.value = true
   loadingOriginal.value = false

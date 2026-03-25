@@ -1,9 +1,8 @@
 <script setup>
 import { gsap } from 'gsap'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useDevice } from '@/composables/useDevice'
-import { formatBingDate, formatFileSize, formatRelativeTime, getDisplayFilename, highlightText } from '@/utils/common/format'
-import { IMAGE_PROXY } from '@/utils/config/constants'
+import { buildProxyImageUrl, buildRawImageUrl, formatBingDate, formatFileSize, formatRelativeTime, getDisplayFilename, highlightText } from '@/utils/common/format'
 import WallpaperCardInfo from './shared/WallpaperCardInfo.vue'
 import WallpaperCardMedia from './shared/WallpaperCardMedia.vue'
 
@@ -49,16 +48,29 @@ const cardRef = ref(null)
 const imageRef = ref(null)
 const imageLoaded = ref(false)
 const imageError = ref(false)
-const useProxy = ref(false)
+const fallbackStage = ref('none')
 
 let cacheCheckTimer = null
 let gsapTargets = []
 
+const primaryImageUrl = computed(() => props.wallpaper.previewUrl || props.wallpaper.thumbnailUrl || props.wallpaper.url)
+
 const thumbnailUrl = computed(() => {
-  if (useProxy.value) {
-    return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(props.wallpaper.url)}&w=${IMAGE_PROXY.THUMB_WIDTH}&q=${IMAGE_PROXY.THUMB_QUALITY}&output=${IMAGE_PROXY.FORMAT}`
+  if (fallbackStage.value === 'raw') {
+    return buildRawImageUrl(primaryImageUrl.value)
   }
-  return props.wallpaper.previewUrl || props.wallpaper.thumbnailUrl || props.wallpaper.url
+
+  if (fallbackStage.value === 'proxy') {
+    return buildProxyImageUrl(primaryImageUrl.value)
+  }
+
+  return primaryImageUrl.value
+})
+
+watch(() => props.wallpaper?.id, () => {
+  fallbackStage.value = 'none'
+  imageLoaded.value = false
+  imageError.value = false
 })
 
 onMounted(() => {
@@ -152,8 +164,12 @@ function handleImageLoad() {
 }
 
 function handleImageError() {
-  if (!useProxy.value) {
-    useProxy.value = true
+  if (fallbackStage.value === 'none') {
+    fallbackStage.value = 'raw'
+    imageLoaded.value = false
+  }
+  else if (fallbackStage.value === 'raw') {
+    fallbackStage.value = 'proxy'
     imageLoaded.value = false
   }
   else {

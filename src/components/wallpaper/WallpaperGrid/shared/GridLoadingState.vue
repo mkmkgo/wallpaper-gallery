@@ -41,7 +41,7 @@ const loadingAnimationSrc = `${import.meta.env.BASE_URL}lottie/Loading%20animati
         即将呈现{{ currentSeriesName }}
       </p>
       <p class="loading-text">
-        首屏内容准备完成后再展示，避免列表先出现又重排。
+        请稍候...
       </p>
     </div>
   </div>

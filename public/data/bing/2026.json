@@ -1,7 +1,34 @@
 {
   "year": 2026,
-  "total": 81,
+  "total": 84,
   "items": [
+    {
+      "date": "2026-03-25",
+      "title": "海牛的秘密生活",
+      "copyright": "淡水泉中的幼年海牛，水晶河，佛罗里达州，美国 (© Gregory Sweeney/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%96%E7%95%8C%E6%B5%B7%E7%89%9B%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260324_ManateeSpring%22&FORM=HPQUIZ",
+      "hsh": "59da6c8be6a41d3ad6b37ecefc153469",
+      "urlbase": "/th?id=OHR.ManateeSpring_ZH-CN5252847120"
+    },
+    {
+      "date": "2026-03-24",
+      "title": "春天的形状",
+      "copyright": "东湖樱花园的樱花，武汉，中国 (© Zhang Qiao/VCG/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%AD%E5%9B%BD%E6%AD%A6%E6%B1%89%E4%B8%9C%E6%B9%96%E6%A8%B1%E8%8A%B1%E5%9B%AD&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260323_WuhanCherryBlossom%22&FORM=HPQUIZ",
+      "hsh": "7717a52b0891d610736daa1202f5f641",
+      "urlbase": "/th?id=OHR.WuhanCherryBlossom_ZH-CN1031985926"
+    },
+    {
+      "date": "2026-03-23",
+      "title": "当水划出界线",
+      "copyright": "坦噶尼喀湖，非洲 (© BEST-BACKGROUNDS/NASA/Shutterstock)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%96%E7%95%8C%E6%B0%B4%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260322_SonoranStorm%22&FORM=HPQUIZ",
+      "hsh": "c142b5bcdd689711b15443db9d4ff56a",
+      "urlbase": "/th?id=OHR.SonoranStorm_ZH-CN0579792563"
+    },
     {
       "date": "2026-03-22",
       "title": "当水划出界线",
@@ -732,5 +759,5 @@
       "urlbase": "/th?id=OHR.NewYearFox_ZH-CN9312618796"
     }
   ],
-  "updatedAt": "2026-03-21 17:26:54"
+  "updatedAt": "2026-03-24 17:57:45"
 }
