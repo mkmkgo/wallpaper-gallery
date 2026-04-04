@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-03T18:03:31.256Z",
+  "generatedAt": "2026-04-04T17:57:58.632Z",
   "series": "avatar",
   "total": 401,
   "tags": [
     {
       "tag": "人像",
-      "score": 331,
+      "score": 325,
       "views": 270,
       "downloads": 113,
       "wallpaperCount": 89,
@@ -101,7 +101,7 @@
     },
     {
       "tag": "萌宠",
-      "score": 166,
+      "score": 162,
       "views": 125,
       "downloads": 63,
       "wallpaperCount": 26,
@@ -133,7 +133,7 @@
     },
     {
       "tag": "IP形象",
-      "score": 147,
+      "score": 145,
       "views": 136,
       "downloads": 43,
       "wallpaperCount": 42,
@@ -165,7 +165,7 @@
     },
     {
       "tag": "猫咪",
-      "score": 145,
+      "score": 144,
       "views": 108,
       "downloads": 57,
       "wallpaperCount": 15,
@@ -277,7 +277,7 @@
     },
     {
       "tag": "搞怪",
-      "score": 65,
+      "score": 64,
       "views": 61,
       "downloads": 18,
       "wallpaperCount": 24,
@@ -405,7 +405,7 @@
     },
     {
       "tag": "表情包",
-      "score": 56,
+      "score": 55,
       "views": 55,
       "downloads": 15,
       "wallpaperCount": 22,
@@ -469,7 +469,7 @@
     },
     {
       "tag": "卡通",
-      "score": 50,
+      "score": 48,
       "views": 48,
       "downloads": 6,
       "wallpaperCount": 13,
@@ -532,8 +532,24 @@
       ]
     },
     {
+      "tag": "银发蓝瞳男孩比耶蓝天背景",
+      "score": 33,
+      "views": 24,
+      "downloads": 15,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/插画/二次元/%E9%93%B6%E5%8F%91%E8%93%9D%E7%9E%B3%E7%94%B7%E5%AD%A9%E6%AF%94%E8%80%B6%E8%93%9D%E5%A4%A9%E8%83%8C%E6%99%AF.webp",
+          "cdnTag": "v1.1.4"
+        }
+      ]
+    },
+    {
       "tag": "卡通简笔画",
-      "score": 39,
+      "score": 33,
       "views": 40,
       "downloads": 10,
       "wallpaperCount": 10,
@@ -560,22 +576,6 @@
         {
           "thumbnail": "/thumbnail/avatar/人像/卡通简笔画/%E9%95%BF%E5%8F%91%E5%A5%B3%E5%AD%A9%E4%B8%BE%E5%B9%B3%E5%AE%89%E8%81%94.webp",
           "cdnTag": "v1.1.11"
-        }
-      ]
-    },
-    {
-      "tag": "银发蓝瞳男孩比耶蓝天背景",
-      "score": 33,
-      "views": 24,
-      "downloads": 15,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/avatar/插画/二次元/%E9%93%B6%E5%8F%91%E8%93%9D%E7%9E%B3%E7%94%B7%E5%AD%A9%E6%AF%94%E8%80%B6%E8%93%9D%E5%A4%A9%E8%83%8C%E6%99%AF.webp",
-          "cdnTag": "v1.1.4"
         }
       ]
     },
@@ -788,26 +788,6 @@
       ]
     },
     {
-      "tag": "Q版",
-      "score": 20,
-      "views": 18,
-      "downloads": 3,
-      "wallpaperCount": 2,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/avatar/IP形象/通用/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260310202255_660_4.webp",
-          "cdnTag": "v1.2.8"
-        },
-        {
-          "thumbnail": "/thumbnail/avatar/人像/卡通简笔画/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260119095916_475_4.webp",
-          "cdnTag": "v1.1.40"
-        }
-      ]
-    },
-    {
       "tag": "仰光捧花女生",
       "score": 19,
       "views": 17,
@@ -824,34 +804,22 @@
       ]
     },
     {
-      "tag": "狗狗",
+      "tag": "Q版",
       "score": 19,
-      "views": 16,
-      "downloads": 5,
-      "wallpaperCount": 10,
+      "views": 18,
+      "downloads": 3,
+      "wallpaperCount": 2,
       "series": [
         "avatar"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-01-23_165009_180.webp",
-          "cdnTag": "v1.1.53"
+          "thumbnail": "/thumbnail/avatar/IP形象/通用/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260310202255_660_4.webp",
+          "cdnTag": "v1.2.8"
         },
         {
-          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E6%9F%AF%E5%9F%BA_%E5%A2%A8%E9%95%9C%E9%85%B7%E7%8B%97.webp",
-          "cdnTag": "v1.1.11"
-        },
-        {
-          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-02-05_112228_078.webp",
-          "cdnTag": "v1.1.74"
-        },
-        {
-          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260126155445_539_4.webp",
-          "cdnTag": "v1.1.53"
-        },
-        {
-          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/654.webp",
-          "cdnTag": "v1.1.96"
+          "thumbnail": "/thumbnail/avatar/人像/卡通简笔画/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260119095916_475_4.webp",
+          "cdnTag": "v1.1.40"
         }
       ]
     },
@@ -904,22 +872,6 @@
       ]
     },
     {
-      "tag": "蜜蜂",
-      "score": 17,
-      "views": 15,
-      "downloads": 2,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/avatar/IP形象/通用/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260310202255_660_4.webp",
-          "cdnTag": "v1.2.8"
-        }
-      ]
-    },
-    {
       "tag": "戴眼镜男孩肩上趴着小猫",
       "score": 16,
       "views": 16,
@@ -932,6 +884,38 @@
         {
           "thumbnail": "/thumbnail/avatar/萌宠/猫咪/%E6%88%B4%E7%9C%BC%E9%95%9C%E7%94%B7%E5%AD%A9%E8%82%A9%E4%B8%8A%E8%B6%B4%E7%9D%80%E5%B0%8F%E7%8C%AB.webp",
           "cdnTag": "v1.1.4"
+        }
+      ]
+    },
+    {
+      "tag": "狗狗",
+      "score": 16,
+      "views": 16,
+      "downloads": 5,
+      "wallpaperCount": 10,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-01-23_165009_180.webp",
+          "cdnTag": "v1.1.53"
+        },
+        {
+          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E6%9F%AF%E5%9F%BA_%E5%A2%A8%E9%95%9C%E9%85%B7%E7%8B%97.webp",
+          "cdnTag": "v1.1.11"
+        },
+        {
+          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-02-05_112228_078.webp",
+          "cdnTag": "v1.1.74"
+        },
+        {
+          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260126155445_539_4.webp",
+          "cdnTag": "v1.1.53"
+        },
+        {
+          "thumbnail": "/thumbnail/avatar/萌宠/狗狗/654.webp",
+          "cdnTag": "v1.1.96"
         }
       ]
     },
@@ -964,6 +948,22 @@
         {
           "thumbnail": "/thumbnail/avatar/人像/甜妹/664.webp",
           "cdnTag": "v1.1.96"
+        }
+      ]
+    },
+    {
+      "tag": "蜜蜂",
+      "score": 16,
+      "views": 15,
+      "downloads": 2,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/IP形象/通用/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260310202255_660_4.webp",
+          "cdnTag": "v1.2.8"
         }
       ]
     },
