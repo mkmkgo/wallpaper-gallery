@@ -104,7 +104,7 @@ jobs:
       - name: Deploy to EdgeOne Pages
         run: |
           npx edgeone pages deploy ./dist \
-            -n wallpaper-gallery \
+            -n wallpaper-gallery-overseas \
             -t ${{ secrets.EDGEONE_API_TOKEN }} \
             -e production
         env:
