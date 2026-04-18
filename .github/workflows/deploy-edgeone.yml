@@ -1,0 +1,111 @@
+name: Deploy to EdgeOne Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # 每天北京时间凌晨 02:00 自动运行一次 (UTC 18:00)
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: "edgeone-pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 1. 获取图床仓库最新的 CDN 版本号
+      - name: Get latest CDN version
+        id: cdn_version
+        run: |
+          LATEST_TAG=$(curl -s "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags" | jq -r '.[0].name // "v1.2.18"')
+          echo "version=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "? Got latest CDN version: $LATEST_TAG"
+
+      # 2. 修改 constants.js 中的版本号
+      - name: Update CDN version in constants.js
+        run: |
+          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
+          sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
+          echo "?? Updated constants.js to: $CDN_VERSION"
+
+      # 3. 克隆图床仓库数据
+      - name: Checkout nuanXinProPic (wallpaper source)
+        uses: actions/checkout@v4
+        with:
+          repository: mkmkgo/nuanXinProPic
+          path: nuanXinProPic
+          fetch-depth: 1
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 4. 同步数据到 public 目录
+      - name: Copy data from image repository
+        run: |
+          mkdir -p public/data
+          if [ -d "nuanXinProPic/data" ]; then
+            echo "?? Copying data from nuanXinProPic/data..."
+            # 同步主系列
+            for series in desktop mobile avatar; do
+              if [ -d "nuanXinProPic/data/$series" ]; then
+                cp -r "nuanXinProPic/data/$series" public/data/
+              fi
+              if [ -f "nuanXinProPic/data/$series.json" ]; then
+                cp "nuanXinProPic/data/$series.json" public/data/
+              fi
+            done
+            # 同步 Bing 数据
+            if [ -d "nuanXinProPic/bing/meta" ]; then
+              mkdir -p public/data/bing
+              cp -r nuanXinProPic/bing/meta/* public/data/bing/
+            fi
+            echo "? Data copied successfully"
+          else
+            echo "?? Data directory not found, fallback to pnpm sync"
+            pnpm sync
+          fi
+
+      - name: Sync wallpaper assets to Supabase
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: pnpm sync:assets
+
+      # 5. 执行 Vite 打包构建
+      - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: pnpm build:seo
+
+      # 6. 部署到 EdgeOne Pages
+      - name: Deploy to EdgeOne Pages
+        run: |
+          npx edgeone pages deploy ./dist \
+            -n wallpaper-gallery \
+            -t ${{ secrets.EDGEONE_API_TOKEN }} \
+            -e production
+        env:
+          EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
