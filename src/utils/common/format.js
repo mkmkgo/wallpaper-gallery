@@ -9,7 +9,7 @@ import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 const _urlParts = {
   p: 'https://',
   h: 'cdn.jsdelivr.net',
-  g: '/gh/IT-NuanxinPro',
+  g: '/gh/mkmkgo',
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
 
