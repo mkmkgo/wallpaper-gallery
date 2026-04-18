@@ -19,7 +19,7 @@ export const DATA_CACHE_BUSTER = `?v=${CDN_VERSION}`
 const _cdnParts = {
   p: 'https:/',
   h: '/cdn.jsdelivr.net',
-  g: '/gh/IT-NuanxinPro',
+  g: '/gh/mkmkgo',
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
 const CDN_BASE = `${_cdnParts.p}${_cdnParts.h}${_cdnParts.g}${_cdnParts.r}`
