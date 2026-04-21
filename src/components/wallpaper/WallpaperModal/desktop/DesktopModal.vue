@@ -4,6 +4,7 @@
  * 左侧：MacBook Pro 真机预览（带 macOS 菜单栏）
  * 右侧：壁纸信息和操作
  */
+import { ElMessage } from 'element-plus'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
@@ -11,6 +12,7 @@ import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCa
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
+import { copyText } from '@/utils/common/clipboard'
 import { buildProxyImageUrl, buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
@@ -227,6 +229,20 @@ async function handleDownload() {
   }
   finally {
     downloading.value = false
+  }
+}
+
+async function handleCopyUrl() {
+  const url = props.wallpaper?.url
+  if (!url)
+    return
+
+  try {
+    await copyText(url)
+    ElMessage.success('链接已复制')
+  }
+  catch {
+    ElMessage.error('复制失败，请手动复制')
   }
 }
 
@@ -500,17 +516,31 @@ onUnmounted(() => {
                 <span>智能裁剪</span>
               </button>
 
-              <button
-                class="download-btn"
-                :disabled="downloading"
-                @click="handleDownload"
-              >
-                <LoadingSpinner v-if="downloading" size="sm" />
-                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                </svg>
-                <span>{{ downloading ? '下载中...' : '下载原图' }}</span>
-              </button>
+              <div class="download-row">
+                <button
+                  class="copy-url-btn"
+                  :disabled="!wallpaper?.url"
+                  aria-label="复制链接"
+                  title="复制直链"
+                  @click="handleCopyUrl"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                </button>
+                <button
+                  class="download-btn"
+                  :disabled="downloading"
+                  @click="handleDownload"
+                >
+                  <LoadingSpinner v-if="downloading" size="sm" />
+                  <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  <span>{{ downloading ? '下载中...' : '下载原图' }}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1014,7 +1044,52 @@ onUnmounted(() => {
   }
 }
 
+.download-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.copy-url-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  background: linear-gradient(180deg, rgba(34, 47, 76, 0.96), rgba(23, 33, 56, 0.92));
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: #dbeafe;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 0 rgba(191, 219, 254, 0.08);
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(180deg, rgba(43, 61, 96, 0.98), rgba(29, 41, 68, 0.94));
+    border-color: rgba(96, 165, 250, 0.28);
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(191, 219, 254, 0.1),
+      0 14px 28px rgba(2, 8, 23, 0.26);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
 .download-btn {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
