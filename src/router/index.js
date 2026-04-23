@@ -2,10 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { detectDevice, DEVICE_TYPES } from '@/composables/useDevice'
 import { DEVICE_SERIES } from '@/utils/config/constants'
 
-const SITE_NAME = 'Wallpaper Gallery'
-const SITE_URL = 'https://wallpaper.061129.xyz'
-const DEFAULT_TITLE = '4K高清壁纸下载_电脑桌面壁纸_手机壁纸 - Wallpaper Gallery'
-const DEFAULT_DESCRIPTION = 'Wallpaper Gallery 提供 4K 高清壁纸免费下载，涵盖电脑桌面壁纸、手机壁纸、动漫头像和每日 Bing 壁纸等分类，适配 Windows、Mac、iPhone 和 Android 设备，支持高清预览。'
+const SITE_NAME = '超赞壁纸'
+const SITE_URL = 'https://wall.202597.xyz'
+const DEFAULT_TITLE = '4K高清壁纸下载_电脑桌面壁纸_手机壁纸 - 超赞壁纸'
+const DEFAULT_DESCRIPTION = '超赞壁纸 提供 4K 高清壁纸免费下载，涵盖电脑桌面壁纸、手机壁纸、动漫头像和每日 Bing 壁纸等分类，适配 Windows、Mac、iPhone 和 Android 设备，支持高清预览。'
 
 // ========================================
 // 路由配置（使用标准懒加载，骨架屏由 App.vue Suspense 处理）
@@ -28,7 +28,7 @@ const routes = [
     name: 'Desktop',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '4K电脑桌面壁纸_高清电脑背景图片下载 - Wallpaper Gallery',
+      title: '4K电脑桌面壁纸_高清电脑背景图片下载 - 超赞壁纸',
       description: '精选 4K 电脑桌面壁纸免费下载，涵盖风景、动漫、游戏、人像等高清电脑背景图片，适配 Windows 和 Mac 大屏显示器。',
       canonicalPath: '/desktop',
       series: 'desktop',
@@ -41,7 +41,7 @@ const routes = [
     name: 'Bing',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: 'Bing每日壁纸_必应高清壁纸下载 - Wallpaper Gallery',
+      title: 'Bing每日壁纸_必应高清壁纸下载 - 超赞壁纸',
       description: '汇集每日 Bing 高清壁纸，提供必应精选图片大图预览与下载，适合电脑桌面和宽屏设备使用。',
       canonicalPath: '/bing',
       series: 'bing',
@@ -54,7 +54,7 @@ const routes = [
     name: 'Mobile',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '4K手机壁纸_高清手机锁屏壁纸下载 - Wallpaper Gallery',
+      title: '4K手机壁纸_高清手机锁屏壁纸下载 - 超赞壁纸',
       description: '提供海量 4K 手机壁纸和高清锁屏壁纸，适配 iPhone 与 Android 机型，支持竖屏预览与免费下载。',
       canonicalPath: '/mobile',
       series: 'mobile',
@@ -67,7 +67,7 @@ const routes = [
     name: 'Avatar',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '高清头像_动漫头像_个性头像下载 - Wallpaper Gallery',
+      title: '高清头像_动漫头像_个性头像下载 - 超赞壁纸',
       description: '精选高清头像、动漫头像和个性头像资源，适合微信、QQ、社交平台使用，支持正方形头像预览与下载。',
       canonicalPath: '/avatar',
       series: 'avatar',
@@ -80,7 +80,7 @@ const routes = [
     name: 'About',
     component: () => import('@/views/About.vue'),
     meta: {
-      title: '关于 Wallpaper Gallery - 4K 高清壁纸站',
+      title: '关于 超赞壁纸 - 4K 高清壁纸站',
       description: '了解 Wallpaper Gallery 的项目定位、特色功能与壁纸资源分类，查看更多关于 4K 高清壁纸站的信息。',
       canonicalPath: '/about',
       hideHeader: true,
@@ -91,7 +91,7 @@ const routes = [
     name: 'Login',
     component: () => import('@/views/Login.vue'),
     meta: {
-      title: '登录 Wallpaper Gallery - 壁纸画廊',
+      title: '登录 超赞壁纸 - 壁纸画廊',
       description: '登录 Wallpaper Gallery，同步收藏夹、下载历史、跨设备偏好与社区身份入口。',
       canonicalPath: '/login',
       hideHeader: true,
@@ -102,7 +102,7 @@ const routes = [
     name: 'Signup',
     component: () => import('@/views/Signup.vue'),
     meta: {
-      title: '注册 Wallpaper Gallery - 壁纸画廊',
+      title: '注册 超赞壁纸 - 壁纸画廊',
       description: '注册 Wallpaper Gallery 账号，后续可同步收藏夹、下载记录、社区身份与壁纸偏好。',
       canonicalPath: '/signup',
       hideHeader: true,
@@ -113,7 +113,7 @@ const routes = [
     name: 'AuthCallback',
     component: () => import('@/views/AuthCallback.vue'),
     meta: {
-      title: '账号同步中 - Wallpaper Gallery',
+      title: '账号同步中 - 超赞壁纸',
       description: DEFAULT_DESCRIPTION,
       canonicalPath: '/auth/callback',
       hideHeader: true,
@@ -125,7 +125,7 @@ const routes = [
     component: () => import('@/views/Account.vue'),
     meta: {
       compactMain: true,
-      title: '账号与安全 - Wallpaper Gallery',
+      title: '账号与安全 - 超赞壁纸',
       description: '管理 Wallpaper Gallery 的第三方登录绑定、邮箱密码登录和账号资料同步状态。',
       canonicalPath: '/account',
       loadingScene: true,
@@ -139,7 +139,7 @@ const routes = [
     component: () => import('@/views/Library.vue'),
     meta: {
       compactMain: true,
-      title: '我的壁纸库 - Wallpaper Gallery',
+      title: '我的壁纸库 - 超赞壁纸',
       description: '查看 Wallpaper Gallery 账号下的收藏夹与我的喜欢入口。',
       canonicalPath: '/library',
       loadingScene: true,
@@ -153,7 +153,7 @@ const routes = [
     name: 'NotFound',
     component: () => import('@/views/NotFound.vue'),
     meta: {
-      title: '页面未找到 - Wallpaper Gallery',
+      title: '页面未找到 - 超赞壁纸',
       description: DEFAULT_DESCRIPTION,
       canonicalPath: '/',
       hideHeader: true,

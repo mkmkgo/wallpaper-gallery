@@ -131,7 +131,7 @@ function goHome() {
         <div class="hero-card__main">
           <span class="hero-card__chip">Open Source Wallpaper Project</span>
           <h1 class="hero-card__title">
-            Wallpaper Gallery
+            超赞壁纸
           </h1>
           <p class="hero-card__summary">
             一个已经开源的高清壁纸项目，围绕四大内容系列，把搜索、筛选、预览、裁剪、下载和多端浏览做成统一体验，而不是单纯堆图片。
@@ -143,7 +143,7 @@ function goHome() {
             </button>
             <a
               class="about-button about-button--ghost"
-              href="https://github.com/IT-NuanxinPro/wallpaper-gallery"
+              href="https://github.com/mkmkgo/wallpaper-gallery"
               target="_blank"
               rel="noopener noreferrer"
             >

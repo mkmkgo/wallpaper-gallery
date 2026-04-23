@@ -103,7 +103,7 @@ defineEmits(['close', 'navigate', 'signout', 'update:show'])
                 <path d="M21 15l-5-5L5 21" />
               </svg>
             </div>
-            <span>Wallpaper Gallery</span>
+            <span>超赞壁纸</span>
           </div>
           <button class="drawer-close" @click="$emit('close')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -260,7 +260,7 @@ defineEmits(['close', 'navigate', 'signout', 'update:show'])
             更多
           </h3>
           <a
-            href="https://github.com/IT-NuanxinPro/wallpaper-gallery"
+            href="https://github.com/mkmkgo/wallpaper-gallery"
             target="_blank"
             rel="noopener noreferrer"
             class="link-card"

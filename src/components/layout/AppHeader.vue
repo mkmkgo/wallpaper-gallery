@@ -349,7 +349,7 @@ watch(isMobile, () => {
         </div>
         <div class="brand-text">
           <h1 class="brand-title">
-            Wallpaper Gallery
+            超赞壁纸
           </h1>
           <span class="brand-subtitle">精选4k高清壁纸</span>
         </div>
@@ -456,7 +456,20 @@ watch(isMobile, () => {
         </router-link>
 
         <a
-          href="https://github.com/IT-NuanxinPro/wallpaper-gallery"
+          href="https://go.202597.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="blog-link"
+          aria-label="博客"
+        >
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </a>
+
+        <a
+          href="https://github.com/mkmkgo/wallpaper-gallery"
           target="_blank"
           rel="noopener noreferrer"
           class="github-link"
@@ -1008,6 +1021,7 @@ html[data-theme='dark'] .header-account-dropdown-menu .el-dropdown-menu__item--d
 .header-auth-link,
 .header-account-trigger,
 .github-link,
+.blog-link,
 .fullscreen-toggle,
 .hamburger-btn {
   display: flex;
