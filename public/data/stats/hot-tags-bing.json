@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-17T18:29:27.579Z",
+  "generatedAt": "2026-04-22T18:40:38.314Z",
   "series": "bing",
-  "total": 170,
+  "total": 171,
   "tags": [
     {
       "tag": "2026 01",
-      "score": 252,
-      "views": 332,
+      "score": 243,
+      "views": 333,
       "downloads": 63,
       "wallpaperCount": 31,
       "series": [
@@ -22,9 +22,9 @@
     },
     {
       "tag": "2026 03",
-      "score": 157,
-      "views": 133,
-      "downloads": 28,
+      "score": 155,
+      "views": 135,
+      "downloads": 29,
       "wallpaperCount": 25,
       "series": [
         "bing"
@@ -56,10 +56,10 @@
     },
     {
       "tag": "2026 02",
-      "score": 38,
-      "views": 50,
+      "score": 39,
+      "views": 51,
       "downloads": 5,
-      "wallpaperCount": 16,
+      "wallpaperCount": 17,
       "series": [
         "bing"
       ],
@@ -73,7 +73,7 @@
     },
     {
       "tag": "传奇故事前的篇章",
-      "score": 28,
+      "score": 27,
       "views": 34,
       "downloads": 9,
       "wallpaperCount": 1,
@@ -86,8 +86,8 @@
     },
     {
       "tag": "王者视野",
-      "score": 26,
-      "views": 40,
+      "score": 25,
+      "views": 41,
       "downloads": 5,
       "wallpaperCount": 1,
       "series": [
@@ -99,7 +99,7 @@
     },
     {
       "tag": "小村庄，大视野",
-      "score": 20,
+      "score": 19,
       "views": 22,
       "downloads": 6,
       "wallpaperCount": 1,
@@ -112,7 +112,7 @@
     },
     {
       "tag": "当水划出界线",
-      "score": 20,
+      "score": 19,
       "views": 14,
       "downloads": 4,
       "wallpaperCount": 2,
@@ -122,32 +122,6 @@
       "topWallpapers": [
         "bing-2026-03-23.jpg",
         "bing-2026-03-22.jpg"
-      ]
-    },
-    {
-      "tag": "漂浮的传承",
-      "score": 16,
-      "views": 12,
-      "downloads": 4,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-03-02.jpg"
-      ]
-    },
-    {
-      "tag": "时光在此处茁壮成长",
-      "score": 15,
-      "views": 16,
-      "downloads": 5,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-01-09.jpg"
       ]
     },
     {
@@ -177,20 +151,29 @@
       ]
     },
     {
-      "tag": "2025 11",
-      "score": 14,
-      "views": 22,
-      "downloads": 6,
-      "wallpaperCount": 13,
+      "tag": "漂浮的传承",
+      "score": 15,
+      "views": 12,
+      "downloads": 4,
+      "wallpaperCount": 1,
       "series": [
         "bing"
       ],
       "topWallpapers": [
-        "bing-2025-11-23.jpg",
-        "bing-2025-11-12.jpg",
-        "bing-2025-11-24.jpg",
-        "bing-2025-11-19.jpg",
-        "bing-2025-11-25.jpg"
+        "bing-2026-03-02.jpg"
+      ]
+    },
+    {
+      "tag": "时光在此处茁壮成长",
+      "score": 14,
+      "views": 16,
+      "downloads": 5,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-01-09.jpg"
       ]
     },
     {
@@ -208,6 +191,23 @@
         "bing-2025-07-15.jpg",
         "bing-2025-07-04.jpg",
         "bing-2025-07-06.jpg"
+      ]
+    },
+    {
+      "tag": "2025 11",
+      "score": 13,
+      "views": 22,
+      "downloads": 6,
+      "wallpaperCount": 13,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2025-11-23.jpg",
+        "bing-2025-11-12.jpg",
+        "bing-2025-11-24.jpg",
+        "bing-2025-11-25.jpg",
+        "bing-2025-11-11.jpg"
       ]
     },
     {
@@ -250,22 +250,9 @@
       ]
     },
     {
-      "tag": "高角羚群紧急戒备",
-      "score": 12,
-      "views": 19,
-      "downloads": 2,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-01-05.jpg"
-      ]
-    },
-    {
       "tag": "春天的形状",
       "score": 12,
-      "views": 9,
+      "views": 10,
       "downloads": 2,
       "wallpaperCount": 1,
       "series": [
@@ -293,6 +280,19 @@
       ]
     },
     {
+      "tag": "高角羚群紧急戒备",
+      "score": 11,
+      "views": 19,
+      "downloads": 2,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-01-05.jpg"
+      ]
+    },
+    {
       "tag": "威尼斯的灵魂",
       "score": 11,
       "views": 19,
@@ -303,6 +303,19 @@
       ],
       "topWallpapers": [
         "bing-2026-01-02.jpg"
+      ]
+    },
+    {
+      "tag": "城市花开",
+      "score": 11,
+      "views": 9,
+      "downloads": 2,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-03-18.jpg"
       ]
     },
     {
@@ -332,19 +345,6 @@
       ]
     },
     {
-      "tag": "大自然的波普艺术",
-      "score": 10,
-      "views": 10,
-      "downloads": 3,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-01-19.jpg"
-      ]
-    },
-    {
       "tag": "2025 02",
       "score": 9,
       "views": 11,
@@ -359,6 +359,19 @@
         "bing-2025-02-06.jpg",
         "bing-2025-02-08.jpg",
         "bing-2025-02-09.jpg"
+      ]
+    },
+    {
+      "tag": "大自然的波普艺术",
+      "score": 9,
+      "views": 10,
+      "downloads": 3,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-01-19.jpg"
       ]
     },
     {
@@ -418,45 +431,6 @@
       ]
     },
     {
-      "tag": "城市花开",
-      "score": 8,
-      "views": 8,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-03-18.jpg"
-      ]
-    },
-    {
-      "tag": "聚光灯下的番红花",
-      "score": 7,
-      "views": 4,
-      "downloads": 2,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-03-04.jpg"
-      ]
-    },
-    {
-      "tag": "废墟之上，椋鸟群舞",
-      "score": 7,
-      "views": 11,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-01-08.jpg"
-      ]
-    },
-    {
       "tag": "水獭之国爱沙尼亚",
       "score": 7,
       "views": 11,
@@ -467,32 +441,6 @@
       ],
       "topWallpapers": [
         "bing-2026-01-12.jpg"
-      ]
-    },
-    {
-      "tag": "古老岩石，现代灯光",
-      "score": 7,
-      "views": 7,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-03-05.jpg"
-      ]
-    },
-    {
-      "tag": "走进熊猫世界",
-      "score": 7,
-      "views": 9,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-03-16.jpg"
       ]
     },
     {
@@ -566,6 +514,58 @@
       ],
       "topWallpapers": [
         "bing-2025-12-30.jpg"
+      ]
+    },
+    {
+      "tag": "帕拉米蒂的历史之阶",
+      "score": 6,
+      "views": 7,
+      "downloads": 2,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-01-14.jpg"
+      ]
+    },
+    {
+      "tag": "聚光灯下的番红花",
+      "score": 6,
+      "views": 4,
+      "downloads": 2,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-03-04.jpg"
+      ]
+    },
+    {
+      "tag": "废墟之上，椋鸟群舞",
+      "score": 6,
+      "views": 11,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-01-08.jpg"
+      ]
+    },
+    {
+      "tag": "古老岩石，现代灯光",
+      "score": 6,
+      "views": 7,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-03-05.jpg"
       ]
     }
   ]
