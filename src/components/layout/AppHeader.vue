@@ -353,6 +353,15 @@ watch(isMobile, () => {
           </h1>
           <span class="brand-subtitle">精选4k高清壁纸</span>
         </div>
+        <a
+          href="https://go.202597.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="brand-blog-link"
+          aria-label="超赞博客"
+        >
+          超赞博客
+        </a>
       </div>
 
       <!-- PC 端系列导航 -->
@@ -454,19 +463,6 @@ watch(isMobile, () => {
             <path d="M12 16v-4M12 8h.01" />
           </svg>
         </router-link>
-
-        <a
-          href="https://go.202597.xyz"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="blog-link"
-          aria-label="博客"
-        >
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
-        </a>
 
         <a
           href="https://github.com/mkmkgo/wallpaper-gallery"
@@ -745,6 +741,7 @@ html[data-theme='dark'] .header-account-dropdown-menu .el-dropdown-menu__item--d
   display: flex;
   align-items: center;
   gap: $spacing-md;
+  flex-wrap: wrap;
 }
 
 .brand-logo {
@@ -773,6 +770,42 @@ html[data-theme='dark'] .header-account-dropdown-menu .el-dropdown-menu__item--d
 .brand-text {
   display: flex;
   flex-direction: column;
+}
+
+.brand-blog-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin-left: 20px;
+  border-radius: 20px;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include tablet-up {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  &:hover {
+    background: var(--accent-gradient);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--accent-shadow);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.95);
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .brand-title {
@@ -1021,7 +1054,6 @@ html[data-theme='dark'] .header-account-dropdown-menu .el-dropdown-menu__item--d
 .header-auth-link,
 .header-account-trigger,
 .github-link,
-.blog-link,
 .fullscreen-toggle,
 .hamburger-btn {
   display: flex;
