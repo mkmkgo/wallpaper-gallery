@@ -1,0 +1,66 @@
+<view class="container">
+  <!-- 背景图片 -->
+  <view class="page-background">
+    <image src="https://tp.202597.xyz/file/1776619327721_%E5%9B%BE%E7%89%87.png" mode="aspectFill" class="bg-image"/>
+    <view class="bg-blur"></view>
+  </view>
+  
+  <!-- 内容层 -->
+  <view class="page-content">
+    <!-- 精选壁纸横向滚动 -->
+    <view class="section-header">
+      <view class="section-title">精选壁纸</view>
+      <view class="view-more" bindtap="goToFeatured">查看更多 →</view>
+    </view>
+    <scroll-view class="horizontal-scroll" scroll-x enable-flex>
+      <view class="wallpaper-row">
+        <view class="wallpaper-card" wx:for="{{featuredWallpapers}}" wx:key="id" bindtap="goToDetail" data-wallpaper="{{item}}">
+          <image src="{{item.thumbnailUrl}}" mode="aspectFill" class="wallpaper-image"/>
+          <view class="wallpaper-info">
+            <view class="wallpaper-title">{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 热门分类 -->
+    <view class="section-title">热门分类</view>
+    <view class="hot-buttons">
+      <view class="hot-button" bindtap="goTo4kGirls">
+        <view class="hot-button-icon">👩</view>
+        <view class="hot-button-text">4K小姐姐</view>
+      </view>
+      <view class="hot-button" bindtap="goToCategory" data-category='{"id":"collections","name":"精选合集"}'>
+        <view class="hot-button-icon">📚</view>
+        <view class="hot-button-text">精选合集</view>
+      </view>
+      <view class="hot-button" bindtap="goToCategory" data-category='{"id":"ranking","name":"排行榜"}'>
+        <view class="hot-button-icon">🏆</view>
+        <view class="hot-button-text">排行榜</view>
+      </view>
+      <view class="hot-button" bindtap="goToCategory" data-category='{"id":"avatars","name":"精选头像"}'>
+        <view class="hot-button-icon">👤</view>
+        <view class="hot-button-text">精选头像</view>
+      </view>
+    </view>
+
+    <!-- 最新壁纸 -->
+    <view class="section-title">最新壁纸</view>
+    <view class="wallpaper-grid">
+      <view class="wallpaper-card" wx:for="{{latestWallpapers}}" wx:key="id" bindtap="goToDetail" data-wallpaper="{{item}}">
+        <image src="{{item.thumbnailUrl}}" mode="aspectFill" class="wallpaper-image"/>
+        <view class="wallpaper-info">
+          <view class="wallpaper-title">{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 加载中 -->
+    <view wx:if="{{isLoading}}" class="loading">
+      <text>加载中...</text>
+    </view>
+  </view>
+
+  <!-- 自定义磨砂玻璃tabBar -->
+  <tabbar active="index"></tabbar>
+</view>

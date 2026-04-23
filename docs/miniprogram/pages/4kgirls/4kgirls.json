@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "4K小姐姐",
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar"
+  }
+}

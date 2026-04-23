@@ -1,7 +1,223 @@
 {
   "year": 2026,
-  "total": 84,
+  "total": 108,
   "items": [
+    {
+      "date": "2026-04-18",
+      "title": "未完成巨像的静默",
+      "copyright": "摩艾石像采石场，拉诺拉拉库，复活节岛，智利 (© Gavin Hellier/Alamy)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%96%E7%95%8C%E9%81%97%E4%BA%A7%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260417_MaoiStatues%22&FORM=HPQUIZ",
+      "hsh": "c707952097721367ddb1ab8b6d323373",
+      "urlbase": "/th?id=OHR.MaoiStatues_ZH-CN3219447748"
+    },
+    {
+      "date": "2026-04-17",
+      "title": "蝙蝠信号：开启",
+      "copyright": "灰头狐蝠母亲携幼崽，雅拉湾国家公园，澳大利亚 (© Doug Gimesy/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E8%9D%99%E8%9D%A0&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260416_FlyingFoxMom%22&FORM=HPQUIZ",
+      "hsh": "043f29f910dede498ae0d959767e3cba",
+      "urlbase": "/th?id=OHR.FlyingFoxMom_ZH-CN2913012516"
+    },
+    {
+      "date": "2026-04-16",
+      "title": "花瓣巡游",
+      "copyright": "斯卡吉特谷地郁金香花田, 华盛顿, 美国 (© Alan Majchrowicz/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%8D%8E%E7%9B%9B%E9%A1%BF%E5%B7%9E%E6%96%AF%E5%8D%A1%E5%90%89%E7%89%B9%E8%B0%B7&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260415_SkagitTulips%22&FORM=HPQUIZ",
+      "hsh": "8c8d09f483afa126ec0b35f48f180049",
+      "urlbase": "/th?id=OHR.SkagitTulips_ZH-CN4234324174"
+    },
+    {
+      "date": "2026-04-15",
+      "title": "走进这幅鲜活的画布",
+      "copyright": "光之采石场的文森特·梵高展览, 莱博德普罗旺斯, 法国 (© Patrick Aventurier/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%96%E7%95%8C%E8%89%BA%E6%9C%AF%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260414_VanGoghFields%22&FORM=HPQUIZ",
+      "hsh": "0bade557bcb3291f0c5833bf525d3f99",
+      "urlbase": "/th?id=OHR.VanGoghFields_ZH-CN3495668941"
+    },
+    {
+      "date": "2026-04-14",
+      "title": "珊瑚礁邻居",
+      "copyright": "海葵中的普通小丑鱼, 拉贾安帕特群岛, 印度尼西亚 (© Magnus Lundgren/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E6%B5%B7%E8%91%B5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260413_OcellarisClownfish%22&FORM=HPQUIZ",
+      "hsh": "4d79350d53fb05c623317d9c094de2cd",
+      "urlbase": "/th?id=OHR.OcellarisClownfish_ZH-CN9362948727"
+    },
+    {
+      "date": "2026-04-13",
+      "title": "当灯光熄灭之后",
+      "copyright": "安扎-博雷戈沙漠州立公园上空的银河, 加利福尼亚州, 美国 (© Kevin Key/Slworking)/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E9%93%B6%E6%B2%B3&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260412_BorregoStars%22&FORM=HPQUIZ",
+      "hsh": "821e32f99e638492aacc75da27ee5279",
+      "urlbase": "/th?id=OHR.BorregoStars_ZH-CN8915519147"
+    },
+    {
+      "date": "2026-04-12",
+      "title": "离开地球的第一步",
+      "copyright": "城市灯光在下方划过, 拍摄于国际空间站 (© NASA)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%9B%BD%E9%99%85%E4%BA%BA%E7%B1%BB%E8%88%AA%E5%A4%A9%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260411_SpaceTrails%22&FORM=HPQUIZ",
+      "hsh": "c4b71ecc2cdff3cf5ed78dd6f376319a",
+      "urlbase": "/th?id=OHR.SpaceTrails_ZH-CN8377463217"
+    },
+    {
+      "date": "2026-04-11",
+      "title": "火山外衣",
+      "copyright": "帕帕加约海滩, 兰萨罗特, 加那利群岛, 西班牙 (© Gavin Hellier/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E8%A5%BF%E7%8F%AD%E7%89%99%E5%8A%A0%E9%82%A3%E5%88%A9%E7%BE%A4%E5%B2%9B%E5%85%B0%E8%90%A8%E7%BD%97%E7%89%B9%E5%B2%9B&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260410_PlayaPapagayo%22&FORM=HPQUIZ",
+      "hsh": "83de4c1b872b717cbcfa04498d4718ce",
+      "urlbase": "/th?id=OHR.PlayaPapagayo_ZH-CN7708804019"
+    },
+    {
+      "date": "2026-04-10",
+      "title": "算计的小爪子",
+      "copyright": "卡鲁拉国家公园的两只幼年赤狐, 爱沙尼亚 (© Sven Zacek/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%B9%BC%E5%B9%B4%E8%B5%A4%E7%8B%90&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260409_FoxSiblings%22&FORM=HPQUIZ",
+      "hsh": "90e063a9755bebd0c57264601c8e238d",
+      "urlbase": "/th?id=OHR.FoxSiblings_ZH-CN8133856518"
+    },
+    {
+      "date": "2026-04-09",
+      "title": "光之水帘",
+      "copyright": "雪落瀑布，布雷肯比肯斯国家公园，威尔士 (© Guy Edwardes/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%B8%83%E9%9B%B7%E8%82%AF%E6%AF%94%E8%82%AF%E6%96%AF%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260408_WalesWaterfall%22&FORM=HPQUIZ",
+      "hsh": "941e3325116376df48714ec556da1485",
+      "urlbase": "/th?id=OHR.WalesWaterfall_ZH-CN3175091833"
+    },
+    {
+      "date": "2026-04-08",
+      "title": "翡翠之城",
+      "copyright": "西雅图，华盛顿州，美国 (© Jim Patterson/Tandem Stills + Motion)",
+      "copyrightlink": "https://www.bing.com/search?q=%E8%A5%BF%E9%9B%85%E5%9B%BE&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260407_SeattleSunrise%22&FORM=HPQUIZ",
+      "hsh": "b3d4790f6038e7425caebe55c94e9d45",
+      "urlbase": "/th?id=OHR.SeattleSunrise_ZH-CN2884575647"
+    },
+    {
+      "date": "2026-04-07",
+      "title": "一根树枝，一点工程",
+      "copyright": "河狸，德国 (© Andyworks/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=beaver+rodent&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260406_BeaverPortrait%22&FORM=HPQUIZ",
+      "hsh": "127d39f2b06ac352cfbc108e92a2578b",
+      "urlbase": "/th?id=OHR.BeaverPortrait_ZH-CN4700069789"
+    },
+    {
+      "date": "2026-04-06",
+      "title": "芬芳四月",
+      "copyright": "樱花盛开的弘前城，弘前，日本 (© Glenn Waters/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E6%97%A5%E6%9C%AC%E7%9A%84%E6%A8%B1%E8%8A%B1&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260405_CastleBlossoms%22&FORM=HPQUIZ",
+      "hsh": "714897061eb82f361fbb5733d89e140a",
+      "urlbase": "/th?id=OHR.CastleBlossoms_ZH-CN3064288127"
+    },
+    {
+      "date": "2026-04-05",
+      "title": "静静绽放的变化",
+      "copyright": "春天的雪钟花 (© klagyivik/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E9%9B%AA%E9%92%9F%E8%8A%B1&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260404_SpringSnowdrops%22&FORM=HPQUIZ",
+      "hsh": "0e04c62ff1cc802dc0ad2477031abe23",
+      "urlbase": "/th?id=OHR.SpringSnowdrops_ZH-CN2933051747"
+    },
+    {
+      "date": "2026-04-04",
+      "title": "求偶展示场的故事",
+      "copyright": "求偶展示场上对峙的雄性黑琴鸡，爱沙尼亚 (© Sven Zacek/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E9%BB%91%E7%90%B4%E9%B8%A1&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260403_GrouseGuff%22&FORM=HPQUIZ",
+      "hsh": "cedbe514ccd5c6c786dd70d83bff3162",
+      "urlbase": "/th?id=OHR.GrouseGuff_ZH-CN2647001885"
+    },
+    {
+      "date": "2026-04-03",
+      "title": "一次挥动桥臂，连接两岸",
+      "copyright": "阿姆布鲁大桥，阿姆斯特丹，荷兰 (© Alexander Spatari/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E9%98%BF%E5%A7%86%E5%B8%83%E9%B2%81%E5%A4%A7%E6%A1%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260402_ArmbrugBridge%22&FORM=HPQUIZ",
+      "hsh": "0cace775bc35c7cf2b3bae30a9078726",
+      "urlbase": "/th?id=OHR.ArmbrugBridge_ZH-CN4600005169"
+    },
+    {
+      "date": "2026-04-02",
+      "title": "春天的图案",
+      "copyright": "野花绽放, 中央谷地, 加利福尼亚州, 美国 (© Jeff Lewis/Tandem Stills + Motion)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9A%E5%B7%9E%E4%B8%AD%E5%A4%AE%E8%B0%B7%E5%9C%B0&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260401_WildflowerValley%22&FORM=HPQUIZ",
+      "hsh": "cf85bd8a9f6c4ba0d1f88b0f11ae13a8",
+      "urlbase": "/th?id=OHR.WildflowerValley_ZH-CN7048300331"
+    },
+    {
+      "date": "2026-04-01",
+      "title": "跃入四月",
+      "copyright": "粉色牵牛花里的日本树蛙 (© Tetsuya Tanooka/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E6%97%A5%E6%9C%AC%E6%A0%91%E8%9B%99&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260331_JapaneseTreeFrog%22&FORM=HPQUIZ",
+      "hsh": "68b066b81c6d22a5a701ab93cb780b1c",
+      "urlbase": "/th?id=OHR.JapaneseTreeFrog_ZH-CN6467379766"
+    },
+    {
+      "date": "2026-03-31",
+      "title": "地下天堂",
+      "copyright": "天堂洞, 峰牙-格邦国家公园, 越南 (© Pakawat Thongcharoen/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E8%B6%8A%E5%8D%97%E5%A4%A9%E5%A0%82%E6%B4%9E&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260330_ParadiseCave%22&FORM=HPQUIZ",
+      "hsh": "7f821d105f6b4b82fd4ea60c04c55792",
+      "urlbase": "/th?id=OHR.ParadiseCave_ZH-CN6371627729"
+    },
+    {
+      "date": "2026-03-30",
+      "title": "优雅的动态",
+      "copyright": "蓑羽鹤, 印度 (© Axel Gomille/Nature Picture Library)",
+      "copyrightlink": "https://www.bing.com/search?q=%E8%93%91%E7%BE%BD%E9%B9%A4&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260329_IndiaCranes%22&FORM=HPQUIZ",
+      "hsh": "73b32b89f0ddfb97b4d745ef6b86d266",
+      "urlbase": "/th?id=OHR.IndiaCranes_ZH-CN5871338482"
+    },
+    {
+      "date": "2026-03-29",
+      "title": "海边的宁静",
+      "copyright": "佩吉角灯塔, 大西洋海岸, 新斯科舍省, 加拿大 (© Prashanth Bala/Shutterstock)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%BD%A9%E5%90%89%E8%A7%92%E7%81%AF%E5%A1%94&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260328_PeggysLighthouse%22&FORM=HPQUIZ",
+      "hsh": "89174caee265ef8e63463a5630f6b58e",
+      "urlbase": "/th?id=OHR.PeggysLighthouse_ZH-CN5730463973"
+    },
+    {
+      "date": "2026-03-28",
+      "title": "未驯服的精神",
+      "copyright": "非洲水牛, 恩戈罗恩戈罗火山口, 坦桑尼亚 (© jesuss8/500px/Getty Images)",
+      "copyrightlink": "https://www.bing.com/search?q=%E9%9D%9E%E6%B4%B2%E6%B0%B4%E7%89%9B&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260327_CapeBuffalo%22&FORM=HPQUIZ",
+      "hsh": "ed5a12fee21722be7801ea45d1cdeb9d",
+      "urlbase": "/th?id=OHR.CapeBuffalo_ZH-CN5591123662"
+    },
+    {
+      "date": "2026-03-27",
+      "title": "依然明亮地燃烧着",
+      "copyright": "纽约市的无线电城音乐厅, 美国 (© Clarence Holmes Photography/Alamy)",
+      "copyrightlink": "https://www.bing.com/search?q=%E4%B8%96%E7%95%8C%E6%88%8F%E5%89%A7%E6%97%A5&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260326_RadioCityHall%22&FORM=HPQUIZ",
+      "hsh": "6860743d9cc275d309bd9c9c4e8ae96f",
+      "urlbase": "/th?id=OHR.RadioCityHall_ZH-CN5492649461"
+    },
+    {
+      "date": "2026-03-26",
+      "title": "凌驾荒野之上",
+      "copyright": "洛根溪吊桥，西海岸步道，加拿大 (© Tandem Stock/Adobe Stock)",
+      "copyrightlink": "https://www.bing.com/search?q=%E5%8A%A0%E6%8B%BF%E5%A4%A7%E8%A5%BF%E6%B5%B7%E5%B2%B8%E6%AD%A5%E9%81%93&form=hpcapt&mkt=zh-cn",
+      "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20260325_LoganCreek%22&FORM=HPQUIZ",
+      "hsh": "5f8d54374f300c8218179792bb688158",
+      "urlbase": "/th?id=OHR.LoganCreek_ZH-CN5372283365"
+    },
     {
       "date": "2026-03-25",
       "title": "海牛的秘密生活",
@@ -759,5 +975,5 @@
       "urlbase": "/th?id=OHR.NewYearFox_ZH-CN9312618796"
     }
   ],
-  "updatedAt": "2026-03-24 17:57:45"
+  "updatedAt": "2026-04-17 17:51:40"
 }

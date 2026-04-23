@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 背景图片 -->
+  <view class="page-background">
+    <image src="https://tp.202597.xyz/file/1776619327721_%E5%9B%BE%E7%89%87.png" mode="aspectFill" class="bg-image"/>
+    <view class="bg-blur"></view>
+  </view>
+
+  <!-- 内容层 -->
+  <view class="page-content">
+    <view class="section-title">4K小姐姐</view>
+
+    <view wx:if="{{wallpapers.length > 0}}" class="wallpaper-grid">
+      <view class="wallpaper-card" wx:for="{{wallpapers}}" wx:key="{{item.id}}" bindtap="goToDetail" data-wallpaper="{{item}}">
+        <image src="{{item.thumbnailUrl}}" mode="aspectFill" class="wallpaper-image"/>
+        <view class="wallpaper-info">
+          <view class="wallpaper-title">{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isLoading}}" class="loading">
+      <text>加载中...</text>
+    </view>
+
+    <view wx:if="{{!isLoading && !hasMore}}" class="no-more">
+      没有更多了
+    </view>
+  </view>
+
+  <!-- 自定义磨砂玻璃tabBar -->
+  <tabbar active="4kgirls"></tabbar>
+</view>

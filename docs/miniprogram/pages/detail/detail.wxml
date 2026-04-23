@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 全屏背景图片 -->
+  <image src="{{wallpaper.imageUrl}}" mode="aspectFill" class="full-screen-image"/>
+  
+  <!-- 磨砂玻璃效果的按钮栏 -->
+  <view class="glass-bar">
+    <view class="glass-button back-button" bindtap="goBack">
+      <text class="button-icon">←</text>
+      <text class="button-text">返回</text>
+    </view>
+    
+    <view class="glass-button" bindtap="downloadWallpaper">
+      <text class="button-icon">⬇</text>
+      <text class="button-text">下载</text>
+    </view>
+    
+    <view class="glass-button" bindtap="showDevicePreview">
+      <text class="button-icon">📱</text>
+      <text class="button-text">真机图</text>
+    </view>
+    
+    <view class="share-button" bindtap="shareWallpaper">
+      <text class="button-icon">↗</text>
+      <text class="button-text">分享</text>
+    </view>
+  </view>
+  
+  <!-- 真机预览弹窗 -->
+  <view class="preview-modal" wx:if="{{showPreview}}">
+    <view class="preview-content">
+      <view class="preview-header">
+        <text class="preview-title">真机预览</text>
+        <text class="preview-close" bindtap="closePreview">✕</text>
+      </view>
+      <view class="device-frame">
+        <view class="device-screen">
+          <image src="{{wallpaper.imageUrl}}" mode="aspectFill" class="device-image"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
