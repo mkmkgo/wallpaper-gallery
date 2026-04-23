@@ -1,14 +1,14 @@
 {
-  "exportedAt": "2026-04-22 18:36:43",
+  "exportedAt": "2026-04-23 18:40:38",
   "series": {
     "desktop": {
-      "count": 1,
-      "totalViews": 1,
-      "totalDownloads": 0
+      "count": 3,
+      "totalViews": 5,
+      "totalDownloads": 1
     },
     "mobile": {
-      "count": 34,
-      "totalViews": 100,
+      "count": 36,
+      "totalViews": 108,
       "totalDownloads": 1
     },
     "avatar": {
@@ -17,8 +17,8 @@
       "totalDownloads": 0
     },
     "bing": {
-      "count": 1,
-      "totalViews": 1,
+      "count": 2,
+      "totalViews": 2,
       "totalDownloads": 0
     }
   }

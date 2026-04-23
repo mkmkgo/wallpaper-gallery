@@ -1,6 +1,33 @@
 {
-  "generatedAt": "2026-04-22T18:36:48.188Z",
+  "generatedAt": "2026-04-23T18:40:43.158Z",
   "series": "bing",
-  "total": 0,
-  "tags": []
+  "total": 2,
+  "tags": [
+    {
+      "tag": "2026 04",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-04-11.jpg"
+      ]
+    },
+    {
+      "tag": "火山外衣",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "bing"
+      ],
+      "topWallpapers": [
+        "bing-2026-04-11.jpg"
+      ]
+    }
+  ]
 }
