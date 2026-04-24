@@ -100,6 +100,18 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: pnpm build:seo
 
+      # 5.5 SPA fallback: 复制 index.html 为 404.html
+      # EdgeOne Pages 不像 Cloudflare Pages 那样自动将未知路由回退到 index.html
+      # 当请求 /auth/callback 等前端路由时，EdgeOne 找不到物理文件会返回 404
+      # 将 index.html 复制为 404.html，使未知路径仍能加载 SPA，由 Vue Router 接管路由
+      - name: Create SPA fallback 404.html
+        run: cp ./dist/index.html ./dist/404.html
+
+      # 5.6 复制 edgeone.json 到 dist 目录
+      # edgeone.json 包含路由重写规则，需要包含在部署产物中
+      - name: Copy edgeone.json to dist
+        run: cp ./edgeone.json ./dist/edgeone.json
+
       # 6. 部署到 EdgeOne Pages
       - name: Deploy to EdgeOne Pages
         run: |

@@ -1,0 +1,44 @@
+{
+  "rewrites": [
+    {
+      "source": "/desktop",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mobile",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/avatar",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bing",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/signup",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/auth/callback",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/account",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/library",
+      "destination": "/index.html"
+    }
+  ]
+}
