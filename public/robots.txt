@@ -16,4 +16,4 @@ Allow: /
 Crawl-delay: 1
 
 # 站点地图位置
-Sitemap: https://wallpaper.061129.xyz/sitemap.xml
+Sitemap: https://wall.202597.xyz/sitemap.xml

@@ -100,6 +100,12 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: pnpm build:seo
 
+      # 5.1 自动生成站点地图
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.js
+        env:
+          SITE_URL: https://wall.202597.xyz
+
       # 5.5 SPA fallback: 复制 index.html 为 404.html
       # EdgeOne Pages 不像 Cloudflare Pages 那样自动将未知路由回退到 index.html
       # 当请求 /auth/callback 等前端路由时，EdgeOne 找不到物理文件会返回 404
@@ -122,3 +128,13 @@ jobs:
             -e production
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
+
+      # 7. 搜索引擎提交
+      - name: Submit to search engines
+        if: success()
+        run: node scripts/submit-search-engines.js
+        env:
+          SITE_URL: https://wall.202597.xyz
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+          BING_INDEXNOW_KEY: ${{ secrets.BING_INDEXNOW_KEY }}
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}

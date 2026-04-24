@@ -268,6 +268,49 @@ function applyRouteSeo(to) {
     rel: 'canonical',
     href: url,
   })
+
+  let schemaElement = document.getElementById('schema-jsonld')
+  if (!schemaElement) {
+    schemaElement = document.createElement('script')
+    schemaElement.id = 'schema-jsonld'
+    schemaElement.type = 'application/ld+json'
+    document.head.appendChild(schemaElement)
+  }
+
+  const seriesMap = {
+    desktop: { type: 'CollectionPage', name: '4K电脑桌面壁纸' },
+    mobile: { type: 'CollectionPage', name: '4K手机壁纸' },
+    avatar: { type: 'CollectionPage', name: '高清头像' },
+    bing: { type: 'CollectionPage', name: '每日Bing壁纸' },
+  }
+  const seriesInfo = seriesMap[to.meta?.series]
+  const schema = seriesInfo
+    ? {
+        '@context': 'https://schema.org',
+        '@type': seriesInfo.type,
+        name: title,
+        description,
+        url,
+        isPartOf: {
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description,
+        url,
+        isPartOf: {
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+      }
+
+  schemaElement.textContent = JSON.stringify(schema)
 }
 
 // 路由守卫
