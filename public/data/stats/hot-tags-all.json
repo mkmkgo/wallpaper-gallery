@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-23T18:40:43.159Z",
+  "generatedAt": "2026-04-24T18:04:53.694Z",
   "series": "all",
   "total": 40,
   "tags": [
     {
       "tag": "人像",
-      "score": 19,
+      "score": 18,
       "views": 20,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -16,8 +16,8 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
-        "20260406201611.jpeg",
         "20260408165518.jpeg",
+        "20260406201611.jpeg",
         "城市景观-壁纸.png"
       ]
     },
@@ -81,21 +81,6 @@
       "topWallpapers": [
         "20260408163808.jpeg",
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
-      ]
-    },
-    {
-      "tag": "清新",
-      "score": 4,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260408171457.jpeg"
       ]
     },
     {
@@ -177,16 +162,18 @@
       ]
     },
     {
-      "tag": "蓝天",
+      "tag": "清新",
       "score": 3,
-      "views": 3,
+      "views": 4,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 2,
       "series": [
+        "desktop",
         "mobile"
       ],
       "topWallpapers": [
-        "20260406201611.jpeg"
+        "20260406201611.jpeg",
+        "20260408171457.jpeg"
       ]
     },
     {
@@ -203,19 +190,6 @@
       ]
     },
     {
-      "tag": "少女",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg"
-      ]
-    },
-    {
       "tag": "时尚女孩",
       "score": 3,
       "views": 3,
@@ -226,19 +200,6 @@
       ],
       "topWallpapers": [
         "20260408165518.jpeg"
-      ]
-    },
-    {
-      "tag": "阳光",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg"
       ]
     },
     {
@@ -291,6 +252,45 @@
       ],
       "topWallpapers": [
         "20260406201533.png"
+      ]
+    },
+    {
+      "tag": "蓝天",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg"
+      ]
+    },
+    {
+      "tag": "少女",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg"
+      ]
+    },
+    {
+      "tag": "阳光",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg"
       ]
     },
     {
