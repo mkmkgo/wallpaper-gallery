@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-24T18:04:53.621Z",
+  "generatedAt": "2026-04-25T18:02:01.859Z",
   "series": "mobile",
   "total": 35,
   "tags": [
     {
       "tag": "人像",
-      "score": 17,
+      "score": 16,
       "views": 19,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -37,7 +37,7 @@
     },
     {
       "tag": "魅力",
-      "score": 10,
+      "score": 9,
       "views": 11,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -61,7 +61,7 @@
     },
     {
       "tag": "插画",
-      "score": 8,
+      "score": 7,
       "views": 8,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -85,7 +85,7 @@
     },
     {
       "tag": "黑丝",
-      "score": 6,
+      "score": 5,
       "views": 6,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -104,8 +104,24 @@
       ]
     },
     {
+      "tag": "时尚",
+      "score": 4,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "甜美",
-      "score": 5,
+      "score": 4,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -120,22 +136,6 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/Apink&朴初珑/image_%E8%BF%99%E4%B9%88%E5%A4%9A%E5%B9%B4%E7%8F%91%E5%A6%88%E4%BE%9D%E6%97%A7%E7%AB%A5%E9%A2%9CApink%E8%AF%9D..._0.webp",
           "cdnTag": "v1.2.48"
-        }
-      ]
-    },
-    {
-      "tag": "时尚",
-      "score": 4,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -173,7 +173,7 @@
     },
     {
       "tag": "初音未来",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -189,7 +189,7 @@
     },
     {
       "tag": "动漫",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -205,7 +205,7 @@
     },
     {
       "tag": "学生装",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,

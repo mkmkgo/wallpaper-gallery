@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-24T18:04:53.694Z",
+  "generatedAt": "2026-04-25T18:02:01.926Z",
   "series": "all",
-  "total": 40,
+  "total": 43,
   "tags": [
     {
       "tag": "人像",
-      "score": 18,
-      "views": 20,
+      "score": 19,
+      "views": 22,
       "downloads": 0,
-      "wallpaperCount": 8,
+      "wallpaperCount": 10,
       "series": [
         "desktop",
         "mobile"
@@ -24,9 +24,9 @@
     {
       "tag": "魅力",
       "score": 11,
-      "views": 12,
+      "views": 13,
       "downloads": 0,
-      "wallpaperCount": 4,
+      "wallpaperCount": 5,
       "series": [
         "desktop",
         "mobile"
@@ -35,12 +35,13 @@
         "20260408170344.jpeg",
         "20260408164632.jpeg",
         "城市景观-壁纸.png",
+        "20260406201149.jpeg",
         "20260408171457.jpeg"
       ]
     },
     {
       "tag": "插画",
-      "score": 10,
+      "score": 9,
       "views": 10,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -56,8 +57,24 @@
       ]
     },
     {
+      "tag": "甜美",
+      "score": 5,
+      "views": 6,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408163808.jpeg",
+        "20260406200444.jpeg",
+        "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
       "tag": "黑丝",
-      "score": 6,
+      "score": 5,
       "views": 6,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -70,17 +87,19 @@
       ]
     },
     {
-      "tag": "甜美",
-      "score": 5,
+      "tag": "清新",
+      "score": 4,
       "views": 5,
       "downloads": 0,
-      "wallpaperCount": 2,
+      "wallpaperCount": 3,
       "series": [
+        "desktop",
         "mobile"
       ],
       "topWallpapers": [
-        "20260408163808.jpeg",
-        "image_这么多年珑妈依旧童颜Apink话..._0.png"
+        "20260406201611.jpeg",
+        "20260406200444.jpeg",
+        "20260408171457.jpeg"
       ]
     },
     {
@@ -123,8 +142,23 @@
       ]
     },
     {
+      "tag": "少女",
+      "score": 3,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg",
+        "20260406200444.jpeg"
+      ]
+    },
+    {
       "tag": "初音未来",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -137,7 +171,7 @@
     },
     {
       "tag": "动漫",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -150,7 +184,7 @@
     },
     {
       "tag": "学生装",
-      "score": 4,
+      "score": 3,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -159,21 +193,6 @@
       ],
       "topWallpapers": [
         "20260408164632.jpeg"
-      ]
-    },
-    {
-      "tag": "清新",
-      "score": 3,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260408171457.jpeg"
       ]
     },
     {
@@ -268,19 +287,6 @@
       ]
     },
     {
-      "tag": "少女",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg"
-      ]
-    },
-    {
       "tag": "阳光",
       "score": 2,
       "views": 3,
@@ -359,6 +365,45 @@
       "topWallpapers": [
         "朴初珑.jpg",
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "光影",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406200444.jpeg"
+      ]
+    },
+    {
+      "tag": "美女",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201149.jpeg"
+      ]
+    },
+    {
+      "tag": "日落",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201149.jpeg"
       ]
     },
     {
