@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-25T18:02:01.859Z",
+  "generatedAt": "2026-04-26T18:03:07.934Z",
   "series": "mobile",
-  "total": 35,
+  "total": 38,
   "tags": [
     {
       "tag": "人像",
@@ -61,10 +61,10 @@
     },
     {
       "tag": "插画",
-      "score": 7,
-      "views": 8,
+      "score": 8,
+      "views": 9,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 4,
       "series": [
         "mobile"
       ],
@@ -75,6 +75,10 @@
         },
         {
           "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
           "cdnTag": "v1.2.59"
         },
         {
@@ -444,6 +448,22 @@
       ]
     },
     {
+      "tag": "白色小动物",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "公路",
       "score": 1,
       "views": 1,
@@ -504,6 +524,38 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/海滨/image_%E9%AB%98%E7%BA%A7%E5%85%A8%E9%9D%A2%E5%B1%8F4k%E8%B6%85%E6%B8%85%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8_%E6%99%AF%E6%B7%B1..._10.webp",
           "cdnTag": "v1.1.84"
+        }
+      ]
+    },
+    {
+      "tag": "快乐玩耍",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },

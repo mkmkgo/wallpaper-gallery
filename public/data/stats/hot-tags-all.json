@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-25T18:02:01.926Z",
+  "generatedAt": "2026-04-26T18:03:08.014Z",
   "series": "all",
-  "total": 43,
+  "total": 46,
   "tags": [
     {
       "tag": "人像",
@@ -41,10 +41,10 @@
     },
     {
       "tag": "插画",
-      "score": 9,
-      "views": 10,
+      "score": 10,
+      "views": 11,
       "downloads": 0,
-      "wallpaperCount": 4,
+      "wallpaperCount": 5,
       "series": [
         "desktop",
         "mobile"
@@ -53,6 +53,7 @@
         "20260408163808.jpeg",
         "20260408165518.jpeg",
         "20260406201533.png",
+        "20260408170413.jpeg",
         "微信图片_2026-03-27_140726_406.jpg"
       ]
     },
@@ -421,6 +422,19 @@
       ]
     },
     {
+      "tag": "白色小动物",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
+      ]
+    },
+    {
       "tag": "公路",
       "score": 1,
       "views": 1,
@@ -470,6 +484,32 @@
       ],
       "topWallpapers": [
         "image_高级全面屏4k超清手机壁纸_景深..._10.png"
+      ]
+    },
+    {
+      "tag": "快乐玩耍",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
       ]
     },
     {
