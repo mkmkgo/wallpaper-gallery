@@ -157,7 +157,7 @@
 | 数据统计 | Supabase (PostgreSQL) |
 | 部署 | Cloudflare Pages (全球分发)|
 | CI/CD | GitHub Actions (高性能构建)|
-| CDN 加速 | Cloudflare + jsDelivr |
+| CDN 加速 | Cloudflare + jsDelivr (国内镜像: cdn.jsdmirror.com) |
 | 统计分析 | Cloudflare Web Analytics + Umami |
 
 ### 构建优化
@@ -165,6 +165,7 @@
 - **CDN 外部化** - Vue / Vue Router / vue-demi 通过 CDN 加载（UMD 全局变量模式）
 - **代码分割** - Element Plus / Vant / GSAP 独立分包
 - **Brotli 压缩** - 静态资源预压缩，体积减少 70%+
+- **PWA 离线缓存** - Service Worker 缓存图片和数据，二次访问秒开
 - **敏感代码混淆** - 关键业务逻辑混淆保护
 
 ### CDN 缓存优化
@@ -173,6 +174,57 @@
 - **增量更新** - 新增图片不影响已有图片的 CDN 缓存
 - **时间戳备份** - 图片首次添加时间自动记录，确保 `cdnTag` 稳定不变
 - **自动化流程** - GitHub Actions 自动恢复时间戳、生成 cdnTag、构建部署
+
+### 国内 CDN 加速
+
+由于 `cdn.jsdelivr.net` 在国内访问不稳定，项目已配置国内 CDN 镜像和自动降级机制：
+
+**CDN 优先级（自动降级）：**
+
+| 优先级 | 域名 | 说明 | 国内延迟 |
+|--------|------|------|----------|
+| 1 | `cdn.jsdmirror.com` | jsMirror 国内镜像（ICP备案） | ~27ms |
+| 2 | `testingcf.jsdelivr.net` | CloudFlare 国内节点 | ~1.3s |
+| 3 | `cdn.jsdelivr.net` | jsDelivr 官方（海外节点） | ~3s+ |
+
+**降级机制：**
+- 图片加载失败时，自动尝试下一个 CDN 域名
+- 所有 CDN 域名都失败后，回退到 GitHub Raw CDN
+- 最后回退到 wsrv.nl 图片代理服务
+
+**配置文件：**
+- CDN 域名配置：`src/utils/config/constants.js` → `CDN_DOMAINS`
+- 图片 URL 构建：`src/utils/common/format.js` → `buildImageUrl()`
+- DNS 预连接：`index.html` → `<link rel="preconnect">`
+
+**自定义 CDN 域名：**
+```javascript
+// src/utils/config/constants.js
+export const CDN_DOMAINS = {
+  PRIMARY: 'cdn.jsdmirror.com',  // 修改为你偏好的 CDN 域名
+  ALL: [
+    'cdn.jsdmirror.com',         // 优先使用国内镜像
+    'testingcf.jsdelivr.net',    // CloudFlare 备选
+    'cdn.jsdelivr.net',          // 官方源备选
+  ],
+}
+```
+
+### PWA 离线缓存 (Service Worker)
+
+项目已集成 Service Worker，支持图片离线缓存，二次访问秒开：
+
+**缓存策略：**
+
+| 资源类型 | 策略 | 缓存时间 | 说明 |
+|----------|------|----------|------|
+| 图片资源 | Cache First | 7 天 | 优先从缓存读取，缓存过期再请求网络 |
+| JSON 数据 | Stale While Revalidate | 1 天 | 先返回缓存，后台静默更新 |
+| JS/CSS/字体 | Cache First | 30 天 | 静态资源长期缓存 |
+
+**配置文件：**
+- Service Worker：`public/sw.js`
+- 注册入口：`src/main.js`
 
 ## 🚀 快速开始
 
@@ -482,7 +534,7 @@ wallpaper-gallery/
 - **CLS 优化** - 图片占位符、滚动条预留空间，避免布局偏移
 - **图片优化** - WebP 格式、缩略图预生成、懒加载、首屏图片高优先级加载
 - **代码分割** - 路由级别代码分割，按需加载；Element Plus / Vant / GSAP 独立分包
-- **预连接** - DNS 预解析、预连接到 CDN 域名（jsDelivr、Bing CDN、图片代理服务）
+- **预连接** - DNS 预解析、预连接到 CDN 域名（jsMirror 国内镜像、CloudFlare 节点、jsDelivr、Bing CDN、图片代理服务）
 - **Brotli 压缩** - 静态资源预压缩，体积减少 70%+
 - **2K/4K 大屏适配** - 容器最大宽度递增（1600/2000/2400px）
 - **Cloudflare 缓存** - 部署后自动清除缓存，确保用户及时获取更新

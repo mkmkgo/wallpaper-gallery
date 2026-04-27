@@ -2,13 +2,14 @@
 // 格式化工具函数
 // ========================================
 
-import { CDN_VERSION, IMAGE_PROXY, RESOLUTION_THRESHOLDS, SERIES_CONFIG } from '@/utils/config/constants'
+import { CDN_VERSION, IMAGE_PROXY, RESOLUTION_THRESHOLDS, SERIES_CONFIG, CDN_DOMAINS } from '@/utils/config/constants'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
-// URL 构建器（运行时动态拼接，防止静态分析提取完整 URL）
+const IMAGE_CDN_DOMAIN = CDN_DOMAINS.PRIMARY
+
 const _urlParts = {
   p: 'https://',
-  h: 'cdn.jsdelivr.net',
+  h: IMAGE_CDN_DOMAIN,
   g: '/gh/mkmkgo',
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
@@ -41,6 +42,26 @@ export function buildImageUrl(path, cdnTag) {
   const tag = cdnTag || CDN_VERSION
   const r = `/nuanXinProPic@${tag}`
   return `${p}${h}${g}${r}${path}`
+}
+
+export function buildFallbackImageUrl(originalUrl, fallbackDomain) {
+  if (!originalUrl || !fallbackDomain)
+    return originalUrl
+  for (const domain of CDN_DOMAINS.ALL) {
+    if (originalUrl.includes(domain)) {
+      return originalUrl.replace(domain, fallbackDomain)
+    }
+  }
+  return originalUrl
+}
+
+export function getNextCdnFallbackUrl(currentUrl) {
+  const currentIndex = CDN_DOMAINS.ALL.findIndex(domain => currentUrl.includes(domain))
+  const nextIndex = currentIndex + 1
+  if (nextIndex < CDN_DOMAINS.ALL.length) {
+    return buildFallbackImageUrl(currentUrl, CDN_DOMAINS.ALL[nextIndex])
+  }
+  return null
 }
 
 /**
@@ -366,13 +387,14 @@ export async function downloadFile(url, filename) {
  * @returns {string} GitHub Raw CDN URL
  */
 export function buildRawImageUrl(cdnUrl) {
-  // 从 jsDelivr URL 提取路径
-  // 示例: https://cdn.jsdelivr.net/gh/mkmkgo/nuanXinProPic@v1.1.14/wallpaper/...
-  const match = cdnUrl.match(/\/gh\/mkmkgo\/nuanXinProPic@([^/]+)(\/.*)/)
-  if (match) {
-    const version = match[1]
-    const path = match[2]
-    return `https://raw.githubusercontent.com/mkmkgo/nuanXinProPic/${version}${path}`
+  for (const domain of CDN_DOMAINS.ALL) {
+    const regex = new RegExp(`https://${domain.replace(/\./g, '\\.')}/gh/mkmkgo/nuanXinProPic@([^/]+)(/.*)`)
+    const match = cdnUrl.match(regex)
+    if (match) {
+      const version = match[1]
+      const path = match[2]
+      return `https://raw.githubusercontent.com/mkmkgo/nuanXinProPic/${version}${path}`
+    }
   }
   return cdnUrl
 }
@@ -405,11 +427,26 @@ export function buildWallpaperImageFallbackUrls(wallpaper, options = {}) {
   const originalUrl = wallpaper.url || primaryUrl
   const urls = [
     primaryUrl,
-    buildRawImageUrl(primaryUrl),
   ]
 
+  for (let i = 1; i < CDN_DOMAINS.ALL.length; i++) {
+    const fallbackUrl = buildFallbackImageUrl(primaryUrl, CDN_DOMAINS.ALL[i])
+    if (fallbackUrl !== primaryUrl) {
+      urls.push(fallbackUrl)
+    }
+  }
+
+  urls.push(buildRawImageUrl(primaryUrl))
+
   if (originalUrl && originalUrl !== primaryUrl) {
-    urls.push(originalUrl, buildRawImageUrl(originalUrl))
+    urls.push(originalUrl)
+    for (let i = 1; i < CDN_DOMAINS.ALL.length; i++) {
+      const fallbackUrl = buildFallbackImageUrl(originalUrl, CDN_DOMAINS.ALL[i])
+      if (fallbackUrl !== originalUrl && !urls.includes(fallbackUrl)) {
+        urls.push(fallbackUrl)
+      }
+    }
+    urls.push(buildRawImageUrl(originalUrl))
   }
 
   if (!options.skipProxy) {

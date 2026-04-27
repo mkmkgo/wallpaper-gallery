@@ -8,17 +8,22 @@
 // - jsdelivr 缓存策略：@main 分支有缓存，@tag 版本无缓存
 export const CDN_VERSION = 'v1.1.29'
 
-// 前端应用版本号（构建时由 vite 注入，用于缓存控制）
-// eslint-disable-next-line no-undef
+export const CDN_DOMAINS = {
+  PRIMARY: 'cdn.jsdmirror.com',
+  ALL: [
+    'cdn.jsdmirror.com',
+    'testingcf.jsdelivr.net',
+    'cdn.jsdelivr.net',
+  ],
+}
+
 export const APP_VERSION = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '0.0.0'
 
-// 数据请求版本参数（使用 CDN_VERSION 破坏缓存，确保图床更新后数据同步刷新）
 export const DATA_CACHE_BUSTER = `?v=${CDN_VERSION}`
 
-// CDN URL 动态构建（防止静态分析提取完整链接）
 const _cdnParts = {
   p: 'https:/',
-  h: '/cdn.jsdelivr.net',
+  h: `/cdn.jsdmirror.com`,
   g: '/gh/mkmkgo',
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
