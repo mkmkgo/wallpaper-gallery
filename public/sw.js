@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wallpaper-sw-v1'
+const CACHE_NAME = 'wallpaper-sw-v2'
 const IMAGE_CACHE_NAME = 'wallpaper-images-v1'
 const DATA_CACHE_NAME = 'wallpaper-data-v1'
 
@@ -54,10 +54,10 @@ self.addEventListener('fetch', (event) => {
 })
 
 function isImageRequest(url) {
-  if (IMAGE_EXTENSIONS.test(url.pathname)) return true
   if (CDN_DOMAINS.includes(url.hostname) && url.pathname.includes('/nuanXinProPic')) return true
   if (url.hostname === 'wsrv.nl') return true
   if (url.hostname === 'cn.bing.com' && url.pathname.startsWith('/th')) return true
+  if (url.hostname === self.location.hostname && IMAGE_EXTENSIONS.test(url.pathname)) return true
   return false
 }
 
