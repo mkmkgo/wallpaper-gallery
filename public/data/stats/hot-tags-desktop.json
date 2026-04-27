@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-26T18:03:07.819Z",
+  "generatedAt": "2026-04-27T18:47:07.256Z",
   "series": "desktop",
-  "total": 12,
+  "total": 17,
   "tags": [
     {
       "tag": "人像",
       "score": 3,
-      "views": 3,
+      "views": 4,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 4,
       "series": [
         "desktop"
       ],
@@ -24,15 +24,19 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
           "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
         }
       ]
     },
     {
       "tag": "插画",
-      "score": 2,
-      "views": 2,
+      "score": 3,
+      "views": 3,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 2,
       "series": [
         "desktop"
       ],
@@ -40,6 +44,34 @@
         {
           "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
           "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
         }
       ]
     },
@@ -96,26 +128,6 @@
       ]
     },
     {
-      "tag": "清新",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
       "tag": "樱花",
       "score": 2,
       "views": 2,
@@ -148,6 +160,22 @@
       ]
     },
     {
+      "tag": "猫咪",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
       "tag": "美女",
       "score": 1,
       "views": 1,
@@ -160,6 +188,22 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
         }
       ]
     },
@@ -208,6 +252,54 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
           "cdnTag": "v1.2.52"
+        }
+      ]
+    },
+    {
+      "tag": "雨天",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
+      "tag": "少女远景",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
+        }
+      ]
+    },
+    {
+      "tag": "JK背影",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
         }
       ]
     }

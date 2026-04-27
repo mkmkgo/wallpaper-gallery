@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-04-26T18:03:08.014Z",
+  "generatedAt": "2026-04-27T18:47:07.429Z",
   "series": "all",
-  "total": 46,
+  "total": 59,
   "tags": [
     {
       "tag": "人像",
-      "score": 19,
-      "views": 22,
+      "score": 20,
+      "views": 25,
       "downloads": 0,
-      "wallpaperCount": 10,
+      "wallpaperCount": 13,
       "series": [
         "desktop",
-        "mobile"
+        "mobile",
+        "avatar"
       ],
       "topWallpapers": [
         "20260408170344.jpeg",
@@ -19,6 +20,24 @@
         "20260408165518.jpeg",
         "20260406201611.jpeg",
         "城市景观-壁纸.png"
+      ]
+    },
+    {
+      "tag": "插画",
+      "score": 11,
+      "views": 12,
+      "downloads": 0,
+      "wallpaperCount": 6,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408163808.jpeg",
+        "20260408165518.jpeg",
+        "20260406201533.png",
+        "雨中绿意小猫.jpeg",
+        "20260408170413.jpeg"
       ]
     },
     {
@@ -37,24 +56,6 @@
         "城市景观-壁纸.png",
         "20260406201149.jpeg",
         "20260408171457.jpeg"
-      ]
-    },
-    {
-      "tag": "插画",
-      "score": 10,
-      "views": 11,
-      "downloads": 0,
-      "wallpaperCount": 5,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408163808.jpeg",
-        "20260408165518.jpeg",
-        "20260406201533.png",
-        "20260408170413.jpeg",
-        "微信图片_2026-03-27_140726_406.jpg"
       ]
     },
     {
@@ -90,9 +91,9 @@
     {
       "tag": "清新",
       "score": 4,
-      "views": 5,
+      "views": 6,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 4,
       "series": [
         "desktop",
         "mobile"
@@ -100,7 +101,25 @@
       "topWallpapers": [
         "20260406201611.jpeg",
         "20260406200444.jpeg",
-        "20260408171457.jpeg"
+        "20260408171457.jpeg",
+        "JK背影-少女远景.png"
+      ]
+    },
+    {
+      "tag": "少女",
+      "score": 4,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop",
+        "mobile",
+        "avatar"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg",
+        "20260406200444.jpeg",
+        "微信图片_2026-04-09_152721_644.jpg"
       ]
     },
     {
@@ -143,35 +162,22 @@
       ]
     },
     {
-      "tag": "少女",
-      "score": 3,
-      "views": 4,
+      "tag": "动漫",
+      "score": 4,
+      "views": 5,
       "downloads": 0,
       "wallpaperCount": 2,
       "series": [
-        "desktop",
-        "mobile"
+        "mobile",
+        "avatar"
       ],
       "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260406200444.jpeg"
+        "20260408163808.jpeg",
+        "微信图片_2026-04-11_145953_146.jpg"
       ]
     },
     {
       "tag": "初音未来",
-      "score": 3,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408163808.jpeg"
-      ]
-    },
-    {
-      "tag": "动漫",
       "score": 3,
       "views": 4,
       "downloads": 0,
@@ -275,6 +281,21 @@
       ]
     },
     {
+      "tag": "萌宠",
+      "score": 2,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "雨中绿意小猫.jpeg",
+        "20260408170413.jpeg"
+      ]
+    },
+    {
       "tag": "蓝天",
       "score": 2,
       "views": 3,
@@ -369,6 +390,20 @@
       ]
     },
     {
+      "tag": "可爱",
+      "score": 2,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-09_152721_644.jpg",
+        "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
       "tag": "光影",
       "score": 1,
       "views": 1,
@@ -379,6 +414,19 @@
       ],
       "topWallpapers": [
         "20260406200444.jpeg"
+      ]
+    },
+    {
+      "tag": "猫咪",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "雨中绿意小猫.jpeg"
       ]
     },
     {
@@ -405,6 +453,19 @@
       ],
       "topWallpapers": [
         "20260406201149.jpeg"
+      ]
+    },
+    {
+      "tag": "雨天",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "雨中绿意小猫.jpeg"
       ]
     },
     {
@@ -500,19 +561,6 @@
       ]
     },
     {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
-      ]
-    },
-    {
       "tag": "乌萨奇",
       "score": 1,
       "views": 1,
@@ -578,6 +626,58 @@
       ]
     },
     {
+      "tag": "卡通",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
+      "tag": "水豚噜噜",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
+      "tag": "甜妹",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-09_152721_644.jpg"
+      ]
+    },
+    {
+      "tag": "喜羊羊与灰太狼",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
       "tag": "2026 04",
       "score": 1,
       "views": 1,
@@ -588,45 +688,6 @@
       ],
       "topWallpapers": [
         "bing-2026-04-11.jpg"
-      ]
-    },
-    {
-      "tag": "火山外衣",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-04-11.jpg"
-      ]
-    },
-    {
-      "tag": "地球日出星环宇宙奇观",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "地球日出星环宇宙奇观.png"
-      ]
-    },
-    {
-      "tag": "星空",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "地球日出星环宇宙奇观.png"
       ]
     }
   ]
