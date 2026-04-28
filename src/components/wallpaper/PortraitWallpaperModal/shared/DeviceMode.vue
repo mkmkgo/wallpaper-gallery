@@ -411,7 +411,7 @@ onUnmounted(() => {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     margin-right: 8px;
     transition: 0.4s;
 
