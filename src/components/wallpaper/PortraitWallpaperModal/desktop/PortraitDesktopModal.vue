@@ -711,7 +711,7 @@ onUnmounted(() => {
     height: 0;
     border-radius: 50%;
     // background: var(--accent-gradient);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('https://photos5.appleinsider.com/gallery/50657-99800-Tim-Cook-xl.jpg') center/cover;
     margin-right: 8px;
     transition: 0.4s;
   }
