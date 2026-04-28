@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-27T18:47:07.429Z",
+  "generatedAt": "2026-04-28T19:01:35.602Z",
   "series": "all",
   "total": 59,
   "tags": [
     {
       "tag": "人像",
-      "score": 20,
-      "views": 25,
+      "score": 21,
+      "views": 27,
       "downloads": 0,
       "wallpaperCount": 13,
       "series": [
@@ -469,6 +469,58 @@
       ]
     },
     {
+      "tag": "冬日",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png"
+      ]
+    },
+    {
+      "tag": "氛围感",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png"
+      ]
+    },
+    {
+      "tag": "树林",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png"
+      ]
+    },
+    {
+      "tag": "围巾",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png"
+      ]
+    },
+    {
       "tag": "风景",
       "score": 1,
       "views": 2,
@@ -636,58 +688,6 @@
       ],
       "topWallpapers": [
         "微信图片_2026-04-11_145953_146.jpg"
-      ]
-    },
-    {
-      "tag": "水豚噜噜",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-04-11_145953_146.jpg"
-      ]
-    },
-    {
-      "tag": "甜妹",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-04-09_152721_644.jpg"
-      ]
-    },
-    {
-      "tag": "喜羊羊与灰太狼",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-04-11_145953_146.jpg"
-      ]
-    },
-    {
-      "tag": "2026 04",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-04-11.jpg"
       ]
     }
   ]

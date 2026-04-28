@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-27T18:47:07.356Z",
+  "generatedAt": "2026-04-28T19:01:35.526Z",
   "series": "mobile",
   "total": 42,
   "tags": [
     {
       "tag": "人像",
-      "score": 16,
-      "views": 20,
+      "score": 17,
+      "views": 22,
       "downloads": 0,
       "wallpaperCount": 8,
       "series": [
@@ -428,6 +428,70 @@
       ]
     },
     {
+      "tag": "冬日",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        }
+      ]
+    },
+    {
+      "tag": "氛围感",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        }
+      ]
+    },
+    {
+      "tag": "树林",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        }
+      ]
+    },
+    {
+      "tag": "围巾",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        }
+      ]
+    },
+    {
       "tag": "风景",
       "score": 1,
       "views": 2,
@@ -636,70 +700,6 @@
         {
           "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
           "cdnTag": "v1.2.53"
-        }
-      ]
-    },
-    {
-      "tag": "地球日出星环宇宙奇观",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/星空/%E5%9C%B0%E7%90%83%E6%97%A5%E5%87%BA%E6%98%9F%E7%8E%AF%E5%AE%87%E5%AE%99%E5%A5%87%E8%A7%82.webp",
-          "cdnTag": "v1.1.4"
-        }
-      ]
-    },
-    {
-      "tag": "冬日",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
-          "cdnTag": "v1.1.9"
-        }
-      ]
-    },
-    {
-      "tag": "氛围感",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
-          "cdnTag": "v1.1.9"
-        }
-      ]
-    },
-    {
-      "tag": "树林",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
-          "cdnTag": "v1.1.9"
         }
       ]
     }
