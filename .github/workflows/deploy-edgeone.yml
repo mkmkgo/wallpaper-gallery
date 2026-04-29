@@ -129,7 +129,16 @@ jobs:
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
 
-      # 7. 搜索引擎提交
+      # 7. CDN 缓存预热
+      # 部署后主动请求最新图片 URL，让 CDN 边缘节点提前缓存
+      # 新用户首次访问时图片就能从 CDN 缓存直接返回，无需回源 GitHub
+      - name: Warmup CDN cache
+        if: success()
+        run: node scripts/warmup-cdn.js
+        env:
+          CDN_VERSION: ${{ steps.cdn-version.outputs.version || 'v1.1.29' }}
+
+      # 8. 搜索引擎提交
       - name: Submit to search engines
         if: success()
         run: node scripts/submit-search-engines.js
