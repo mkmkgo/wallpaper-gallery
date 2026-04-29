@@ -110,3 +110,6 @@ dist
 # Local development files
 docs/miniprogram/
 docs/requirements/
+
+# CDN warmup state
+.warmup-state/

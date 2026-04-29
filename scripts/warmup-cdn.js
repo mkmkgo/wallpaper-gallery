@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -12,10 +12,32 @@ const PRIMARY_CDN = CDN_DOMAINS[0]
 const CDN_VERSION = process.env.CDN_VERSION || 'v1.1.29'
 const CDN_BASE = `https://${PRIMARY_CDN}/gh/mkmkgo/nuanXinProPic@${CDN_VERSION}`
 
-const CONCURRENCY = 5
-const WARMUP_TIMEOUT = 10000
+const CONCURRENCY = 8
+const WARMUP_TIMEOUT = 15000
 
-function loadLatestPaths(seriesId) {
+const WARMUP_STATE_DIR = resolve(ROOT_DIR, '.warmup-state')
+const WARMUP_STATE_FILE = resolve(WARMUP_STATE_DIR, `warmup-${CDN_VERSION}.json`)
+
+function loadWarmupState() {
+  if (!existsSync(WARMUP_STATE_FILE)) return { warmedIds: new Set() }
+  try {
+    const data = JSON.parse(readFileSync(WARMUP_STATE_FILE, 'utf-8'))
+    return { warmedIds: new Set(data.warmedIds || []) }
+  } catch {
+    return { warmedIds: new Set() }
+  }
+}
+
+function saveWarmupState(state) {
+  if (!existsSync(WARMUP_STATE_DIR)) mkdirSync(WARMUP_STATE_DIR, { recursive: true })
+  writeFileSync(WARMUP_STATE_FILE, JSON.stringify({
+    version: CDN_VERSION,
+    warmedIds: [...state.warmedIds],
+    updatedAt: new Date().toISOString(),
+  }, null, 2))
+}
+
+function loadLatestWallpapers(seriesId) {
   try {
     const filePath = resolve(ROOT_DIR, `public/data/${seriesId}/latest.json`)
     const raw = readFileSync(filePath, 'utf-8')
@@ -25,18 +47,19 @@ function loadLatestPaths(seriesId) {
     } catch {
       return []
     }
-    const wallpapers = data.wallpapers || data || []
-    return wallpapers.slice(0, 20).map((w) => {
-      const paths = []
-      if (w.thumbnailPath) paths.push(`${CDN_BASE}${w.thumbnailPath}`)
-      else if (w.thumbnailUrl) paths.push(w.thumbnailUrl)
-      if (w.previewPath) paths.push(`${CDN_BASE}${w.previewPath}`)
-      else if (w.previewUrl) paths.push(w.previewUrl)
-      return paths
-    }).flat()
+    return data.wallpapers || data || []
   } catch {
     return []
   }
+}
+
+function buildWarmupUrls(wallpaper) {
+  const urls = []
+  if (wallpaper.thumbnailPath) urls.push(`${CDN_BASE}${wallpaper.thumbnailPath}`)
+  else if (wallpaper.thumbnailUrl) urls.push(wallpaper.thumbnailUrl)
+  if (wallpaper.previewPath) urls.push(`${CDN_BASE}${wallpaper.previewPath}`)
+  else if (wallpaper.previewUrl) urls.push(wallpaper.previewUrl)
+  return urls
 }
 
 async function warmupUrl(url) {
@@ -46,7 +69,8 @@ async function warmupUrl(url) {
   try {
     const res = await fetch(url, { signal: controller.signal, mode: 'cors' })
     clearTimeout(timer)
-    return { url, ok: res.ok, status: res.status }
+    const cacheStatus = res.headers.get('x-cache') || res.headers.get('cf-cache-status') || 'unknown'
+    return { url, ok: res.ok, status: res.status, cacheStatus }
   } catch (err) {
     clearTimeout(timer)
     return { url, ok: false, status: 0, error: err.message }
@@ -55,23 +79,25 @@ async function warmupUrl(url) {
 
 async function warmupWithConcurrency(urls, concurrency) {
   const results = []
+  let hitCount = 0
+  let missCount = 0
+
   for (let i = 0; i < urls.length; i += concurrency) {
     const batch = urls.slice(i, i + concurrency)
     const batchResults = await Promise.allSettled(batch.map(warmupUrl))
-    results.push(...batchResults.map(r => r.status === 'fulfilled' ? r.value : { ok: false }))
-
-    const success = results.filter(r => r.ok).length
-    process.stdout.write(`\r   Progress: ${results.length}/${urls.length} (success: ${success})`)
+    for (const r of batchResults) {
+      const result = r.status === 'fulfilled' ? r.value : { ok: false, cacheStatus: 'error' }
+      results.push(result)
+      if (result.cacheStatus?.includes('HIT')) hitCount++
+      else if (result.cacheStatus?.includes('MISS')) missCount++
+    }
+    process.stdout.write(`\r   Progress: ${results.length}/${urls.length} (HIT: ${hitCount}, MISS: ${missCount})`)
   }
   console.log('')
-  return results
+  return { results, hitCount, missCount }
 }
 
-async function warmupAllCdnDomains(primaryResults) {
-  const failedUrls = primaryResults
-    .filter(r => !r.ok)
-    .map(r => r.url)
-
+async function warmupFallbackCdn(failedUrls) {
   if (failedUrls.length === 0) return
 
   for (let i = 1; i < CDN_DOMAINS.length; i++) {
@@ -89,41 +115,70 @@ async function warmupAllCdnDomains(primaryResults) {
     if (fallbackUrls.length === 0) continue
 
     console.log(`\n   🔄 Warming fallback CDN: ${domain} (${fallbackUrls.length} URLs)`)
-    const results = await warmupWithConcurrency(fallbackUrls, CONCURRENCY)
+    const { results } = await warmupWithConcurrency(fallbackUrls, CONCURRENCY)
     const success = results.filter(r => r.ok).length
     console.log(`   ✅ ${domain}: ${success}/${fallbackUrls.length} warmed`)
   }
 }
 
 async function main() {
-  console.log(`\n🔥 CDN Cache Warmup`)
+  console.log(`\n🔥 CDN Incremental Cache Warmup`)
   console.log(`   CDN Version: ${CDN_VERSION}`)
   console.log(`   Primary CDN: ${PRIMARY_CDN}`)
   console.log(`   Concurrency: ${CONCURRENCY}\n`)
 
+  const state = loadWarmupState()
   const allUrls = []
+  let totalWallpapers = 0
+  let newWallpapers = 0
+
   for (const seriesId of ['desktop', 'mobile', 'avatar']) {
-    const paths = loadLatestPaths(seriesId)
-    console.log(`   ${seriesId}: ${paths.length} URLs from latest.json`)
-    allUrls.push(...paths)
+    const wallpapers = loadLatestWallpapers(seriesId)
+    totalWallpapers += wallpapers.length
+
+    for (const w of wallpapers) {
+      const wallpaperId = w.id || w.filename || `${seriesId}-${w.thumbnailPath || w.thumbnailUrl}`
+      if (state.warmedIds.has(wallpaperId)) continue
+
+      newWallpapers++
+      const urls = buildWarmupUrls(w)
+      allUrls.push(...urls.map(url => ({ url, id: wallpaperId })))
+    }
+
+    console.log(`   ${seriesId}: ${wallpapers.length} total, ${wallpapers.length - [...wallpapers].filter(w => state.warmedIds.has(w.id || w.filename)).length} new`)
   }
 
   if (allUrls.length === 0) {
-    console.log('\n   ⚠️  No URLs found, skipping warmup')
+    console.log(`\n   ✅ All ${totalWallpapers} wallpapers already warmed! No new images to warmup.`)
+    console.log('\n🏁 CDN Warmup Done (skipped)\n')
     return
   }
 
-  console.log(`\n   🚀 Warming primary CDN: ${PRIMARY_CDN} (${allUrls.length} URLs)`)
-  const results = await warmupWithConcurrency(allUrls, CONCURRENCY)
+  console.log(`\n   📊 ${newWallpapers} new wallpapers to warm (${allUrls.length} URLs)`)
+  console.log(`   🚀 Warming primary CDN: ${PRIMARY_CDN}\n`)
+
+  const { results, hitCount, missCount } = await warmupWithConcurrency(
+    allUrls.map(u => u.url),
+    CONCURRENCY,
+  )
 
   const success = results.filter(r => r.ok).length
   const failed = results.filter(r => !r.ok).length
-  console.log(`\n   ✅ Primary CDN: ${success} warmed, ${failed} failed`)
+  console.log(`\n   ✅ Primary CDN: ${success} success, ${failed} failed`)
+  console.log(`   📊 Cache status: ${hitCount} HIT (already cached), ${missCount} MISS (newly cached)`)
+
+  const warmedIds = new Set(state.warmedIds)
+  for (const u of allUrls) {
+    warmedIds.add(u.id)
+  }
+  saveWarmupState({ warmedIds })
 
   if (failed > 0) {
-    await warmupAllCdnDomains(results)
+    const failedUrls = results.filter(r => !r.ok).map(r => r.url)
+    await warmupFallbackCdn(failedUrls)
   }
 
+  console.log(`\n   📝 Warmup state saved: ${warmedIds.size} total warmed images`)
   console.log('\n🏁 CDN Warmup Done\n')
 }
 
