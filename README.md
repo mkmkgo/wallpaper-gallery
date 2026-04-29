@@ -175,6 +175,50 @@
 - **时间戳备份** - 图片首次添加时间自动记录，确保 `cdnTag` 稳定不变
 - **自动化流程** - GitHub Actions 自动恢复时间戳、生成 cdnTag、构建部署
 
+### CDN 缓存预热
+
+项目支持 CDN 缓存预热，部署后自动请求最新图片 URL，让 CDN 边缘节点提前缓存，新用户首次访问即可秒开。
+
+**工作原理：**
+
+由于项目使用 `@tag` 版本号（如 `@v1.2.92`），CDN 对 tag 版本的缓存策略是**永久缓存**——预热一次，永久有效。
+
+**增量预热（默认）：**
+
+每次部署后自动执行，只预热新增图片，跳过已预热的：
+
+```bash
+# GitHub Actions 自动执行（增量模式）
+node scripts/warmup-cdn.js
+```
+
+**全量预热（首次部署或 CDN 版本更新后）：**
+
+忽略预热状态，重新预热所有 `latest.json` 中的图片：
+
+```bash
+# 手动执行全量预热
+node scripts/warmup-cdn.js --full
+```
+
+**预热流程：**
+
+```
+部署成功
+  → 读取 public/data/{desktop,mobile,avatar}/latest.json
+  → 对比 warmup state，筛选未预热的图片
+  → 并发请求 cdn.jsdmirror.com（8个一组）
+  → 已缓存的图片立即返回（HIT，~0ms 开销）
+  → 未缓存的图片触发回源（MISS，首次较慢）
+  → 主 CDN 失败的 URL 自动预热备用 CDN
+  → 保存 warmup state，下次跳过已预热的
+```
+
+**配置文件：**
+- 预热脚本：`scripts/warmup-cdn.js`
+- 预热状态：`.warmup-state/`（已加入 `.gitignore`）
+- GitHub Actions：`.github/workflows/deploy-edgeone.yml`（步骤 7）
+
 ### 国内 CDN 加速
 
 由于 `cdn.jsdelivr.net` 在国内访问不稳定，项目已配置国内 CDN 镜像和自动降级机制：
@@ -218,9 +262,24 @@ export const CDN_DOMAINS = {
 
 | 资源类型 | 策略 | 缓存时间 | 说明 |
 |----------|------|----------|------|
-| 图片资源 | Cache First | 7 天 | 优先从缓存读取，缓存过期再请求网络 |
+| CDN 图片 | Cache First + 并行竞速 | 7 天 | 3 个 CDN 同时请求，谁先返回用谁 |
+| 其他图片 | Cache First | 7 天 | 优先从缓存读取，缓存过期再请求网络 |
 | JSON 数据 | Stale While Revalidate | 1 天 | 先返回缓存，后台静默更新 |
 | JS/CSS/字体 | Cache First | 30 天 | 静态资源长期缓存 |
+
+**CDN 并行竞速机制：**
+
+当 CDN 图片缓存未命中时，Service Worker 会同时向 3 个 CDN 发起请求（`cdn.jsdmirror.com`、`testingcf.jsdelivr.net`、`cdn.jsdelivr.net`），谁先返回就用谁的结果，其余请求自动取消。竞速超时 5 秒后回退到浏览器原生网络请求，永不返回 503。
+
+**降级保障：**
+
+```
+CDN 并行竞速（5秒超时）
+  → 成功 → 缓存并返回
+  → 全部超时 → 浏览器原生 fetch（不阻断）
+    → 成功 → 缓存并返回
+    → 失败 → 返回过期缓存（如有）
+```
 
 **配置文件：**
 - Service Worker：`public/sw.js`
@@ -257,6 +316,13 @@ pnpm preview          # 预览构建结果
 # 数据同步
 pnpm sync             # 从线上 CDN 同步最新数据
 pnpm export:hot-tags  # 导出热门标签数据
+
+# CDN 缓存预热
+node scripts/warmup-cdn.js           # 增量预热（只预热新图片）
+node scripts/warmup-cdn.js --full    # 全量预热（重新预热所有图片）
+
+# 搜索引擎提交
+node scripts/submit-search-engines.js  # 手动提交 URL 到搜索引擎
 
 # 代码质量
 pnpm lint             # 检查代码规范
@@ -532,27 +598,29 @@ wallpaper-gallery/
 - **CDN 外部化** - Vue / Vue Router / vue-demi 通过 unpkg CDN 加载
 - **CSS 内联** - 关键 CSS 内联到 HTML，加快首屏渲染
 - **CLS 优化** - 图片占位符、滚动条预留空间，避免布局偏移
-- **图片优化** - WebP 格式、缩略图预生成、懒加载、首屏图片高优先级加载
+- **图片优化** - WebP 格式、缩略图预生成、懒加载、`decoding="async"`、首屏图片高优先级加载
 - **代码分割** - 路由级别代码分割，按需加载；Element Plus / Vant / GSAP 独立分包
 - **预连接** - DNS 预解析、预连接到 CDN 域名（jsMirror 国内镜像、CloudFlare 节点、jsDelivr、Bing CDN、图片代理服务）
 - **Brotli 压缩** - 静态资源预压缩，体积减少 70%+
 - **2K/4K 大屏适配** - 容器最大宽度递增（1600/2000/2400px）
-- **Cloudflare 缓存** - 部署后自动清除缓存，确保用户及时获取更新
+- **CDN 并行竞速** - Service Worker 同时向 3 个 CDN 发起图片请求，谁先返回用谁，消除冷启动等待
+- **CDN 缓存预热** - 部署后自动预热最新图片，新用户首次访问即可从 CDN 缓存返回
 - **Web Worker** - 大数据解码在 Worker 线程执行，避免阻塞主线程
 - **分类按需加载** - 首屏只加载前3个分类，剩余分类后台加载
 - **移动端性能优化** - 移除 backdrop-filter 模糊效果，提升滚动流畅度
 - **路由守卫精简** - 从 ~80 行简化到 ~30 行，减少不必要的计算
 - **内存泄漏修复** - 头像制作弹窗完善资源清理机制，防止 Image 对象和 Cropper 实例泄漏
 - **高性能混合构建** - 移除 Cloudflare 侧冗余的 Git 克隆逻辑，利用 GitHub Actions 强力算力同步图床数据，缩短构建耗时 80%。
-- **无感 CDN 刷新** - 部署成功后 Cloudflare 自动完成全球节点缓存刷新。
 
 ## 📊 SEO 优化
 
-- **结构化数据** - Schema.org 标记，增强搜索引擎理解
-- **Sitemap** - 自动生成站点地图
-- **搜索引擎提交** - 支持百度主动推送、Google Search Console
-- **SPA 路由优化** - 通过 Cloudflare _redirects 解决单页应用刷新 404 问题，确保所有路径返回 200 OK，极大地提升搜索引擎抓取成功率。
-- **全球边缘加速** - 基于 Cloudflare 全球网络，首屏加载速度提升 50% 以上。
+- **结构化数据** - Schema.org JSON-LD 标记（CollectionPage / WebPage），增强搜索引擎理解
+- **动态 Meta 注入** - 路由守卫自动更新 title、description、canonical、Open Graph、Twitter Card
+- **Sitemap 自动生成** - 构建时自动生成 `sitemap.xml`，域名和日期自动更新
+- **搜索引擎提交** - 部署后自动提交 URL 到百度主动推送、Bing IndexNow、Google Sitemap Ping
+- **SPA 路由优化** - EdgeOne Pages `404.html` 回退 + `edgeone.json` rewrites，确保所有路径返回 200 OK
+- **预渲染** - 构建时通过 Puppeteer 预渲染主要页面，提供爬虫可用的静态 HTML
+- **IndexNow 支持** - 通过 Bing IndexNow API 实时通知搜索引擎内容更新
  
 ## ☕ 赞赏支持
 

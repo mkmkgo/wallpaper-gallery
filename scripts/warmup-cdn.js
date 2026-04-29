@@ -18,7 +18,10 @@ const WARMUP_TIMEOUT = 15000
 const WARMUP_STATE_DIR = resolve(ROOT_DIR, '.warmup-state')
 const WARMUP_STATE_FILE = resolve(WARMUP_STATE_DIR, `warmup-${CDN_VERSION}.json`)
 
+const FULL_MODE = process.argv.includes('--full')
+
 function loadWarmupState() {
+  if (FULL_MODE) return { warmedIds: new Set() }
   if (!existsSync(WARMUP_STATE_FILE)) return { warmedIds: new Set() }
   try {
     const data = JSON.parse(readFileSync(WARMUP_STATE_FILE, 'utf-8'))
@@ -122,7 +125,8 @@ async function warmupFallbackCdn(failedUrls) {
 }
 
 async function main() {
-  console.log(`\n🔥 CDN Incremental Cache Warmup`)
+  const modeLabel = FULL_MODE ? 'Full (all images)' : 'Incremental (new images only)'
+  console.log(`\n🔥 CDN Cache Warmup [${modeLabel}]`)
   console.log(`   CDN Version: ${CDN_VERSION}`)
   console.log(`   Primary CDN: ${PRIMARY_CDN}`)
   console.log(`   Concurrency: ${CONCURRENCY}\n`)
@@ -131,21 +135,27 @@ async function main() {
   const allUrls = []
   let totalWallpapers = 0
   let newWallpapers = 0
+  let alreadyWarmed = 0
 
   for (const seriesId of ['desktop', 'mobile', 'avatar']) {
     const wallpapers = loadLatestWallpapers(seriesId)
     totalWallpapers += wallpapers.length
 
+    let seriesNew = 0
     for (const w of wallpapers) {
       const wallpaperId = w.id || w.filename || `${seriesId}-${w.thumbnailPath || w.thumbnailUrl}`
-      if (state.warmedIds.has(wallpaperId)) continue
+      if (state.warmedIds.has(wallpaperId)) {
+        alreadyWarmed++
+        continue
+      }
 
       newWallpapers++
+      seriesNew++
       const urls = buildWarmupUrls(w)
       allUrls.push(...urls.map(url => ({ url, id: wallpaperId })))
     }
 
-    console.log(`   ${seriesId}: ${wallpapers.length} total, ${wallpapers.length - [...wallpapers].filter(w => state.warmedIds.has(w.id || w.filename)).length} new`)
+    console.log(`   ${seriesId}: ${wallpapers.length} total, ${seriesNew} new, ${wallpapers.length - seriesNew} already warmed`)
   }
 
   if (allUrls.length === 0) {
