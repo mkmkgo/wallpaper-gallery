@@ -115,6 +115,7 @@ const emit = defineEmits(['error', 'load', 'hoverEnter', 'hoverLeave'])
       width="800"
       height="600"
       loading="lazy"
+      decoding="async"
       :fetchpriority="index < 6 ? 'high' : 'auto'"
       :class="{ 'is-loaded': imageLoaded, 'is-error': imageError }"
       @load="emit('load')"
