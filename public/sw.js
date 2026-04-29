@@ -1,5 +1,5 @@
-const CACHE_NAME = 'wallpaper-sw-v4'
-const IMAGE_CACHE_NAME = 'wallpaper-images-v3'
+const CACHE_NAME = 'wallpaper-sw-v5'
+const IMAGE_CACHE_NAME = 'wallpaper-images-v4'
 const DATA_CACHE_NAME = 'wallpaper-data-v1'
 
 const IMAGE_MAX_AGE = 7 * 24 * 60 * 60
@@ -13,11 +13,11 @@ const CDN_DOMAINS = [
   'raw.githubusercontent.com',
 ]
 
-const CDN_RACE_ORDER = ['cdn.jsdmirror.com', 'testingcf.jsdelivr.net', 'cdn.jsdelivr.net']
+const CDN_RACE_DOMAINS = ['cdn.jsdmirror.com', 'testingcf.jsdelivr.net', 'cdn.jsdelivr.net']
 
 const IMAGE_EXTENSIONS = /\.(?:jpg|jpeg|png|gif|webp|svg|bmp|tiff|ico|heic|heif)$/i
 
-const RACE_TIMEOUT = 3000
+const RACE_TIMEOUT = 5000
 
 self.addEventListener('install', (event) => {
   self.skipWaiting()
@@ -42,7 +42,7 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
 
   if (isCdnImageRequest(url)) {
-    event.respondWith(cdnImageWithRace(event.request, url))
+    event.respondWith(cdnImageStrategy(event.request, url))
     return
   }
 
@@ -87,11 +87,7 @@ function isStaticAsset(url) {
   return false
 }
 
-function timeoutPromise(ms) {
-  return new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))
-}
-
-async function cdnImageWithRace(request, originalUrl) {
+async function cdnImageStrategy(request, originalUrl) {
   const cached = await caches.match(request)
   if (cached) {
     const dateHeader = cached.headers.get('sw-cache-date')
@@ -104,23 +100,34 @@ async function cdnImageWithRace(request, originalUrl) {
   }
 
   const currentDomain = originalUrl.hostname
-  const allDomains = [currentDomain, ...CDN_RACE_ORDER.filter(d => d !== currentDomain)]
+  const allDomains = [currentDomain, ...CDN_RACE_DOMAINS.filter(d => d !== currentDomain)]
 
   try {
-    const response = await raceCdnRequests(request, originalUrl, allDomains)
-    if (response && response.ok) {
-      cacheResponse(request, response, IMAGE_CACHE_NAME)
+    const raceResult = await Promise.race([
+      raceCdnFetches(request, originalUrl, allDomains),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('race_timeout')), RACE_TIMEOUT)),
+    ])
+    if (raceResult && raceResult.ok) {
+      cacheResponse(request, raceResult, IMAGE_CACHE_NAME)
+      return raceResult
     }
-    if (response) return response
   } catch {
-    // race failed
+    // race failed or timed out
   }
 
-  if (cached) return cached
-  return new Response('', { status: 503, statusText: 'Service Unavailable' })
+  try {
+    const networkResponse = await fetch(request)
+    if (networkResponse.ok) {
+      cacheResponse(request, networkResponse, IMAGE_CACHE_NAME)
+    }
+    return networkResponse
+  } catch {
+    if (cached) return cached
+    return fetch(request)
+  }
 }
 
-function raceCdnRequests(request, originalUrl, domains) {
+function raceCdnFetches(request, originalUrl, domains) {
   return new Promise((resolve, reject) => {
     let settled = false
     let failures = 0
@@ -136,20 +143,8 @@ function raceCdnRequests(request, originalUrl, domains) {
         fetchUrl = fallbackUrl.toString()
       }
 
-      const controller = new AbortController()
-
-      const timeoutId = setTimeout(() => {
-        controller.abort()
-        failures++
-        if (failures === total && !settled) {
-          settled = true
-          reject(new Error('all cdn requests failed'))
-        }
-      }, RACE_TIMEOUT)
-
-      fetch(fetchUrl, { signal: controller.signal, mode: 'cors', credentials: 'omit' })
+      fetch(fetchUrl, { mode: 'cors', credentials: 'omit' })
         .then((response) => {
-          clearTimeout(timeoutId)
           if (settled) return
           if (response.ok) {
             settled = true
@@ -158,12 +153,11 @@ function raceCdnRequests(request, originalUrl, domains) {
             failures++
             if (failures === total && !settled) {
               settled = true
-              reject(new Error('all cdn requests failed'))
+              reject(new Error('all cdn requests returned non-ok'))
             }
           }
         })
         .catch(() => {
-          clearTimeout(timeoutId)
           failures++
           if (failures === total && !settled) {
             settled = true
@@ -205,7 +199,7 @@ async function cacheFirst(request, cacheName, maxAge) {
     return response
   } catch (error) {
     if (cached) return cached
-    return new Response('', { status: 503, statusText: 'Service Unavailable' })
+    return fetch(request)
   }
 }
 
