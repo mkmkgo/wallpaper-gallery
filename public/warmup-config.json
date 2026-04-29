@@ -1,0 +1,16 @@
+{
+  "version": "v1.2.92",
+  "images": [
+    "/thumbnail/desktop/风景/极光雪原.webp",
+    "/thumbnail/desktop/动漫/二次元.webp",
+    "/thumbnail/mobile/人像/清新.webp",
+    "/thumbnail/mobile/风景/海边夕阳.webp",
+    "/thumbnail/avatar/动漫/可爱.webp",
+    "/thumbnail/avatar/人像/甜妹.webp"
+  ],
+  "series": {
+    "desktop": 10,
+    "mobile": 10,
+    "avatar": 10
+  }
+}

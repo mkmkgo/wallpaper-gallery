@@ -19,6 +19,27 @@ const WARMUP_TIMEOUT = 15000
 
 const FULL_MODE = process.argv.includes('--full')
 
+function loadWarmupConfig() {
+  const configPath = resolve(ROOT_DIR, 'public/warmup-config.json')
+  try {
+    const content = readFileSync(configPath, 'utf-8')
+    return JSON.parse(content)
+  } catch {
+    return { version: CDN_VERSION, images: [], series: {} }
+  }
+}
+
+function collectConfiguredImageUrls() {
+  const config = loadWarmupConfig()
+  const urls = []
+  
+  for (const imagePath of config.images) {
+    urls.push(`${CDN_BASE}${imagePath}`)
+  }
+  
+  return urls
+}
+
 function collectDataUrls() {
   const urls = []
   const dataDir = resolve(ROOT_DIR, 'public/data')
@@ -65,23 +86,6 @@ function collectHotUrls() {
   return urls
 }
 
-function collectCdnThumbnailUrls() {
-  const urls = []
-  const thumbnailPaths = [
-    '/thumbnail/desktop/',
-    '/thumbnail/mobile/',
-    '/thumbnail/avatar/',
-  ]
-
-  if (FULL_MODE) {
-    for (const path of thumbnailPaths) {
-      urls.push(`${CDN_BASE}${path}`)
-    }
-  }
-
-  return urls
-}
-
 async function warmupUrl(url) {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), WARMUP_TIMEOUT)
@@ -90,15 +94,18 @@ async function warmupUrl(url) {
     const res = await fetch(url, { signal: controller.signal })
     clearTimeout(timer)
     const cacheStatus = res.headers.get('x-cache') || res.headers.get('cf-cache-status') || 'unknown'
-    const contentType = res.headers.get('content-type') || ''
-    return { url, ok: res.ok, status: res.status, cacheStatus, contentType }
+    return { url, ok: res.ok, status: res.status, cacheStatus }
   } catch (err) {
     clearTimeout(timer)
     return { url, ok: false, status: 0, error: err.message }
   }
 }
 
-async function warmupWithConcurrency(urls, concurrency) {
+async function warmupWithConcurrency(urls, concurrency, label) {
+  if (urls.length === 0) return { results: [], hitCount: 0, missCount: 0 }
+  
+  console.log(`   🚀 ${label}: ${urls.length} URLs`)
+  
   const results = []
   let hitCount = 0
   let missCount = 0
@@ -112,57 +119,68 @@ async function warmupWithConcurrency(urls, concurrency) {
       if (result.cacheStatus?.includes('HIT')) hitCount++
       else if (result.cacheStatus?.includes('MISS')) missCount++
     }
-    process.stdout.write(`\r   Progress: ${results.length}/${urls.length} (HIT: ${hitCount}, MISS: ${missCount})`)
+    process.stdout.write(`\r      Progress: ${results.length}/${urls.length} (HIT: ${hitCount}, MISS: ${missCount})`)
   }
   console.log('')
+  
+  const success = results.filter(r => r.ok).length
+  console.log(`      ✅ Success: ${success}/${urls.length}`)
+  
   return { results, hitCount, missCount }
 }
 
 async function main() {
-  const modeLabel = FULL_MODE ? 'Full' : 'Incremental'
-  console.log(`\n🔥 CDN Cache Warmup [${modeLabel}]`)
+  console.log(`\n🔥 CDN Cache Warmup`)
   console.log(`   CDN Version: ${CDN_VERSION}`)
   console.log(`   Primary CDN: ${PRIMARY_CDN}`)
   console.log(`   Site URL: ${SITE_URL}`)
   console.log(`   Concurrency: ${CONCURRENCY}\n`)
 
-  const allUrls = []
+  const allResults = []
+  let totalHit = 0
+  let totalMiss = 0
 
-  const dataUrls = collectDataUrls()
-  console.log(`   📁 Data files: ${dataUrls.length} URLs`)
-  allUrls.push(...dataUrls)
-
-  const hotUrls = collectHotUrls()
-  console.log(`   🔥 Hot files: ${hotUrls.length} URLs`)
-  allUrls.push(...hotUrls)
-
-  const cdnUrls = collectCdnThumbnailUrls()
-  console.log(`   🖼️  CDN thumbnail dirs: ${cdnUrls.length} URLs`)
-  allUrls.push(...cdnUrls)
-
-  if (allUrls.length === 0) {
-    console.log('\n   ⚠️  No URLs found, skipping warmup')
-    return
+  const imageUrls = collectConfiguredImageUrls()
+  if (imageUrls.length > 0) {
+    const { results, hitCount, missCount } = await warmupWithConcurrency(imageUrls, CONCURRENCY, '🖼️  Configured images')
+    allResults.push(...results)
+    totalHit += hitCount
+    totalMiss += missCount
+  } else {
+    console.log(`   ⚠️  No configured images. Create public/warmup-config.json to preheat specific images.`)
   }
 
-  console.log(`\n   📊 Total: ${allUrls.length} URLs to warm`)
-  console.log(`   🚀 Warming...\n`)
+  const dataUrls = collectDataUrls()
+  const { results: dataResults, hitCount: dataHit, missCount: dataMiss } = await warmupWithConcurrency(dataUrls, CONCURRENCY, '📁 Data files')
+  allResults.push(...dataResults)
+  totalHit += dataHit
+  totalMiss += dataMiss
 
-  const { results, hitCount, missCount } = await warmupWithConcurrency(allUrls, CONCURRENCY)
+  const hotUrls = collectHotUrls()
+  const { results: hotResults, hitCount: hotHit, missCount: hotMiss } = await warmupWithConcurrency(hotUrls, CONCURRENCY, '🔥 Hot files')
+  allResults.push(...hotResults)
+  totalHit += hotHit
+  totalMiss += hotMiss
 
-  const success = results.filter(r => r.ok).length
-  const failed = results.filter(r => !r.ok).length
-  console.log(`\n   ✅ Success: ${success}, Failed: ${failed}`)
-  console.log(`   📊 Cache: ${hitCount} HIT, ${missCount} MISS`)
+  const success = allResults.filter(r => r.ok).length
+  const failed = allResults.filter(r => !r.ok).length
+  
+  console.log(`\n📊 Summary:`)
+  console.log(`   Total URLs: ${allResults.length}`)
+  console.log(`   Success: ${success}`)
+  console.log(`   Failed: ${failed}`)
+  console.log(`   Cache HIT: ${totalHit} (already cached)`)
+  console.log(`   Cache MISS: ${totalMiss} (newly cached)`)
 
   if (failed > 0) {
-    console.log('\n   ❌ Failed URLs:')
-    results.filter(r => !r.ok).slice(0, 10).forEach(r => {
-      console.log(`      ${r.status || 'error'} - ${r.url}`)
+    console.log('\n❌ Failed URLs (first 5):')
+    allResults.filter(r => !r.ok).slice(0, 5).forEach(r => {
+      console.log(`   ${r.status || 'timeout'} - ${r.url}`)
     })
   }
 
   console.log('\n🏁 CDN Warmup Done\n')
+  console.log('💡 Tip: Add images to public/warmup-config.json to preheat specific wallpaper images')
 }
 
 main()
