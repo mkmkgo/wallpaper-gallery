@@ -40,12 +40,13 @@ jobs:
           echo "?? Updated constants.js to: $CDN_VERSION"
 
       # 3. 克隆图床仓库数据
+      # fetch-depth: 10 获取最近10次提交，用于 git diff 查找新增图片
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
         with:
           repository: mkmkgo/nuanXinProPic
           path: nuanXinProPic
-          fetch-depth: 1
+          fetch-depth: 10
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
