@@ -106,6 +106,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: wallpaper-gallery-prod # ⚠️ 请确保这与你的 Cloudflare Pages 项目名一致
+          projectName: wallpaper-gallery-prod
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
