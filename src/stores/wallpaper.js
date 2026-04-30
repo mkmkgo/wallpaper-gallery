@@ -568,18 +568,15 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
    * 初始化系列（一次性加载完整数据，避免首屏名单二次改写）
    */
   async function initSeries(seriesId, forceRefresh = false) {
-    // 如果已加载相同系列且有数据，跳过
     if (!forceRefresh && currentLoadedSeries.value === seriesId && wallpapers.value.length > 0) {
       return
     }
 
-    // 检查是否为每日 Bing 系列
     const seriesConfig = SERIES_CONFIG[seriesId]
     if (seriesConfig?.isDaily) {
       return initBingSeries(seriesId, forceRefresh)
     }
 
-    // 递增请求版本号，用于防止竞态条件
     const currentRequestVersion = ++requestVersion
 
     loading.value = true
@@ -592,47 +589,68 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
     expectedTotal.value = 0
 
     try {
-      // 1. 加载分类索引
       const indexData = await loadSeriesIndex(seriesId)
 
-      // 检查请求是否过期（用户已切换到其他系列）
       if (requestVersion !== currentRequestVersion) {
         return
       }
 
-      // 2. 记录预期总数（从索引文件中获取，用于显示）
       expectedTotal.value = indexData.total || 0
 
-      // 3. 一次性加载全部分类，确保首次可见即为最终顺序
       const allCategories = indexData.categories || []
-      const categoryPromises = allCategories.map(cat => loadCategory(seriesId, cat.file))
-      const allDataArrays = await Promise.all(categoryPromises)
 
-      // 再次检查请求是否过期
+      const FIRST_BATCH = 2
+      const firstBatch = allCategories.slice(0, FIRST_BATCH)
+      const remainingBatch = allCategories.slice(FIRST_BATCH)
+
+      const firstBatchPromises = firstBatch.map(cat => loadCategory(seriesId, cat.file))
+      const firstBatchResults = await Promise.all(firstBatchPromises)
+
       if (requestVersion !== currentRequestVersion) {
         return
       }
 
-      // 4. 在完整数据准备好后一次性替换，避免“先看一版再重排”
-      const mergedWallpapers = sortWallpapers(allDataArrays.flat())
-      wallpapers.value = mergedWallpapers
+      const firstBatchData = sortWallpapers(firstBatchResults.flat())
+      wallpapers.value = firstBatchData
       currentRenderedSeries.value = seriesId
+      loadedCategories.value = new Set(firstBatch.map(cat => cat.file))
+      initialLoadedCount.value = firstBatchData.length
+      loading.value = false
 
-      // 5. 记录已加载的分类
-      loadedCategories.value = new Set(allCategories.map(cat => cat.file))
+      if (remainingBatch.length > 0) {
+        isBackgroundLoading.value = true
 
-      // 6. 记录初始加载数量（用于 UI 稳定显示）
-      initialLoadedCount.value = wallpapers.value.length
+        const BATCH_SIZE = 3
+        for (let i = 0; i < remainingBatch.length; i += BATCH_SIZE) {
+          if (requestVersion !== currentRequestVersion) {
+            return
+          }
 
-      // 7. 清除错误状态
+          const batch = remainingBatch.slice(i, i + BATCH_SIZE)
+          const batchPromises = batch.map(cat => loadCategory(seriesId, cat.file))
+          const batchResults = await Promise.all(batchPromises)
+
+          if (requestVersion !== currentRequestVersion) {
+            return
+          }
+
+          const newItems = batchResults.flat()
+          const merged = sortWallpapers([...wallpapers.value, ...newItems])
+          wallpapers.value = merged
+
+          batch.forEach((cat) => {
+            loadedCategories.value.add(cat.file)
+          })
+        }
+
+        isBackgroundLoading.value = false
+      }
+
       error.value = null
       errorType.value = null
-
-      // 8. 使用实际数量作为最终总数
       expectedTotal.value = wallpapers.value.length
     }
     catch (e) {
-      // 如果请求已过期，不处理错误
       if (requestVersion !== currentRequestVersion) {
         return
       }
@@ -644,16 +662,12 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
       currentRenderedSeries.value = ''
     }
     finally {
-      // 只有当请求未过期时才更新 loading 状态
       if (requestVersion === currentRequestVersion) {
         loading.value = false
       }
     }
   }
 
-  /**
-   * 后台加载剩余分类（不阻塞主流程）
-   */
   async function loadRemainingCategories(seriesId, categories) {
     // 批量加载：每次加载3个分类后才更新一次 wallpapers
     const BATCH_SIZE = 3
