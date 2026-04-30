@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-29T18:54:24.637Z",
+  "generatedAt": "2026-04-30T18:50:48.071Z",
   "series": "mobile",
-  "total": 42,
+  "total": 43,
   "tags": [
     {
       "tag": "人像",
-      "score": 17,
+      "score": 16,
       "views": 22,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -22,12 +22,12 @@
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
           "thumbnail": "/thumbnail/mobile/人像/清新/20260406201611.webp",
           "cdnTag": "v1.2.47"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
         },
         {
           "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
@@ -62,9 +62,9 @@
     {
       "tag": "插画",
       "score": 8,
-      "views": 9,
+      "views": 10,
       "downloads": 0,
-      "wallpaperCount": 4,
+      "wallpaperCount": 5,
       "series": [
         "mobile"
       ],
@@ -84,6 +84,10 @@
         {
           "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
           "cdnTag": "v1.2.53"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
+          "cdnTag": "v1.2.33"
         }
       ]
     },
@@ -224,50 +228,22 @@
       ]
     },
     {
-      "tag": "漫画风格",
-      "score": 3,
-      "views": 3,
+      "tag": "氛围感",
+      "score": 2,
+      "views": 4,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 2,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "时尚女孩",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        },
         {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "自拍",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
+          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
+          "cdnTag": "v1.2.33"
         }
       ]
     },
@@ -284,6 +260,22 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/清新/20260406201611.webp",
           "cdnTag": "v1.2.47"
+        }
+      ]
+    },
+    {
+      "tag": "漫画风格",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -320,6 +312,22 @@
       ]
     },
     {
+      "tag": "时尚女孩",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "阳光",
       "score": 2,
       "views": 3,
@@ -332,6 +340,22 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/清新/20260406201611.webp",
           "cdnTag": "v1.2.47"
+        }
+      ]
+    },
+    {
+      "tag": "自拍",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -429,22 +453,6 @@
     },
     {
       "tag": "冬日",
-      "score": 1,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
-          "cdnTag": "v1.1.9"
-        }
-      ]
-    },
-    {
-      "tag": "氛围感",
       "score": 1,
       "views": 3,
       "downloads": 0,
@@ -608,6 +616,22 @@
       ]
     },
     {
+      "tag": "绿轨迹",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
+          "cdnTag": "v1.2.33"
+        }
+      ]
+    },
+    {
       "tag": "萌宠",
       "score": 1,
       "views": 1,
@@ -684,22 +708,6 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/海滨/image_%E9%AB%98%E7%BA%A7%E5%85%A8%E9%9D%A2%E5%B1%8F4k%E8%B6%85%E6%B8%85%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8_%E6%99%AF%E6%B7%B1..._10.webp",
           "cdnTag": "v1.1.84"
-        }
-      ]
-    },
-    {
-      "tag": "IP形象",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
-          "cdnTag": "v1.2.53"
         }
       ]
     }

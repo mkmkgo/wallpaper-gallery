@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-29T18:54:24.718Z",
+  "generatedAt": "2026-04-30T18:50:48.167Z",
   "series": "all",
-  "total": 59,
+  "total": 60,
   "tags": [
     {
       "tag": "人像",
-      "score": 21,
+      "score": 20,
       "views": 27,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -17,25 +17,25 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
-        "20260408165518.jpeg",
         "20260406201611.jpeg",
+        "20260408165518.jpeg",
         "城市景观-壁纸.png"
       ]
     },
     {
       "tag": "插画",
       "score": 11,
-      "views": 12,
+      "views": 13,
       "downloads": 0,
-      "wallpaperCount": 6,
+      "wallpaperCount": 7,
       "series": [
         "desktop",
         "mobile"
       ],
       "topWallpapers": [
         "20260408163808.jpeg",
-        "20260408165518.jpeg",
         "20260406201533.png",
+        "20260408165518.jpeg",
         "雨中绿意小猫.jpeg",
         "20260408170413.jpeg"
       ]
@@ -203,45 +203,6 @@
       ]
     },
     {
-      "tag": "漫画风格",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
-      ]
-    },
-    {
-      "tag": "时尚女孩",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
-      ]
-    },
-    {
-      "tag": "自拍",
-      "score": 3,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
-      ]
-    },
-    {
       "tag": "创意",
       "score": 2,
       "views": 2,
@@ -296,6 +257,20 @@
       ]
     },
     {
+      "tag": "氛围感",
+      "score": 2,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png",
+        "小清新-意境.png"
+      ]
+    },
+    {
       "tag": "蓝天",
       "score": 2,
       "views": 3,
@@ -309,6 +284,32 @@
       ]
     },
     {
+      "tag": "漫画风格",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
+      ]
+    },
+    {
+      "tag": "时尚女孩",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
+      ]
+    },
+    {
       "tag": "阳光",
       "score": 2,
       "views": 3,
@@ -319,6 +320,19 @@
       ],
       "topWallpapers": [
         "20260406201611.jpeg"
+      ]
+    },
+    {
+      "tag": "自拍",
+      "score": 2,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
       ]
     },
     {
@@ -482,19 +496,6 @@
       ]
     },
     {
-      "tag": "氛围感",
-      "score": 1,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "冬日-围巾-树林.png"
-      ]
-    },
-    {
       "tag": "树林",
       "score": 1,
       "views": 3,
@@ -613,6 +614,19 @@
       ]
     },
     {
+      "tag": "绿轨迹",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "小清新-意境.png"
+      ]
+    },
+    {
       "tag": "乌萨奇",
       "score": 1,
       "views": 1,
@@ -675,19 +689,6 @@
       ],
       "topWallpapers": [
         "微信图片_2026-03-27_140726_406.jpg"
-      ]
-    },
-    {
-      "tag": "卡通",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-04-11_145953_146.jpg"
       ]
     }
   ]
