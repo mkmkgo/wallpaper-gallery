@@ -1,9 +1,10 @@
 import { computed, ref } from 'vue'
 
+const INITIAL_PAGE_SIZE = 30
 const PAGE_SIZE = 20
 
 export function useGridPagination({ timers, wallpapers }) {
-  const displayCount = ref(PAGE_SIZE)
+  const displayCount = ref(INITIAL_PAGE_SIZE)
   const isLoadingMore = ref(false)
   const scrollPaused = ref(false)
 
@@ -38,7 +39,7 @@ export function useGridPagination({ timers, wallpapers }) {
     const windowHeight = window.innerHeight
     const documentHeight = document.documentElement.scrollHeight
 
-    if (scrollTop + windowHeight >= documentHeight - 200) {
+    if (scrollTop + windowHeight >= documentHeight - 500) {
       loadMore()
     }
   }
@@ -54,7 +55,7 @@ export function useGridPagination({ timers, wallpapers }) {
   }
 
   function resetDisplayCount() {
-    displayCount.value = PAGE_SIZE
+    displayCount.value = INITIAL_PAGE_SIZE
   }
 
   function resumeScrollLoad() {

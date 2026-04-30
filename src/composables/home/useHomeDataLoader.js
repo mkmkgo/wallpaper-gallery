@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { buildProxyImageUrl, buildRawImageUrl } from '@/utils/common/format'
 import { IMAGE_PROXY, SERIES_CONFIG } from '@/utils/config/constants'
 
@@ -182,9 +182,8 @@ export function useHomeDataLoader({
     }
   })
 
-  onMounted(async () => {
-    syncSeriesFromRoute()
-    await loadSeriesData(seriesStore.currentSeries)
+  syncSeriesFromRoute()
+  loadSeriesData(seriesStore.currentSeries).then(() => {
     isInitialized.value = true
   })
 

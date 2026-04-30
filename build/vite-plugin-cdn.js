@@ -1,11 +1,5 @@
-/**
- * CDN 注入插件
- * 在生产环境构建时注入 CDN 脚本，并移除 Import Map
- */
-
 import process from 'node:process'
 
-// CDN 配置
 const cdn = {
   css: [],
   js: [
@@ -15,13 +9,6 @@ const cdn = {
   ],
 }
 
-/**
- * CDN 插件
- * @param {object} options 配置选项
- * @param {string[]} options.css - CDN CSS 文件列表
- * @param {string[]} options.js - CDN JS 文件列表
- * @returns {import('vite').Plugin}
- */
 export function cdnPlugin(options = {}) {
   const { css = cdn.css, js = cdn.js } = options
   const isProduction = process.env.NODE_ENV === 'production'
@@ -29,22 +16,34 @@ export function cdnPlugin(options = {}) {
   return {
     name: 'vite-plugin-cdn',
     transformIndexHtml: {
-      order: 'post', // 在 Vite 注入脚本之后执行
+      order: 'post',
       handler(html) {
         if (!isProduction)
           return html
 
-        // 移除 Import Map（生产环境使用 UMD 全局变量）
         html = html.replace(/<script type="importmap">[\s\S]*?<\/script>/g, '')
 
-        // 在第一个 <script type="module" 之前注入 CDN 脚本
-        const cdnScripts = js.map(url => `    <script src="${url}"></script>`).join('\n')
+        const cdnPreloads = js.map(url => `    <link rel="preload" href="${url}" as="script" crossorigin />`).join('\n')
+        const cdnScripts = js.map(url => `    <script src="${url}" defer crossorigin></script>`).join('\n')
         const cdnStyles = css.map(url => `    <link rel="stylesheet" href="${url}">`).join('\n')
 
-        // 找到 Vite 注入的模块脚本位置，在其之前插入 CDN 脚本
+        html = html.replace(
+          /<\/head>/,
+          `${cdnPreloads}\n${cdnScripts}\n${cdnStyles}\n  </head>`,
+        )
+
         html = html.replace(
           /(<script type="module")/,
-          `${cdnStyles}\n${cdnScripts}\n    $1`,
+          `    $1`,
+        )
+
+        const swScript = `    <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}</script>`
+
+        const prefetchScript = `    <script>(function(){var s=/Mobi|Android/i.test(navigator.userAgent)?'mobile':'desktop';var b='/data/'+s+'/';['index.json','latest.json'].forEach(function(f){var l=document.createElement('link');l.rel='prefetch';l.href=b+f;l.as='fetch';l.crossOrigin='';document.head.appendChild(l)})})()</script>`
+
+        html = html.replace(
+          /<\/head>/,
+          `${swScript}\n${prefetchScript}\n  </head>`,
         )
 
         return html
