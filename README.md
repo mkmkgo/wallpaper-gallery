@@ -128,6 +128,24 @@
 - **渐进增强** - 不配置 Supabase 时仍可浏览壁纸；配置后可启用登录、收藏、喜欢与个人壁纸库
 - **适合二开** - 组件、stores、services 与 utils 已按职责拆分
 
+### 🚀 SEO 与搜索引擎优化
+
+- **结构化数据** - Schema.org JSON-LD 标记，增强搜索引擎理解
+- **动态 Meta 注入** - 路由守卫自动更新 title、description、Open Graph、Twitter Card
+- **站点地图自动生成** - 构建时自动生成 `sitemap.xml`，包含首页、系列页面及图片链接
+- **搜索引擎自动提交** - 部署后自动推送 URL 到百度、Bing、Google
+- **SPA 路由优化** - EdgeOne Pages 回退机制确保所有路径返回 200 OK
+- **IndexNow 支持** - 通过 Bing IndexNow API 实时通知搜索引擎内容更新
+
+### 🔥 CDN 性能优化
+
+- **国内 CDN 加速** - 优先使用 `cdn.jsdmirror.com` 国内镜像，延迟 ~27ms
+- **自动降级机制** - CDN 失败时自动切换到备用节点
+- **并行竞速** - Service Worker 同时向多个 CDN 发起请求，谁先返回用谁
+- **智能缓存预热** - 新上传图片自动预热到 CDN 边缘节点，首次访问即可秒开
+- **增量预热** - 通过 git diff 识别新增图片，避免重复预热
+- **永久缓存** - 使用 tag 版本号，预热一次永久有效
+
 ## 🎯 项目定位
 
 - 面向个人壁纸站、内容展示站和开源作品集场景。
