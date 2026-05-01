@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-04-30T18:50:48.071Z",
+  "generatedAt": "2026-05-01T18:36:51.415Z",
   "series": "mobile",
   "total": 43,
   "tags": [
     {
       "tag": "人像",
-      "score": 16,
+      "score": 15,
       "views": 22,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -30,14 +30,14 @@
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
-          "cdnTag": "v1.2.41"
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
         }
       ]
     },
     {
       "tag": "魅力",
-      "score": 9,
+      "score": 8,
       "views": 11,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -93,7 +93,7 @@
     },
     {
       "tag": "黑丝",
-      "score": 5,
+      "score": 4,
       "views": 6,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -360,38 +360,6 @@
       ]
     },
     {
-      "tag": "城市风",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
-          "cdnTag": "v1.2.41"
-        }
-      ]
-    },
-    {
-      "tag": "紧身衣",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
-          "cdnTag": "v1.2.41"
-        }
-      ]
-    },
-    {
       "tag": "朴初珑",
       "score": 2,
       "views": 2,
@@ -500,6 +468,22 @@
       ]
     },
     {
+      "tag": "城市风",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
+          "cdnTag": "v1.2.41"
+        }
+      ]
+    },
+    {
       "tag": "风景",
       "score": 1,
       "views": 2,
@@ -516,6 +500,22 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/星空/%E5%9C%B0%E7%90%83%E6%97%A5%E5%87%BA%E6%98%9F%E7%8E%AF%E5%AE%87%E5%AE%99%E5%A5%87%E8%A7%82.webp",
           "cdnTag": "v1.1.4"
+        }
+      ]
+    },
+    {
+      "tag": "紧身衣",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
+          "cdnTag": "v1.2.41"
         }
       ]
     },

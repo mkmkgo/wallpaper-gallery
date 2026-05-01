@@ -1,18 +1,22 @@
 {
-  "generatedAt": "2026-04-30T18:50:47.957Z",
+  "generatedAt": "2026-05-01T18:36:51.307Z",
   "series": "desktop",
   "total": 17,
   "tags": [
     {
       "tag": "人像",
-      "score": 3,
-      "views": 4,
+      "score": 4,
+      "views": 5,
       "downloads": 0,
       "wallpaperCount": 4,
       "series": [
         "desktop"
       ],
       "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "cdnTag": "v1.2.59"
+        },
         {
           "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
           "cdnTag": "v1.2.52"
@@ -22,8 +26,28 @@
           "cdnTag": "v1.2.59"
         },
         {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
+        }
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 3,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
           "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
         },
         {
           "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
@@ -52,26 +76,22 @@
       ]
     },
     {
-      "tag": "清新",
-      "score": 2,
+      "tag": "魅力",
+      "score": 3,
       "views": 3,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 2,
       "series": [
         "desktop"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
-        },
-        {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
-          "cdnTag": "v1.1.32"
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -87,26 +107,6 @@
       "topWallpapers": [
         {
           "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "魅力",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
           "cdnTag": "v1.2.59"
         }
       ]

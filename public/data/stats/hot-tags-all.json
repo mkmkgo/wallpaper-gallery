@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-30T18:50:48.167Z",
+  "generatedAt": "2026-05-01T18:36:51.487Z",
   "series": "all",
   "total": 60,
   "tags": [
     {
       "tag": "人像",
       "score": 20,
-      "views": 27,
+      "views": 28,
       "downloads": 0,
       "wallpaperCount": 13,
       "series": [
@@ -17,9 +17,9 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
+        "20260408171457.jpeg",
         "20260406201611.jpeg",
-        "20260408165518.jpeg",
-        "城市景观-壁纸.png"
+        "20260408165518.jpeg"
       ]
     },
     {
@@ -43,7 +43,7 @@
     {
       "tag": "魅力",
       "score": 11,
-      "views": 13,
+      "views": 14,
       "downloads": 0,
       "wallpaperCount": 5,
       "series": [
@@ -53,9 +53,26 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
-        "城市景观-壁纸.png",
+        "20260408171457.jpeg",
         "20260406201149.jpeg",
-        "20260408171457.jpeg"
+        "城市景观-壁纸.png"
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 5,
+      "views": 7,
+      "downloads": 0,
+      "wallpaperCount": 4,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408171457.jpeg",
+        "20260406201611.jpeg",
+        "20260406200444.jpeg",
+        "JK背影-少女远景.png"
       ]
     },
     {
@@ -75,37 +92,6 @@
       ]
     },
     {
-      "tag": "黑丝",
-      "score": 5,
-      "views": 6,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408164632.jpeg",
-        "城市景观-壁纸.png"
-      ]
-    },
-    {
-      "tag": "清新",
-      "score": 4,
-      "views": 6,
-      "downloads": 0,
-      "wallpaperCount": 4,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260406200444.jpeg",
-        "20260408171457.jpeg",
-        "JK背影-少女远景.png"
-      ]
-    },
-    {
       "tag": "少女",
       "score": 4,
       "views": 5,
@@ -120,6 +106,20 @@
         "20260406201611.jpeg",
         "20260406200444.jpeg",
         "微信图片_2026-04-09_152721_644.jpg"
+      ]
+    },
+    {
+      "tag": "黑丝",
+      "score": 4,
+      "views": 6,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408164632.jpeg",
+        "城市景观-壁纸.png"
       ]
     },
     {
@@ -336,32 +336,6 @@
       ]
     },
     {
-      "tag": "城市风",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "城市景观-壁纸.png"
-      ]
-    },
-    {
-      "tag": "紧身衣",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "城市景观-壁纸.png"
-      ]
-    },
-    {
       "tag": "朴初珑",
       "score": 2,
       "views": 2,
@@ -522,6 +496,19 @@
       ]
     },
     {
+      "tag": "城市风",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "城市景观-壁纸.png"
+      ]
+    },
+    {
       "tag": "风景",
       "score": 1,
       "views": 2,
@@ -533,6 +520,19 @@
       "topWallpapers": [
         "image_高级全面屏4k超清手机壁纸_景深..._10.png",
         "地球日出星环宇宙奇观.png"
+      ]
+    },
+    {
+      "tag": "紧身衣",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "城市景观-壁纸.png"
       ]
     },
     {
