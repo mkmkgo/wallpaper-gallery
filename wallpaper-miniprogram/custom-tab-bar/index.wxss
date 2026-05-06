@@ -1,0 +1,184 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  padding-bottom: calc(10rpx + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+.tab-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 30, 50, 0.65);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 50rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  padding: 10rpx 50rpx;
+  pointer-events: auto;
+  gap: 40rpx;
+  box-shadow:
+    0 8rpx 40rpx rgba(0, 0, 0, 0.4),
+    0 2rpx 8rpx rgba(0, 0, 0, 0.2),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-icon-box {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-item.active .tab-icon-box {
+  background: rgba(255, 71, 87, 0.15);
+  transform: scale(1.08);
+}
+
+.icon-home {
+  position: relative;
+  width: 36rpx;
+  height: 34rpx;
+}
+
+.home-roof {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-bottom: 14rpx solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+.icon-home.on .home-roof {
+  border-bottom-color: #ff4757;
+}
+
+.home-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24rpx;
+  height: 16rpx;
+  border-radius: 4rpx;
+  border: 3rpx solid rgba(255, 255, 255, 0.4);
+  border-top: none;
+  transition: all 0.3s ease;
+}
+
+.icon-home.on .home-body {
+  background: #ff4757;
+  border-color: #ff4757;
+  box-shadow: 0 0 12rpx rgba(255, 71, 87, 0.4);
+}
+
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30rpx;
+  gap: 5rpx;
+  justify-content: space-between;
+}
+
+.grid-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 3rpx;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.icon-grid.on .grid-dot {
+  background: #ff4757;
+  box-shadow: 0 0 8rpx rgba(255, 71, 87, 0.4);
+}
+
+.icon-grid.on .grid-dot:nth-child(1) {
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+}
+
+.icon-grid.on .grid-dot:nth-child(2) {
+  background: linear-gradient(135deg, #ff6b81, #ff8a9e);
+}
+
+.icon-grid.on .grid-dot:nth-child(3) {
+  background: linear-gradient(135deg, #ff8a9e, #ffa4b4);
+}
+
+.icon-grid.on .grid-dot:nth-child(4) {
+  background: linear-gradient(135deg, #ffa4b4, #ffb8c8);
+}
+
+.icon-clock {
+  position: relative;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.clock-face {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  border: 2.5rpx solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.icon-clock.on .clock-face {
+  border-color: #ff4757;
+  box-shadow: 0 0 12rpx rgba(255, 71, 87, 0.3);
+}
+
+.clock-hand-h {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9rpx;
+  height: 2.5rpx;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2rpx;
+  transform-origin: left center;
+  transform: translate(0, -50%);
+  transition: background 0.3s ease;
+}
+
+.icon-clock.on .clock-hand-h {
+  background: #ff4757;
+}
+
+.clock-hand-m {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12rpx;
+  height: 2rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2rpx;
+  transform-origin: left center;
+  transform: translate(0, -50%) rotate(90deg);
+  transition: background 0.3s ease;
+}
+
+.icon-clock.on .clock-hand-m {
+  background: #ff6b81;
+}

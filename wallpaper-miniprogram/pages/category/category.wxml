@@ -1,0 +1,43 @@
+<view class="page">
+  <view wx:if="{{showCategories}}" class="categories-view">
+    <view class="section-header">
+      <text class="section-title">全部分类</text>
+    </view>
+    <view wx:if="{{categories.length === 0}}" class="empty-box">
+      <text class="empty-text">加载中...</text>
+    </view>
+    <view wx:else class="category-grid">
+      <view wx:for="{{categories}}" wx:key="name" class="category-item" bindtap="onCategoryTap" data-name="{{item.name}}">
+        <view class="category-box">
+          <text class="category-text">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="wallpapers-view">
+    <view class="sub-header">
+      <text class="back-btn" bindtap="onBackToCategories">← 返回分类</text>
+      <text class="sub-title">{{selectedCategory}}</text>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading-box">
+      <text class="loading-text">加载中...</text>
+    </view>
+    <view wx:elif="{{wallpapers.length === 0}}" class="empty-box">
+      <text class="empty-text">暂无壁纸</text>
+    </view>
+    <view wx:else>
+      <view class="wallpaper-grid">
+        <view wx:for="{{wallpapers}}" wx:key="id" class="wallpaper-card" bindtap="onWallpaperTap" data-item="{{item}}">
+          <image class="wallpaper-image" src="{{item.thumbnailUrl || item.previewUrl}}" mode="aspectFill" lazy-load binderror="onImageError" data-index="{{index}}"></image>
+        </view>
+      </view>
+      <view class="pagination" wx:if="{{totalPages > 1}}">
+        <text class="page-btn {{currentPage <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</text>
+        <text class="page-info">{{currentPage}} / {{totalPages}}</text>
+        <text class="page-btn {{currentPage >= totalPages ? 'disabled' : ''}}" bindtap="nextPage">下一页</text>
+      </view>
+    </view>
+  </view>
+</view>

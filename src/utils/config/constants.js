@@ -6,7 +6,7 @@
 // - 本地开发：使用此默认值
 // - 线上构建：GitHub Actions 会自动替换为图床最新 tag
 // - jsdelivr 缓存策略：@main 分支有缓存，@tag 版本无缓存
-export const CDN_VERSION = 'v1.1.29'
+export const CDN_VERSION = 'v1.3.3'
 
 export const CDN_DOMAINS = {
   PRIMARY: 'cdn.jsdmirror.com',
@@ -30,7 +30,7 @@ const _cdnParts = {
 const CDN_BASE = `${_cdnParts.p}${_cdnParts.h}${_cdnParts.g}${_cdnParts.r}`
 
 // ========================================
-// 四大系列配置
+// 五大系列配置
 // ========================================
 export const SERIES_CONFIG = {
   desktop: {
@@ -100,12 +100,24 @@ export const SERIES_CONFIG = {
     // Bing 仅 PC 端显示
     pcOnly: true,
   },
+  video: {
+    id: 'video',
+    name: '视频壁纸',
+    icon: 'video',
+    imageBaseUrl: `${CDN_BASE}/wallpaper/video`,
+    thumbnailBaseUrl: `${CDN_BASE}/thumbnail/video`,
+    indexUrl: `${import.meta.env.BASE_URL}data/video/index.json${DATA_CACHE_BUSTER}`,
+    latestUrl: `${import.meta.env.BASE_URL}data/video/latest.json${DATA_CACHE_BUSTER}`,
+    dataUrl: `${import.meta.env.BASE_URL}data/video.json${DATA_CACHE_BUSTER}`,
+    categoryBaseUrl: `${import.meta.env.BASE_URL}data/video`,
+    aspectRatio: '16/9',
+  },
 }
 
 // 设备可见的系列（PC端显示所有系列，平板显示所有系列，移动端不显示 Bing）
 export const DEVICE_SERIES = {
-  desktop: ['desktop', 'bing', 'mobile', 'avatar'], // PC端可见所有系列
-  tablet: ['desktop', 'bing', 'mobile', 'avatar'], // 平板可见所有系列
+  desktop: ['desktop', 'bing', 'mobile', 'avatar', 'video'], // PC端可见所有系列
+  tablet: ['desktop', 'bing', 'mobile', 'avatar', 'video'], // 平板可见所有系列
   mobile: ['mobile', 'avatar'], // 移动端只显示手机壁纸和头像（Bing 仅 PC 端）
 }
 
@@ -117,7 +129,7 @@ export const DEFAULT_SERIES = {
 }
 
 // 所有系列ID列表
-export const ALL_SERIES = ['desktop', 'bing', 'mobile', 'avatar']
+export const ALL_SERIES = ['desktop', 'bing', 'mobile', 'avatar', 'video']
 
 // ========================================
 // 图片代理服务配置（备用方案，如本地缩略图不可用时使用）

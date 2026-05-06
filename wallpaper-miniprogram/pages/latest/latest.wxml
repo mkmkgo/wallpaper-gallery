@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="section-header">
+    <text class="section-title">最新壁纸</text>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-box">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <view wx:elif="{{dateGroups.length === 0}}" class="empty-box">
+    <text class="empty-text">暂无壁纸</text>
+  </view>
+
+  <view wx:else>
+    <scroll-view scroll-x class="date-scroll">
+      <view class="date-list">
+        <view wx:for="{{dateGroups}}" wx:key="date" class="date-item" bindtap="onDateTap" data-date="{{item.date}}">
+          <view class="date-box">
+            <text class="date-text">{{item.date}}</text>
+            <text class="date-count">共{{item.count}}张</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="wallpaper-list">
+      <block wx:for="{{dateGroups}}" wx:key="date">
+        <view class="date-group">
+          <view class="date-group-header" bindtap="onDateTap" data-date="{{item.date}}">
+            <text class="date-group-title">{{item.date}}</text>
+            <text class="date-group-count">共{{item.count}}张 →</text>
+          </view>
+          <view class="wallpaper-grid">
+            <view wx:for="{{item.wallpapers}}" wx:for-item="wp" wx:key="id" class="wallpaper-card" bindtap="onWallpaperTap" data-item="{{wp}}">
+              <image class="wallpaper-image" src="{{wp.thumbnailUrl || wp.previewUrl}}" mode="aspectFill" lazy-load binderror="onImageError" data-group-index="{{index}}" data-wp-index="{{index}}" data-item="{{wp}}"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

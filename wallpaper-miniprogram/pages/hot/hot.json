@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wallpaper-grid": "/components/wallpaper-grid/wallpaper-grid"
+  }
+}
