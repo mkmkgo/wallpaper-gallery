@@ -116,13 +116,20 @@ function startStaticServer() {
   })
 }
 
-const PRERENDER_TIMEOUT = Number(process.env.PRERENDER_TIMEOUT || 120000)
-
 async function waitForSeo(page, route, baseUrl) {
   await page.goto(`${baseUrl}${route}`, {
-    waitUntil: 'networkidle0',
-    timeout: PRERENDER_TIMEOUT,
+    waitUntil: 'domcontentloaded',
+    timeout: 60000,
   })
+
+  await page.waitForFunction(() => {
+    const title = document.title || ''
+    const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || ''
+    const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || ''
+    return Boolean(title.trim()) && Boolean(canonical.trim()) && Boolean(description.trim())
+  }, { timeout: 15000 })
+
+  await page.waitForFunction(() => document.querySelector('#app')?.children.length > 0, { timeout: 15000 })
   await new Promise(resolve => setTimeout(resolve, 500))
 }
 
@@ -169,14 +176,21 @@ async function main() {
     console.log('Prerender complete.')
   }
   finally {
-    if (browser) {
+    if (browser)
       await browser.close()
-    }
-    server.close()
+
+    await new Promise((resolve, reject) => {
+      server.close((error) => {
+        if (error)
+          reject(error)
+        else
+          resolve()
+      })
+    })
   }
 }
 
 main().catch((error) => {
-  console.error('\n❌ Prerender failed:', error.message)
+  console.error(error)
   process.exit(1)
 })
