@@ -8,7 +8,8 @@
     "pages/hot/hot",
     "pages/latest-list/latest-list",
     "pages/bing-list/bing-list",
-    "pages/desktop-list/desktop-list"
+    "pages/desktop-list/desktop-list",
+    "pages/collection-detail/collection-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

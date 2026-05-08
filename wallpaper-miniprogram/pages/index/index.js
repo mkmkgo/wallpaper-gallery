@@ -1,21 +1,20 @@
 var wallpaperService = require("../../services/wallpaper");
+var api = require("../../utils/api");
+var config = require("../../utils/config");
 
 Page({
   data: {
-    collections: [
-      { id: "hot", name: "热门推荐" },
-      { id: "new", name: "最新上传" },
-      { id: "bing", name: "Bing每日" },
-      { id: "4k", name: "4K超清" }
+    quickNav: [
+      { id: "hot", name: "热门", color: "#FF6B6B" },
+      { id: "new", name: "最新", color: "#4ECDC4" },
+      { id: "bing", name: "Bing", color: "#45B7D1" },
+      { id: "4k", name: "4K", color: "#96CEB4" },
+      { id: "category", name: "分类", color: "#DDA0DD" }
     ],
-    navButtons: [
-      { id: "hd", name: "超清壁纸" },
-      { id: "collection", name: "壁纸合集" },
-      { id: "rank", name: "排行榜" },
-      { id: "custom", name: "传图定制" }
-    ],
-    categories: [],
+    collections: [],
     latestWallpapers: [],
+    portraitWallpapers: [],
+    animeWallpapers: [],
     loading: true,
     statusBarHeight: 44,
     navBarHeight: 44
@@ -27,15 +26,9 @@ Page({
     try {
       var menuButton = wx.getMenuButtonBoundingClientRect();
       var navBarHeight = (menuButton.top - statusBarHeight) * 2 + menuButton.height;
-      this.setData({
-        statusBarHeight: statusBarHeight,
-        navBarHeight: navBarHeight
-      });
+      this.setData({ statusBarHeight: statusBarHeight, navBarHeight: navBarHeight });
     } catch (e) {
-      this.setData({
-        statusBarHeight: statusBarHeight,
-        navBarHeight: 44
-      });
+      this.setData({ statusBarHeight: statusBarHeight, navBarHeight: 44 });
     }
     this.loadData();
   },
@@ -47,6 +40,7 @@ Page({
   },
 
   onPullDownRefresh: function() {
+    api.clearCache();
     this.loadData();
   },
 
@@ -54,9 +48,13 @@ Page({
     var that = this;
     that.setData({ loading: true });
 
-    wallpaperService.fetchCategories().then(function(categories) {
-      if (categories.length > 0) {
-        that.setData({ categories: categories.slice(0, 8) });
+    api.getCollections().then(function(collections) {
+      if (collections.length > 0) {
+        var processed = collections.map(function(c) {
+          c.coverUrl = c.cover ? wallpaperService.buildImageUrl(c.cover) : "";
+          return c;
+        });
+        that.setData({ collections: processed });
       }
     });
 
@@ -70,79 +68,77 @@ Page({
       that.setData({ loading: false });
       wx.stopPullDownRefresh();
     });
-  },
 
-  onCollectionTap: function(e) {
-    var id = e.currentTarget.dataset.id;
-    if (id === "hot") {
-      wx.navigateTo({
-        url: "/pages/hot/hot"
-      });
-    } else if (id === "new") {
-      wx.navigateTo({
-        url: "/pages/latest-list/latest-list"
-      });
-    } else if (id === "bing") {
-      wx.navigateTo({
-        url: "/pages/bing-list/bing-list"
-      });
-    } else if (id === "4k") {
-      wx.navigateTo({
-        url: "/pages/desktop-list/desktop-list"
-      });
-    } else {
-      wx.switchTab({
-        url: "/pages/category/category"
-      });
-    }
-  },
+    wallpaperService.fetchWallpapers("人像").then(function(wallpapers) {
+      var shuffled = that.shuffleArray(wallpapers);
+      that.setData({ portraitWallpapers: shuffled.slice(0, 20) });
+    });
 
-  onNavTap: function(e) {
-    var id = e.currentTarget.dataset.id;
-    if (id === "hd" || id === "collection") {
-      wx.switchTab({
-        url: "/pages/category/category"
+    wallpaperService.fetchWallpapers("动漫").then(function(animeWps) {
+      wallpaperService.fetchWallpapers("游戏").then(function(gameWps) {
+        var combined = animeWps.concat(gameWps);
+        var shuffled = that.shuffleArray(combined);
+        that.setData({ animeWallpapers: shuffled.slice(0, 20) });
       });
-    } else if (id === "rank") {
-      wx.navigateTo({
-        url: "/pages/hot/hot"
-      });
-    } else if (id === "custom") {
-      wx.switchTab({
-        url: "/pages/category/category"
-      });
-    }
-  },
-
-  onCategoryMore: function() {
-    wx.switchTab({
-      url: "/pages/category/category"
     });
   },
 
-  onCategoryTap: function(e) {
-    var name = e.currentTarget.dataset.name;
+  shuffleArray: function(arr) {
+    var array = arr.slice();
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  },
+
+  onQuickNav: function(e) {
+    var id = e.currentTarget.dataset.id;
+    if (id === "hot") {
+      wx.navigateTo({ url: "/pages/hot/hot" });
+    } else if (id === "new") {
+      wx.navigateTo({ url: "/pages/latest-list/latest-list" });
+    } else if (id === "bing") {
+      wx.navigateTo({ url: "/pages/bing-list/bing-list" });
+    } else if (id === "4k") {
+      wx.navigateTo({ url: "/pages/desktop-list/desktop-list" });
+    } else if (id === "category") {
+      wx.switchTab({ url: "/pages/category/category" });
+    }
+  },
+
+  onCollectionTap: function(e) {
+    var collection = e.currentTarget.dataset.item;
+    if (!collection) return;
     wx.navigateTo({
-      url: "/pages/category/category?name=" + encodeURIComponent(name)
+      url: "/pages/collection-detail/collection-detail?data=" + encodeURIComponent(JSON.stringify({
+        name: collection.name,
+        items: collection.items || []
+      }))
     });
   },
 
   onWallpaperTap: function(e) {
     var wallpaper = e.currentTarget.dataset.item;
     if (wallpaper && wallpaper.id) {
-      getApp().globalData.currentWallpaper = {
-        category: wallpaper.category || "",
-        subcategory: wallpaper.subcategory || "",
-        filename: wallpaper.filename || wallpaper.id || "",
-        displayTitle: wallpaper.displayTitle || "",
-        resolution: wallpaper.resolution || null,
-        size: wallpaper.size || 0,
-        format: wallpaper.format || ""
-      };
-      wx.navigateTo({
-        url: "/pages/detail/detail?id=" + wallpaper.id + "&url=" + encodeURIComponent(wallpaper.url || wallpaper.thumbnailUrl || "") + "&preview=" + encodeURIComponent(wallpaper.previewUrl || wallpaper.thumbnailUrl || "")
-      });
+      this.navigateToDetail(wallpaper);
     }
+  },
+
+  navigateToDetail: function(wallpaper) {
+    getApp().globalData.currentWallpaper = {
+      category: wallpaper.category || "", subcategory: wallpaper.subcategory || "",
+      filename: wallpaper.filename || wallpaper.id || "", displayTitle: wallpaper.displayTitle || "",
+      resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || "",
+      path: wallpaper.path || "", thumbnailPath: wallpaper.thumbnailPath || "",
+      previewPath: wallpaper.previewPath || "", cdnTag: wallpaper.cdnTag || "",
+      urlbase: wallpaper.urlbase || "", isBing: !!(wallpaper.urlbase || wallpaper.isBing)
+    };
+    wx.navigateTo({
+      url: "/pages/detail/detail?id=" + wallpaper.id + "&url=" + encodeURIComponent(wallpaper.url || wallpaper.thumbnailUrl || "") + "&preview=" + encodeURIComponent(wallpaper.previewUrl || wallpaper.thumbnailUrl || "")
+    });
   },
 
   onImageError: function(e) {
@@ -153,7 +149,7 @@ Page({
     var key = list + "[" + idx + "].";
     if (item._fallbackStep === undefined) {
       item._fallbackStep = 1;
-      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || "" });
+      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || item.thumbnailProxyUrl || "" });
     } else if (item._fallbackStep === 1) {
       item._fallbackStep = 2;
       this.setData({ [key + "thumbnailUrl"]: item.thumbnailProxyUrl || "" });
@@ -161,8 +157,13 @@ Page({
   },
 
   navigateToLatestList: function() {
+    wx.navigateTo({ url: "/pages/latest-list/latest-list" });
+  },
+
+  navigateToCategory: function(e) {
+    var name = e.currentTarget.dataset.name;
     wx.navigateTo({
-      url: "/pages/latest-list/latest-list"
+      url: "/pages/category/category?name=" + encodeURIComponent(name)
     });
   }
 });

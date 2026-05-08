@@ -1,4 +1,5 @@
 var ad = require("../../utils/ad");
+var config = require("../../utils/config");
 var wallpaperService = require("../../services/wallpaper");
 
 function formatFileSize(bytes) {
@@ -26,7 +27,8 @@ Page({
     wpResolution: "",
     wpSize: "",
     wpFormat: "",
-    _fallbackStep: 0
+    _fallbackStep: 0,
+    imageLoaded: false
   },
 
   onLoad: function(options) {
@@ -49,16 +51,40 @@ Page({
     if (options) {
       var imageUrl = options.url ? decodeURIComponent(options.url) : "";
       var previewUrl = options.preview ? decodeURIComponent(options.preview) : "";
-      var imageUrlCdn = imageUrl.replace(wallpaperService.buildRawUrl(""), wallpaperService.buildCdnUrl(""));
-      var previewUrlCdn = previewUrl.replace(wallpaperService.buildRawUrl(""), wallpaperService.buildCdnUrl(""));
+      var isBing = wp.isBing;
+      var imageUrlCdn = "";
+      var previewUrlCdn = "";
       var imageUrlProxy = "";
       var previewUrlProxy = "";
-      if (imageUrl) {
-        imageUrlProxy = "https://wsrv.nl/?url=" + encodeURIComponent(imageUrl) + "&output=webp";
+
+      if (isBing) {
+        imageUrlCdn = imageUrl;
+        previewUrlCdn = previewUrl;
+      } else {
+        if (wp.path) {
+          imageUrlCdn = wallpaperService.buildFallbackCdnUrl(wp.path, 1, wp.cdnTag);
+          imageUrlProxy = wallpaperService.buildProxyUrl(wp.path);
+        } else if (imageUrl) {
+          var primaryDomain = config.API_CONFIG.CDN_DOMAINS[0];
+          var fallbackDomain = config.API_CONFIG.CDN_DOMAINS[1] || "";
+          if (fallbackDomain) {
+            imageUrlCdn = imageUrl.replace(primaryDomain, fallbackDomain);
+          }
+          imageUrlProxy = wallpaperService.buildProxyUrl(wp.path || "");
+        }
+        if (wp.previewPath) {
+          previewUrlCdn = wallpaperService.buildFallbackCdnUrl(wp.previewPath, 1, wp.cdnTag);
+          previewUrlProxy = wallpaperService.buildProxyUrl(wp.previewPath);
+        } else if (previewUrl) {
+          var primaryDomain2 = config.API_CONFIG.CDN_DOMAINS[0];
+          var fallbackDomain2 = config.API_CONFIG.CDN_DOMAINS[1] || "";
+          if (fallbackDomain2) {
+            previewUrlCdn = previewUrl.replace(primaryDomain2, fallbackDomain2);
+          }
+          previewUrlProxy = wallpaperService.buildProxyUrl(wp.previewPath || wp.path || "");
+        }
       }
-      if (previewUrl) {
-        previewUrlProxy = "https://wsrv.nl/?url=" + encodeURIComponent(previewUrl) + "&output=webp";
-      }
+
       this.setData({
         wallpaperId: options.id || "",
         imageUrl: imageUrl,
@@ -86,16 +112,20 @@ Page({
     if (step === 0) {
       this.setData({
         _fallbackStep: 1,
-        previewUrl: this.data.previewUrlCdn || this.data.imageUrlCdn || "",
-        imageUrl: this.data.imageUrlCdn || ""
+        previewUrl: this.data.previewUrlCdn || this.data.previewUrlProxy || "",
+        imageUrl: this.data.imageUrlCdn || this.data.imageUrlProxy || ""
       });
     } else if (step === 1) {
       this.setData({
         _fallbackStep: 2,
-        previewUrl: this.data.previewUrlProxy || this.data.imageUrlProxy || "",
+        previewUrl: this.data.previewUrlProxy || "",
         imageUrl: this.data.imageUrlProxy || ""
       });
     }
+  },
+
+  onImageLoaded: function() {
+    this.setData({ imageLoaded: true });
   },
 
   onImageTap: function() {
@@ -104,7 +134,7 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: "精美壁纸 - " + (this.data.wallpaperId || ""),
+      title: "精美壁纸 - " + (this.data.wpFilename || this.data.wallpaperId || ""),
       path: "/pages/detail/detail?id=" + this.data.wallpaperId
     };
   },
@@ -187,13 +217,13 @@ Page({
     if (step === 0) {
       this.setData({
         _fallbackStep: 1,
-        previewUrl: this.data.previewUrlCdn || this.data.imageUrlCdn || "",
-        imageUrl: this.data.imageUrlCdn || ""
+        previewUrl: this.data.previewUrlCdn || this.data.previewUrlProxy || "",
+        imageUrl: this.data.imageUrlCdn || this.data.imageUrlProxy || ""
       });
     } else if (step === 1) {
       this.setData({
         _fallbackStep: 2,
-        previewUrl: this.data.previewUrlProxy || this.data.imageUrlProxy || "",
+        previewUrl: this.data.previewUrlProxy || "",
         imageUrl: this.data.imageUrlProxy || ""
       });
     }

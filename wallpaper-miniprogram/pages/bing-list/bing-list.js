@@ -63,7 +63,7 @@ Page({
     var key = "wallpapers[" + idx + "].";
     if (item._fallbackStep === undefined) {
       item._fallbackStep = 1;
-      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || "" });
+      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || item.thumbnailProxyUrl || "" });
     } else if (item._fallbackStep === 1) {
       item._fallbackStep = 2;
       this.setData({ [key + "thumbnailUrl"]: item.thumbnailProxyUrl || "" });
@@ -76,7 +76,10 @@ Page({
       getApp().globalData.currentWallpaper = {
         category: wallpaper.category || "", subcategory: wallpaper.subcategory || "",
         filename: wallpaper.filename || wallpaper.id || "", displayTitle: wallpaper.displayTitle || "",
-        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || ""
+        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || "",
+        path: wallpaper.path || "", thumbnailPath: wallpaper.thumbnailPath || "",
+        previewPath: wallpaper.previewPath || "", cdnTag: wallpaper.cdnTag || "",
+        urlbase: wallpaper.urlbase || "", isBing: !!(wallpaper.urlbase || wallpaper.isBing)
       };
       wx.navigateTo({
         url: "/pages/detail/detail?id=" + wallpaper.id + "&url=" + encodeURIComponent(wallpaper.url || wallpaper.thumbnailUrl || "") + "&preview=" + encodeURIComponent(wallpaper.previewUrl || wallpaper.thumbnailUrl || "")

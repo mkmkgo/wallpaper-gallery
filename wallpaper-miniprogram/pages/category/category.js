@@ -5,18 +5,20 @@ Page({
     categories: [],
     selectedCategory: "",
     wallpapers: [],
+    allWallpapers: [],
     currentPage: 1,
-    totalPages: 1,
     pageSize: 28,
+    hasMore: true,
     showCategories: true,
-    loading: false
+    loading: false,
+    loadingMore: false
   },
 
   onLoad: function(options) {
     if (options && options.name) {
       var name = decodeURIComponent(options.name);
       this.setData({ selectedCategory: name, showCategories: false });
-      this.loadWallpapers(name, 1);
+      this.loadWallpapers(name);
     }
     this.loadCategories();
   },
@@ -40,27 +42,27 @@ Page({
       selectedCategory: name,
       showCategories: false,
       currentPage: 1,
-      wallpapers: []
+      wallpapers: [],
+      allWallpapers: [],
+      hasMore: true
     });
-    this.loadWallpapers(name, 1);
+    this.loadWallpapers(name);
   },
 
   onBackToCategories: function() {
-    this.setData({ showCategories: true, wallpapers: [], selectedCategory: "" });
+    this.setData({ showCategories: true, wallpapers: [], allWallpapers: [], selectedCategory: "", hasMore: true });
   },
 
-  loadWallpapers: function(category, page) {
+  loadWallpapers: function(category) {
     var that = this;
     that.setData({ loading: true });
     wallpaperService.fetchWallpapers(category).then(function(wallpapers) {
-      var total = wallpapers.length;
-      var totalPages = Math.ceil(total / that.data.pageSize) || 1;
-      var start = (page - 1) * that.data.pageSize;
-      var end = start + that.data.pageSize;
+      var firstPage = wallpapers.slice(0, that.data.pageSize);
       that.setData({
-        wallpapers: wallpapers.slice(start, end),
-        currentPage: page,
-        totalPages: totalPages,
+        allWallpapers: wallpapers,
+        wallpapers: firstPage,
+        currentPage: 1,
+        hasMore: wallpapers.length > that.data.pageSize,
         loading: false
       });
     }).catch(function() {
@@ -68,16 +70,27 @@ Page({
     });
   },
 
-  prevPage: function() {
-    if (this.data.currentPage > 1) {
-      this.loadWallpapers(this.data.selectedCategory, this.data.currentPage - 1);
-    }
-  },
+  onLoadMore: function() {
+    var that = this;
+    if (that.data.loadingMore || !that.data.hasMore) return;
+    var nextPage = that.data.currentPage + 1;
+    var start = that.data.currentPage * that.data.pageSize;
+    var end = start + that.data.pageSize;
+    var moreWallpapers = that.data.allWallpapers.slice(start, end);
 
-  nextPage: function() {
-    if (this.data.currentPage < this.data.totalPages) {
-      this.loadWallpapers(this.data.selectedCategory, this.data.currentPage + 1);
+    if (moreWallpapers.length === 0) {
+      that.setData({ hasMore: false });
+      return;
     }
+
+    that.setData({ loadingMore: true });
+    var currentWallpapers = that.data.wallpapers.concat(moreWallpapers);
+    that.setData({
+      wallpapers: currentWallpapers,
+      currentPage: nextPage,
+      hasMore: end < that.data.allWallpapers.length,
+      loadingMore: false
+    });
   },
 
   onImageError: function(e) {
@@ -87,7 +100,7 @@ Page({
     var key = "wallpapers[" + idx + "].";
     if (item._fallbackStep === undefined) {
       item._fallbackStep = 1;
-      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || "" });
+      this.setData({ [key + "thumbnailUrl"]: item.thumbnailCdnUrl || item.thumbnailProxyUrl || "" });
     } else if (item._fallbackStep === 1) {
       item._fallbackStep = 2;
       this.setData({ [key + "thumbnailUrl"]: item.thumbnailProxyUrl || "" });
@@ -100,7 +113,10 @@ Page({
       getApp().globalData.currentWallpaper = {
         category: wallpaper.category || "", subcategory: wallpaper.subcategory || "",
         filename: wallpaper.filename || wallpaper.id || "", displayTitle: wallpaper.displayTitle || "",
-        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || ""
+        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || "",
+        path: wallpaper.path || "", thumbnailPath: wallpaper.thumbnailPath || "",
+        previewPath: wallpaper.previewPath || "", cdnTag: wallpaper.cdnTag || "",
+        urlbase: wallpaper.urlbase || "", isBing: !!(wallpaper.urlbase || wallpaper.isBing)
       };
       wx.navigateTo({
         url: "/pages/detail/detail?id=" + wallpaper.id + "&url=" + encodeURIComponent(wallpaper.url || wallpaper.thumbnailUrl || "") + "&preview=" + encodeURIComponent(wallpaper.previewUrl || wallpaper.thumbnailUrl || "")

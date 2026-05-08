@@ -76,7 +76,7 @@ Page({
         if (wps[w].id === wp.id) {
           if (wps[w]._fallbackStep === undefined) {
             wps[w]._fallbackStep = 1;
-            this.setData({ ["dateGroups[" + g + "].wallpapers[" + w + "].thumbnailUrl"]: wps[w].thumbnailCdnUrl || "" });
+            this.setData({ ["dateGroups[" + g + "].wallpapers[" + w + "].thumbnailUrl"]: wps[w].thumbnailCdnUrl || wps[w].thumbnailProxyUrl || "" });
           } else if (wps[w]._fallbackStep === 1) {
             wps[w]._fallbackStep = 2;
             this.setData({ ["dateGroups[" + g + "].wallpapers[" + w + "].thumbnailUrl"]: wps[w].thumbnailProxyUrl || "" });
@@ -93,7 +93,10 @@ Page({
       getApp().globalData.currentWallpaper = {
         category: wallpaper.category || "", subcategory: wallpaper.subcategory || "",
         filename: wallpaper.filename || wallpaper.id || "", displayTitle: wallpaper.displayTitle || "",
-        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || ""
+        resolution: wallpaper.resolution || null, size: wallpaper.size || 0, format: wallpaper.format || "",
+        path: wallpaper.path || "", thumbnailPath: wallpaper.thumbnailPath || "",
+        previewPath: wallpaper.previewPath || "", cdnTag: wallpaper.cdnTag || "",
+        urlbase: wallpaper.urlbase || "", isBing: !!(wallpaper.urlbase || wallpaper.isBing)
       };
       wx.navigateTo({
         url: "/pages/detail/detail?id=" + wallpaper.id + "&url=" + encodeURIComponent(wallpaper.url || wallpaper.thumbnailUrl || "") + "&preview=" + encodeURIComponent(wallpaper.previewUrl || wallpaper.thumbnailUrl || "")
