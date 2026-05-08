@@ -87,6 +87,9 @@ jobs:
             echo "?? Data directory not found, fallback to pnpm sync"
             pnpm sync
           fi
+          if [ -f "public/data/collections.json" ]; then
+            echo "? collections.json preserved"
+          fi
 
       - name: Sync wallpaper assets to Supabase
         env:
