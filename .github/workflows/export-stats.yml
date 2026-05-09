@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
 
     steps:
       - name: Checkout repository
@@ -50,3 +51,32 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "chore: update stats data"
           git push
+
+      - name: Push stats to CDN repository
+        if: steps.check_changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CDN_REPO="mkmkgo/nuanXinProPic"
+          STATS_DIR="public/data/stats"
+
+          echo "Cloning CDN repository: $CDN_REPO"
+          git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/${CDN_REPO}.git" /tmp/cdn-repo
+
+          echo "Copying stats files to CDN repository"
+          mkdir -p "/tmp/cdn-repo/data/stats"
+          cp -r "${STATS_DIR}/." "/tmp/cdn-repo/data/stats/"
+
+          cd /tmp/cdn-repo
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          if git diff --quiet; then
+            echo "No changes to commit in CDN repo"
+          else
+            echo "Committing and pushing to CDN repository"
+            git add data/stats/
+            git commit -m "chore: sync stats data from wallpaper-gallery"
+            git push
+            echo "Successfully pushed stats to CDN repository"
+          fi
