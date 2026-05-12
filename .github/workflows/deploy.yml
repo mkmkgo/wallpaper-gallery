@@ -130,3 +130,20 @@ jobs:
           else
             echo "ℹ️ No data changes to sync"
           fi
+
+      # 8. 刷新 jsDelivr CDN 缓存（确保同步的数据立即生效，避免缓存延迟）
+      - name: Purge jsDelivr CDN cache
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          CDN_FILES=(
+            "gh/mkmkgo/nuanXinProPic@main/data/mobile/index.json"
+            "gh/mkmkgo/nuanXinProPic@main/data/mobile/latest.json"
+            "gh/mkmkgo/nuanXinProPic@main/data/stats/hot-mobile.json"
+            "gh/mkmkgo/nuanXinProPic@main/data/collections.json"
+          )
+          for file in "\${CDN_FILES[@]}"; do
+            echo "Purging CDN cache: https://purge.jsdelivr.net/\$file"
+            curl -s "https://purge.jsdelivr.net/\$file"
+            echo ""
+          done
+          echo "✅ CDN cache purged"
