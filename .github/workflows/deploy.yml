@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   deployments: write
 
 concurrency:
@@ -111,3 +111,22 @@ jobs:
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
+
+      # 7. 同步更新的数据回 nuanXinProPic 仓库（让小程序 CDN 能读到最新数据）
+      - name: Sync updated data back to nuanXinProPic
+        run: |
+          cd nuanXinProPic
+
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # 检查数据目录是否有变化
+          if git diff --stat | grep -q "data/"; then
+            echo "📤 Data changes detected, pushing to nuanXinProPic..."
+            git add data/
+            git commit -m "sync: update wallpaper data from wallpaper-gallery"
+            git push
+            echo "✅ Successfully synced data to nuanXinProPic"
+          else
+            echo "ℹ️ No data changes to sync"
+          fi
