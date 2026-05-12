@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T19:15:25.171Z",
+  "generatedAt": "2026-05-12T19:15:58.952Z",
   "series": "desktop",
   "total": 34,
   "tags": [
@@ -32,8 +32,28 @@
       ]
     },
     {
+      "tag": "日落",
+      "score": 3,
+      "views": 3,
+      "downloads": 1,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/风景/日落/%E7%AE%80%E7%BA%A6%E9%A3%8E_%E6%97%A5%E8%90%BD.webp",
+          "cdnTag": "v1.1.4"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "人像",
-      "score": 4,
+      "score": 3,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -60,11 +80,11 @@
       ]
     },
     {
-      "tag": "日落",
-      "score": 3,
-      "views": 3,
+      "tag": "简约风",
+      "score": 2,
+      "views": 2,
       "downloads": 1,
-      "wallpaperCount": 2,
+      "wallpaperCount": 1,
       "series": [
         "desktop"
       ],
@@ -72,16 +92,12 @@
         {
           "thumbnail": "/thumbnail/desktop/风景/日落/%E7%AE%80%E7%BA%A6%E9%A3%8E_%E6%97%A5%E8%90%BD.webp",
           "cdnTag": "v1.1.4"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
-          "cdnTag": "v1.2.59"
         }
       ]
     },
     {
       "tag": "清新",
-      "score": 3,
+      "score": 2,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -105,7 +121,7 @@
     },
     {
       "tag": "插画",
-      "score": 3,
+      "score": 2,
       "views": 3,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -125,7 +141,7 @@
     },
     {
       "tag": "魅力",
-      "score": 3,
+      "score": 2,
       "views": 3,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -144,56 +160,8 @@
       ]
     },
     {
-      "tag": "简约风",
-      "score": 2,
-      "views": 2,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/风景/日落/%E7%AE%80%E7%BA%A6%E9%A3%8E_%E6%97%A5%E8%90%BD.webp",
-          "cdnTag": "v1.1.4"
-        }
-      ]
-    },
-    {
       "tag": "创意",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "梦幻",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "樱花",
-      "score": 2,
+      "score": 1,
       "views": 2,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -252,6 +220,38 @@
         {
           "thumbnail": "/thumbnail/desktop/风景/花卉/%E8%8A%B1%E6%9C%B5-%E8%93%9D%E5%A4%A9.webp",
           "cdnTag": "v1.1.13"
+        }
+      ]
+    },
+    {
+      "tag": "梦幻",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "樱花",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-11T19:15:25.360Z",
+  "generatedAt": "2026-05-12T19:15:59.139Z",
   "series": "all",
   "total": 72,
   "tags": [
     {
       "tag": "人像",
-      "score": 20,
+      "score": 19,
       "views": 28,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -17,14 +17,14 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
-        "20260408171457.jpeg",
         "20260406201611.jpeg",
-        "20260408165518.jpeg"
+        "20260408165518.jpeg",
+        "20260408171457.jpeg"
       ]
     },
     {
       "tag": "插画",
-      "score": 11,
+      "score": 10,
       "views": 13,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -34,15 +34,15 @@
       ],
       "topWallpapers": [
         "20260408163808.jpeg",
-        "20260406201533.png",
         "20260408165518.jpeg",
+        "20260406201533.png",
         "雨中绿意小猫.jpeg",
         "20260408170413.jpeg"
       ]
     },
     {
       "tag": "魅力",
-      "score": 11,
+      "score": 10,
       "views": 14,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -77,23 +77,6 @@
       ]
     },
     {
-      "tag": "清新",
-      "score": 5,
-      "views": 7,
-      "downloads": 0,
-      "wallpaperCount": 4,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408171457.jpeg",
-        "20260406201611.jpeg",
-        "20260406200444.jpeg",
-        "JK背影-少女远景.png"
-      ]
-    },
-    {
       "tag": "甜美",
       "score": 5,
       "views": 6,
@@ -107,6 +90,23 @@
         "20260408163808.jpeg",
         "20260406200444.jpeg",
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 4,
+      "views": 7,
+      "downloads": 0,
+      "wallpaperCount": 4,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg",
+        "20260408171457.jpeg",
+        "20260406200444.jpeg",
+        "JK背影-少女远景.png"
       ]
     },
     {
@@ -266,45 +266,6 @@
       ]
     },
     {
-      "tag": "创意",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "20260406201533.png"
-      ]
-    },
-    {
-      "tag": "梦幻",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "20260406201533.png"
-      ]
-    },
-    {
-      "tag": "樱花",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "20260406201533.png"
-      ]
-    },
-    {
       "tag": "海滨",
       "score": 2,
       "views": 2,
@@ -457,6 +418,19 @@
       ]
     },
     {
+      "tag": "创意",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201533.png"
+      ]
+    },
+    {
       "tag": "花朵",
       "score": 1,
       "views": 2,
@@ -480,6 +454,32 @@
       ],
       "topWallpapers": [
         "花朵-蓝天.png"
+      ]
+    },
+    {
+      "tag": "梦幻",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201533.png"
+      ]
+    },
+    {
+      "tag": "樱花",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201533.png"
       ]
     },
     {
