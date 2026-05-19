@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T19:10:48.475Z",
+  "generatedAt": "2026-05-19T19:24:36.617Z",
   "series": "all",
   "total": 72,
   "tags": [
@@ -59,24 +59,6 @@
       ]
     },
     {
-      "tag": "风景",
-      "score": 5,
-      "views": 8,
-      "downloads": 1,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg",
-        "花朵-蓝天.png",
-        "大海-岛屿-栈桥.png",
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png",
-        "湖面_火烧云.jpg"
-      ]
-    },
-    {
       "tag": "甜美",
       "score": 5,
       "views": 6,
@@ -90,6 +72,24 @@
         "20260408163808.jpeg",
         "20260406200444.jpeg",
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "风景",
+      "score": 4,
+      "views": 8,
+      "downloads": 1,
+      "wallpaperCount": 6,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "简约风_日落.jpg",
+        "花朵-蓝天.png",
+        "大海-岛屿-栈桥.png",
+        "湖面_火烧云.jpg",
+        "地球日出星环宇宙奇观.png"
       ]
     },
     {
@@ -263,21 +263,6 @@
       ],
       "topWallpapers": [
         "简约风_日落.jpg"
-      ]
-    },
-    {
-      "tag": "海滨",
-      "score": 2,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "大海-岛屿-栈桥.png",
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
       ]
     },
     {
@@ -509,6 +494,21 @@
       ]
     },
     {
+      "tag": "海滨",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "大海-岛屿-栈桥.png",
+        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
+      ]
+    },
+    {
       "tag": "猫咪",
       "score": 1,
       "views": 1,
@@ -654,19 +654,6 @@
       ]
     },
     {
-      "tag": "公路",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
-      ]
-    },
-    {
       "tag": "黑裙",
       "score": 1,
       "views": 1,
@@ -680,19 +667,6 @@
       ]
     },
     {
-      "tag": "黄昏",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
-      ]
-    },
-    {
       "tag": "快乐玩耍",
       "score": 1,
       "views": 1,
@@ -703,6 +677,32 @@
       ],
       "topWallpapers": [
         "20260408170413.jpeg"
+      ]
+    },
+    {
+      "tag": "绿轨迹",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "小清新-意境.png"
+      ]
+    },
+    {
+      "tag": "乌萨奇",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-03-27_140726_406.jpg"
       ]
     }
   ]
