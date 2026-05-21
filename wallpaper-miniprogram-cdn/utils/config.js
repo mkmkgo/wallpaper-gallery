@@ -5,6 +5,7 @@ var API_CONFIG = {
     "cdn.jsdelivr.net"
   ],
   CDN_REPO: "/gh/mkmkgo/nuanXinProPic",
+  CDN_VERSION: "1.3.35",
   RAW_BASE: "https://raw.githubusercontent.com/mkmkgo/nuanXinProPic",
   PROXY_BASE: "https://wsrv.nl",
   BING_CDN: "https://cn.bing.com"

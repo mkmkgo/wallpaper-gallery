@@ -26,15 +26,22 @@ jobs:
       - name: Get latest CDN version
         id: cdn_version
         run: |
-          LATEST_TAG=$(curl -s "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags" | jq -r '.[0].name // "v1.2.18"')
-          echo "version=$LATEST_TAG" >> $GITHUB_OUTPUT
-          echo "✅ Got latest CDN version: $LATEST_TAG"
+          LATEST_TAG=$(curl -s "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags" | jq -r '.[0].name // "v1.3.35"')
+          VERSION=${LATEST_TAG#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "✅ Got latest CDN version: $VERSION (tag: $LATEST_TAG)"
 
       - name: Update CDN version in constants.js
         run: |
-          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
+          CDN_VERSION="v${{ steps.cdn_version.outputs.version }}"
           sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
+
+      - name: Update CDN version in mini program config
+        run: |
+          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
+          sed -i "s/CDN_VERSION: \"[^\"]*\"/CDN_VERSION: \"$CDN_VERSION\"/" wallpaper-miniprogram-cdn/utils/config.js
+          echo "📦 Updated mini program config.js CDN_VERSION to: $CDN_VERSION"
 
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
