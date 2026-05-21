@@ -114,6 +114,7 @@ jobs:
 
       # 7. 同步更新的数据回 nuanXinProPic 仓库（让小程序 CDN 能读到最新数据）
       - name: Sync updated data back to nuanXinProPic
+        id: sync_data
         run: |
           cd nuanXinProPic
 
@@ -126,14 +127,26 @@ jobs:
             git add data/
             git commit -m "sync: update wallpaper data from wallpaper-gallery"
             git push
-            echo "✅ Successfully synced data to nuanXinProPic"
+
+            # 创建新 tag，让 jsDelivr @latest 指向最新数据
+            CURRENT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.3.0")
+            MAJOR=$(echo $CURRENT_TAG | cut -d. -f1)
+            MINOR=$(echo $CURRENT_TAG | cut -d. -f2)
+            PATCH=$(echo $CURRENT_TAG | cut -d. -f3)
+            NEW_PATCH=$((PATCH + 1))
+            NEW_TAG="${MAJOR}.${MINOR}.${NEW_PATCH}"
+            git tag "$NEW_TAG"
+            git push origin "$NEW_TAG"
+            echo "✅ Created new tag: $NEW_TAG"
+            echo "data_changed=true" >> $GITHUB_OUTPUT
           else
             echo "ℹ️ No data changes to sync"
+            echo "data_changed=false" >> $GITHUB_OUTPUT
           fi
-
 
       # 8. 刷新 jsDelivr CDN 缓存（确保同步的数据立即生效，避免缓存延迟）
       - name: Purge jsDelivr CDN cache
+        if: steps.sync_data.outputs.data_changed == 'true'
         run: |
           BASE="gh/mkmkgo/nuanXinProPic@latest"
           PURGE_PATHS=(
@@ -156,9 +169,10 @@ jobs:
               done
             fi
           done
+          echo "🗑️ Purging ${#PURGE_PATHS[@]} CDN files..."
           for path in "${PURGE_PATHS[@]}"; do
             echo "  Purging $path..."
-            curl -s -X POST "https://purge.jsdelivr.net/$path" | head -c 200
+            curl -s "https://purge.jsdelivr.net/$path" | head -c 200
             echo ""
             sleep 0.5
           done
