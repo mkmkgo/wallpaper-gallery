@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-20T19:37:20.049Z",
+  "generatedAt": "2026-05-21T19:23:40.051Z",
   "series": "all",
   "total": 72,
   "tags": [
     {
       "tag": "人像",
-      "score": 19,
+      "score": 18,
       "views": 28,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -42,7 +42,7 @@
     },
     {
       "tag": "魅力",
-      "score": 10,
+      "score": 9,
       "views": 14,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -159,45 +159,6 @@
       ]
     },
     {
-      "tag": "时尚",
-      "score": 4,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170344.jpeg"
-      ]
-    },
-    {
-      "tag": "纹身",
-      "score": 4,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170344.jpeg"
-      ]
-    },
-    {
-      "tag": "长发",
-      "score": 4,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170344.jpeg"
-      ]
-    },
-    {
       "tag": "日落",
       "score": 3,
       "views": 3,
@@ -224,6 +185,45 @@
       "topWallpapers": [
         "20260406201611.jpeg",
         "花朵-蓝天.png"
+      ]
+    },
+    {
+      "tag": "时尚",
+      "score": 3,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
+      ]
+    },
+    {
+      "tag": "纹身",
+      "score": 3,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
+      ]
+    },
+    {
+      "tag": "长发",
+      "score": 3,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
       ]
     },
     {

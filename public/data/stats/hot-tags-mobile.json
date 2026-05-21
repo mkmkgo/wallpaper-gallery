@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-20T19:37:19.974Z",
+  "generatedAt": "2026-05-21T19:23:39.968Z",
   "series": "mobile",
   "total": 43,
   "tags": [
     {
       "tag": "人像",
-      "score": 15,
+      "score": 14,
       "views": 22,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -32,30 +32,6 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
           "cdnTag": "v1.1.9"
-        }
-      ]
-    },
-    {
-      "tag": "魅力",
-      "score": 8,
-      "views": 11,
-      "downloads": 0,
-      "wallpaperCount": 3,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408164632.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
-          "cdnTag": "v1.2.41"
         }
       ]
     },
@@ -92,6 +68,30 @@
       ]
     },
     {
+      "tag": "魅力",
+      "score": 7,
+      "views": 11,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408164632.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
+          "cdnTag": "v1.2.41"
+        }
+      ]
+    },
+    {
       "tag": "黑丝",
       "score": 4,
       "views": 6,
@@ -108,22 +108,6 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
           "cdnTag": "v1.2.41"
-        }
-      ]
-    },
-    {
-      "tag": "时尚",
-      "score": 4,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -148,8 +132,24 @@
       ]
     },
     {
+      "tag": "时尚",
+      "score": 3,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "纹身",
-      "score": 4,
+      "score": 3,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -165,7 +165,7 @@
     },
     {
       "tag": "长发",
-      "score": 4,
+      "score": 3,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 1,
