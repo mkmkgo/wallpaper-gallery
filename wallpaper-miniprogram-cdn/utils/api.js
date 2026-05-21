@@ -76,14 +76,7 @@ function getCdnVersion() {
       return;
     }
     fetchVersionFromGithub().then(function(ver) {
-      if (ver) {
-        _cdnVersion = ver;
-        _cdnVersionTime = Date.now();
-        try { wx.setStorageSync("wp_cdn_ver", { v: ver, ts: Date.now() }); } catch (e) {}
-        _versionPromise = null;
-        resolve(ver);
-        return;
-      }
+      if (ver) return ver;
       return fetchVersionFromJsDelivr();
     }).then(function(ver) {
       if (ver) {
@@ -91,6 +84,7 @@ function getCdnVersion() {
         _cdnVersionTime = Date.now();
         try { wx.setStorageSync("wp_cdn_ver", { v: ver, ts: Date.now() }); } catch (e) {}
         _versionPromise = null;
+        console.log("[版本] 最终使用版本:", ver);
         resolve(ver);
         return;
       }
