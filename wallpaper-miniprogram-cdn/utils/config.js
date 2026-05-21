@@ -15,12 +15,7 @@ var AD_CONFIG = {
   AD_INTERSTITIAL_ID: "adunit-xxxxxxxxxxxxxxxx"
 };
 
-function fetchLatestCdnVersion(callback) {
-  if (callback) callback();
-}
-
 module.exports = {
   API_CONFIG: API_CONFIG,
-  AD_CONFIG: AD_CONFIG,
-  fetchLatestCdnVersion: fetchLatestCdnVersion
+  AD_CONFIG: AD_CONFIG
 };

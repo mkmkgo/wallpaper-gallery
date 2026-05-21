@@ -37,12 +37,6 @@ jobs:
           sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
 
-      - name: Update CDN version in mini program config
-        run: |
-          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
-          sed -i "s/CDN_VERSION: \"[^\"]*\"/CDN_VERSION: \"$CDN_VERSION\"/" wallpaper-miniprogram-cdn/utils/config.js
-          echo "📦 Updated mini program config.js CDN_VERSION to: $CDN_VERSION"
-
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
         with:

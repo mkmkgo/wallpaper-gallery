@@ -5,15 +5,22 @@ var CACHE_PREFIX = "wp_cache_";
 var CACHE_DURATION = 5 * 60 * 1000;
 
 var _cdnVersion = null;
+var _cdnVersionTime = 0;
 var _versionPromise = null;
+var VERSION_CACHE_MS = 2 * 60 * 1000;
 
 function getCdnVersion() {
-  if (_cdnVersion) return Promise.resolve(_cdnVersion);
+  if (_cdnVersion && Date.now() - _cdnVersionTime < VERSION_CACHE_MS) {
+    return Promise.resolve(_cdnVersion);
+  }
+  _cdnVersion = null;
   if (_versionPromise) return _versionPromise;
   _versionPromise = new Promise(function(resolve) {
     var cached = wx.getStorageSync("wp_cdn_ver");
-    if (cached && Date.now() - cached.ts < 5 * 60 * 1000) {
+    if (cached && Date.now() - cached.ts < VERSION_CACHE_MS) {
       _cdnVersion = cached.v;
+      _cdnVersionTime = Date.now();
+      _versionPromise = null;
       resolve(_cdnVersion);
       return;
     }
@@ -24,13 +31,17 @@ function getCdnVersion() {
       success: function(res) {
         if (res.statusCode === 200 && res.data && res.data.versions && res.data.versions.length > 0) {
           _cdnVersion = res.data.versions[0].version;
+          _cdnVersionTime = Date.now();
           try { wx.setStorageSync("wp_cdn_ver", { v: _cdnVersion, ts: Date.now() }); } catch (e) {}
+          _versionPromise = null;
           resolve(_cdnVersion);
         } else {
+          _versionPromise = null;
           resolve(null);
         }
       },
       fail: function() {
+        _versionPromise = null;
         resolve(null);
       }
     });
@@ -334,6 +345,7 @@ function getCollectionWallpapers(items) {
 
 function clearCache() {
   _cdnVersion = null;
+  _cdnVersionTime = 0;
   _versionPromise = null;
   try {
     var res = wx.getStorageInfoSync();
