@@ -4,51 +4,6 @@ var format = require("./format");
 var CACHE_PREFIX = "wp_cache_";
 var CACHE_DURATION = 5 * 60 * 1000;
 
-var _cdnVersion = null;
-var _cdnVersionTime = 0;
-var _versionPromise = null;
-var VERSION_CACHE_MS = 2 * 60 * 1000;
-
-function getCdnVersion() {
-  if (_cdnVersion && Date.now() - _cdnVersionTime < VERSION_CACHE_MS) {
-    return Promise.resolve(_cdnVersion);
-  }
-  _cdnVersion = null;
-  if (_versionPromise) return _versionPromise;
-  _versionPromise = new Promise(function(resolve) {
-    var cached = wx.getStorageSync("wp_cdn_ver");
-    if (cached && Date.now() - cached.ts < VERSION_CACHE_MS) {
-      _cdnVersion = cached.v;
-      _cdnVersionTime = Date.now();
-      _versionPromise = null;
-      resolve(_cdnVersion);
-      return;
-    }
-    wx.request({
-      url: "https://data.jsdelivr.com/v1/packages/gh/mkmkgo/nuanXinProPic",
-      method: "GET",
-      timeout: 8000,
-      success: function(res) {
-        if (res.statusCode === 200 && res.data && res.data.versions && res.data.versions.length > 0) {
-          _cdnVersion = res.data.versions[0].version;
-          _cdnVersionTime = Date.now();
-          try { wx.setStorageSync("wp_cdn_ver", { v: _cdnVersion, ts: Date.now() }); } catch (e) {}
-          _versionPromise = null;
-          resolve(_cdnVersion);
-        } else {
-          _versionPromise = null;
-          resolve(null);
-        }
-      },
-      fail: function() {
-        _versionPromise = null;
-        resolve(null);
-      }
-    });
-  });
-  return _versionPromise;
-}
-
 function getCacheKey(url) {
   return CACHE_PREFIX + url.replace(/[^a-zA-Z0-9]/g, "_");
 }
@@ -104,64 +59,61 @@ function buildCacheBuster() {
   return "" + y + (m < 10 ? "0" + m : "" + m) + (d < 10 ? "0" + d : "" + d) + (h < 10 ? "0" + h : "" + h) + (mi < 10 ? "0" + mi : "" + mi);
 }
 
-function buildCdnUrl(path, domainIndex, version) {
+function buildCdnUrl(path, domainIndex) {
   var idx = domainIndex || 0;
   var domain = config.API_CONFIG.CDN_DOMAINS[idx] || config.API_CONFIG.CDN_DOMAINS[0];
-  var ref = version ? "@" + version : "@main";
   var cleanPath = encodePath(path).replace(/^\//, "");
-  return "https://" + domain + config.API_CONFIG.CDN_REPO + ref + "/" + cleanPath + "?v=" + buildCacheBuster();
+  return "https://" + domain + config.API_CONFIG.CDN_REPO + "@main/" + cleanPath + "?v=" + buildCacheBuster();
 }
 
-function buildAllUrls(path, version) {
+function buildAllUrls(path) {
   var urls = [];
   for (var i = 0; i < config.API_CONFIG.CDN_DOMAINS.length; i++) {
-    urls.push(buildCdnUrl(path, i, version));
+    urls.push(buildCdnUrl(path, i));
   }
   return urls;
 }
 
 function request(path, retries) {
   var maxRetries = retries !== undefined ? retries : 2;
-  return getCdnVersion().then(function(version) {
-    var allUrls = buildAllUrls(path, version);
-    var cacheKey = allUrls[0];
-    var cached = getCache(cacheKey);
-    if (cached !== null) {
-      return Promise.resolve(cached);
-    }
-    function tryUrl(index, remaining) {
-      if (index >= allUrls.length) return Promise.resolve(null);
-      var currentUrl = allUrls[index];
-      return new Promise(function(resolve) {
-        wx.request({
-          url: currentUrl,
-          method: "GET",
-          timeout: 15000,
-          success: function(res) {
-            if (res.statusCode === 200 && res.data) {
-              setCache(cacheKey, res.data);
-              resolve(res.data);
-            } else if (remaining > 0) {
-              resolve(tryUrl(index, remaining - 1));
-            } else {
-              resolve(tryUrl(index + 1, maxRetries));
-            }
-          },
-          fail: function(error) {
-            console.error("请求失败:", currentUrl, error);
-            if (remaining > 0) {
-              setTimeout(function() {
-                resolve(tryUrl(index, remaining - 1));
-              }, 500);
-            } else {
-              resolve(tryUrl(index + 1, maxRetries));
-            }
+  var allUrls = buildAllUrls(path);
+  var cacheKey = allUrls[0];
+  var cached = getCache(cacheKey);
+  if (cached !== null) {
+    return Promise.resolve(cached);
+  }
+  function tryUrl(index, remaining) {
+    if (index >= allUrls.length) return Promise.resolve(null);
+    var currentUrl = allUrls[index];
+    return new Promise(function(resolve) {
+      wx.request({
+        url: currentUrl,
+        method: "GET",
+        timeout: 15000,
+        success: function(res) {
+          if (res.statusCode === 200 && res.data) {
+            setCache(cacheKey, res.data);
+            resolve(res.data);
+          } else if (remaining > 0) {
+            resolve(tryUrl(index, remaining - 1));
+          } else {
+            resolve(tryUrl(index + 1, maxRetries));
           }
-        });
+        },
+        fail: function(error) {
+          console.error("请求失败:", currentUrl, error);
+          if (remaining > 0) {
+            setTimeout(function() {
+              resolve(tryUrl(index, remaining - 1));
+            }, 500);
+          } else {
+            resolve(tryUrl(index + 1, maxRetries));
+          }
+        }
       });
-    }
-    return tryUrl(0, maxRetries);
-  });
+    });
+  }
+  return tryUrl(0, maxRetries);
 }
 
 function decodeResponse(data) {
@@ -344,9 +296,6 @@ function getCollectionWallpapers(items) {
 }
 
 function clearCache() {
-  _cdnVersion = null;
-  _cdnVersionTime = 0;
-  _versionPromise = null;
   try {
     var res = wx.getStorageInfoSync();
     var keys = res.keys || [];
