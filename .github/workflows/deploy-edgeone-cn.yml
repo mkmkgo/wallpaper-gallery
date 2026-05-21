@@ -109,7 +109,7 @@ jobs:
             if npx edgeone pages deploy ./dist \
               -n wallpaper-gallery-cn \
               -t ${{ secrets.EDGEONE_CN_API_TOKEN }} \
-              -a mainland \
+              -a global \
               -e production; then
               echo "✅ Deployment succeeded on attempt $i"
               exit 0
