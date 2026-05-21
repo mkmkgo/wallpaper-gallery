@@ -26,6 +26,7 @@ export default antfu({
     '.spec-workflow/**',
     '.github/**',
     '.husky/**',
+    'wallpaper-miniprogram',
     'auto-imports.d.ts',
     'components.d.ts',
   ],

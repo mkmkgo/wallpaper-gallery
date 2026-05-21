@@ -135,15 +135,31 @@ jobs:
       # 8. 刷新 jsDelivr CDN 缓存（确保同步的数据立即生效，避免缓存延迟）
       - name: Purge jsDelivr CDN cache
         run: |
-          CDN_FILES=(
-            "gh/mkmkgo/nuanXinProPic@main/data/mobile/index.json"
-            "gh/mkmkgo/nuanXinProPic@main/data/mobile/latest.json"
-            "gh/mkmkgo/nuanXinProPic@main/data/stats/hot-mobile.json"
-            "gh/mkmkgo/nuanXinProPic@main/data/collections.json"
+          BASE="gh/mkmkgo/nuanXinProPic@latest"
+          PURGE_PATHS=(
+            "$BASE/data/mobile/latest.json"
+            "$BASE/data/mobile/index.json"
+            "$BASE/data/desktop/latest.json"
+            "$BASE/data/desktop/index.json"
+            "$BASE/data/avatar/latest.json"
+            "$BASE/data/avatar/index.json"
+            "$BASE/data/bing/latest.json"
+            "$BASE/data/bing/index.json"
+            "$BASE/data/collections.json"
+            "$BASE/data/stats/hot-mobile.json"
           )
-          for file in "\${CDN_FILES[@]}"; do
-            echo "Purging CDN cache: https://purge.jsdelivr.net/\$file"
-            curl -s "https://purge.jsdelivr.net/\$file"
-            echo ""
+          for series in mobile desktop avatar; do
+            if [ -d "nuanXinProPic/data/$series" ]; then
+              for f in nuanXinProPic/data/$series/*.json; do
+                fname=$(basename "$f")
+                PURGE_PATHS+=("$BASE/data/$series/$fname")
+              done
+            fi
           done
-          echo "✅ CDN cache purged"
+          for path in "${PURGE_PATHS[@]}"; do
+            echo "  Purging $path..."
+            curl -s -X POST "https://purge.jsdelivr.net/$path" | head -c 200
+            echo ""
+            sleep 0.5
+          done
+          echo "✅ CDN cache purge completed (total: ${#PURGE_PATHS[@]} files)"
