@@ -9,6 +9,56 @@ var _cdnVersionTime = 0;
 var _versionPromise = null;
 var VERSION_CACHE_MS = 2 * 60 * 1000;
 
+function fetchVersionFromGithub() {
+  return new Promise(function(resolve) {
+    wx.request({
+      url: "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags?per_page=1",
+      method: "GET",
+      header: { "Accept": "application/vnd.github.v3+json" },
+      timeout: 5000,
+      success: function(res) {
+        if (res.statusCode === 200 && Array.isArray(res.data) && res.data.length > 0 && res.data[0].name) {
+          var tag = res.data[0].name;
+          var ver = tag.charAt(0) === "v" ? tag.substring(1) : tag;
+          console.log("[版本] GitHub API 获取成功:", ver);
+          resolve(ver);
+        } else {
+          console.log("[版本] GitHub API 返回异常:", res.statusCode);
+          resolve(null);
+        }
+      },
+      fail: function(err) {
+        console.log("[版本] GitHub API 请求失败:", err && err.errMsg || "timeout");
+        resolve(null);
+      }
+    });
+  });
+}
+
+function fetchVersionFromJsDelivr() {
+  return new Promise(function(resolve) {
+    wx.request({
+      url: "https://data.jsdelivr.com/v1/packages/gh/mkmkgo/nuanXinProPic",
+      method: "GET",
+      timeout: 5000,
+      success: function(res) {
+        if (res.statusCode === 200 && res.data && res.data.versions && res.data.versions.length > 0) {
+          var ver = res.data.versions[0].version;
+          console.log("[版本] jsDelivr API 获取成功:", ver);
+          resolve(ver);
+        } else {
+          console.log("[版本] jsDelivr API 返回异常:", res.statusCode);
+          resolve(null);
+        }
+      },
+      fail: function(err) {
+        console.log("[版本] jsDelivr API 请求失败:", err && err.errMsg || "timeout");
+        resolve(null);
+      }
+    });
+  });
+}
+
 function getCdnVersion() {
   if (_cdnVersion && Date.now() - _cdnVersionTime < VERSION_CACHE_MS) {
     return Promise.resolve(_cdnVersion);
@@ -21,31 +71,36 @@ function getCdnVersion() {
       _cdnVersion = cached.v;
       _cdnVersionTime = Date.now();
       _versionPromise = null;
+      console.log("[版本] 使用缓存版本:", _cdnVersion);
       resolve(_cdnVersion);
       return;
     }
-    wx.request({
-      url: "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags?per_page=1",
-      method: "GET",
-      header: { "Accept": "application/vnd.github.v3+json" },
-      timeout: 8000,
-      success: function(res) {
-        if (res.statusCode === 200 && Array.isArray(res.data) && res.data.length > 0 && res.data[0].name) {
-          var tag = res.data[0].name;
-          _cdnVersion = tag.charAt(0) === "v" ? tag.substring(1) : tag;
-          _cdnVersionTime = Date.now();
-          try { wx.setStorageSync("wp_cdn_ver", { v: _cdnVersion, ts: Date.now() }); } catch (e) {}
-          _versionPromise = null;
-          resolve(_cdnVersion);
-        } else {
-          _versionPromise = null;
-          resolve(null);
-        }
-      },
-      fail: function() {
+    fetchVersionFromGithub().then(function(ver) {
+      if (ver) {
+        _cdnVersion = ver;
+        _cdnVersionTime = Date.now();
+        try { wx.setStorageSync("wp_cdn_ver", { v: ver, ts: Date.now() }); } catch (e) {}
         _versionPromise = null;
-        resolve(null);
+        resolve(ver);
+        return;
       }
+      return fetchVersionFromJsDelivr();
+    }).then(function(ver) {
+      if (ver) {
+        _cdnVersion = ver;
+        _cdnVersionTime = Date.now();
+        try { wx.setStorageSync("wp_cdn_ver", { v: ver, ts: Date.now() }); } catch (e) {}
+        _versionPromise = null;
+        resolve(ver);
+        return;
+      }
+      console.log("[版本] 所有API均失败，降级使用 @main");
+      _versionPromise = null;
+      resolve(null);
+    }).catch(function() {
+      console.log("[版本] 异常，降级使用 @main");
+      _versionPromise = null;
+      resolve(null);
     });
   });
   return _versionPromise;
@@ -126,6 +181,7 @@ function request(path, retries) {
   var maxRetries = retries !== undefined ? retries : 2;
   return getCdnVersion().then(function(version) {
     var allUrls = buildAllUrls(path, version);
+    console.log("[请求] " + path + " → 版本:" + (version || "null(用@main)") + " URL:" + allUrls[0]);
     var cacheKey = allUrls[0];
     var cached = getCache(cacheKey);
     if (cached !== null) {
