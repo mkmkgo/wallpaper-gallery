@@ -4,9 +4,10 @@ on:
   push:
     branches: [main]
   schedule:
-    # 每天北京时间凌晨 02:00 自动运行一次 (UTC 18:00)
     - cron: '0 18 * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [wallpaper-updated]
 
 permissions:
   contents: write
@@ -24,7 +25,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1. 获取图床仓库最新的 CDN 版本号 (利用 GitHub 环境自带的 jq，速度极快)
       - name: Get latest CDN version
         id: cdn_version
         run: |
@@ -32,21 +32,19 @@ jobs:
           echo "version=$LATEST_TAG" >> $GITHUB_OUTPUT
           echo "✅ Got latest CDN version: $LATEST_TAG"
 
-      # 2. 修改 constants.js 中的版本号
       - name: Update CDN version in constants.js
         run: |
           CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
           sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
 
-      # 3. 克隆图床仓库数据 (利用 GitHub 内部网络，比 Cloudflare 脚本快得多)
-      # fetch-depth: 10 获取最近10次提交，用于 git diff 查找新增图片
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
         with:
           repository: mkmkgo/nuanXinProPic
           path: nuanXinProPic
-          fetch-depth: 10
+          fetch-depth: 0
+          token: ${{ secrets.NUANXINPROPIC_PAT }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -62,13 +60,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 4. 同步数据到 public 目录 (确保打包时能包含这些 JSON 数据)
       - name: Copy data from image repository
         run: |
           mkdir -p public/data
           if [ -d "nuanXinProPic/data" ]; then
             echo "📦 Copying data from nuanXinProPic/data..."
-            # 同步主系列
             for series in desktop mobile avatar; do
               if [ -d "nuanXinProPic/data/$series" ]; then
                 cp -r "nuanXinProPic/data/$series" public/data/
@@ -77,7 +73,6 @@ jobs:
                 cp "nuanXinProPic/data/$series.json" public/data/
               fi
             done
-            # 同步 Bing 数据
             if [ -d "nuanXinProPic/bing/meta" ]; then
               mkdir -p public/data/bing
               cp -r nuanXinProPic/bing/meta/* public/data/bing/
@@ -94,14 +89,12 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: pnpm sync:assets
 
-      # 5. 执行 Vite 打包构建并生成关键路由静态 HTML
       - name: Build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: pnpm build:seo
 
-      # 6. 将构建产物推送到 Cloudflare Pages (核心步骤：解决 SEO 和 200 路由)
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -112,68 +105,72 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
 
-      # 7. 同步更新的数据回 nuanXinProPic 仓库（让小程序 CDN 能读到最新数据）
-      - name: Sync updated data back to nuanXinProPic
-        id: sync_data
+      - name: Ensure nuanXinProPic tag is up-to-date and purge CDN
         run: |
           cd nuanXinProPic
-
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # 检查数据目录是否有变化
-          if git diff --stat | grep -q "data/"; then
-            echo "📤 Data changes detected, pushing to nuanXinProPic..."
-            git add data/
-            git commit -m "sync: update wallpaper data from wallpaper-gallery"
-            git push
+          LATEST_COMMIT=$(git rev-parse HEAD)
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          TAG_COMMIT=""
+          if [ -n "$LATEST_TAG" ]; then
+            TAG_COMMIT=$(git rev-list -n 1 "$LATEST_TAG" 2>/dev/null || echo "")
+          fi
 
-            # 创建新 tag，让 jsDelivr @latest 指向最新数据
-            CURRENT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.3.0")
+          echo "📌 Latest commit: $LATEST_COMMIT"
+          echo "📌 Latest tag: $LATEST_TAG (points to: $TAG_COMMIT)"
+
+          NEED_PURGE=false
+
+          if [ "$LATEST_COMMIT" = "$TAG_COMMIT" ]; then
+            echo "✅ Tag $LATEST_TAG already points to latest commit"
+          else
+            CURRENT_TAG=${LATEST_TAG:-v1.3.0}
             MAJOR=$(echo $CURRENT_TAG | cut -d. -f1)
             MINOR=$(echo $CURRENT_TAG | cut -d. -f2)
             PATCH=$(echo $CURRENT_TAG | cut -d. -f3)
             NEW_PATCH=$((PATCH + 1))
             NEW_TAG="${MAJOR}.${MINOR}.${NEW_PATCH}"
-            git tag "$NEW_TAG"
+            echo "🔄 Creating new tag $NEW_TAG at $LATEST_COMMIT..."
+            git tag "$NEW_TAG" "$LATEST_COMMIT"
             git push origin "$NEW_TAG"
             echo "✅ Created new tag: $NEW_TAG"
-            echo "data_changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "ℹ️ No data changes to sync"
-            echo "data_changed=false" >> $GITHUB_OUTPUT
+            NEED_PURGE=true
           fi
 
-      # 8. 刷新 jsDelivr CDN 缓存（确保同步的数据立即生效，避免缓存延迟）
-      - name: Purge jsDelivr CDN cache
-        if: steps.sync_data.outputs.data_changed == 'true'
-        run: |
-          BASE="gh/mkmkgo/nuanXinProPic@latest"
-          PURGE_PATHS=(
-            "$BASE/data/mobile/latest.json"
-            "$BASE/data/mobile/index.json"
-            "$BASE/data/desktop/latest.json"
-            "$BASE/data/desktop/index.json"
-            "$BASE/data/avatar/latest.json"
-            "$BASE/data/avatar/index.json"
-            "$BASE/data/bing/latest.json"
-            "$BASE/data/bing/index.json"
-            "$BASE/data/collections.json"
-            "$BASE/data/stats/hot-mobile.json"
-          )
-          for series in mobile desktop avatar; do
-            if [ -d "nuanXinProPic/data/$series" ]; then
-              for f in nuanXinProPic/data/$series/*.json; do
-                fname=$(basename "$f")
-                PURGE_PATHS+=("$BASE/data/$series/$fname")
-              done
-            fi
-          done
-          echo "🗑️ Purging ${#PURGE_PATHS[@]} CDN files..."
-          for path in "${PURGE_PATHS[@]}"; do
-            echo "  Purging $path..."
-            curl -s "https://purge.jsdelivr.net/$path" | head -c 200
+          if [ "$NEED_PURGE" = true ]; then
             echo ""
-            sleep 0.5
-          done
-          echo "✅ CDN cache purge completed (total: ${#PURGE_PATHS[@]} files)"
+            echo "🗑️ Purging jsDelivr CDN cache..."
+            BASE="gh/mkmkgo/nuanXinProPic@latest"
+            PURGE_PATHS=(
+              "$BASE/data/mobile/latest.json"
+              "$BASE/data/mobile/index.json"
+              "$BASE/data/desktop/latest.json"
+              "$BASE/data/desktop/index.json"
+              "$BASE/data/avatar/latest.json"
+              "$BASE/data/avatar/index.json"
+              "$BASE/data/bing/latest.json"
+              "$BASE/data/bing/index.json"
+              "$BASE/data/collections.json"
+              "$BASE/data/stats/hot-mobile.json"
+            )
+            for series in mobile desktop avatar; do
+              if [ -d "data/$series" ]; then
+                for f in data/$series/*.json; do
+                  fname=$(basename "$f")
+                  PURGE_PATHS+=("$BASE/data/$series/$fname")
+                done
+              fi
+            done
+            echo "🗑️ Purging ${#PURGE_PATHS[@]} CDN files..."
+            for path in "${PURGE_PATHS[@]}"; do
+              echo "  Purging $path..."
+              curl -s "https://purge.jsdelivr.net/$path" | head -c 200
+              echo ""
+              sleep 0.5
+            done
+            echo "✅ CDN cache purge completed (total: ${#PURGE_PATHS[@]} files)"
+          else
+            echo "ℹ️ No CDN purge needed"
+          fi
