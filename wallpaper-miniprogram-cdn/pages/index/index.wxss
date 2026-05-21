@@ -1,0 +1,262 @@
+page {
+  background-color: #0c0c0c;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+view, text, image, scroll-view {
+  box-sizing: border-box;
+}
+
+image {
+  background-color: #1a1a1a;
+}
+
+.page {
+  background-color: #0c0c0c;
+  min-height: 100vh;
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+
+.header {
+  padding: 0 16rpx;
+  background: transparent;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+  color: #fff;
+}
+
+.collection-section {
+  padding: 24rpx 0 28rpx;
+}
+
+.collection-scroll {
+  white-space: nowrap;
+  padding: 0 16rpx;
+}
+
+.collection-list {
+  display: inline-flex;
+  gap: 24rpx;
+}
+
+.collection-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380rpx;
+  flex-shrink: 0;
+}
+
+.collection-card:active {
+  opacity: 0.85;
+}
+
+.collection-img {
+  width: 320rpx;
+  height: 240rpx;
+  border-radius: 16rpx;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.5);
+}
+
+.collection-glass {
+  width: 380rpx;
+  margin-top: -120rpx;
+  padding-top: 128rpx;
+  padding-bottom: 20rpx;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.collection-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2rpx;
+}
+
+.quick-nav {
+  padding: 0 16rpx 24rpx;
+}
+
+.quick-nav-scroll {
+  white-space: nowrap;
+}
+
+.quick-nav-list {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.quick-nav-item {
+  display: inline-flex;
+}
+
+.quick-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  padding: 14rpx 28rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid;
+  transition: opacity 0.2s;
+}
+
+.quick-nav-pill:active {
+  opacity: 0.7;
+}
+
+.quick-nav-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.quick-nav-text {
+  font-size: 26rpx;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.latest-section {
+  padding: 0 0 32rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 0 16rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1rpx;
+}
+
+.section-more {
+  padding: 8rpx 0;
+}
+
+.section-more-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.skeleton-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  padding: 0 16rpx;
+}
+
+.skeleton-card {
+  width: calc(33.33% - 12rpx);
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 16rpx;
+  background-color: #1a1a1a;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+}
+
+.empty-text {
+  color: #444;
+  font-size: 28rpx;
+}
+
+.latest-scroll {
+  white-space: nowrap;
+  padding: 0 16rpx;
+}
+
+.latest-list {
+  display: inline-flex;
+  gap: 12rpx;
+}
+
+.latest-card {
+  display: inline-flex;
+  width: 240rpx;
+  height: 420rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.latest-card:active {
+  opacity: 0.85;
+}
+
+.latest-image {
+  width: 100%;
+  height: 100%;
+}
+
+.desktop-list {
+  display: inline-flex;
+  gap: 12rpx;
+}
+
+.desktop-card {
+  display: inline-flex;
+  width: 340rpx;
+  height: 210rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.desktop-card:active {
+  opacity: 0.85;
+}
+
+.desktop-image {
+  width: 100%;
+  height: 100%;
+}

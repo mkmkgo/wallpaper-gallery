@@ -1,0 +1,470 @@
+.page {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallpaper-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.full-image {
+  width: 100%;
+  height: 100%;
+}
+
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.action-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 30, 50, 0.55);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 60rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  padding: 16rpx 32rpx;
+  pointer-events: auto;
+  gap: 16rpx;
+  box-shadow:
+    0 8rpx 40rpx rgba(0, 0, 0, 0.4),
+    0 2rpx 8rpx rgba(0, 0, 0, 0.2),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
+}
+
+.action-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 12rpx 16rpx;
+  margin: 0;
+  border: none;
+  line-height: normal;
+  position: relative;
+  min-width: 100rpx;
+}
+
+.action-pill::after {
+  border: none;
+}
+
+.action-pill-share {
+  background: transparent;
+  padding: 12rpx 16rpx;
+  margin: 0;
+  border: none;
+  line-height: normal;
+}
+
+.action-icon {
+  width: 44rpx;
+  height: 44rpx;
+  opacity: 0.9;
+  margin-bottom: 6rpx;
+  background-color: transparent;
+}
+
+.action-label {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+.downloading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.downloading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(30, 30, 50, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24rpx;
+  padding: 50rpx 60rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.downloading-spinner {
+  width: 56rpx;
+  height: 56rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.1);
+  border-top-color: #ff4757;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 24rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.downloading-text {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.device-preview-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.device-preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iphone-frame {
+  position: relative;
+  width: 500rpx;
+  height: 1020rpx;
+  background: #1c1c1e;
+  border-radius: 76rpx;
+  padding: 14rpx;
+  box-shadow:
+    0 0 0 2rpx #3a3a3c,
+    0 20rpx 60rpx rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1rpx rgba(255, 255, 255, 0.05);
+}
+
+.iphone-notch {
+  position: absolute;
+  top: 14rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180rpx;
+  height: 42rpx;
+  background: #1c1c1e;
+  border-radius: 0 0 30rpx 30rpx;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notch-camera {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background: #2c2c2e;
+  border: 2rpx solid #3a3a3c;
+}
+
+.iphone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 64rpx;
+  overflow: hidden;
+  background: #000;
+}
+
+.iphone-wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.iphone-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36rpx;
+  z-index: 5;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+}
+
+.status-time {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1rpx;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.status-signal {
+  width: 22rpx;
+  height: 16rpx;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rpx;
+}
+
+.status-signal::before,
+.status-signal::after {
+  content: "";
+  display: block;
+  background: #fff;
+  border-radius: 1rpx;
+}
+
+.status-signal::before {
+  width: 5rpx;
+  height: 9rpx;
+}
+
+.status-signal::after {
+  width: 5rpx;
+  height: 16rpx;
+}
+
+.status-wifi {
+  width: 20rpx;
+  height: 16rpx;
+  border: 2rpx solid #fff;
+  border-radius: 0 0 50% 50%;
+  border-top: none;
+  position: relative;
+}
+
+.status-wifi::after {
+  content: "";
+  position: absolute;
+  bottom: -2rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5rpx;
+  height: 5rpx;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.status-battery {
+  width: 30rpx;
+  height: 14rpx;
+  border: 2rpx solid #fff;
+  border-radius: 3rpx;
+  position: relative;
+}
+
+.status-battery::before {
+  content: "";
+  position: absolute;
+  top: 2rpx;
+  left: 2rpx;
+  right: 6rpx;
+  bottom: 2rpx;
+  background: #fff;
+  border-radius: 1rpx;
+}
+
+.status-battery::after {
+  content: "";
+  position: absolute;
+  right: -7rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rpx;
+  height: 7rpx;
+  background: #fff;
+  border-radius: 0 1rpx 1rpx 0;
+}
+
+.iphone-home-bar {
+  position: absolute;
+  bottom: 18rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160rpx;
+  height: 7rpx;
+  border-radius: 4rpx;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 10;
+}
+
+.device-preview-hint {
+  margin-top: 44rpx;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.download-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+.download-modal {
+  width: 620rpx;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border-radius: 36rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
+  padding: 44rpx 40rpx;
+  box-shadow:
+    0 24rpx 80rpx rgba(0, 0, 0, 0.4),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.1);
+}
+
+.download-modal-header {
+  margin-bottom: 24rpx;
+}
+
+.download-info-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 14rpx;
+}
+
+.download-info-label {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.35);
+  width: 68rpx;
+  flex-shrink: 0;
+}
+
+.download-info-value {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.download-filename {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+.download-modal-meta {
+  display: flex;
+  gap: 10rpx;
+  margin-bottom: 36rpx;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  border-radius: 20rpx;
+  padding: 6rpx 18rpx;
+}
+
+.download-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.download-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.download-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #ff6b81;
+  background: rgba(255, 71, 87, 0.12);
+  border: 1rpx solid rgba(255, 71, 87, 0.2);
+  border-radius: 20rpx;
+  padding: 6rpx 16rpx;
+  align-self: flex-start;
+}
+
+.download-desc-text {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  border-radius: 44rpx;
+  padding: 22rpx 48rpx;
+  box-shadow: 0 8rpx 28rpx rgba(255, 71, 87, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.download-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 4rpx 14rpx rgba(255, 71, 87, 0.25);
+}
+
+.download-btn-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 2rpx;
+}

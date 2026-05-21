@@ -1,0 +1,50 @@
+<view class="page">
+  <view wx:if="{{showCategories}}" class="categories-view">
+    <view class="section-header">
+      <text class="section-title">全部分类</text>
+    </view>
+    <view wx:if="{{categories.length === 0}}" class="empty-box">
+      <view class="loading-spinner"></view>
+      <text class="empty-text">加载中...</text>
+    </view>
+    <view wx:else class="category-grid">
+      <view wx:for="{{categories}}" wx:key="name" class="category-item" bindtap="onCategoryTap" data-name="{{item.name}}">
+        <image wx:if="{{item.coverUrl}}" class="category-bg-img" src="{{item.coverUrl}}" mode="aspectFill" lazy-load></image>
+        <view class="category-overlay"></view>
+        <view class="category-info">
+          <text class="category-name">{{item.name}}</text>
+          <text class="category-count">{{item.count}}张</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="wallpapers-view">
+    <view class="sub-header">
+      <text class="back-btn" bindtap="onBackToCategories">← 返回</text>
+      <text class="sub-title">{{selectedCategory}}</text>
+    </view>
+    <view wx:if="{{loading}}" class="loading-box">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    <view wx:elif="{{wallpapers.length === 0}}" class="empty-box">
+      <text class="empty-text">暂无壁纸</text>
+    </view>
+    <view wx:else>
+      <view class="wallpaper-grid">
+        <view wx:for="{{wallpapers}}" wx:key="id" class="wallpaper-card" bindtap="onWallpaperTap" data-item="{{item}}">
+          <view class="wallpaper-image-wrap">
+            <image class="wallpaper-image" src="{{item.thumbnailUrl || item.previewUrl}}" mode="aspectFill" lazy-load binderror="onImageError" data-index="{{index}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="load-more" wx:if="{{hasMore}}" bindtap="onLoadMore">
+        <text class="load-more-text">{{loadingMore ? '加载中...' : '加载更多'}}</text>
+      </view>
+      <view class="no-more" wx:if="{{!hasMore && wallpapers.length > 0}}">
+        <text class="no-more-text">— 已经到底了 —</text>
+      </view>
+    </view>
+  </view>
+</view>

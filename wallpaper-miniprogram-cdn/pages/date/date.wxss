@@ -1,0 +1,74 @@
+.page {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  padding: 20rpx 16rpx;
+  padding-bottom: 120rpx;
+}
+
+.date-header {
+  margin-bottom: 20rpx;
+}
+
+.date-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.wallpaper-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5rpx;
+}
+
+.wallpaper-card {
+  width: 33.333%;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+
+.wallpaper-image {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 8rpx;
+  background-color: #1a1c22;
+}
+
+.loading-box,
+.empty-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+}
+
+.loading-text,
+.empty-text {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.page-btn {
+  padding: 16rpx 36rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+
+.page-btn.disabled {
+  opacity: 0.4;
+}
+
+.page-info {
+  color: #999;
+  font-size: 26rpx;
+  margin: 0 30rpx;
+}

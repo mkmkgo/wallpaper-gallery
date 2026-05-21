@@ -27,6 +27,7 @@ export default antfu({
     '.github/**',
     '.husky/**',
     'wallpaper-miniprogram',
+    'wallpaper-miniprogram-cdn',
     'auto-imports.d.ts',
     'components.d.ts',
   ],

@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/hot/hot",
+    "pages/category/category",
+    "pages/latest/latest",
+    "pages/date/date",
+    "pages/detail/detail",
+    "pages/latest-list/latest-list",
+    "pages/bing-list/bing-list",
+    "pages/desktop-list/desktop-list",
+    "pages/collection-detail/collection-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "壁纸小程序",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999",
+    "selectedColor": "#ff4757",
+    "backgroundColor": "#000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/latest/latest",
+        "text": "最新"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

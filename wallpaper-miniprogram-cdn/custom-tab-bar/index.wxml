@@ -1,0 +1,23 @@
+<view class="tab-bar" wx:if="{{visible}}">
+  <view class="tab-bar-inner">
+    <view wx:for="{{list}}" wx:key="index" class="tab-item {{selected === index ? 'active' : ''}}" bindtap="switchTab" data-path="{{item.pagePath}}" data-index="{{index}}">
+      <view class="tab-icon-box">
+        <view wx:if="{{item.icon === 'home'}}" class="icon-home {{selected === index ? 'on' : ''}}">
+          <view class="home-roof"></view>
+          <view class="home-body"></view>
+        </view>
+        <view wx:elif="{{item.icon === 'grid'}}" class="icon-grid {{selected === index ? 'on' : ''}}">
+          <view class="grid-dot"></view>
+          <view class="grid-dot"></view>
+          <view class="grid-dot"></view>
+          <view class="grid-dot"></view>
+        </view>
+        <view wx:elif="{{item.icon === 'clock'}}" class="icon-clock {{selected === index ? 'on' : ''}}">
+          <view class="clock-face"></view>
+          <view class="clock-hand-h"></view>
+          <view class="clock-hand-m"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

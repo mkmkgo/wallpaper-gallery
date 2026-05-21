@@ -1,0 +1,85 @@
+<view class="page">
+  <view class="wallpaper-fullscreen" bindtap="onImageTap">
+    <image class="full-image" src="{{previewUrl || imageUrl}}" mode="aspectFill" binderror="onPreviewError"></image>
+  </view>
+
+  <view class="action-bar">
+    <view class="action-bar-inner">
+      <view class="action-pill" bindtap="goBack">
+        <image class="action-icon" src="/images/fanhui.png" mode="aspectFit"></image>
+        <text class="action-label">返回</text>
+      </view>
+      <view class="action-pill" bindtap="showDownload">
+        <image class="action-icon" src="/images/download.png" mode="aspectFit"></image>
+        <text class="action-label">下载</text>
+      </view>
+      <view class="action-pill" bindtap="previewImage">
+        <image class="action-icon" src="/images/phone.png" mode="aspectFit"></image>
+        <text class="action-label">真机预览</text>
+      </view>
+      <button class="action-pill action-pill-share" open-type="share">
+        <image class="action-icon" src="/images/share.png" mode="aspectFit"></image>
+        <text class="action-label">分享</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="downloading-mask" wx:if="{{downloading}}">
+    <view class="downloading-box">
+      <view class="downloading-spinner"></view>
+      <text class="downloading-text">下载中...</text>
+    </view>
+  </view>
+
+  <view class="device-preview-mask" wx:if="{{showDevicePreview}}" bindtap="closeDevicePreview">
+    <view class="device-preview-content" catchtap="">
+      <view class="iphone-frame">
+        <view class="iphone-notch">
+          <view class="notch-camera"></view>
+        </view>
+        <view class="iphone-screen">
+          <image class="iphone-wallpaper" src="{{previewUrl || imageUrl}}" mode="aspectFill" binderror="onPreviewImageError"></image>
+          <view class="iphone-status-bar">
+            <text class="status-time">9:41</text>
+            <view class="status-icons">
+              <view class="status-signal"></view>
+              <view class="status-wifi"></view>
+              <view class="status-battery"></view>
+            </view>
+          </view>
+        </view>
+        <view class="iphone-home-bar"></view>
+      </view>
+      <text class="device-preview-hint">点击空白处关闭预览</text>
+    </view>
+  </view>
+
+  <view class="download-mask" wx:if="{{showDownloadModal}}" bindtap="closeDownloadModal">
+    <view class="download-modal" catchtap="">
+      <view class="download-modal-header">
+        <view class="download-info-row">
+          <text class="download-info-label">分类</text>
+          <text class="download-info-value">{{wpCategory || '未分类'}}</text>
+        </view>
+        <view class="download-info-row">
+          <text class="download-info-label">文件</text>
+          <text class="download-info-value download-filename">{{wpFilename || wallpaperId}}</text>
+        </view>
+      </view>
+      <view class="download-modal-meta">
+        <view class="meta-tag" wx:if="{{wpResolution}}">{{wpResolution}}</view>
+        <view class="meta-tag" wx:if="{{wpSize}}">{{wpSize}}</view>
+        <view class="meta-tag" wx:if="{{wpFormat}}">{{wpFormat}}</view>
+      </view>
+      <view class="download-modal-footer">
+        <view class="download-desc">
+          <view class="download-badge">超清原图</view>
+          <text class="download-desc-text">查看广告免费下载原图</text>
+        </view>
+        <view class="download-btn" bindtap="confirmDownload">
+          <text class="download-btn-text">立即下载</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

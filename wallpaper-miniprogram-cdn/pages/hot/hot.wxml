@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-bar-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="goBack" style="height: {{menuButtonHeight}}px; top: {{menuButtonTop - statusBarHeight}}px;">
+        <view class="nav-back-icon"></view>
+      </view>
+    </view>
+  </view>
+  <view class="page-body" style="padding-top: {{statusBarHeight + navBarHeight}}px;">
+    <wallpaper-grid wallpapers="{{wallpapers}}" loading="{{loading}}" showRank="{{true}}" hasMore="{{hasMore}}" bind:loadmore="onLoadMore"></wallpaper-grid>
+  </view>
+</view>
