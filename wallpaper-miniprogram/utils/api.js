@@ -66,7 +66,7 @@ function buildCdnUrl(path, domainIndex) {
   var idx = domainIndex || 0;
   var domain = config.API_CONFIG.CDN_DOMAINS[idx] || config.API_CONFIG.CDN_DOMAINS[0];
   var cleanPath = encodePath(path).replace(/^\//, "");
-  return "https://" + domain + config.API_CONFIG.CDN_REPO + "@latest/" + cleanPath + "?v=" + buildDateKey();
+  return "https://" + domain + config.API_CONFIG.CDN_REPO + "@main/" + cleanPath + "?v=" + buildDateKey();
 }
 
 function buildAllUrls(path) {

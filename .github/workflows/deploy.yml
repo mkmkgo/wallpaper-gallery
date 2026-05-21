@@ -104,7 +104,7 @@ jobs:
 
       - name: Purge jsDelivr CDN cache
         run: |
-          BASE="gh/mkmkgo/nuanXinProPic@latest"
+          BASE="gh/mkmkgo/nuanXinProPic@main"
           PURGE_PATHS=(
             "$BASE/data/mobile/latest.json"
             "$BASE/data/mobile/index.json"
