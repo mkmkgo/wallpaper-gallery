@@ -90,23 +90,30 @@ Page({
 
       var loaded = 0;
       var total = names.length;
+      var batchSize = 3;
+      var batchIndex = 0;
 
-      for (var i = 0; i < names.length; i++) {
-        (function(catName) {
-          api.getWallpapers(catName).then(function(wps) {
-            var hadChange = that.addToDateMap(wps);
+      function loadBatch() {
+        if (batchIndex >= names.length) return;
+        var batch = names.slice(batchIndex, batchIndex + batchSize);
+        batchIndex += batchSize;
+        var promises = batch.map(function(catName) {
+          return api.getWallpapers(catName).then(function(wps) {
+            that.addToDateMap(wps);
             loaded++;
-            if (hadChange || loaded === total) {
-              that.updateDateList();
-            }
           }).catch(function() {
             loaded++;
-            if (loaded === total) {
-              that.updateDateList();
-            }
           });
-        })(names[i]);
+        });
+        Promise.all(promises).then(function() {
+          that.updateDateList();
+          if (loaded < total) {
+            loadBatch();
+          }
+        });
       }
+
+      loadBatch();
     });
   },
 
