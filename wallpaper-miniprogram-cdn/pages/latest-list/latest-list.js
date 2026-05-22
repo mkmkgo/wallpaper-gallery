@@ -174,8 +174,12 @@ Page({
 
   extractDateFromWallpaper: function(wp) {
     if (wp.createdAt) {
-      var d = wp.createdAt.split("T")[0];
-      if (d) return d;
+      var utcMs = new Date(wp.createdAt).getTime();
+      var bjDate = new Date(utcMs + 8 * 60 * 60 * 1000);
+      var y = bjDate.getUTCFullYear();
+      var m = bjDate.getUTCMonth() + 1;
+      var d = bjDate.getUTCDate();
+      return y + "-" + (m < 10 ? "0" + m : "" + m) + "-" + (d < 10 ? "0" + d : "" + d);
     }
     var fname = wp.filename || wp.id || "";
     var match = fname.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
