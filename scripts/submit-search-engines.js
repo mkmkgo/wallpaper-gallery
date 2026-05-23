@@ -2,13 +2,29 @@ import process from 'node:process'
 
 const SITE_URL = process.env.SITE_URL || 'https://wall.202597.xyz'
 
-const SUBMIT_URLS = [
+const mainUrls = [
   `${SITE_URL}/`,
   `${SITE_URL}/desktop/`,
   `${SITE_URL}/mobile/`,
   `${SITE_URL}/avatar/`,
+  `${SITE_URL}/video/`,
   `${SITE_URL}/bing/`,
   `${SITE_URL}/about/`,
+]
+
+const desktopCategories = ['风景', '动漫', '游戏', '人像', '插画', '萌宠', '影视', 'IP形象']
+const mobileCategories = ['风景', '动漫', '游戏', '人像', '插画', '萌宠', '影视', '创意', '通用', 'IP形象']
+const avatarCategories = ['动漫', '人像', '插画', '萌宠', '表情包', '通用', 'IP形象']
+
+function buildCategoryUrls(series, categories) {
+  return categories.map(cat => `${SITE_URL}/${series}/?category=${encodeURIComponent(cat)}`)
+}
+
+const SUBMIT_URLS = [
+  ...mainUrls,
+  ...buildCategoryUrls('desktop', desktopCategories),
+  ...buildCategoryUrls('mobile', mobileCategories),
+  ...buildCategoryUrls('avatar', avatarCategories),
 ]
 
 async function submitBaidu() {
@@ -82,20 +98,21 @@ async function submitBingWebmaster() {
   }
 
   const siteUrl = SITE_URL
-  const url = `https://ssl.bing.com/webmaster/api.svc/json/SubmitUrl?apikey=${apiKey}&siteUrl=${encodeURIComponent(siteUrl)}&url=${encodeURIComponent(SUBMIT_URLS[0])}`
-
-  try {
-    const res = await fetch(url)
-    if (res.ok) {
-      console.log(`✅ Bing Webmaster: submitted ${SUBMIT_URLS[0]}`)
+  for (const submitUrl of mainUrls) {
+    const url = `https://ssl.bing.com/webmaster/api.svc/json/SubmitUrl?apikey=${apiKey}&siteUrl=${encodeURIComponent(siteUrl)}&url=${encodeURIComponent(submitUrl)}`
+    try {
+      const res = await fetch(url)
+      if (res.ok) {
+        console.log(`✅ Bing Webmaster: submitted ${submitUrl}`)
+      }
+      else {
+        const text = await res.text()
+        console.log(`⚠️  Bing Webmaster: status ${res.status} - ${text}`)
+      }
     }
-    else {
-      const text = await res.text()
-      console.log(`⚠️  Bing Webmaster: status ${res.status} - ${text}`)
+    catch (err) {
+      console.log(`❌ Bing Webmaster: ${err.message}`)
     }
-  }
-  catch (err) {
-    console.log(`❌ Bing Webmaster: ${err.message}`)
   }
 }
 
@@ -117,16 +134,51 @@ async function pingGoogleSitemap() {
   }
 }
 
+async function submitGoogleIndexNow() {
+  const key = process.env.BING_INDEXNOW_KEY
+  if (!key) {
+    console.log('⏭️  Google IndexNow: BING_INDEXNOW_KEY not set, skipping')
+    return
+  }
+
+  const url = 'https://www.bing.com/indexnow'
+  const body = {
+    host: new URL(SITE_URL).host,
+    key,
+    keyLocation: `${SITE_URL}/${key}.txt`,
+    urlList: SUBMIT_URLS,
+  }
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+    if (res.ok) {
+      console.log(`✅ Google IndexNow (via Bing): submitted ${SUBMIT_URLS.length} URLs (status ${res.status})`)
+    }
+    else {
+      const text = await res.text()
+      console.log(`⚠️  Google IndexNow (via Bing): status ${res.status} - ${text}`)
+    }
+  }
+  catch (err) {
+    console.log(`❌ Google IndexNow (via Bing): ${err.message}`)
+  }
+}
+
 async function main() {
   console.log(`\n🚀 Search Engine Submission`)
   console.log(`   Site: ${SITE_URL}`)
-  console.log(`   URLs: ${SUBMIT_URLS.length}\n`)
+  console.log(`   URLs: ${SUBMIT_URLS.length} (main: ${mainUrls.length}, category: ${SUBMIT_URLS.length - mainUrls.length})\n`)
 
   await Promise.allSettled([
     submitBaidu(),
     submitBingIndexNow(),
     submitBingWebmaster(),
     pingGoogleSitemap(),
+    submitGoogleIndexNow(),
   ])
 
   console.log('\n🏁 Done')

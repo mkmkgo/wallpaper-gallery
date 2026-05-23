@@ -1,19 +1,37 @@
 # robots.txt for Wallpaper Gallery
-# 允许所有合法的搜索引擎抓取
 User-agent: *
 Allow: /
 Allow: /favicon.svg
 Allow: /apple-touch-icon.png
 Allow: /og-image.jpg
+Disallow: /auth/
+Disallow: /login
+Disallow: /signup
+Disallow: /account
+Disallow: /library
 
-# 允许图片爬虫抓取所有图片资源
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
 User-agent: Googlebot-Image
 Allow: /
 
-# 针对百度爬虫的优化
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1
 
-# 站点地图位置
+User-agent: Baiduspider-image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: MJ12bot
+Crawl-delay: 5
+
+User-agent: AhrefsBot
+Crawl-delay: 5
+
 Sitemap: https://wall.202597.xyz/sitemap.xml

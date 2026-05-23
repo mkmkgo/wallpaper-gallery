@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "prerender": "node scripts/prerender.js",
-    "build:seo": "pnpm build && pnpm prerender",
+    "build:seo": "pnpm build && pnpm prerender && node scripts/generate-sitemap.js",
     "preview": "vite preview",
     "sync": "node scripts/sync-data.js --force",
     "sync:assets": "node scripts/sync-wallpaper-assets.js",

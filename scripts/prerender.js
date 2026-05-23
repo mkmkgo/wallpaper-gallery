@@ -15,6 +15,7 @@ const PRERENDER_ROUTES = [
   '/desktop',
   '/mobile',
   '/avatar',
+  '/video',
   '/bing',
   '/about',
 ]

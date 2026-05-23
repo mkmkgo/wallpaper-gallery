@@ -103,6 +103,18 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
 
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.js
+
+      - name: Submit to search engines
+        if: github.event_name == 'push' || github.event_name == 'schedule'
+        env:
+          SITE_URL: https://wall.202597.xyz
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+          BING_INDEXNOW_KEY: ${{ secrets.BING_INDEXNOW_KEY }}
+          BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+        run: node scripts/submit-search-engines.js
+
       - name: Purge jsDelivr CDN cache
         run: |
           BASE="gh/mkmkgo/nuanXinProPic@main"
