@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T19:22:07.105Z",
+  "generatedAt": "2026-06-26T19:15:33.359Z",
   "series": "all",
   "total": 72,
   "tags": [
@@ -24,7 +24,7 @@
     },
     {
       "tag": "插画",
-      "score": 9,
+      "score": 8,
       "views": 13,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -265,20 +265,6 @@
       ],
       "topWallpapers": [
         "20260408163808.jpeg"
-      ]
-    },
-    {
-      "tag": "氛围感",
-      "score": 2,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "冬日-围巾-树林.png",
-        "小清新-意境.png"
       ]
     },
     {
@@ -576,6 +562,20 @@
       ]
     },
     {
+      "tag": "氛围感",
+      "score": 1,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "冬日-围巾-树林.png",
+        "小清新-意境.png"
+      ]
+    },
+    {
       "tag": "冬日",
       "score": 1,
       "views": 3,
@@ -680,19 +680,6 @@
       ]
     },
     {
-      "tag": "绿轨迹",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "小清新-意境.png"
-      ]
-    },
-    {
       "tag": "乌萨奇",
       "score": 1,
       "views": 1,
@@ -703,6 +690,19 @@
       ],
       "topWallpapers": [
         "微信图片_2026-03-27_140726_406.jpg"
+      ]
+    },
+    {
+      "tag": "眼镜",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_这么多年珑妈依旧童颜Apink话..._0.png"
       ]
     }
   ]

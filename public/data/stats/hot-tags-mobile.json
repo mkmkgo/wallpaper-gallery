@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T19:22:07.033Z",
+  "generatedAt": "2026-06-26T19:15:33.284Z",
   "series": "mobile",
   "total": 43,
   "tags": [
@@ -36,8 +36,32 @@
       ]
     },
     {
+      "tag": "魅力",
+      "score": 6,
+      "views": 11,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408164632.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
+          "cdnTag": "v1.2.41"
+        }
+      ]
+    },
+    {
       "tag": "插画",
-      "score": 7,
+      "score": 6,
       "views": 10,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -64,30 +88,6 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
           "cdnTag": "v1.2.33"
-        }
-      ]
-    },
-    {
-      "tag": "魅力",
-      "score": 6,
-      "views": 11,
-      "downloads": 0,
-      "wallpaperCount": 3,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408164632.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
-          "cdnTag": "v1.2.41"
         }
       ]
     },
@@ -208,26 +208,6 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/动漫/20260408163808.webp",
           "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "氛围感",
-      "score": 2,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
-          "cdnTag": "v1.1.9"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
-          "cdnTag": "v1.2.33"
         }
       ]
     },
@@ -420,6 +400,26 @@
       ]
     },
     {
+      "tag": "氛围感",
+      "score": 1,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
+          "cdnTag": "v1.1.9"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
+          "cdnTag": "v1.2.33"
+        }
+      ]
+    },
+    {
       "tag": "冬日",
       "score": 1,
       "views": 3,
@@ -544,22 +544,6 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
           "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "绿轨迹",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
-          "cdnTag": "v1.2.33"
         }
       ]
     },
@@ -697,6 +681,22 @@
     },
     {
       "tag": "海滨",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/海滨/image_%E9%AB%98%E7%BA%A7%E5%85%A8%E9%9D%A2%E5%B1%8F4k%E8%B6%85%E6%B8%85%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8_%E6%99%AF%E6%B7%B1..._10.webp",
+          "cdnTag": "v1.1.84"
+        }
+      ]
+    },
+    {
+      "tag": "黄昏",
       "score": 0,
       "views": 1,
       "downloads": 0,
