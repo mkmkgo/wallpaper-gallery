@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T19:19:43.544Z",
+  "generatedAt": "2026-06-30T19:15:25.821Z",
   "series": "all",
   "total": 72,
   "tags": [
@@ -59,24 +59,6 @@
       ]
     },
     {
-      "tag": "风景",
-      "score": 4,
-      "views": 8,
-      "downloads": 1,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg",
-        "花朵-蓝天.png",
-        "大海-岛屿-栈桥.png",
-        "湖面_火烧云.jpg",
-        "地球日出星环宇宙奇观.png"
-      ]
-    },
-    {
       "tag": "清新",
       "score": 4,
       "views": 7,
@@ -124,6 +106,24 @@
         "20260408163808.jpeg",
         "20260406200444.jpeg",
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "风景",
+      "score": 3,
+      "views": 8,
+      "downloads": 1,
+      "wallpaperCount": 6,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "简约风_日落.jpg",
+        "花朵-蓝天.png",
+        "大海-岛屿-栈桥.png",
+        "湖面_火烧云.jpg",
+        "地球日出星环宇宙奇观.png"
       ]
     },
     {
@@ -454,19 +454,6 @@
       ]
     },
     {
-      "tag": "灯塔",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "大海-岛屿-栈桥.png"
-      ]
-    },
-    {
       "tag": "光影",
       "score": 1,
       "views": 1,
@@ -477,21 +464,6 @@
       ],
       "topWallpapers": [
         "20260406200444.jpeg"
-      ]
-    },
-    {
-      "tag": "海滨",
-      "score": 1,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "大海-岛屿-栈桥.png",
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
       ]
     },
     {
@@ -518,19 +490,6 @@
       ],
       "topWallpapers": [
         "20260406201149.jpeg"
-      ]
-    },
-    {
-      "tag": "蔚蓝天空",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "大海-岛屿-栈桥.png"
       ]
     },
     {
@@ -703,6 +662,45 @@
       ],
       "topWallpapers": [
         "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "夜景",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-03-27_140726_406.jpg"
+      ]
+    },
+    {
+      "tag": "IP形象",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-03-27_140726_406.jpg"
+      ]
+    },
+    {
+      "tag": "水豚噜噜",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-04-11_145953_146.jpg"
       ]
     }
   ]
