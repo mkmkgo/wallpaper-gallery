@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T18:29:57.586Z",
+  "generatedAt": "2026-07-05T18:34:42.799Z",
   "series": "desktop",
   "total": 34,
   "tags": [
@@ -120,26 +120,6 @@
       ]
     },
     {
-      "tag": "插画",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
-          "cdnTag": "v1.2.49"
-        }
-      ]
-    },
-    {
       "tag": "魅力",
       "score": 2,
       "views": 3,
@@ -156,6 +136,26 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "插画",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
         }
       ]
     },
@@ -272,22 +272,6 @@
       ]
     },
     {
-      "tag": "猫咪",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
-          "cdnTag": "v1.2.49"
-        }
-      ]
-    },
-    {
       "tag": "美女",
       "score": 1,
       "views": 1,
@@ -300,22 +284,6 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
-          "cdnTag": "v1.2.49"
         }
       ]
     },
@@ -348,22 +316,6 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
           "cdnTag": "v1.2.52"
-        }
-      ]
-    },
-    {
-      "tag": "雨天",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
-          "cdnTag": "v1.2.49"
         }
       ]
     },
@@ -520,6 +472,38 @@
       ]
     },
     {
+      "tag": "猫咪",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
       "tag": "少女远景",
       "score": 0,
       "views": 1,
@@ -580,6 +564,22 @@
         {
           "thumbnail": "/thumbnail/desktop/动漫/蜡笔小新/%E5%8D%A7%E5%AE%A4-%E5%A4%9C%E6%99%9A-%E5%B0%8F%E6%96%B0.webp",
           "cdnTag": "v1.1.4"
+        }
+      ]
+    },
+    {
+      "tag": "雨天",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
+          "cdnTag": "v1.2.49"
         }
       ]
     },
