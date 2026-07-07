@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T19:12:58.066Z",
+  "generatedAt": "2026-07-07T19:18:39.089Z",
   "series": "mobile",
   "total": 43,
   "tags": [
@@ -61,7 +61,7 @@
     },
     {
       "tag": "插画",
-      "score": 6,
+      "score": 5,
       "views": 10,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -488,54 +488,6 @@
       ]
     },
     {
-      "tag": "乌萨奇",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
-          "cdnTag": "v1.2.53"
-        }
-      ]
-    },
-    {
-      "tag": "夜景",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
-          "cdnTag": "v1.2.53"
-        }
-      ]
-    },
-    {
-      "tag": "IP形象",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
-          "cdnTag": "v1.2.53"
-        }
-      ]
-    },
-    {
       "tag": "风景",
       "score": 0,
       "views": 2,
@@ -708,6 +660,54 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
           "cdnTag": "v1.2.33"
+        }
+      ]
+    },
+    {
+      "tag": "乌萨奇",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/IP形象/乌萨奇/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-27_140726_406.webp",
+          "cdnTag": "v1.2.53"
+        }
+      ]
+    },
+    {
+      "tag": "星空",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/星空/%E5%9C%B0%E7%90%83%E6%97%A5%E5%87%BA%E6%98%9F%E7%8E%AF%E5%AE%87%E5%AE%99%E5%A5%87%E8%A7%82.webp",
+          "cdnTag": "v1.1.4"
+        }
+      ]
+    },
+    {
+      "tag": "眼镜",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/Apink&朴初珑/image_%E8%BF%99%E4%B9%88%E5%A4%9A%E5%B9%B4%E7%8F%91%E5%A6%88%E4%BE%9D%E6%97%A7%E7%AB%A5%E9%A2%9CApink%E8%AF%9D..._0.webp",
+          "cdnTag": "v1.2.48"
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T19:12:57.948Z",
+  "generatedAt": "2026-07-07T19:18:38.974Z",
   "series": "desktop",
   "total": 34,
   "tags": [
@@ -52,34 +52,6 @@
       ]
     },
     {
-      "tag": "人像",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 4,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
-          "cdnTag": "v1.1.32"
-        }
-      ]
-    },
-    {
       "tag": "简约风",
       "score": 2,
       "views": 2,
@@ -96,17 +68,21 @@
       ]
     },
     {
-      "tag": "清新",
+      "tag": "人像",
       "score": 2,
-      "views": 4,
+      "views": 5,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 4,
       "series": [
         "desktop"
       ],
       "topWallpapers": [
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
         },
         {
@@ -136,6 +112,30 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 1,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
         }
       ]
     },
@@ -256,22 +256,6 @@
       ]
     },
     {
-      "tag": "光影",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
-        }
-      ]
-    },
-    {
       "tag": "美女",
       "score": 1,
       "views": 1,
@@ -284,38 +268,6 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "少女",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
-        }
-      ]
-    },
-    {
-      "tag": "甜美",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
-          "cdnTag": "v1.2.52"
         }
       ]
     },
@@ -388,6 +340,22 @@
         {
           "thumbnail": "/thumbnail/desktop/风景/海滨/%E5%A4%A7%E6%B5%B7-%E5%B2%9B%E5%B1%BF-%E6%A0%88%E6%A1%A5.webp",
           "cdnTag": "v1.2.41"
+        }
+      ]
+    },
+    {
+      "tag": "光影",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
         }
       ]
     },
@@ -504,6 +472,22 @@
       ]
     },
     {
+      "tag": "少女",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
+        }
+      ]
+    },
+    {
       "tag": "少女远景",
       "score": 0,
       "views": 1,
@@ -516,6 +500,22 @@
         {
           "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
           "cdnTag": "v1.1.32"
+        }
+      ]
+    },
+    {
+      "tag": "甜美",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
+          "cdnTag": "v1.2.52"
         }
       ]
     },
