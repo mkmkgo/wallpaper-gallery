@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-10T18:55:57.256Z",
+  "generatedAt": "2026-07-11T18:13:27.075Z",
   "series": "all",
   "total": 72,
   "tags": [
     {
       "tag": "人像",
-      "score": 12,
+      "score": 9,
       "views": 28,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -17,14 +17,14 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
-        "20260408165518.jpeg",
         "20260408171457.jpeg",
-        "20260406201149.jpeg"
+        "20260406201611.jpeg",
+        "20260408165518.jpeg"
       ]
     },
     {
       "tag": "魅力",
-      "score": 8,
+      "score": 6,
       "views": 14,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -36,13 +36,13 @@
         "20260408170344.jpeg",
         "20260408164632.jpeg",
         "20260408171457.jpeg",
-        "20260406201149.jpeg",
-        "城市景观-壁纸.png"
+        "城市景观-壁纸.png",
+        "20260406201149.jpeg"
       ]
     },
     {
       "tag": "插画",
-      "score": 6,
+      "score": 4,
       "views": 13,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -52,10 +52,10 @@
       ],
       "topWallpapers": [
         "20260408163808.jpeg",
-        "20260408165518.jpeg",
         "20260406201533.png",
-        "20260408170413.jpeg",
-        "雨中绿意小猫.jpeg"
+        "20260408165518.jpeg",
+        "雨中绿意小猫.jpeg",
+        "20260408170413.jpeg"
       ]
     },
     {
@@ -77,20 +77,6 @@
       ]
     },
     {
-      "tag": "日落",
-      "score": 3,
-      "views": 3,
-      "downloads": 1,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg",
-        "20260406201149.jpeg"
-      ]
-    },
-    {
       "tag": "黑丝",
       "score": 3,
       "views": 6,
@@ -105,42 +91,17 @@
       ]
     },
     {
-      "tag": "时尚",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
+      "tag": "日落",
+      "score": 2,
+      "views": 3,
+      "downloads": 1,
+      "wallpaperCount": 2,
       "series": [
-        "mobile"
+        "desktop"
       ],
       "topWallpapers": [
-        "20260408170344.jpeg"
-      ]
-    },
-    {
-      "tag": "纹身",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170344.jpeg"
-      ]
-    },
-    {
-      "tag": "长发",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170344.jpeg"
+        "简约风_日落.jpg",
+        "20260406201149.jpeg"
       ]
     },
     {
@@ -223,6 +184,45 @@
       ]
     },
     {
+      "tag": "时尚",
+      "score": 2,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
+      ]
+    },
+    {
+      "tag": "纹身",
+      "score": 2,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
+      ]
+    },
+    {
+      "tag": "长发",
+      "score": 2,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170344.jpeg"
+      ]
+    },
+    {
       "tag": "初音未来",
       "score": 2,
       "views": 4,
@@ -246,45 +246,6 @@
       ],
       "topWallpapers": [
         "20260408164632.jpeg"
-      ]
-    },
-    {
-      "tag": "漫画风格",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
-      ]
-    },
-    {
-      "tag": "时尚女孩",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
-      ]
-    },
-    {
-      "tag": "自拍",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg"
       ]
     },
     {
@@ -353,34 +314,6 @@
       ]
     },
     {
-      "tag": "美女",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "20260406201149.jpeg"
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg",
-        "雨中绿意小猫.jpeg"
-      ]
-    },
-    {
       "tag": "少女",
       "score": 1,
       "views": 5,
@@ -425,6 +358,32 @@
       ]
     },
     {
+      "tag": "漫画风格",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
+      ]
+    },
+    {
+      "tag": "时尚女孩",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
+      ]
+    },
+    {
       "tag": "树林",
       "score": 1,
       "views": 3,
@@ -464,6 +423,19 @@
       ]
     },
     {
+      "tag": "自拍",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408165518.jpeg"
+      ]
+    },
+    {
       "tag": "城市风",
       "score": 1,
       "views": 2,
@@ -487,32 +459,6 @@
       ],
       "topWallpapers": [
         "城市景观-壁纸.png"
-      ]
-    },
-    {
-      "tag": "白色小动物",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
-      ]
-    },
-    {
-      "tag": "快乐玩耍",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
       ]
     },
     {
@@ -651,6 +597,34 @@
       ]
     },
     {
+      "tag": "美女",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406201149.jpeg"
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 0,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "雨中绿意小猫.jpeg",
+        "20260408170413.jpeg"
+      ]
+    },
+    {
       "tag": "少女远景",
       "score": 0,
       "views": 1,
@@ -700,6 +674,32 @@
       ],
       "topWallpapers": [
         "卧室-夜晚-小新.png"
+      ]
+    },
+    {
+      "tag": "雨天",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "雨中绿意小猫.jpeg"
+      ]
+    },
+    {
+      "tag": "JK背影",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "JK背影-少女远景.png"
       ]
     }
   ]

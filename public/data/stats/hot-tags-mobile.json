@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-10T18:55:57.183Z",
+  "generatedAt": "2026-07-11T18:13:26.994Z",
   "series": "mobile",
   "total": 43,
   "tags": [
     {
       "tag": "人像",
-      "score": 10,
+      "score": 8,
       "views": 22,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -22,12 +22,12 @@
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
           "thumbnail": "/thumbnail/mobile/人像/清新/20260406201611.webp",
           "cdnTag": "v1.2.47"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
         },
         {
           "thumbnail": "/thumbnail/mobile/人像/氛围感/%E5%86%AC%E6%97%A5-%E5%9B%B4%E5%B7%BE-%E6%A0%91%E6%9E%97.webp",
@@ -37,7 +37,7 @@
     },
     {
       "tag": "魅力",
-      "score": 6,
+      "score": 5,
       "views": 11,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -61,7 +61,7 @@
     },
     {
       "tag": "插画",
-      "score": 5,
+      "score": 3,
       "views": 10,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -113,39 +113,7 @@
     },
     {
       "tag": "时尚",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "纹身",
-      "score": 3,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "长发",
-      "score": 3,
+      "score": 2,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 1,
@@ -176,6 +144,38 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/Apink&朴初珑/image_%E8%BF%99%E4%B9%88%E5%A4%9A%E5%B9%B4%E7%8F%91%E5%A6%88%E4%BE%9D%E6%97%A7%E7%AB%A5%E9%A2%9CApink%E8%AF%9D..._0.webp",
           "cdnTag": "v1.2.48"
+        }
+      ]
+    },
+    {
+      "tag": "纹身",
+      "score": 2,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "长发",
+      "score": 2,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/20260408170344.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -223,54 +223,6 @@
       "topWallpapers": [
         {
           "thumbnail": "/thumbnail/mobile/人像/魅力/20260408164632.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "漫画风格",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "时尚女孩",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "自拍",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
           "cdnTag": "v1.2.59"
         }
       ]
@@ -328,6 +280,22 @@
       ]
     },
     {
+      "tag": "漫画风格",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "清新",
       "score": 1,
       "views": 3,
@@ -356,6 +324,22 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/清新/20260406201611.webp",
           "cdnTag": "v1.2.47"
+        }
+      ]
+    },
+    {
+      "tag": "时尚女孩",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -408,6 +392,22 @@
       ]
     },
     {
+      "tag": "自拍",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/插画/20260408165518.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "城市风",
       "score": 1,
       "views": 2,
@@ -436,54 +436,6 @@
         {
           "thumbnail": "/thumbnail/mobile/人像/魅力/%E5%9F%8E%E5%B8%82%E6%99%AF%E8%A7%82-%E5%A3%81%E7%BA%B8.webp",
           "cdnTag": "v1.2.41"
-        }
-      ]
-    },
-    {
-      "tag": "白色小动物",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "快乐玩耍",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -568,6 +520,22 @@
       ]
     },
     {
+      "tag": "白色小动物",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "地球日出星环宇宙奇观",
       "score": 0,
       "views": 1,
@@ -648,6 +616,22 @@
       ]
     },
     {
+      "tag": "快乐玩耍",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "绿轨迹",
       "score": 0,
       "views": 1,
@@ -660,6 +644,22 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/氛围感/%E5%B0%8F%E6%B8%85%E6%96%B0-%E6%84%8F%E5%A2%83.webp",
           "cdnTag": "v1.2.33"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T18:55:57.065Z",
+  "generatedAt": "2026-07-11T18:13:26.861Z",
   "series": "desktop",
   "total": 34,
   "tags": [
@@ -33,7 +33,7 @@
     },
     {
       "tag": "日落",
-      "score": 3,
+      "score": 2,
       "views": 3,
       "downloads": 1,
       "wallpaperCount": 2,
@@ -69,7 +69,7 @@
     },
     {
       "tag": "人像",
-      "score": 2,
+      "score": 1,
       "views": 5,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -82,36 +82,16 @@
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
-          "cdnTag": "v1.2.59"
-        },
-        {
           "thumbnail": "/thumbnail/desktop/人像/清新/20260406200444.webp",
           "cdnTag": "v1.2.52"
         },
         {
-          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
-          "cdnTag": "v1.1.32"
-        }
-      ]
-    },
-    {
-      "tag": "魅力",
-      "score": 2,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
         },
         {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
-          "cdnTag": "v1.2.59"
+          "thumbnail": "/thumbnail/desktop/人像/清新/JK%E8%83%8C%E5%BD%B1-%E5%B0%91%E5%A5%B3%E8%BF%9C%E6%99%AF.webp",
+          "cdnTag": "v1.1.32"
         }
       ]
     },
@@ -156,6 +136,26 @@
         {
           "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
           "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
+      "tag": "魅力",
+      "score": 1,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260408171457.webp",
+          "cdnTag": "v1.2.59"
+        },
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -251,22 +251,6 @@
       "topWallpapers": [
         {
           "thumbnail": "/thumbnail/desktop/插画/创意/20260406201533.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "美女",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
           "cdnTag": "v1.2.59"
         }
       ]
@@ -452,6 +436,22 @@
         {
           "thumbnail": "/thumbnail/desktop/萌宠/猫咪/%E9%9B%A8%E4%B8%AD%E7%BB%BF%E6%84%8F%E5%B0%8F%E7%8C%AB.webp",
           "cdnTag": "v1.2.49"
+        }
+      ]
+    },
+    {
+      "tag": "美女",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/desktop/人像/魅力/20260406201149.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
