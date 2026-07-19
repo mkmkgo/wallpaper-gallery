@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T18:13:59.235Z",
+  "generatedAt": "2026-07-19T18:13:47.638Z",
   "series": "all",
   "total": 72,
   "tags": [
@@ -59,24 +59,6 @@
       ]
     },
     {
-      "tag": "风景",
-      "score": 3,
-      "views": 8,
-      "downloads": 1,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg",
-        "花朵-蓝天.png",
-        "大海-岛屿-栈桥.png",
-        "湖面_火烧云.jpg",
-        "地球日出星环宇宙奇观.png"
-      ]
-    },
-    {
       "tag": "黑丝",
       "score": 3,
       "views": 6,
@@ -91,30 +73,21 @@
       ]
     },
     {
-      "tag": "日落",
+      "tag": "风景",
       "score": 2,
-      "views": 3,
+      "views": 8,
       "downloads": 1,
-      "wallpaperCount": 2,
+      "wallpaperCount": 6,
       "series": [
-        "desktop"
+        "desktop",
+        "mobile"
       ],
       "topWallpapers": [
         "简约风_日落.jpg",
-        "20260406201149.jpeg"
-      ]
-    },
-    {
-      "tag": "简约风",
-      "score": 2,
-      "views": 2,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg"
+        "花朵-蓝天.png",
+        "大海-岛屿-栈桥.png",
+        "湖面_火烧云.jpg",
+        "地球日出星环宇宙奇观.png"
       ]
     },
     {
@@ -246,6 +219,33 @@
       ],
       "topWallpapers": [
         "20260408164632.jpeg"
+      ]
+    },
+    {
+      "tag": "日落",
+      "score": 1,
+      "views": 3,
+      "downloads": 1,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "简约风_日落.jpg",
+        "20260406201149.jpeg"
+      ]
+    },
+    {
+      "tag": "简约风",
+      "score": 1,
+      "views": 2,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "简约风_日落.jpg"
       ]
     },
     {
