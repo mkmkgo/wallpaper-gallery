@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-07-22 18:38:46",
+  "exportedAt": "2026-07-23 18:42:38",
   "series": {
     "desktop": {
       "count": 26,
@@ -17,9 +17,7 @@
       "totalDownloads": 0
     },
     "bing": {
-      "count": 2,
-      "totalViews": 2,
-      "totalDownloads": 0
+      "error": "HTTP 504: {\"message\":\"Gateway Timeout\"}"
     }
   }
 }
