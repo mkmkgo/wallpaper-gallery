@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-26T18:29:31.781Z",
+  "generatedAt": "2026-07-27T18:53:49.420Z",
   "series": "all",
   "total": 72,
   "tags": [
     {
       "tag": "人像",
-      "score": 9,
-      "views": 28,
+      "score": 10,
+      "views": 29,
       "downloads": 0,
       "wallpaperCount": 13,
       "series": [
@@ -17,9 +17,9 @@
       "topWallpapers": [
         "20260408170344.jpeg",
         "20260408164632.jpeg",
+        "20260406200444.jpeg",
         "20260408171457.jpeg",
-        "20260406201611.jpeg",
-        "20260408165518.jpeg"
+        "20260406201611.jpeg"
       ]
     },
     {
@@ -59,6 +59,39 @@
       ]
     },
     {
+      "tag": "清新",
+      "score": 3,
+      "views": 8,
+      "downloads": 0,
+      "wallpaperCount": 4,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406200444.jpeg",
+        "20260408171457.jpeg",
+        "20260406201611.jpeg",
+        "JK背影-少女远景.png"
+      ]
+    },
+    {
+      "tag": "甜美",
+      "score": 3,
+      "views": 7,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408163808.jpeg",
+        "20260406200444.jpeg",
+        "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
       "tag": "黑丝",
       "score": 3,
       "views": 6,
@@ -91,23 +124,6 @@
       ]
     },
     {
-      "tag": "清新",
-      "score": 2,
-      "views": 7,
-      "downloads": 0,
-      "wallpaperCount": 4,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408171457.jpeg",
-        "20260406201611.jpeg",
-        "20260406200444.jpeg",
-        "JK背影-少女远景.png"
-      ]
-    },
-    {
       "tag": "蓝天",
       "score": 2,
       "views": 5,
@@ -120,6 +136,23 @@
       "topWallpapers": [
         "花朵-蓝天.png",
         "20260406201611.jpeg"
+      ]
+    },
+    {
+      "tag": "少女",
+      "score": 2,
+      "views": 6,
+      "downloads": 0,
+      "wallpaperCount": 3,
+      "series": [
+        "desktop",
+        "mobile",
+        "avatar"
+      ],
+      "topWallpapers": [
+        "20260406200444.jpeg",
+        "20260406201611.jpeg",
+        "微信图片_2026-04-09_152721_644.jpg"
       ]
     },
     {
@@ -138,22 +171,6 @@
         "动漫-蜡笔小新.png",
         "卧室-夜晚-小新.png",
         "微信图片_2026-04-11_145953_146.jpg"
-      ]
-    },
-    {
-      "tag": "甜美",
-      "score": 2,
-      "views": 6,
-      "downloads": 0,
-      "wallpaperCount": 3,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408163808.jpeg",
-        "20260406200444.jpeg",
-        "image_这么多年珑妈依旧童颜Apink话..._0.png"
       ]
     },
     {
@@ -262,6 +279,19 @@
       ]
     },
     {
+      "tag": "光影",
+      "score": 1,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "20260406200444.jpeg"
+      ]
+    },
+    {
       "tag": "花朵",
       "score": 1,
       "views": 2,
@@ -311,23 +341,6 @@
       ],
       "topWallpapers": [
         "20260406201533.png"
-      ]
-    },
-    {
-      "tag": "少女",
-      "score": 1,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 3,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260406200444.jpeg",
-        "微信图片_2026-04-09_152721_644.jpg"
       ]
     },
     {
@@ -499,19 +512,6 @@
       ],
       "topWallpapers": [
         "大海-岛屿-栈桥.png"
-      ]
-    },
-    {
-      "tag": "光影",
-      "score": 0,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "20260406200444.jpeg"
       ]
     },
     {
