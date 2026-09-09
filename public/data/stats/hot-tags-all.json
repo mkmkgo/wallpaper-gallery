@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-08T20:00:32.009Z",
+  "generatedAt": "2026-09-09T19:54:39.956Z",
   "series": "all",
   "total": 72,
   "tags": [
     {
       "tag": "人像",
-      "score": 10,
+      "score": 9,
       "views": 29,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -16,15 +16,15 @@
       ],
       "topWallpapers": [
         "20260408170344.jpeg",
-        "20260408164632.jpeg",
         "20260406200444.jpeg",
         "20260408171457.jpeg",
+        "20260408164632.jpeg",
         "20260406201611.jpeg"
       ]
     },
     {
       "tag": "魅力",
-      "score": 6,
+      "score": 5,
       "views": 14,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -34,28 +34,10 @@
       ],
       "topWallpapers": [
         "20260408170344.jpeg",
-        "20260408164632.jpeg",
         "20260408171457.jpeg",
+        "20260408164632.jpeg",
         "城市景观-壁纸.png",
         "20260406201149.jpeg"
-      ]
-    },
-    {
-      "tag": "插画",
-      "score": 4,
-      "views": 13,
-      "downloads": 0,
-      "wallpaperCount": 7,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408163808.jpeg",
-        "20260406201533.png",
-        "20260408165518.jpeg",
-        "雨中绿意小猫.jpeg",
-        "20260408170413.jpeg"
       ]
     },
     {
@@ -76,33 +58,21 @@
       ]
     },
     {
-      "tag": "甜美",
+      "tag": "插画",
       "score": 3,
-      "views": 7,
+      "views": 13,
       "downloads": 0,
-      "wallpaperCount": 3,
+      "wallpaperCount": 7,
       "series": [
         "desktop",
         "mobile"
       ],
       "topWallpapers": [
+        "20260406201533.png",
         "20260408163808.jpeg",
-        "20260406200444.jpeg",
-        "image_这么多年珑妈依旧童颜Apink话..._0.png"
-      ]
-    },
-    {
-      "tag": "黑丝",
-      "score": 3,
-      "views": 6,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408164632.jpeg",
-        "城市景观-壁纸.png"
+        "20260408165518.jpeg",
+        "雨中绿意小猫.jpeg",
+        "20260408170413.jpeg"
       ]
     },
     {
@@ -156,21 +126,33 @@
       ]
     },
     {
-      "tag": "动漫",
+      "tag": "甜美",
       "score": 2,
       "views": 7,
       "downloads": 0,
-      "wallpaperCount": 4,
+      "wallpaperCount": 3,
       "series": [
         "desktop",
-        "mobile",
-        "avatar"
+        "mobile"
       ],
       "topWallpapers": [
+        "20260406200444.jpeg",
         "20260408163808.jpeg",
-        "动漫-蜡笔小新.png",
-        "卧室-夜晚-小新.png",
-        "微信图片_2026-04-11_145953_146.jpg"
+        "image_这么多年珑妈依旧童颜Apink话..._0.png"
+      ]
+    },
+    {
+      "tag": "黑丝",
+      "score": 2,
+      "views": 6,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408164632.jpeg",
+        "城市景观-壁纸.png"
       ]
     },
     {
@@ -210,32 +192,6 @@
       ],
       "topWallpapers": [
         "20260408170344.jpeg"
-      ]
-    },
-    {
-      "tag": "初音未来",
-      "score": 2,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408163808.jpeg"
-      ]
-    },
-    {
-      "tag": "学生装",
-      "score": 2,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408164632.jpeg"
       ]
     },
     {
@@ -344,6 +300,37 @@
       ]
     },
     {
+      "tag": "动漫",
+      "score": 1,
+      "views": 7,
+      "downloads": 0,
+      "wallpaperCount": 4,
+      "series": [
+        "desktop",
+        "mobile",
+        "avatar"
+      ],
+      "topWallpapers": [
+        "20260408163808.jpeg",
+        "动漫-蜡笔小新.png",
+        "卧室-夜晚-小新.png",
+        "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
+      "tag": "初音未来",
+      "score": 1,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408163808.jpeg"
+      ]
+    },
+    {
       "tag": "氛围感",
       "score": 1,
       "views": 4,
@@ -355,6 +342,19 @@
       "topWallpapers": [
         "冬日-围巾-树林.png",
         "小清新-意境.png"
+      ]
+    },
+    {
+      "tag": "学生装",
+      "score": 1,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408164632.jpeg"
       ]
     },
     {
