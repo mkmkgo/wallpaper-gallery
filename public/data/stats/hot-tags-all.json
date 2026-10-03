@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T21:23:12.279Z",
+  "generatedAt": "2026-10-03T20:01:53.160Z",
   "series": "all",
   "total": 72,
   "tags": [
@@ -73,39 +73,6 @@
         "20260408165518.jpeg",
         "雨中绿意小猫.jpeg",
         "20260408170413.jpeg"
-      ]
-    },
-    {
-      "tag": "风景",
-      "score": 2,
-      "views": 8,
-      "downloads": 1,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "简约风_日落.jpg",
-        "花朵-蓝天.png",
-        "大海-岛屿-栈桥.png",
-        "湖面_火烧云.jpg",
-        "地球日出星环宇宙奇观.png"
-      ]
-    },
-    {
-      "tag": "蓝天",
-      "score": 2,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "花朵-蓝天.png",
-        "20260406201611.jpeg"
       ]
     },
     {
@@ -195,6 +162,24 @@
       ]
     },
     {
+      "tag": "风景",
+      "score": 1,
+      "views": 8,
+      "downloads": 1,
+      "wallpaperCount": 6,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "简约风_日落.jpg",
+        "花朵-蓝天.png",
+        "大海-岛屿-栈桥.png",
+        "湖面_火烧云.jpg",
+        "地球日出星环宇宙奇观.png"
+      ]
+    },
+    {
       "tag": "日落",
       "score": 1,
       "views": 3,
@@ -248,32 +233,6 @@
       ]
     },
     {
-      "tag": "花朵",
-      "score": 1,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "花朵-蓝天.png"
-      ]
-    },
-    {
-      "tag": "花卉",
-      "score": 1,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "花朵-蓝天.png"
-      ]
-    },
-    {
       "tag": "梦幻",
       "score": 1,
       "views": 2,
@@ -315,6 +274,21 @@
         "动漫-蜡笔小新.png",
         "卧室-夜晚-小新.png",
         "微信图片_2026-04-11_145953_146.jpg"
+      ]
+    },
+    {
+      "tag": "蓝天",
+      "score": 1,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "desktop",
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260406201611.jpeg",
+        "花朵-蓝天.png"
       ]
     },
     {
@@ -472,6 +446,32 @@
       ],
       "topWallpapers": [
         "城市景观-壁纸.png"
+      ]
+    },
+    {
+      "tag": "花朵",
+      "score": 0,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "花朵-蓝天.png"
+      ]
+    },
+    {
+      "tag": "花卉",
+      "score": 0,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "desktop"
+      ],
+      "topWallpapers": [
+        "花朵-蓝天.png"
       ]
     },
     {
