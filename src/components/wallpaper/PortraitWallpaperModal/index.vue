@@ -3,13 +3,13 @@
  * 竖屏壁纸弹窗主组件
  * 使用 Vue Transition + CSS 动画，遵循 Vue 最佳实践
  */
-import { computed, onMounted, onUnmounted, ref, toRef, watch } from 'vue'
+import { computed, onUnmounted, ref, toRef, watch } from 'vue'
 import { useDevice } from '@/composables/useDevice'
 import { useInteraction } from '@/composables/useInteraction'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { buildProxyImageUrl, buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile } from '@/utils/common/format'
+import { buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
@@ -99,8 +99,6 @@ const displayImageUrl = computed(() => {
 
   if (fallbackStage.value === 'raw')
     return buildRawImageUrl(props.wallpaper.url)
-  if (fallbackStage.value === 'proxy')
-    return buildProxyImageUrl(props.wallpaper.url)
 
   return props.wallpaper.url
 })
@@ -122,7 +120,7 @@ watch(() => props.isOpen, async (isOpen) => {
   else if (!isOpen && isVisible.value) {
     handleClose()
   }
-})
+}, { immediate: true })
 
 // 监听壁纸变化
 watch(() => props.wallpaper, () => {
@@ -222,12 +220,6 @@ function handleImageError() {
     return
   }
 
-  if (fallbackStage.value === 'raw') {
-    fallbackStage.value = 'proxy'
-    imageLoaded.value = false
-    return
-  }
-
   imageLoaded.value = true
 }
 
@@ -244,27 +236,7 @@ function resetState() {
 }
 
 // 键盘导航
-function handleKeydown(e) {
-  if (!isVisible.value)
-    return
-
-  if (e.key === 'Escape') {
-    if (deviceMode.isDeviceMode.value) {
-      exitDeviceMode()
-    }
-    else {
-      handleClose()
-    }
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('keydown', handleKeydown)
-})
-
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeydown)
-
   // 只有当不使用独立弹窗组件时才清理滚动状态
   if (!useDesktopModal.value && !useAvatarDesktopModal.value && !useMobileModal.value && !useAvatarMobileModal.value) {
     document.body.classList.remove('modal-open')
@@ -340,12 +312,11 @@ onUnmounted(() => {
 
   <!-- 其他系列使用原有弹窗 -->
   <Teleport v-else to="body">
-    <Transition name="modal" @after-leave="onModalAfterLeave">
+    <Transition name="gallery-modal" appear @after-leave="onModalAfterLeave">
       <div
         v-if="isVisible && wallpaper"
         class="portrait-modal"
         :class="{ 'is-device-mode': deviceMode.isDeviceMode.value && isMobile }"
-        @click.self="handleClose"
       >
         <div
           ref="contentRef"
@@ -420,6 +391,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/modal' as modal;
 .portrait-modal {
   position: fixed;
   inset: 0;
@@ -510,40 +482,6 @@ onUnmounted(() => {
 }
 
 // 弹窗整体动画
-.modal-enter-active {
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  .portrait-modal__content {
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-}
-
-.modal-leave-active {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-  .portrait-modal__content {
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-.modal-enter-from {
-  opacity: 0;
-
-  .portrait-modal__content {
-    opacity: 0;
-    transform: scale(0.9) translateY(30px);
-  }
-}
-
-.modal-leave-to {
-  opacity: 0;
-
-  .portrait-modal__content {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-}
-
 // 内容淡入淡出
 .content-fade-enter-active,
 .content-fade-leave-active {
@@ -565,4 +503,6 @@ onUnmounted(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
+@include modal.modal-transition('.portrait-modal__content');
 </style>

@@ -41,7 +41,7 @@ const emit = defineEmits(['canplay', 'error', 'loadedmetadata'])
 
 const coverVideoRef = ref(null)
 const statusTime = '10:18'
-const FIRST_FEED_AVATAR = 'https://cdn.jsdelivr.net/gh/IT-NuanxinPro/nuanXinProPic@v1.1.26/wallpaper/avatar/%E4%BA%BA%E5%83%8F/%E5%8D%A1%E9%80%9A%E7%AE%80%E7%AC%94%E7%94%BB/%E5%91%86%E8%90%8C%E5%B0%91%E5%A5%B3_%E7%8C%AB%E8%80%B3%E5%A4%B4%E5%A5%97.png'
+const FIRST_FEED_AVATAR = ''
 
 const posts = computed(() => [
   {

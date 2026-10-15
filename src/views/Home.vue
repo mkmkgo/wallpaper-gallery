@@ -2,9 +2,9 @@
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AvatarMakerBanner from '@/components/avatar/AvatarMakerBanner.vue'
-import AvatarMakerModal from '@/components/avatar/AvatarMakerModal/index.vue'
 import DiyAvatarBanner from '@/components/avatar/DiyAvatarBanner.vue'
 import AnnouncementBanner from '@/components/common/feedback/AnnouncementBanner.vue'
+import { defineAsyncModal } from '@/components/common/feedback/defineAsyncModal'
 import BackToTop from '@/components/common/navigation/BackToTop.vue'
 import HomeModalHost from '@/components/home/HomeModalHost.vue'
 import HotTagsPanel from '@/components/home/HotTagsPanel.vue'
@@ -26,6 +26,7 @@ import { SERIES_CONFIG } from '@/utils/config/constants'
 import { getDefaultCategoryFilter } from '@/utils/filter/defaults'
 
 const route = useRoute()
+const AvatarMakerModal = defineAsyncModal(() => import('@/components/avatar/AvatarMakerModal/index.vue'))
 
 const seriesStore = useSeriesStore()
 const wallpaperStore = useWallpaperStore()
@@ -47,10 +48,12 @@ const seriesTitle = computed(() => {
   }
   return titles[currentSeries.value] || '4K高清壁纸免费下载'
 })
+const isVideoSeries = computed(() => currentSeries.value === 'video')
 const showMobileSeriesNotice = computed(() => isMobile.value && ['desktop', 'bing'].includes(currentSeries.value))
 const isSeriesContentReady = computed(() => wallpaperStore.currentRenderedSeries === currentSeries.value)
 const visibleWallpapers = computed(() => isSeriesContentReady.value ? wallpaperStore.wallpapers : [])
 const seriesCategoryDefinitions = computed(() => wallpaperStore.getSeriesCategories(currentSeries.value))
+const showHotTagsPanel = computed(() => !isVideoSeries.value)
 
 const mobileNoticeContent = computed(() => {
   if (currentSeries.value === 'bing') {
@@ -197,7 +200,9 @@ const {
 } = useWallpaperNavigator(wallpaperStore)
 
 function handleReset() {
-  filterStore.resetFilters(filterStore.sortBy, currentSeries.value)
+  // 周/月热门同时限定上传时间，清除筛选时也需要解除该限制。
+  const defaultSort = ['weekly-hot', 'monthly-hot'].includes(filterStore.sortBy) ? 'newest' : filterStore.sortBy
+  filterStore.resetFilters(defaultSort, currentSeries.value)
   activeHotTag.value = ''
 }
 
@@ -349,7 +354,9 @@ function handleAvatarMakerClose() {
 <template>
   <main class="home-page">
     <div class="container">
-      <h1 class="seo-h1">{{ seriesTitle }}</h1>
+      <h1 class="seo-h1">
+        {{ seriesTitle }}
+      </h1>
       <AnnouncementBanner />
 
       <MobileSeriesNotice
@@ -364,6 +371,7 @@ function handleAvatarMakerClose() {
         </div>
 
         <HotTagsPanel
+          v-if="showHotTagsPanel"
           :is-mobile="isMobile"
           :category-tags="isHotTagsVisible ? hotCategoryTags : []"
           :keyword-tags="isHotTagsVisible ? hotKeywordTags : []"
@@ -421,6 +429,7 @@ function handleAvatarMakerClose() {
     </div>
 
     <HomeModalHost
+      v-if="currentWallpaper"
       :wallpaper="currentWallpaper"
       :is-open="isOpen"
       :use-portrait-modal="usePortraitModal"
@@ -433,6 +442,7 @@ function handleAvatarMakerClose() {
     <BackToTop />
 
     <AvatarMakerModal
+      v-if="isAvatarMakerOpen"
       :is-open="isAvatarMakerOpen"
       @close="handleAvatarMakerClose"
     />

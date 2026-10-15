@@ -1,8 +1,8 @@
 <script setup>
-import { gsap } from 'gsap'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useDevice } from '@/composables/useDevice'
 import { buildWallpaperImageFallbackUrls, formatBingDate, formatFileSize, formatRelativeTime, getDisplayFilename, highlightText } from '@/utils/common/format'
+import { VIDEO_USAGE_SHORT_LABELS } from '@/utils/config/constants'
 import WallpaperCardInfo from './shared/WallpaperCardInfo.vue'
 import WallpaperCardMedia from './shared/WallpaperCardMedia.vue'
 
@@ -18,10 +18,6 @@ const props = defineProps({
   searchQuery: {
     type: String,
     default: '',
-  },
-  viewMode: {
-    type: String,
-    default: 'grid',
   },
   aspectRatio: {
     type: String,
@@ -44,22 +40,24 @@ const props = defineProps({
 const emit = defineEmits(['click', 'imageLoad'])
 const { isMobile } = useDevice()
 
-const cardRef = ref(null)
-const imageRef = ref(null)
 const imageLoaded = ref(false)
 const imageError = ref(false)
 const imageCandidateIndex = ref(0)
+const isMediaHovered = ref(false)
 
-let cacheCheckTimer = null
-let gsapTargets = []
+const primaryImageUrl = computed(() => {
+  if (props.wallpaper?.mediaType === 'video') {
+    return props.wallpaper.thumbnailUrl || props.wallpaper.previewUrl || props.wallpaper.url
+  }
 
-const primaryImageUrl = computed(() => props.wallpaper.previewUrl || props.wallpaper.thumbnailUrl || props.wallpaper.url)
+  return props.wallpaper.previewUrl || props.wallpaper.thumbnailUrl || props.wallpaper.url
+})
 const candidateImageUrls = computed(() => buildWallpaperImageFallbackUrls({
   ...props.wallpaper,
   thumbnailUrl: props.wallpaper.thumbnailUrl,
   previewUrl: props.wallpaper.previewUrl,
   url: props.wallpaper.url,
-}))
+}, { preferThumbnail: true }))
 
 const thumbnailUrl = computed(() => {
   return candidateImageUrls.value[imageCandidateIndex.value] || primaryImageUrl.value
@@ -71,42 +69,25 @@ watch(() => props.wallpaper?.id, () => {
   imageError.value = false
 })
 
-onMounted(() => {
-  cacheCheckTimer = setTimeout(() => {
-    if (imageRef.value && imageRef.value.complete && imageRef.value.naturalWidth > 0) {
-      imageLoaded.value = true
-    }
-  }, 0)
-})
-
-onUnmounted(() => {
-  if (cacheCheckTimer) {
-    clearTimeout(cacheCheckTimer)
-    cacheCheckTimer = null
-  }
-
-  if (gsapTargets.length > 0) {
-    gsapTargets.forEach(target => gsap.killTweensOf(target))
-    gsapTargets = []
-  }
-
-  if (cardRef.value) {
-    gsap.killTweensOf(cardRef.value)
-  }
-})
-
 const formattedSize = computed(() => formatFileSize(props.wallpaper.size))
 const fileFormat = computed(() => props.wallpaper.filename.split('.').pop()?.toUpperCase() || '')
 const relativeTime = computed(() => formatRelativeTime(props.wallpaper.createdAt))
+const isVideoWallpaper = computed(() => props.wallpaper?.mediaType === 'video')
 const displayFilename = computed(() => {
   if (props.wallpaper.displayTitle) {
-    return props.wallpaper.displayTitle.replace(/\.(jpg|jpeg|png|gif|bmp|webp|svg|tiff|tif|ico|heic|heif)$/i, '')
+    return props.wallpaper.displayTitle.replace(/\.(jpg|jpeg|png|gif|bmp|webp|svg|tiff|tif|ico|heic|heif|mp4|webm|mov|m4v)$/i, '')
   }
   return getDisplayFilename(props.wallpaper.filename)
 })
 const aiKeywords = computed(() => props.wallpaper.keywords?.slice(0, 3) || [])
 const highlightedFilename = computed(() => highlightText(displayFilename.value, props.searchQuery))
 const categoryDisplay = computed(() => {
+  if (isVideoWallpaper.value) {
+    const usageLabel = VIDEO_USAGE_SHORT_LABELS[props.wallpaper?.usage] || props.wallpaper?.usage || props.wallpaper?.category || ''
+    const topic = props.wallpaper?.topic || props.wallpaper?.subcategory || '通用'
+    return usageLabel ? `${usageLabel} / ${topic}` : topic
+  }
+
   const { category, subcategory } = props.wallpaper
   if (!category)
     return ''
@@ -120,8 +101,15 @@ const imageAlt = computed(() => {
   if (isBingWallpaper.value && props.wallpaper.title)
     return `${props.wallpaper.title} - Bing每日壁纸`
   const parts = [displayFilename.value]
-  if (categoryDisplay.value)
+  if (isVideoWallpaper.value) {
+    const usageLabel = VIDEO_USAGE_SHORT_LABELS[props.wallpaper?.usage] || props.wallpaper?.usage || ''
+    if (usageLabel) {
+      parts.push(usageLabel)
+    }
+  }
+  else if (categoryDisplay.value) {
     parts.push(categoryDisplay.value)
+  }
   if (aiKeywords.value.length > 0)
     parts.push(aiKeywords.value.join(' '))
   return `${parts.join(' - ')} 高清壁纸`
@@ -135,25 +123,21 @@ const bingCopyright = computed(() => {
   return parenIndex > 0 ? copyright.substring(0, parenIndex).trim() : copyright
 })
 
-const normalizedAspectRatio = computed(() => props.aspectRatio.replace('/', ' / '))
-const cardImageStyle = computed(() => ({ aspectRatio: normalizedAspectRatio.value }))
-
-const listImageStyle = computed(() => {
-  if (isMobile.value) {
-    return {
-      width: '100px',
-      height: '100px',
-      aspectRatio: '1 / 1',
+const computedAspectRatio = computed(() => {
+  if (isVideoWallpaper.value) {
+    if (props.wallpaper?.usage === 'mobile') {
+      return '9/16'
     }
+    if (props.wallpaper?.usage === 'social-cover') {
+      return '9/16'
+    }
+    return '16/9'
   }
-  const [w, h] = props.aspectRatio.split('/').map(Number)
-  const ratio = w / h
-  const baseWidth = ratio >= 1 ? 200 : 120
-  return {
-    width: `${baseWidth}px`,
-    aspectRatio: normalizedAspectRatio.value,
-  }
+
+  return props.aspectRatio
 })
+const normalizedAspectRatio = computed(() => computedAspectRatio.value.replace('/', ' / '))
+const cardImageStyle = computed(() => ({ aspectRatio: normalizedAspectRatio.value }))
 
 function handleImageLoad() {
   imageLoaded.value = true
@@ -178,81 +162,19 @@ function handleClick() {
 }
 
 function handleMouseEnter() {
-  if (isMobile.value)
-    return
-
-  const card = cardRef.value
-  if (!card)
-    return
-
-  const media = card.querySelector('.card-image')
-  const overlay = media?.querySelector('.card-overlay')
-  const img = media?.querySelector('img')
-
-  gsapTargets = [card, overlay, img].filter(Boolean)
-
-  gsap.to(card, {
-    y: -10,
-    duration: 0.3,
-    ease: 'power2.out',
-  })
-
-  gsap.to(overlay, {
-    opacity: 1,
-    duration: 0.3,
-  })
-
-  if (img) {
-    gsap.to(img, {
-      scale: 1.1,
-      duration: 0.4,
-      ease: 'power2.out',
-    })
-  }
+  if (!isMobile.value)
+    isMediaHovered.value = true
 }
 
 function handleMouseLeave() {
-  if (isMobile.value)
-    return
-
-  const card = cardRef.value
-  if (!card)
-    return
-
-  const media = card.querySelector('.card-image')
-  const overlay = media?.querySelector('.card-overlay')
-  const img = media?.querySelector('img')
-
-  gsap.to(card, {
-    y: 0,
-    duration: 0.3,
-    ease: 'power2.out',
-    clearProps: 'transform',
-  })
-
-  gsap.to(overlay, {
-    opacity: 0,
-    duration: 0.3,
-  })
-
-  if (img) {
-    gsap.to(img, {
-      scale: 1,
-      duration: 0.4,
-      ease: 'power2.out',
-      clearProps: 'transform',
-    })
-  }
+  isMediaHovered.value = false
 }
 </script>
 
 <template>
   <div
-    ref="cardRef"
     class="wallpaper-card"
-    :class="`view-${viewMode}`"
-    :data-flip-id="wallpaper.id"
-    @click="handleClick"
+    :class="{ 'is-media-hovered': isMediaHovered }"
   >
     <WallpaperCardMedia
       :bing-date="bingDate"
@@ -260,14 +182,14 @@ function handleMouseLeave() {
       :image-alt="imageAlt"
       :image-error="imageError"
       :image-loaded="imageLoaded"
-      :image-ref="imageRef"
       :index="index"
       :is-bing-wallpaper="isBingWallpaper"
+      :is-video-wallpaper="isVideoWallpaper"
       :is-mobile="isMobile"
       :popular-rank="popularRank"
-      :style="viewMode === 'list' ? listImageStyle : cardImageStyle"
+      :style="cardImageStyle"
       :thumbnail-url="thumbnailUrl"
-      :view-mode="viewMode"
+      @click="handleClick"
       @load="handleImageLoad"
       @error="handleImageError"
       @hover-enter="handleMouseEnter"
@@ -286,9 +208,9 @@ function handleMouseLeave() {
       :formatted-size="formattedSize"
       :highlighted-filename="highlightedFilename"
       :is-bing-wallpaper="isBingWallpaper"
+      :is-video-wallpaper="isVideoWallpaper"
       :relative-time="relativeTime"
       :view-count="viewCount"
-      :view-mode="viewMode"
       :wallpaper-copyright="wallpaper.copyright || ''"
     />
   </div>
@@ -304,13 +226,12 @@ function handleMouseLeave() {
   border: 1px solid var(--accent-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  cursor: pointer;
   box-shadow:
     0 14px 30px rgba(37, 99, 235, 0.08),
     0 24px 48px rgba(15, 23, 42, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.58);
-  backface-visibility: hidden;
   transition:
+    transform 180ms ease-out,
     background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -365,7 +286,33 @@ function handleMouseLeave() {
     }
   }
 
-  &:hover {
+  @media (hover: hover) and (pointer: fine) {
+    &.is-media-hovered {
+      transform: translateY(-4px);
+
+      :deep(.card-overlay) {
+        opacity: 1;
+      }
+
+      :deep(.card-image img) {
+        transform: scale(1.035);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &.is-media-hovered {
+      transform: none;
+
+      :deep(.card-image img) {
+        transform: none;
+      }
+    }
+  }
+
+  &.is-media-hovered {
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(219, 234, 254, 0.9)),
       radial-gradient(circle at top left, rgba(var(--color-accent-rgb), 0.24), transparent 52%),
@@ -404,11 +351,5 @@ function handleMouseLeave() {
       }
     }
   }
-}
-
-.wallpaper-card.view-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 </style>

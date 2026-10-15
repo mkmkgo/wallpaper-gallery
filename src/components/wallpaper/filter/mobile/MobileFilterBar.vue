@@ -1,29 +1,26 @@
 <script setup>
-import ViewModeToggle from '@/components/wallpaper/filter/shared/ViewModeToggle.vue'
-
 defineProps({
   currentCategoryLabel: {
     type: String,
     default: '分类',
   },
+  hideCategoryFilter: {
+    type: Boolean,
+    default: false,
+  },
   isCategoryActive: {
     type: Boolean,
     default: false,
   },
-  viewMode: {
-    type: String,
-    default: 'grid',
-  },
 })
 
-defineEmits(['openCategory', 'openFilter', 'viewModeChange'])
+defineEmits(['openCategory', 'openFilter'])
 </script>
 
 <template>
   <div class="filter-right-mobile">
-    <ViewModeToggle :mode="viewMode" mobile @change="$emit('viewModeChange', $event)" />
-
     <button
+      v-if="!hideCategoryFilter"
       class="category-btn"
       :class="{ 'is-active': isCategoryActive }"
       @click="$emit('openCategory')"

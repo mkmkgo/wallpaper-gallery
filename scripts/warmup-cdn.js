@@ -1,6 +1,6 @@
+import { readdirSync, readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
 import process from 'node:process'
-import { readFileSync, readdirSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -20,10 +20,12 @@ function collectDataUrls() {
     try {
       const files = readdirSync(seriesDir)
       for (const file of files) {
-        if (!file.endsWith('.json')) continue
+        if (!file.endsWith('.json'))
+          continue
         urls.push(`${SITE_URL}/data/${series}/${file}`)
       }
-    } catch {
+    }
+    catch {
       // skip
     }
   }
@@ -48,7 +50,8 @@ function collectHotUrls() {
     try {
       readFileSync(resolve(publicDir, file))
       urls.push(`${SITE_URL}/${file}`)
-    } catch {
+    }
+    catch {
       // skip
     }
   }
@@ -65,14 +68,16 @@ async function warmupUrl(url) {
     clearTimeout(timer)
     const cacheStatus = res.headers.get('x-cache') || res.headers.get('cf-cache-status') || 'unknown'
     return { url, ok: res.ok, status: res.status, cacheStatus }
-  } catch (err) {
+  }
+  catch (err) {
     clearTimeout(timer)
     return { url, ok: false, status: 0, error: err.message }
   }
 }
 
 async function warmupWithConcurrency(urls, concurrency, label) {
-  if (urls.length === 0) return { results: [], hitCount: 0, missCount: 0 }
+  if (urls.length === 0)
+    return { results: [], hitCount: 0, missCount: 0 }
 
   console.log(`   🚀 ${label}: ${urls.length} URLs`)
 
@@ -86,8 +91,10 @@ async function warmupWithConcurrency(urls, concurrency, label) {
     for (const r of batchResults) {
       const result = r.status === 'fulfilled' ? r.value : { ok: false, cacheStatus: 'error' }
       results.push(result)
-      if (result.cacheStatus?.includes('HIT')) hitCount++
-      else if (result.cacheStatus?.includes('MISS')) missCount++
+      if (result.cacheStatus?.includes('HIT'))
+        hitCount++
+      else if (result.cacheStatus?.includes('MISS'))
+        missCount++
     }
     process.stdout.write(`\r      Progress: ${results.length}/${urls.length} (HIT: ${hitCount}, MISS: ${missCount})`)
   }
@@ -130,7 +137,7 @@ async function main() {
 
   if (failed > 0) {
     console.log('\n❌ Failed URLs (first 5):')
-    allResults.filter(r => !r.ok).slice(0, 5).forEach(r => {
+    allResults.filter(r => !r.ok).slice(0, 5).forEach((r) => {
       console.log(`   ${r.status || 'timeout'} - ${r.url}`)
     })
   }

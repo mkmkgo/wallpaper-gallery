@@ -64,7 +64,9 @@ const compactMain = computed(() => route.meta?.compactMain === true)
           <a href="/video">视频壁纸</a>
           <a href="/about">关于我们</a>
         </nav>
-        <p class="seo-footer-copy">&copy; 2024-2026 超赞壁纸 - 4K高清壁纸免费下载</p>
+        <p class="seo-footer-copy">
+          &copy; 2024-2026 超赞壁纸 - 4K高清壁纸免费下载
+        </p>
       </footer>
     </div>
   </ElConfigProvider>

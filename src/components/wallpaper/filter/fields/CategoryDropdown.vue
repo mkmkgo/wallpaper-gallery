@@ -39,6 +39,15 @@ const currentSubcategories = computed(() => {
   return category?.subcategories || []
 })
 
+const hoveredCategoryLabel = computed(() => {
+  if (hoveredCategory.value === 'all') {
+    return '全部分类'
+  }
+
+  const category = props.categoryOptions.find(opt => opt.value === hoveredCategory.value)
+  return category?.label || hoveredCategory.value
+})
+
 // 显示文本
 const displayText = computed(() => {
   if (props.categoryFilter === 'all') {
@@ -175,7 +184,7 @@ onUnmounted(() => {
           <Transition name="slide-right">
             <div v-if="currentSubcategories.length > 0" class="category-list secondary-list">
               <div class="list-header">
-                {{ hoveredCategory }}
+                {{ hoveredCategoryLabel }}
               </div>
               <div class="list-items">
                 <!-- 全部选项 -->
@@ -214,6 +223,7 @@ onUnmounted(() => {
 .category-dropdown {
   position: relative;
   z-index: 100;
+  min-width: 0;
 }
 
 // 触发器按钮 - 与 Element Plus 风格一致
@@ -261,6 +271,7 @@ onUnmounted(() => {
 
 .trigger-text {
   flex: 1;
+  min-width: 0;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;

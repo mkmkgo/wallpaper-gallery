@@ -1,5 +1,5 @@
-import process from 'node:process'
 import { execSync } from 'node:child_process'
+import process from 'node:process'
 
 const CDN_DOMAINS = ['cdn.jsdmirror.com', 'testingcf.jsdelivr.net', 'cdn.jsdelivr.net']
 const PRIMARY_CDN = CDN_DOMAINS[0]
@@ -11,7 +11,7 @@ const CONCURRENCY = 8
 const WARMUP_TIMEOUT = 15000
 
 function findNewImagePaths() {
-  const imageExts = /\.(webp|jpg|jpeg|png)$/i
+  const imageExts = /\.(?:webp|jpg|jpeg|png)$/i
   const paths = new Set()
 
   try {
@@ -22,10 +22,12 @@ function findNewImagePaths() {
     if (output) {
       for (const line of output.split('\n')) {
         const p = line.trim()
-        if (p && imageExts.test(p)) paths.add(p)
+        if (p && imageExts.test(p))
+          paths.add(p)
       }
     }
-  } catch {
+  }
+  catch {
     try {
       const output = execSync(
         `git -C "${IMAGE_REPO_PATH}" show --name-only --pretty=format: HEAD -- 'thumbnail/' 'preview/' 2>&1`,
@@ -34,10 +36,12 @@ function findNewImagePaths() {
       if (output) {
         for (const line of output.split('\n')) {
           const p = line.trim()
-          if (p && imageExts.test(p)) paths.add(p)
+          if (p && imageExts.test(p))
+            paths.add(p)
         }
       }
-    } catch (err) {
+    }
+    catch (err) {
       console.log(`⚠️  git diff/show failed: ${err.message}`)
     }
   }
@@ -54,7 +58,8 @@ async function warmupUrl(url) {
     clearTimeout(timer)
     const cacheStatus = res.headers.get('x-cache') || 'unknown'
     return { url, ok: res.ok, status: res.status, cacheStatus }
-  } catch (err) {
+  }
+  catch (err) {
     clearTimeout(timer)
     return { url, ok: false, status: 0, error: err.message }
   }
@@ -71,8 +76,10 @@ async function warmupWithConcurrency(urls, concurrency) {
     for (const r of batchResults) {
       const result = r.status === 'fulfilled' ? r.value : { ok: false, cacheStatus: 'error' }
       results.push(result)
-      if (result.cacheStatus?.includes('HIT')) hitCount++
-      else if (result.cacheStatus?.includes('MISS')) missCount++
+      if (result.cacheStatus?.includes('HIT'))
+        hitCount++
+      else if (result.cacheStatus?.includes('MISS'))
+        missCount++
     }
     process.stdout.write(`\r   Progress: ${results.length}/${urls.length} (HIT: ${hitCount}, MISS: ${missCount})`)
   }
@@ -114,7 +121,7 @@ async function main() {
 
   if (failed > 0) {
     console.log('\n   ❌ Failed URLs (first 5):')
-    results.filter(r => !r.ok).slice(0, 5).forEach(r => {
+    results.filter(r => !r.ok).slice(0, 5).forEach((r) => {
       console.log(`      ${r.status || 'timeout'} - ${r.url}`)
     })
   }

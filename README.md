@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://wallpaper.061129.xyz/favicon.svg" width="120" height="120" alt="Wallpaper Gallery Logo" />
   <h1>Wallpaper Gallery</h1>
-  <p>一个专注精选 4K 高清壁纸质感与浏览体验的壁纸项目，覆盖电脑、手机、头像与每日 Bing 壁纸场景</p>
+  <p>一个专注精选 4K 高清壁纸质感与浏览体验的壁纸项目，覆盖电脑、手机、头像、动态壁纸与每日 Bing 壁纸场景</p>
 
   <p>
     <a href="https://wallpaper.061129.xyz"><img src="https://img.shields.io/badge/Deployed_with-Cloudflare_Pages-f38020?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare Pages"></a>
@@ -174,7 +174,7 @@
 ### 🎨 核心功能
 
 - **高清壁纸展示** - 支持 16K/8K/5K/4K 及更高分辨率壁纸
-- **四大系列** - 电脑壁纸、手机壁纸、头像、每日 Bing 壁纸
+- **五大系列** - 电脑壁纸、手机壁纸、头像、动态壁纸、每日 Bing 壁纸
 - **部署友好** - 默认可直接 fork、同步线上数据并部署，无需先搭建图床
 - **账号体系与个人中心** - 支持登录、注册、认证回调、账号资料查看与安全设置
   - 支持 `GitHub`、`Google`、`Linux.do` OAuth 登录
@@ -195,6 +195,12 @@
 - **每日 Bing 壁纸** - 从 2019年6月至今约 2400+ 张必应精选壁纸
   - 按年度分片加载，性能优异
   - 直连 Bing CDN，无需额外存储
+- **动态壁纸专区** - 提供视频壁纸独立路由与详情弹窗
+  - 支持视频元数据展示、循环播放与下载
+  - 视频资源优先走 `img.061129.xyz`，避免大文件依赖 GitHub CDN
+  - 电脑动态壁纸、手机动态壁纸、朋友圈封面三类内容统一归档到 `video` 系列
+  - 通过 `category=desktop / mobile / social-cover` 区分具体子系列
+  - 三类动态壁纸统一复用现有筛选、路由与用户交互体系
 - **智能裁剪与真机预览** - 电脑壁纸支持智能裁剪；手机壁纸与头像支持真机显示模式
   - 自动适配屏幕分辨率，提供多种比例预设与自定义尺寸
   - 支持实时预览、沉浸式全屏预览与高质量导出
@@ -214,7 +220,7 @@
 - **动态分类** - 自动从壁纸数据中提取分类，按数量排序
 - **格式筛选** - 按 JPG/PNG 格式筛选
 - **分辨率筛选** - 仅电脑壁纸系列支持，按 16K/8K/5K+/4K+/4K/2K/超清/高清/标清精确筛选
-- **一键下载** - 直接下载原图
+- **一键下载** - 图片下载原图，视频下载原始视频文件
 - **喜欢 / 收藏交互** - 登录后支持即时标记与跨页面状态同步
   - 首页卡片提供始终可见的状态角标
   - 首页筛选栏内显示 `已喜欢` / `已收藏` 汇总
@@ -222,11 +228,8 @@
 
 ### 🖼️ 视图与浏览
 
-- **多视图模式**
-  - 桌面端：网格/列表/瀑布流，支持 GSAP Flip 动画丝滑切换
-  - 移动端：网格/列表，支持手势左右滑动切换视图
-- **丝滑切换动画** - 基于 GSAP Flip 插件的视图模式切换动画，卡片平滑形变过渡
-- **移动端 Flex 瀑布流** - 采用 Flex + JS 分列算法
+- **响应式卡片布局** - 桌面、平板与手机统一使用卡片，列数随屏幕宽度调整
+- **滚动加载** - 新卡片直接显示，避免上移与淡入造成闪屏
 - **导航滑块动画** - 系列切换时背景滑块平滑过渡，避免元素抖动
 - **动态宽高比** - 根据系列自动适配卡片比例（电脑16:10、手机9:16、头像1:1、Bing 16:9）
 - **全屏浏览** - 沉浸式全屏浏览模式，ESC 退出
@@ -250,7 +253,7 @@
   - 移除 backdrop-filter 提升滚动性能
   - 滚动锁定防止弹窗穿透
   - 收藏夹仅保留手机壁纸 / 头像标签，更符合移动端使用场景
-- **用户偏好记忆** - 记住用户的系列选择、排序方式、视图模式
+- **用户偏好记忆** - 记住用户的系列选择、排序方式
 - **本地缩略图** - 预生成 WebP 缩略图，首页加载更快
 - **深色模式细节补齐** - 手机壁纸弹窗、头像弹窗、标签与操作状态统一适配深色主题
 - **认证反馈面板** - OAuth 跳转前后使用 Lottie Loading / Success 面板、注册后显示邮箱验证提示，PC 与移动端都能第一时间获知登录是否成功。
@@ -311,7 +314,7 @@
 | 框架 | Vue 3.5 (Composition API + script setup) |
 | 构建工具 | Vite 7 |
 | UI 组件 | Element Plus (PC端 + Bing 日期选择) + Vant (移动端) |
-| 动画 | GSAP + Flip 插件 |
+| 动画 | GSAP + CSS 过渡 |
 | 图片裁剪 | Cropper.js |
 | 样式 | Sass + postcss-pxtorem (移动端适配) |
 | 路由 | Vue Router 4 |
@@ -494,9 +497,10 @@ pnpm test             # 运行测试
 
 ### 数据来源
 
-所有壁纸数据统一从线上 CDN 拉取：
+所有壁纸数据统一从线上 CDN / 图床仓库导出结果拉取：
 - **CDN 地址**：`https://wallpaper.061129.xyz/data`
-- **数据系列**：desktop（电脑壁纸）、mobile（手机壁纸）、avatar（头像）、bing（每日 Bing）
+- **数据系列**：desktop（电脑壁纸）、mobile（手机壁纸）、avatar（头像）、video（动态壁纸）、bing（每日 Bing）
+- **动态壁纸子系列**：`video/desktop`（电脑动态壁纸）、`video/mobile`（手机动态壁纸）、`video/social-cover`（朋友圈封面）
 - **更新方式**：GitHub Actions 自动部署
 - **本地缓存**：数据会缓存在 `public/data` 目录，支持离线开发
 
@@ -528,8 +532,8 @@ Fork 本项目后，无需任何配置即可使用：
    pnpm dev
    ```
 
-5. **部署到 GitHub Pages**
-   - 项目已配置 GitHub Actions 自动部署
+5. **部署到 Cloudflare Pages**
+   - 项目已配置 GitHub Actions + Cloudflare Pages 自动部署
    - 推送到 `main` 分支会自动触发部署
    - 或在 Actions 页面手动触发部署
 
@@ -569,6 +573,15 @@ Fork 本项目后，无需任何配置即可使用：
    - 本地执行 `pnpm sync:assets` 时额外需要：
      - `SUPABASE_SERVICE_ROLE_KEY`
 
+5. **执行前确认数据源是最新的**
+   - `pnpm sync:assets` 会把当前 `public/data` 解析出的全部资产全量 `upsert` 到远端 `wallpaper_assets`
+   - 动态壁纸同步到远端时统一使用 `series='video'`，再通过 `category` 标记 `desktop / mobile / social-cover`
+   - 这不是“只补新增”的脚本，错误或过旧的本地 `public/data` 会覆盖远端元数据
+   - 推荐做法：
+     - 先执行 `pnpm sync` 或使用 CI 从最新 `nuanXinProPic/data` 拷贝数据
+     - 再执行 `pnpm sync:assets`
+   - 如果你只是想排查线上数据库状态，优先做只读查询，不要直接执行同步脚本
+
 **注意**：这些能力都是渐进增强，不配置也不影响网站基础浏览与下载。
 
 #### 其他可选配置
@@ -592,6 +605,10 @@ wallpaper-gallery/
 │       ├── desktop/          # 电脑壁纸分类数据
 │       ├── mobile/           # 手机壁纸分类数据
 │       ├── avatar/           # 头像分类数据
+│       ├── video/            # 动态壁纸分类数据
+│       │   ├── desktop.json  # 电脑动态壁纸
+│       │   ├── mobile.json   # 手机动态壁纸
+│       │   └── social-cover.json # 朋友圈封面
 │       ├── bing/             # 每日 Bing 壁纸数据
 │       └── stats/            # 热门统计数据
 ├── scripts/
@@ -648,7 +665,7 @@ wallpaper-gallery/
 │   │       │   ├── desktop/             # 桌面端筛选控件
 │   │       │   ├── mobile/              # 移动端筛选栏与弹窗
 │   │       │   ├── fields/              # 日期选择器、分类下拉框
-│   │       │   └── shared/              # FilterSummary、ViewModeToggle
+│   │       │   └── shared/              # FilterSummary
 │   │       ├── PortraitWallpaperModal/  # 竖屏壁纸弹窗
 │   │       │   ├── desktop/             # 桌面端弹窗
 │   │       │   ├── mobile/              # 移动端弹窗
@@ -666,7 +683,6 @@ wallpaper-gallery/
 │   │   ├── useInteraction.js # 壁纸喜欢 / 收藏交互封装
 │   │   ├── useDevice.js      # 设备检测
 │   │   ├── useTheme.js       # 主题管理
-│   │   ├── useViewMode.js    # 视图模式
 │   │   ├── useScrollLock.js  # 滚动锁定
 │   │   └── ...
 │   ├── services/             # 服务层
@@ -728,32 +744,42 @@ wallpaper-gallery/
 | 字段 | 类型 | 说明 |
 | --- | --- | --- |
 | `tag` | string | 标签文本 |
-| `score` | number | 综合热度分数 |
-| `views` | number | 浏览量 |
-| `downloads` | number | 下载量 |
-| `wallpaperCount` | number | 关联壁纸数量 |
+| `score` | number | 近期内容加权分数 |
+| `views` | number | 近期候选壁纸已取得的累计浏览量 |
+| `downloads` | number | 近期候选壁纸已取得的累计下载量 |
+| `wallpaperCount` | number | 近 90 天内关联壁纸数量 |
 | `series` | string[] | 标签所属系列 |
-| `topWallpapers` | string[] | 热门预览壁纸文件名列表 |
+| `topWallpapers` | array | 文件名或含 thumbnail、cdnTag 的预览对象列表 |
 
 说明：
-- 电脑 / 手机 / 头像系列中，热门分类会优先映射到分类筛选，其他标签进入搜索。
-- Bing 系列中，月份标签会映射到月份筛选，单图中文标签会直接定位到对应壁纸。
-- Bing 手动搜索时会自动取消当前月份限制；清空搜索后再恢复到当前月份。
-- 热门标签数据可通过 `pnpm export:hot-tags` 重新导出。
 
-## 📱 四大系列
+- 从完整图床元数据中选取近 90 天上传的壁纸；无统计的新图也参与，不从历史 Top 500 限定候选。
+- 每张图的分数为 `(1 + min(log(1 + 浏览量 + 3 × 下载量) / log(101), 1)) × 2^(-上传天数 / 30)`，再按标签累加。累计互动最多让单图基础分翻倍，时间权重每 30 天减半。
+- 没有近期内容时返回空推荐，不用历史旧图补足；同名不同路径的图片暂不复用无法拆分的统计，仅计算时间基础分。
+- 推荐衡量近期内容与已有累计互动，不是近 90 天新增浏览/下载次数，也不是用户搜索次数。
+- JSON 顶层记录 generatedAt、windowDays、windowStart、halfLifeDays，便于核对计算时间和口径；配置位于 `src/utils/config/hotTags.js`。
+- 电脑 / 手机 / 头像系列中，热门分类会优先映射到分类筛选，其他标签进入搜索。
+- Bing 系列排除纯年月标签，单图中文标签会直接定位到对应壁纸。
+- Bing 手动搜索时会自动取消当前月份限制；清空搜索后再恢复到当前月份。
+- 标签点击沿用分类/搜索功能，结果范围仍受当前筛选条件控制；推荐标签上的数量仅统计近 90 天内容。
+- 热门标签数据可通过 `pnpm export:hot-tags` 重新导出。
+- 定时导出先取得最新图床元数据；部署时也会基于本次部署的数据重新计算。浏览器请求会重新校验静态文件，系列缓存有效期为 1 小时，手动刷新跳过缓存。
+
+## 📱 五大系列
 
 | 系列 | 路由 | 设备可见性 | 宽高比 | 数据来源 |
 | --- | --- | --- | --- | --- |
 | 电脑壁纸 | `/desktop` | PC 端 | 16:10 | 自有图床 |
+| 动态壁纸 | `/video` | PC / 平板优先 | 16:9 / 9:16 | 图床导出 + R2 资源 |
 | 手机壁纸 | `/mobile` | 移动端 | 9:16 | 自有图床 |
 | 头像 | `/avatar` | 全设备 | 1:1 | 自有图床 |
 | 每日 Bing 壁纸 | `/bing` | PC / 平板优先 | 16:9 | Bing CDN |
 
-- PC 端显示：电脑壁纸 + Bing + 手机壁纸 + 头像
-- 平板端显示：电脑壁纸 + Bing + 手机壁纸 + 头像
+- PC 端显示：电脑壁纸 + 动态壁纸 + Bing + 手机壁纸 + 头像
+- 平板端显示：电脑壁纸 + 动态壁纸 + Bing + 手机壁纸 + 头像
 - 移动端默认显示：手机壁纸 + 头像
-- Bing 和电脑壁纸在移动端可通过直达路由访问，但界面会给出大屏浏览提示
+- Bing、动态壁纸和电脑壁纸在移动端可通过直达路由访问，但界面会给出大屏浏览提示
+- 动态壁纸系列下再细分为：电脑、手机、朋友圈封面三个子系列
 
 ## 🎯 性能优化
 

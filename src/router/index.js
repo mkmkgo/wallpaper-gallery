@@ -316,25 +316,25 @@ function applyRouteSeo(to) {
     ? {
         '@context': 'https://schema.org',
         '@type': seriesInfo.type,
-        name: title,
+        'name': title,
         description,
         url,
-        isPartOf: {
+        'isPartOf': {
           '@type': 'WebSite',
-          name: SITE_NAME,
-          url: SITE_URL,
+          'name': SITE_NAME,
+          'url': SITE_URL,
         },
       }
     : {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: title,
+        'name': title,
         description,
         url,
-        isPartOf: {
+        'isPartOf': {
           '@type': 'WebSite',
-          name: SITE_NAME,
-          url: SITE_URL,
+          'name': SITE_NAME,
+          'url': SITE_URL,
         },
       }
 

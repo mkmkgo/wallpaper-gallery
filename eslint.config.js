@@ -1,39 +1,50 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({
-  // 启用 Vue 支持
-  vue: true,
+export default antfu(
+  {
+    // 启用 Vue 支持
+    vue: true,
 
-  // 启用格式化器（替代 Prettier）
-  formatters: true,
+    // 启用格式化器（替代 Prettier）
+    formatters: true,
 
-  // 代码风格配置
-  stylistic: {
-    indent: 2,
-    quotes: 'single',
-    semi: false,
+    // 代码风格配置
+    stylistic: {
+      indent: 2,
+      quotes: 'single',
+      semi: false,
+    },
+
+    // 忽略文件
+    ignores: [
+      'dist',
+      'node_modules',
+      'public',
+      'tests',
+      'docs',
+      '*.md',
+      '.claude/**',
+      '.spec-workflow/**',
+      '.github/**',
+      '.husky/**',
+      'wallpaper-miniprogram',
+      'wallpaper-miniprogram-cdn',
+      'auto-imports.d.ts',
+      'components.d.ts',
+    ],
+    rules: {
+      'no-console': 'off',
+      'no-debugger': 'off',
+      'jsdoc/require-returns-description': 'off',
+    },
   },
-
-  // 忽略文件
-  ignores: [
-    'dist',
-    'node_modules',
-    'public',
-    'tests',
-    'docs',
-    '*.md',
-    '.claude/**',
-    '.spec-workflow/**',
-    '.github/**',
-    '.husky/**',
-    'wallpaper-miniprogram',
-    'wallpaper-miniprogram-cdn',
-    'auto-imports.d.ts',
-    'components.d.ts',
-  ],
-  rules: {
-    'no-console': 'off',
-    'no-debugger': 'off',
-    'jsdoc/require-returns-description': 'off',
+  {
+    // vite.config.js 的 define 在构建期注入的全局变量（见 constants.js / useVersionCheck.js）
+    languageOptions: {
+      globals: {
+        __APP_VERSION__: 'readonly',
+        __BUILD_TIME__: 'readonly',
+      },
+    },
   },
-})
+)
