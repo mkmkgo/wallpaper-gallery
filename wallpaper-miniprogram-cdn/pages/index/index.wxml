@@ -31,6 +31,13 @@
     </scroll-view>
   </view>
 
+  <view class="loading-tip" wx:if="{{loading}}">
+    <view class="loading-tip-icon">
+      <view class="loading-tip-spinner"></view>
+    </view>
+    <text class="loading-tip-text">壁纸数据较大，首次加载可能较慢，请耐心等待</text>
+  </view>
+
   <view class="latest-section">
     <view class="section-header">
       <text class="section-title">最新壁纸</text>
@@ -101,5 +108,50 @@
         </view>
       </view>
     </scroll-view>
+  </view>
+
+  <view class="disclaimer-section">
+    <view class="disclaimer-row">
+      <view class="disclaimer-divider"></view>
+      <view class="disclaimer-btn" bindtap="showDisclaimer">
+        <view class="disclaimer-shield">
+          <view class="shield-body"></view>
+        </view>
+        <text class="disclaimer-btn-text">免责声明</text>
+      </view>
+      <view class="disclaimer-divider"></view>
+    </view>
+  </view>
+
+  <view class="disclaimer-mask" wx:if="{{showDisclaimerModal}}" bindtap="closeDisclaimer">
+    <view class="disclaimer-modal" catchtap="">
+      <view class="disclaimer-modal-header">
+        <view class="disclaimer-shield-lg">
+          <view class="shield-body-lg"></view>
+        </view>
+        <text class="disclaimer-modal-title">免责声明</text>
+      </view>
+      <scroll-view scroll-y class="disclaimer-modal-body">
+        <text class="disclaimer-text">1. 本小程序所有壁纸资源均来源于互联网公开渠道，仅供个人欣赏与设备壁纸使用，严禁用于任何商业用途。</text>
+        <text class="disclaimer-text">2. 本小程序不拥有任何壁纸的版权，所有图片版权归原作者或创作者所有。如有侵权，请联系我们立即删除。</text>
+        <text class="disclaimer-text">3. 本小程序对壁纸内容的准确性、完整性和合法性不作任何保证，使用者需自行承担使用风险。</text>
+        <text class="disclaimer-text">4. 未经原作者授权，请勿将壁纸用于二次创作、发布或商业分发，因不当使用产生的法律责任由使用者自行承担。</text>
+        <text class="disclaimer-text">5. 本小程序保留对免责声明的最终解释权，声明内容可能随时更新，请以最新版本为准。</text>
+        <view class="disclaimer-contact">
+          <text class="disclaimer-contact-label">版权问题请联系：</text>
+          <button class="disclaimer-contact-btn" open-type="contact">
+            <view class="contact-btn-inner">
+              <view class="contact-icon"></view>
+              <text class="contact-btn-text">联系客服</text>
+            </view>
+          </button>
+        </view>
+      </scroll-view>
+      <view class="disclaimer-modal-footer">
+        <view class="disclaimer-confirm-btn" bindtap="closeDisclaimer">
+          <text class="disclaimer-confirm-text">我已知晓</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

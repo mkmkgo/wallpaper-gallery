@@ -1,6 +1,39 @@
 var wallpaperService = require("../../services/wallpaper");
 var api = require("../../utils/api");
 
+var CATEGORY_COVER_CACHE_KEY = "wp_cat_covers";
+
+var CATEGORY_GRADIENTS = {
+  "风景": ["#1a5276", "#2e86c1"],
+  "动漫": ["#6c3483", "#a569bd"],
+  "游戏": ["#1b4f72", "#2196f3"],
+  "人像": ["#922b21", "#e74c3c"],
+  "插画": ["#7d3c98", "#c39bd3"],
+  "萌宠": ["#1e8449", "#58d68d"],
+  "影视": ["#784212", "#d4ac0d"],
+  "创意": ["#1a5276", "#48c9b0"],
+  "通用": ["#2c3e50", "#7f8c8d"],
+  "表情包": ["#b9770e", "#f5b041"],
+  "IP形象": ["#884ea0", "#d2b4de"],
+  "政治": ["#922b21", "#c0392b"]
+};
+
+function getCachedCovers() {
+  try {
+    var cached = wx.getStorageSync(CATEGORY_COVER_CACHE_KEY);
+    if (cached && cached.ts && Date.now() - cached.ts < 24 * 60 * 60 * 1000) {
+      return cached.covers || {};
+    }
+  } catch (e) {}
+  return {};
+}
+
+function saveCachedCovers(covers) {
+  try {
+    wx.setStorageSync(CATEGORY_COVER_CACHE_KEY, { covers: covers, ts: Date.now() });
+  } catch (e) {}
+}
+
 Page({
   data: {
     categories: [],
@@ -45,37 +78,64 @@ Page({
 
   loadCategories: function() {
     var that = this;
+    var cachedCovers = getCachedCovers();
     wallpaperService.fetchCategories().then(function(categories) {
       var processed = categories.map(function(c) {
-        c.coverUrl = "";
+        if (cachedCovers[c.name]) {
+          c.coverUrl = cachedCovers[c.name];
+        } else {
+          c.coverUrl = "";
+        }
+        var grad = CATEGORY_GRADIENTS[c.name] || ["#2c3e50", "#4a6fa5"];
+        c.gradientFrom = grad[0];
+        c.gradientTo = grad[1];
         return c;
       });
       that.setData({ categories: processed });
-      that.loadCategoryCovers(categories);
+      that.refreshCoversInBackground(categories, cachedCovers);
     });
   },
 
-  loadCategoryCovers: function(categories) {
+  refreshCoversInBackground: function(categories, cachedCovers) {
     var that = this;
-    var cats = that.data.categories;
-    var index = 0;
+    var needsRefresh = [];
+    for (var i = 0; i < categories.length; i++) {
+      if (!cachedCovers[categories[i].name]) {
+        needsRefresh.push(categories[i]);
+      }
+    }
+    if (needsRefresh.length === 0) return;
 
+    var index = 0;
+    var updatedCovers = {};
     function loadNext() {
-      if (index >= cats.length) return;
-      var c = cats[index];
+      if (index >= needsRefresh.length) {
+        saveCachedCovers(updatedCovers);
+        return;
+      }
+      var c = needsRefresh[index];
       index++;
       api.getWallpapers(c.name).then(function(wps) {
         if (wps && wps.length > 0) {
           var cover = wallpaperService.processWallpaper(wps[0]);
-          c.coverUrl = cover.thumbnailUrl || cover.previewUrl || "";
+          var coverUrl = cover.thumbnailUrl || cover.previewUrl || "";
+          if (coverUrl) {
+            updatedCovers[c.name] = coverUrl;
+            var cats = that.data.categories;
+            for (var j = 0; j < cats.length; j++) {
+              if (cats[j].name === c.name) {
+                cats[j].coverUrl = coverUrl;
+                break;
+              }
+            }
+            that.setData({ categories: cats });
+          }
         }
-        that.setData({ categories: cats });
-        setTimeout(loadNext, 100);
+        setTimeout(loadNext, 200);
       }).catch(function() {
-        setTimeout(loadNext, 100);
+        setTimeout(loadNext, 200);
       });
     }
-
     loadNext();
   },
 

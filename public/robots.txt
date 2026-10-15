@@ -1,4 +1,4 @@
-# robots.txt for Wallpaper Gallery
+# robots.txt for 超赞壁纸
 User-agent: *
 Allow: /
 Allow: /favicon.svg

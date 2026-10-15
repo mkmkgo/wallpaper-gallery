@@ -28,11 +28,51 @@ Page({
     wpSize: "",
     wpFormat: "",
     _fallbackStep: 0,
-    imageLoaded: false
+    imageLoaded: false,
+    statusTime: "",
+    lockTimeH: "",
+    lockTimeM: "",
+    lockDate: ""
+  },
+
+  _timeTimer: null,
+
+  _updateTime: function() {
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var hStr = h < 10 ? "0" + h : "" + h;
+    var mStr = m < 10 ? "0" + m : "" + m;
+    var weekDays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    var weekDay = weekDays[now.getDay()];
+    this.setData({
+      statusTime: hStr + ":" + mStr,
+      lockTimeH: hStr,
+      lockTimeM: mStr,
+      lockDate: month + "月" + day + "日 " + weekDay
+    });
+  },
+
+  _startTimeTimer: function() {
+    this._updateTime();
+    var that = this;
+    this._timeTimer = setInterval(function() {
+      that._updateTime();
+    }, 10000);
+  },
+
+  _stopTimeTimer: function() {
+    if (this._timeTimer) {
+      clearInterval(this._timeTimer);
+      this._timeTimer = null;
+    }
   },
 
   onLoad: function(options) {
     ad.initAd();
+    this._startTimeTimer();
     var wp = getApp().globalData.currentWallpaper || {};
     var res = wp.resolution || {};
     var resText = "";
@@ -227,5 +267,9 @@ Page({
         imageUrl: this.data.imageUrlProxy || ""
       });
     }
+  },
+
+  onUnload: function() {
+    this._stopTimeTimer();
   }
 });

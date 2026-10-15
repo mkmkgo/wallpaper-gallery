@@ -34,17 +34,43 @@
   <view class="device-preview-mask" wx:if="{{showDevicePreview}}" bindtap="closeDevicePreview">
     <view class="device-preview-content" catchtap="">
       <view class="iphone-frame">
-        <view class="iphone-notch">
-          <view class="notch-camera"></view>
-        </view>
+        <view class="iphone-mute-btn"></view>
+        <view class="iphone-volume-up"></view>
+        <view class="iphone-volume-down"></view>
+        <view class="iphone-power-btn"></view>
         <view class="iphone-screen">
           <image class="iphone-wallpaper" src="{{previewUrl || imageUrl}}" mode="aspectFill" binderror="onPreviewImageError"></image>
+          <view class="lock-screen-overlay">
+            <view class="dynamic-island"></view>
+            <view class="lock-time">
+              <text class="lock-time-hour">{{lockTimeH}}</text>
+              <text class="lock-time-colon">:</text>
+              <text class="lock-time-min">{{lockTimeM}}</text>
+            </view>
+            <text class="lock-date">{{lockDate}}</text>
+            <view class="lock-bottom">
+              <view class="lock-action-btn">
+                <view class="lock-flashlight"></view>
+              </view>
+              <view class="lock-action-btn">
+                <view class="lock-camera-icon"></view>
+              </view>
+            </view>
+          </view>
           <view class="iphone-status-bar">
-            <text class="status-time">9:41</text>
+            <text class="status-time">{{statusTime}}</text>
             <view class="status-icons">
-              <view class="status-signal"></view>
+              <view class="status-signal">
+                <view class="signal-bar" style="height: 5rpx;"></view>
+                <view class="signal-bar" style="height: 8rpx;"></view>
+                <view class="signal-bar" style="height: 11rpx;"></view>
+                <view class="signal-bar" style="height: 14rpx;"></view>
+              </view>
               <view class="status-wifi"></view>
-              <view class="status-battery"></view>
+              <view class="status-battery">
+                <view class="battery-fill"></view>
+                <view class="battery-cap"></view>
+              </view>
             </view>
           </view>
         </view>
@@ -80,6 +106,7 @@
           <text class="download-btn-text">立即下载</text>
         </view>
       </view>
+      <text class="download-disclaimer">仅供个人使用，禁止商用，版权归原作者所有</text>
     </view>
   </view>
 </view>

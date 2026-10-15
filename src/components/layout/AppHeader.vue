@@ -348,9 +348,9 @@ watch(isMobile, () => {
           </svg>
         </div>
         <div class="brand-text">
-          <h1 class="brand-title">
+          <span class="brand-title">
             超赞壁纸
-          </h1>
+          </span>
           <span class="brand-subtitle">精选4k高清壁纸</span>
         </div>
         <a
