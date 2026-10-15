@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { loadHotTags } from '@/services/hotTagsService'
+import { HOT_TAGS_CACHE_TTL_MS } from '@/utils/config/hotTags'
 
 export const useHotTagsStore = defineStore('hotTags', () => {
   const currentSeries = ref('')
@@ -13,13 +14,23 @@ export const useHotTagsStore = defineStore('hotTags', () => {
     if (!series)
       return
 
-    if (!forceRefresh && cache.value[series]) {
+    const currentRequestVersion = ++requestVersion
+    if (series === 'video') {
       currentSeries.value = series
-      tags.value = cache.value[series]
+      tags.value = []
+      loading.value = false
       return
     }
 
-    const currentRequestVersion = ++requestVersion
+    const cached = cache.value[series]
+    if (!forceRefresh && cached && Date.now() - cached.fetchedAt < HOT_TAGS_CACHE_TTL_MS) {
+      currentSeries.value = series
+      tags.value = cached.tags
+      loading.value = false
+      return
+    }
+
+    tags.value = []
     loading.value = true
 
     try {
@@ -29,7 +40,7 @@ export const useHotTagsStore = defineStore('hotTags', () => {
         return
       }
 
-      cache.value[series] = data
+      cache.value[series] = { tags: data, fetchedAt: Date.now() }
       currentSeries.value = series
       tags.value = data
     }

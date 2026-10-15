@@ -55,10 +55,6 @@ export const usePopularityStore = defineStore('popularity', () => {
     return map
   })
 
-  // 兼容旧 API：weeklyMap 和 monthlyMap 返回相同数据
-  const weeklyMap = computed(() => popularityMap.value)
-  const monthlyMap = computed(() => popularityMap.value)
-
   // 是否有热门数据
   const hasData = computed(() => statsMap.value.size > 0)
 
@@ -143,6 +139,14 @@ export const usePopularityStore = defineStore('popularity', () => {
    * @param {boolean} forceRefresh - 是否强制刷新
    */
   async function fetchPopularityData(series, forceRefresh = false) {
+    if (series === 'video') {
+      statsMap.value = new Map()
+      likeCollectOverrides.value = new Map()
+      currentSeries.value = series
+      loading.value = false
+      return
+    }
+
     // 如果已加载且不强制刷新，直接返回
     if (!forceRefresh && currentSeries.value === series && hasData.value) {
       return
@@ -209,8 +213,6 @@ export const usePopularityStore = defineStore('popularity', () => {
     currentSeries,
     allTimeData,
     popularityMap,
-    weeklyMap,
-    monthlyMap,
     hasData,
     fetchPopularityData,
     getPopularRank,

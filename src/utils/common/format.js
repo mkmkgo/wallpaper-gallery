@@ -2,7 +2,7 @@
 // 格式化工具函数
 // ========================================
 
-import { CDN_VERSION, IMAGE_PROXY, RESOLUTION_THRESHOLDS, SERIES_CONFIG, CDN_DOMAINS } from '@/utils/config/constants'
+import { CDN_VERSION, RESOLUTION_THRESHOLDS, SERIES_CONFIG, CDN_DOMAINS } from '@/utils/config/constants'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
 const IMAGE_CDN_DOMAIN = CDN_DOMAINS.PRIMARY
@@ -14,7 +14,8 @@ const _urlParts = {
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
 
-const IMAGE_EXTENSION_PATTERN = /\.(?:jpg|jpeg|png|gif|bmp|webp|svg|tiff|tif|ico|heic|heif)$/i
+const IMAGE_EXTENSION_PATTERN = /\.(?:jpg|jpeg|png|gif|bmp|webp|svg|tiff|tif|ico|heic|heif|mp4|webm|mov|m4v)$/i
+const VIDEO_EXTENSION_PATTERN = /\.(?:mp4|webm|mov|m4v)(?:[?#].*)?$/i
 const GENERIC_WALLPAPER_NAME_PATTERNS = [
   /^微信图片[_-]?\d+(?:[_-]\d+)*$/,
   /^mmexport\d+$/i,
@@ -260,6 +261,10 @@ function normalizeWallpaperExtension(value) {
   return normalized
 }
 
+function isVideoResourceUrl(value) {
+  return VIDEO_EXTENSION_PATTERN.test(String(value || ''))
+}
+
 function isMeaningfulWallpaperFilename(value) {
   const normalized = stripImageExtension(value).trim()
   if (!normalized)
@@ -325,8 +330,31 @@ export function buildWallpaperDownloadFilename(wallpaper) {
   return `${baseName}.${extension}`
 }
 
+function getPakeInvoke() {
+  if (typeof window === 'undefined')
+    return null
+
+  const invoke = window.__TAURI__?.core?.invoke
+  return typeof invoke === 'function' ? invoke : null
+}
+
+function triggerBrowserBlobDownload(blob, filename) {
+  const blobUrl = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = blobUrl
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+
+  // WebView2 / Chromium may start the download asynchronously. Revoking the
+  // blob URL immediately after click() can race with the actual download.
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000)
+}
+
 /**
  * 下载文件
+ * 浏览器使用 Blob 下载；Pake/Tauri 桌面端直接调用原生下载命令写入系统 Downloads。
  * @param {string} url - 文件 URL
  * @param {string} filename - 保存的文件名
  */
@@ -337,6 +365,25 @@ export async function downloadFile(url, filename) {
     if (url.includes('@main')) {
       const path = extractPathFromUrl(url)
       finalUrl = buildImageUrl(path)
+    }
+
+    // Pake 已内置跨平台原生下载能力。直接交给 Rust 下载真实 HTTP(S)
+    // 资源，避免 Windows WebView2 对 blob: 下载时序处理不同导致文件丢失。
+    const pakeInvoke = getPakeInvoke()
+    if (pakeInvoke) {
+      try {
+        await pakeInvoke('download_file', {
+          params: {
+            url: finalUrl,
+            filename,
+            language: navigator.language || 'zh-CN',
+          },
+        })
+        return
+      }
+      catch (error) {
+        console.warn('[downloadFile] Pake 原生下载失败，回退浏览器下载:', error)
+      }
     }
 
     const response = await fetch(finalUrl)
@@ -352,27 +399,11 @@ export async function downloadFile(url, filename) {
       }
 
       const blob = await fallbackResponse.blob()
-      const blobUrl = URL.createObjectURL(blob)
-
-      const link = document.createElement('a')
-      link.href = blobUrl
-      link.download = filename
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      URL.revokeObjectURL(blobUrl)
+      triggerBrowserBlobDownload(blob, filename)
     }
     else {
       const blob = await response.blob()
-      const blobUrl = URL.createObjectURL(blob)
-
-      const link = document.createElement('a')
-      link.href = blobUrl
-      link.download = filename
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      URL.revokeObjectURL(blobUrl)
+      triggerBrowserBlobDownload(blob, filename)
     }
   }
   catch {
@@ -399,28 +430,31 @@ export function buildRawImageUrl(cdnUrl) {
   return cdnUrl
 }
 
-export function buildProxyImageUrl(imageUrl, options = {}) {
-  if (!imageUrl) {
-    return ''
-  }
-
-  const targetUrl = buildRawImageUrl(imageUrl)
-  const width = options.width || IMAGE_PROXY.THUMB_WIDTH
-  const quality = options.quality || IMAGE_PROXY.THUMB_QUALITY
-  const format = options.format || IMAGE_PROXY.FORMAT
-
-  return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(targetUrl)}&w=${width}&q=${quality}&output=${format}`
-}
-
 export function buildWallpaperImageFallbackUrls(wallpaper, options = {}) {
   if (!wallpaper)
     return []
 
   const series = options.series || resolveWallpaperSeries(wallpaper)
+  if (wallpaper?.mediaType === 'video' || series === 'video') {
+    return [...new Set([
+      wallpaper.thumbnailUrl,
+      !isVideoResourceUrl(wallpaper.previewUrl) ? wallpaper.previewUrl : '',
+      !isVideoResourceUrl(wallpaper.url) ? wallpaper.url : '',
+    ].filter(Boolean))]
+  }
+
   const extension = normalizeWallpaperExtension(
     extractFilenameExtension(wallpaper?.filename) || wallpaper?.format,
   )
   const preferOriginal = options.preferOriginal ?? (series === 'avatar' && extension === 'webp')
+  if (options.preferThumbnail) {
+    // 列表先用缩略图；仅失败时回退预览图和原图，不提前下载大图。
+    return [...new Set([
+      wallpaper.thumbnailUrl,
+      wallpaper.previewUrl,
+      wallpaper.url,
+    ].filter(Boolean).flatMap(url => [url, buildRawImageUrl(url)]))]
+  }
   const primaryUrl = preferOriginal
     ? (wallpaper.url || wallpaper.thumbnailUrl || wallpaper.previewUrl)
     : (wallpaper.previewUrl || wallpaper.thumbnailUrl || wallpaper.url)
@@ -447,10 +481,6 @@ export function buildWallpaperImageFallbackUrls(wallpaper, options = {}) {
       }
     }
     urls.push(buildRawImageUrl(originalUrl))
-  }
-
-  if (!options.skipProxy) {
-    urls.push(buildProxyImageUrl(originalUrl || primaryUrl, options.proxyOptions))
   }
 
   return [...new Set(urls.filter(Boolean))]

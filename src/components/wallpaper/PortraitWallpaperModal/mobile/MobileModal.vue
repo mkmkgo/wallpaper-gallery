@@ -1,12 +1,12 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCardActions.vue'
 import { useScrollLock } from '@/composables/useScrollLock'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
-import { buildProxyImageUrl, buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 import { useDeviceMode } from '../composables/useDeviceMode'
@@ -55,8 +55,6 @@ const displayImageUrl = computed(() => {
 
   if (fallbackStage.value === 'raw')
     return buildRawImageUrl(props.wallpaper.url)
-  if (fallbackStage.value === 'proxy')
-    return buildProxyImageUrl(props.wallpaper.url)
 
   return props.wallpaper.url
 })
@@ -103,6 +101,10 @@ const fileExt = computed(() => props.wallpaper ? getFileExtension(props.wallpape
 const formattedSize = computed(() => props.wallpaper ? formatFileSize(props.wallpaper.size) : '')
 const formattedDate = computed(() => props.wallpaper ? formatDate(props.wallpaper.createdAt) : '')
 const canUseDeviceMode = computed(() => effectiveSeries.value === 'mobile')
+const previewAspectRatio = computed(() => {
+  const { width, height } = props.wallpaper?.resolution || {}
+  return width > 0 && height > 0 ? `${width} / ${height}` : '9 / 16'
+})
 
 watch(() => props.isOpen, (open) => {
   if (open && props.wallpaper) {
@@ -161,12 +163,6 @@ function handleImageError() {
   if (fallbackStage.value === 'none') {
     fallbackStage.value = 'raw'
     imageLoaded.value = false
-    return
-  }
-
-  if (fallbackStage.value === 'raw') {
-    fallbackStage.value = 'proxy'
-    imageLoaded.value = false
   }
 }
 
@@ -178,27 +174,18 @@ function resetState() {
   if (deviceMode.isDeviceMode.value)
     deviceMode.reset()
 }
-
-function handleKeydown(e) {
-  if (!isVisible.value)
-    return
-  if (e.key === 'Escape') {
-    deviceMode.isDeviceMode.value ? deviceMode.exit() : closeModal()
-  }
-}
-
-onMounted(() => document.addEventListener('keydown', handleKeydown))
-onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="modal" @after-leave="onAfterLeave">
+    <Transition name="gallery-modal" appear @after-leave="onAfterLeave">
       <div
         v-if="isVisible && wallpaper"
         class="mobile-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="手机壁纸预览"
         :class="{ 'is-device-mode': deviceMode.isDeviceMode.value }"
-        @click.self="closeModal"
       >
         <div
           class="mobile-modal__content"
@@ -218,140 +205,146 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
             </button>
           </Transition>
 
-          <!-- 图片预览 -->
-          <Transition name="content-fade">
-            <div v-show="!deviceMode.isDeviceMode.value" class="mobile-modal__preview">
-              <div v-if="!imageLoaded" class="loading-placeholder">
-                <LoadingSpinner size="lg" />
-              </div>
-              <img
-                :src="displayImageUrl"
-                :alt="wallpaper.filename"
-                :class="{ loaded: imageLoaded }"
-                @load="handleImageLoad"
-                @error="handleImageError"
+          <div class="mobile-modal__body">
+            <!-- 图片预览 -->
+            <Transition name="content-fade">
+              <div
+                v-show="!deviceMode.isDeviceMode.value"
+                class="mobile-modal__preview"
+                :style="{ aspectRatio: imageLoaded ? undefined : previewAspectRatio }"
               >
-            </div>
-          </Transition>
-
-          <!-- 真机模式 -->
-          <DeviceMode
-            v-if="canUseDeviceMode"
-            :visible="deviceMode.isDeviceMode.value"
-            :image-src="displayImageUrl"
-            :image-alt="wallpaper.filename"
-            @exit="deviceMode.exit"
-            @after-enter="deviceMode.onAnimationEnd"
-            @after-leave="() => { deviceMode.onAnimationEnd(); if (!props.isOpen) isVisible = false }"
-          />
-
-          <!-- 底部信息 -->
-          <div v-show="!deviceMode.isDeviceMode.value" class="mobile-modal__info">
-            <div class="info-header">
-              <h3 class="info-title">
-                {{ displayFilename }}
-              </h3>
-              <p v-if="categoryDisplay" class="info-category">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                {{ categoryDisplay }}
-              </p>
-            </div>
-
-            <div class="info-tags">
-              <!-- AI 标签（显示前3个关键词） -->
-              <span v-for="tag in aiTags" :key="tag" class="tag tag--ai">
-                {{ tag }}
-              </span>
-              <span class="tag" :class="[`tag--${resolution.type || 'success'}`]">
-                {{ resolution.label }}
-              </span>
-              <span class="tag tag--secondary">{{ fileExt }}</span>
-              <span v-if="viewCount > 0" class="tag tag--view">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                {{ viewCount }}
-              </span>
-              <span v-if="downloadCount > 0" class="tag tag--download">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                </svg>
-                {{ downloadCount }}
-              </span>
-              <span v-if="collectCount > 0" class="tag tag--collect">
-                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-                {{ collectCount }}
-              </span>
-              <span v-if="likeCount > 0" class="tag tag--like">
-                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                  <path d="m12 21-1.45-1.32C5.4 15.03 2 11.95 2 8.5 2 5.42 4.42 3 7.5 3A5.3 5.3 0 0 1 12 5.09 5.3 5.3 0 0 1 16.5 3C19.58 3 22 5.42 22 8.5c0 3.45-3.4 6.53-8.55 11.18z" />
-                </svg>
-                {{ likeCount }}
-              </span>
-            </div>
-
-            <div class="info-details">
-              <div class="detail-row">
-                <span class="detail-label">文件大小</span>
-                <span class="detail-value">{{ formattedSize }}</span>
+                <div v-if="!imageLoaded" class="loading-placeholder">
+                  <LoadingSpinner size="lg" />
+                </div>
+                <img
+                  :src="displayImageUrl"
+                  :alt="wallpaper.filename"
+                  :class="{ loaded: imageLoaded }"
+                  @load="handleImageLoad"
+                  @error="handleImageError"
+                >
               </div>
-              <div class="detail-row">
-                <span class="detail-label">上传时间</span>
-                <span class="detail-value">{{ formattedDate }}</span>
+            </Transition>
+
+            <!-- 真机模式 -->
+            <DeviceMode
+              v-if="canUseDeviceMode"
+              :visible="deviceMode.isDeviceMode.value"
+              :image-src="displayImageUrl"
+              :image-alt="wallpaper.filename"
+              @exit="deviceMode.exit"
+              @after-enter="deviceMode.onAnimationEnd"
+              @after-leave="() => { deviceMode.onAnimationEnd(); if (!props.isOpen) isVisible = false }"
+            />
+
+            <!-- 底部信息 -->
+            <div v-show="!deviceMode.isDeviceMode.value" class="mobile-modal__info">
+              <div class="info-header">
+                <h3 class="info-title">
+                  {{ displayFilename }}
+                </h3>
+                <p v-if="categoryDisplay" class="info-category">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                  {{ categoryDisplay }}
+                </p>
               </div>
-              <div class="detail-row">
-                <span class="detail-label">分辨率</span>
-                <span class="detail-value">{{ imageDimensions.width > 0 ? `${imageDimensions.width} × ${imageDimensions.height}` : '加载中...' }}</span>
+
+              <div class="info-tags">
+                <!-- AI 标签（显示前3个关键词） -->
+                <span v-for="tag in aiTags" :key="tag" class="tag tag--ai">
+                  {{ tag }}
+                </span>
+                <span class="tag" :class="[`tag--${resolution.type || 'success'}`]">
+                  {{ resolution.label }}
+                </span>
+                <span class="tag tag--secondary">{{ fileExt }}</span>
+                <span v-if="viewCount > 0" class="tag tag--view">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  {{ viewCount }}
+                </span>
+                <span v-if="downloadCount > 0" class="tag tag--download">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  {{ downloadCount }}
+                </span>
+                <span v-if="collectCount > 0" class="tag tag--collect">
+                  <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  {{ collectCount }}
+                </span>
+                <span v-if="likeCount > 0" class="tag tag--like">
+                  <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="m12 21-1.45-1.32C5.4 15.03 2 11.95 2 8.5 2 5.42 4.42 3 7.5 3A5.3 5.3 0 0 1 12 5.09 5.3 5.3 0 0 1 16.5 3C19.58 3 22 5.42 22 8.5c0 3.45-3.4 6.53-8.55 11.18z" />
+                  </svg>
+                  {{ likeCount }}
+                </span>
               </div>
-            </div>
 
-            <div class="info-actions">
-              <WallpaperCardActions
-                v-if="isAuthenticated"
-                compact
-                :show-counts="false"
-                :liked="liked"
-                :collected="collected"
-                :like-count="likeCount"
-                :collect-count="collectCount"
-                :is-authenticated="isAuthenticated"
-                @toggle-like="emit('toggleLike')"
-                @toggle-collect="emit('toggleCollect')"
-              />
+              <div class="info-details">
+                <div class="detail-row">
+                  <span class="detail-label">文件大小</span>
+                  <span class="detail-value">{{ formattedSize }}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">上传时间</span>
+                  <span class="detail-value">{{ formattedDate }}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">分辨率</span>
+                  <span class="detail-value">{{ imageDimensions.width > 0 ? `${imageDimensions.width} × ${imageDimensions.height}` : '加载中...' }}</span>
+                </div>
+              </div>
 
-              <button
-                class="action-btn action-btn--primary"
-                type="button"
-                :disabled="downloading"
-                @click="handleDownload"
-              >
-                <LoadingSpinner v-if="downloading" size="sm" />
-                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                </svg>
-                <span>{{ downloading ? '下载中...' : '下载壁纸' }}</span>
-              </button>
+              <div class="info-actions">
+                <WallpaperCardActions
+                  v-if="isAuthenticated"
+                  compact
+                  :show-counts="false"
+                  :liked="liked"
+                  :collected="collected"
+                  :like-count="likeCount"
+                  :collect-count="collectCount"
+                  :is-authenticated="isAuthenticated"
+                  @toggle-like="emit('toggleLike')"
+                  @toggle-collect="emit('toggleCollect')"
+                />
 
-              <button
-                v-if="canUseDeviceMode"
-                class="action-btn action-btn--secondary action-btn--icon"
-                :class="{ 'is-active': deviceMode.isDeviceMode.value }"
-                type="button"
-                aria-label="真机预览"
-                title="真机预览"
-                @click="deviceMode.toggle"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="5" y="2" width="14" height="20" rx="2" />
-                  <path d="M12 18h.01" />
-                </svg>
-              </button>
+                <button
+                  class="action-btn action-btn--primary"
+                  type="button"
+                  :disabled="downloading"
+                  @click="handleDownload"
+                >
+                  <LoadingSpinner v-if="downloading" size="sm" />
+                  <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  <span>{{ downloading ? '下载中...' : '下载壁纸' }}</span>
+                </button>
+
+                <button
+                  v-if="canUseDeviceMode"
+                  class="action-btn action-btn--secondary action-btn--icon"
+                  :class="{ 'is-active': deviceMode.isDeviceMode.value }"
+                  type="button"
+                  aria-label="真机预览"
+                  title="真机预览"
+                  @click="deviceMode.toggle"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M12 18h.01" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -361,6 +354,7 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/modal' as modal;
 .mobile-modal {
   --mobile-modal-overlay: linear-gradient(
     135deg,
@@ -392,13 +386,10 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
   inset: 0;
   z-index: 1000;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   background: var(--mobile-modal-overlay);
-  padding: 16px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+  @include modal.mobile-modal-viewport;
 
   &.is-device-mode {
     padding: 0;
@@ -410,6 +401,8 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-height: 0;
+    max-height: 100%;
     max-width: 400px;
     margin: 0 auto;
     background: var(--mobile-modal-panel-bg);
@@ -419,20 +412,21 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     box-shadow:
       0 20px 40px var(--mobile-modal-panel-shadow),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition:
-      height 0.3s ease,
-      max-height 0.3s ease;
 
     &.is-device-mode {
       width: 100vw;
       max-width: 100%;
-      height: 100vh;
-      max-height: 100vh;
+      height: 100%;
+      max-height: 100%;
       border-radius: 0;
       box-shadow: none;
       background: transparent;
       border: none;
     }
+  }
+
+  &__body {
+    @include modal.modal-scroll-body;
   }
 
   &__close {
@@ -443,8 +437,8 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     background: var(--mobile-modal-close-bg);
     border: 1px solid var(--mobile-modal-close-border);
     border-radius: 50%;
@@ -463,15 +457,10 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 
   &__preview {
     position: relative;
-    flex: 1 1 auto;
-    min-height: 220px;
-    max-height: 55vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: none;
+    width: 100%;
     background: var(--mobile-modal-preview-bg);
     overflow: hidden;
-    transition: max-height 0.3s ease;
 
     .loading-placeholder {
       position: absolute;
@@ -484,18 +473,14 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     }
 
     img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      display: block;
+      width: 100%;
+      height: auto;
       opacity: 0;
-      transform: scale(0.95);
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
+      transition: opacity 180ms ease-out;
 
       &.loaded {
         opacity: 1;
-        transform: scale(1);
       }
     }
   }
@@ -688,6 +673,7 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 .info-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   min-width: 0;
 
@@ -751,7 +737,7 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
   }
 
   &--primary {
-    flex: 1 1 auto;
+    flex: 1 0 120px;
     min-width: 0;
     padding: 0 16px;
     background: var(--accent-gradient);
@@ -793,19 +779,6 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
   }
 }
 
-.modal-enter-active {
-  transition: opacity 0.3s ease;
-}
-
-.modal-leave-active {
-  transition: none;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-
 .content-fade-enter-active,
 .content-fade-leave-active {
   transition: opacity 0.3s ease;
@@ -828,14 +801,8 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 
 @media (max-height: 700px) {
   .mobile-modal {
-    padding: 12px;
-
     &__content {
       border-radius: 20px;
-    }
-
-    &__preview {
-      min-height: 220px;
     }
 
     &__info {
@@ -894,15 +861,11 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 
 @media (max-height: 570px) {
   .mobile-modal {
-    padding: 8px;
-
     &__content {
       border-radius: 16px;
     }
 
     &__close {
-      width: 32px;
-      height: 32px;
       top: 8px;
       right: 8px;
 
@@ -910,10 +873,6 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
         width: 16px;
         height: 16px;
       }
-    }
-
-    &__preview {
-      min-height: 180px;
     }
 
     &__info {
@@ -950,8 +909,6 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
 
 @media (max-width: 360px) {
   .mobile-modal {
-    padding: 10px;
-
     &__info {
       padding: 12px;
       padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
@@ -971,10 +928,6 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     font-size: 12px;
     gap: 6px;
 
-    &--primary span {
-      display: none;
-    }
-
     svg {
       width: 20px;
       height: 20px;
@@ -987,4 +940,6 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
     min-height: 40px;
   }
 }
+
+@include modal.modal-transition('.mobile-modal__content');
 </style>

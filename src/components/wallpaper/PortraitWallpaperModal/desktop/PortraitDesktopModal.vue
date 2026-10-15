@@ -13,7 +13,7 @@ import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
 import { copyText } from '@/utils/common/clipboard'
-import { buildProxyImageUrl, buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
@@ -159,8 +159,6 @@ const optimizedImageUrl = computed(() => {
 
   if (fallbackStage.value === 'raw')
     return buildRawImageUrl(props.wallpaper.url)
-  if (fallbackStage.value === 'proxy')
-    return buildProxyImageUrl(props.wallpaper.url)
 
   return props.wallpaper.url
 })
@@ -258,12 +256,6 @@ function handleImageError() {
   if (fallbackStage.value === 'none') {
     fallbackStage.value = 'raw'
     imageLoaded.value = false
-    return
-  }
-
-  if (fallbackStage.value === 'raw') {
-    fallbackStage.value = 'proxy'
-    imageLoaded.value = false
   }
 }
 
@@ -274,20 +266,11 @@ function resetState() {
   islandExpanded.value = false
 }
 
-function handleKeydown(e) {
-  if (!isVisible.value)
-    return
-  if (e.key === 'Escape')
-    handleClose()
-}
-
 onMounted(() => {
-  document.addEventListener('keydown', handleKeydown)
   // 注意：时钟定时器在 handleOpen 中启动，避免组件挂载但弹窗未打开时浪费资源
 })
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeydown)
   if (timeTimer)
     clearInterval(timeTimer)
   if (islandTimer)
@@ -297,11 +280,10 @@ onUnmounted(() => {
 
 <template>
   <Teleport to="body">
-    <Transition name="modal" @after-leave="onModalAfterLeave">
+    <Transition name="gallery-modal" appear @after-leave="onModalAfterLeave">
       <div
         v-if="isVisible && wallpaper"
         class="desktop-modal"
-        @click.self="handleClose"
       >
         <div class="desktop-modal__content">
           <!-- 关闭按钮 -->
@@ -491,6 +473,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/modal' as modal;
 .desktop-modal {
   position: fixed;
   inset: 0;
@@ -1090,37 +1073,6 @@ onUnmounted(() => {
 }
 
 // 弹窗动画
-.modal-enter-active {
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  .desktop-modal__content {
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-}
-
-.modal-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  .desktop-modal__content {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-.modal-enter-from {
-  opacity: 0;
-
-  .desktop-modal__content {
-    opacity: 0;
-    transform: scale(0.85) translateY(40px);
-  }
-}
-
-.modal-leave-to {
-  opacity: 0;
-
-  .desktop-modal__content {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-}
+@include modal.modal-transition('.desktop-modal__content');
 </style>

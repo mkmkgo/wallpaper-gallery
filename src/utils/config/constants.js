@@ -78,6 +78,22 @@ export const SERIES_CONFIG = {
     categoryBaseUrl: `${import.meta.env.BASE_URL}data/avatar`,
     aspectRatio: '1/1',
   },
+  video: {
+    id: 'video',
+    name: '动态壁纸',
+    icon: 'video-play',
+    resourceBaseUrl: CDN_BASE,
+    imageBaseUrl: `${CDN_BASE}/wallpaper/video`,
+    thumbnailBaseUrl: `${CDN_BASE}/thumbnail/video`,
+    indexUrl: `${import.meta.env.BASE_URL}data/video/index.json${DATA_CACHE_BUSTER}`,
+    latestUrl: `${import.meta.env.BASE_URL}data/video/latest.json${DATA_CACHE_BUSTER}`,
+    dataUrl: `${import.meta.env.BASE_URL}data/video.json${DATA_CACHE_BUSTER}`,
+    categoryBaseUrl: `${import.meta.env.BASE_URL}data/video`,
+    aspectRatio: '16/9',
+    isVideo: true,
+    pcOnly: true,
+    hideFormatFilter: true,
+  },
   bing: {
     id: 'bing',
     name: '每日Bing',
@@ -116,8 +132,8 @@ export const SERIES_CONFIG = {
 
 // 设备可见的系列（PC端显示所有系列，平板显示所有系列，移动端不显示 Bing）
 export const DEVICE_SERIES = {
-  desktop: ['desktop', 'bing', 'mobile', 'avatar', 'video'], // PC端可见所有系列
-  tablet: ['desktop', 'bing', 'mobile', 'avatar', 'video'], // 平板可见所有系列
+  desktop: ['desktop', 'video', 'bing', 'mobile', 'avatar'], // PC端可见所有系列
+  tablet: ['desktop', 'video', 'bing', 'mobile', 'avatar'], // 平板可见所有系列
   mobile: ['mobile', 'avatar'], // 移动端只显示手机壁纸和头像（Bing 仅 PC 端）
 }
 
@@ -129,16 +145,18 @@ export const DEFAULT_SERIES = {
 }
 
 // 所有系列ID列表
-export const ALL_SERIES = ['desktop', 'bing', 'mobile', 'avatar', 'video']
+export const ALL_SERIES = ['desktop', 'video', 'bing', 'mobile', 'avatar']
 
-// ========================================
-// 图片代理服务配置（备用方案，如本地缩略图不可用时使用）
-// ========================================
-export const IMAGE_PROXY = {
-  BASE_URL: 'https://wsrv.nl/',
-  THUMB_WIDTH: 400,
-  THUMB_QUALITY: 80,
-  FORMAT: 'webp',
+export const VIDEO_USAGE_LABELS = {
+  'desktop': '电脑动态壁纸',
+  'mobile': '手机动态壁纸',
+  'social-cover': '动态背景图',
+}
+
+export const VIDEO_USAGE_SHORT_LABELS = {
+  'desktop': '电脑壁纸',
+  'mobile': '手机壁纸',
+  'social-cover': '动态背景',
 }
 
 // 排序选项
@@ -211,6 +229,5 @@ export const STORAGE_KEYS = {
   THEME_MODE: 'wallpaper-gallery-theme-mode', // 新增：主题模式
   SORT: 'wallpaper-gallery-sort',
   CATEGORY: 'wallpaper-gallery-category',
-  VIEW_MODE: 'wallpaper-gallery-view-mode',
   CURRENT_SERIES: 'wallpaper-gallery-current-series', // 当前选择的系列
 }

@@ -5,7 +5,7 @@
  * 右侧：头像信息和操作（支持圆形/圆角方形切换）
  */
 import { ElMessage } from 'element-plus'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCardActions.vue'
@@ -13,7 +13,7 @@ import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
 import { copyText } from '@/utils/common/clipboard'
-import { buildProxyImageUrl, buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
+import { buildRawImageUrl, buildWallpaperDownloadFilename, downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/common/format'
 import { recordDownload, recordView } from '@/utils/integrations/supabase'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
@@ -95,8 +95,6 @@ const optimizedImageUrl = computed(() => {
 
   if (fallbackStage.value === 'raw')
     return buildRawImageUrl(props.wallpaper.url)
-  if (fallbackStage.value === 'proxy')
-    return buildProxyImageUrl(props.wallpaper.url)
 
   return props.wallpaper.url
 })
@@ -164,12 +162,6 @@ function handleImageError() {
   if (fallbackStage.value === 'none') {
     fallbackStage.value = 'raw'
     imageLoaded.value = false
-    return
-  }
-
-  if (fallbackStage.value === 'raw') {
-    fallbackStage.value = 'proxy'
-    imageLoaded.value = false
   }
 }
 
@@ -177,27 +169,12 @@ function resetState() {
   imageLoaded.value = false
   imageDimensions.value = { width: 0, height: 0 }
 }
-
-function handleKeydown(e) {
-  if (!isVisible.value)
-    return
-  if (e.key === 'Escape')
-    handleClose()
-}
-
-onMounted(() => {
-  document.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeydown)
-})
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="modal" @after-leave="onModalAfterLeave">
-      <div v-if="isVisible && wallpaper" class="avatar-desktop-modal" @click.self="handleClose">
+    <Transition name="gallery-modal" appear @after-leave="onModalAfterLeave">
+      <div v-if="isVisible && wallpaper" class="avatar-desktop-modal">
         <div class="avatar-desktop-modal__content">
           <!-- 关闭按钮 -->
           <button class="avatar-desktop-modal__close" aria-label="关闭" @click="handleClose">
@@ -377,6 +354,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/modal' as modal;
 .avatar-desktop-modal {
   position: fixed;
   inset: 0;
@@ -908,30 +886,6 @@ onUnmounted(() => {
 }
 
 // 弹窗动画
-.modal-enter-active {
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  .avatar-desktop-modal__content {
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-}
-.modal-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  .avatar-desktop-modal__content {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-.modal-enter-from {
-  opacity: 0;
-  .avatar-desktop-modal__content {
-    opacity: 0;
-    transform: scale(0.85) translateY(40px);
-  }
-}
-.modal-leave-to {
-  opacity: 0;
-  .avatar-desktop-modal__content {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-}
+
+@include modal.modal-transition('.avatar-desktop-modal__content');
 </style>

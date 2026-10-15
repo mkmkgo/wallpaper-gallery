@@ -63,7 +63,8 @@ jobs:
           mkdir -p public/data
           if [ -d "nuanXinProPic/data" ]; then
             echo "📦 Copying data from nuanXinProPic/data..."
-            for series in desktop mobile avatar; do
+            # 同步主系列
+            for series in desktop mobile avatar video; do
               if [ -d "nuanXinProPic/data/$series" ]; then
                 cp -r "nuanXinProPic/data/$series" public/data/
               fi
@@ -87,6 +88,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: pnpm sync:assets
 
+      - name: Refresh recent hot tags from deployed metadata
+        run: pnpm export:hot-tags
+
+      # 5. 执行 Vite 打包构建并生成关键路由静态 HTML
       - name: Build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
@@ -94,12 +99,11 @@ jobs:
         run: pnpm build:seo
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: wallpaper-gallery-prod
-          directory: dist
+          command: pages deploy dist --project-name=wallpaper-gallery-prod --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
 
