@@ -4,11 +4,13 @@ const preloadedUrls = new Set()
 
 export function usePreload() {
   function preloadImages(urls, limit = 6) {
-    if (!urls || !urls.length) return
+    if (!urls || !urls.length)
+      return
 
     const urlsToPreload = urls
       .filter((url) => {
-        if (!url || preloadedUrls.has(url)) return false
+        if (!url || preloadedUrls.has(url))
+          return false
         preloadedUrls.add(url)
         return true
       })

@@ -27,7 +27,7 @@ describe('buildWallpaperDownloadFilename', () => {
 })
 
 describe('buildWallpaperImageFallbackUrls', () => {
-  it('tries avatar webp originals before proxy fallbacks', () => {
+  it('tries avatar webp originals before CDN fallbacks', () => {
     const urls = buildWallpaperImageFallbackUrls({
       filename: '663.webp',
       format: 'WEBP',
@@ -37,8 +37,11 @@ describe('buildWallpaperImageFallbackUrls', () => {
       url: 'https://cdn.jsdelivr.net/gh/IT-NuanxinPro/nuanXinProPic@v1.1.96/wallpaper/avatar/人像/甜妹/663.webp',
     })
 
+    // 头像 webp 优先原图，其次轮换到备用 CDN 域名
     expect(urls[0]).toContain('/wallpaper/avatar/')
-    expect(urls.at(-1)).toContain('wsrv.nl')
+    expect(urls.some(url => url.includes('testingcf.jsdelivr.net'))).toBe(true)
+    // 已移除 wsrv.nl 外部代理，fallback 只走自有 CDN 域名轮换
+    expect(urls.some(url => url.includes('wsrv.nl'))).toBe(false)
   })
 
   it('falls back from preview thumbnails to original assets for standard wallpapers', () => {
@@ -50,7 +53,9 @@ describe('buildWallpaperImageFallbackUrls', () => {
       url: 'https://cdn.jsdelivr.net/gh/IT-NuanxinPro/nuanXinProPic@v1.2.8/wallpaper/desktop/动漫/demo.png',
     })
 
+    // 预览图优先，原图保留在 fallback 链中，并轮换备用 CDN 域名
     expect(urls).toContain('https://cdn.jsdelivr.net/gh/IT-NuanxinPro/nuanXinProPic@v1.2.8/wallpaper/desktop/动漫/demo.png')
-    expect(urls.at(-1)).toContain('wsrv.nl')
+    expect(urls.some(url => url.includes('testingcf.jsdelivr.net'))).toBe(true)
+    expect(urls.at(-1)).not.toContain('wsrv.nl')
   })
 })

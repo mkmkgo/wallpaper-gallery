@@ -354,7 +354,9 @@ function handleAvatarMakerClose() {
 <template>
   <main class="home-page">
     <div class="container">
-      <h1 class="seo-h1">{{ seriesTitle }}</h1>
+      <h1 class="seo-h1">
+        {{ seriesTitle }}
+      </h1>
       <AnnouncementBanner />
 
       <MobileSeriesNotice

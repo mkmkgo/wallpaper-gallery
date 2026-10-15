@@ -3,7 +3,7 @@ import { computed, onUnmounted, ref } from 'vue'
 const INITIAL_PAGE_SIZE = 30
 const PAGE_SIZE = 20
 
-export function useGridPagination({ timers, wallpapers }) {
+export function useGridPagination({ wallpapers }) {
   const displayCount = ref(INITIAL_PAGE_SIZE)
   const isLoadingMore = ref(false)
 

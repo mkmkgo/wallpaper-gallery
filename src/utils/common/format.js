@@ -2,7 +2,7 @@
 // 格式化工具函数
 // ========================================
 
-import { CDN_VERSION, RESOLUTION_THRESHOLDS, SERIES_CONFIG, CDN_DOMAINS } from '@/utils/config/constants'
+import { CDN_DOMAINS, CDN_VERSION, RESOLUTION_THRESHOLDS, SERIES_CONFIG } from '@/utils/config/constants'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
 const IMAGE_CDN_DOMAIN = CDN_DOMAINS.PRIMARY

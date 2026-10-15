@@ -116,18 +116,6 @@ export const SERIES_CONFIG = {
     // Bing 仅 PC 端显示
     pcOnly: true,
   },
-  video: {
-    id: 'video',
-    name: '视频壁纸',
-    icon: 'video',
-    imageBaseUrl: `${CDN_BASE}/wallpaper/video`,
-    thumbnailBaseUrl: `${CDN_BASE}/thumbnail/video`,
-    indexUrl: `${import.meta.env.BASE_URL}data/video/index.json${DATA_CACHE_BUSTER}`,
-    latestUrl: `${import.meta.env.BASE_URL}data/video/latest.json${DATA_CACHE_BUSTER}`,
-    dataUrl: `${import.meta.env.BASE_URL}data/video.json${DATA_CACHE_BUSTER}`,
-    categoryBaseUrl: `${import.meta.env.BASE_URL}data/video`,
-    aspectRatio: '16/9',
-  },
 }
 
 // 设备可见的系列（PC端显示所有系列，平板显示所有系列，移动端不显示 Bing）

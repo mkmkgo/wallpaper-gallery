@@ -8,9 +8,9 @@
 import { onMounted, ref } from 'vue'
 
 // 当前版本（构建时注入）
-// eslint-disable-next-line no-undef
+
 const CURRENT_VERSION = __APP_VERSION__ || '0.0.0'
-// eslint-disable-next-line no-undef
+
 const BUILD_TIME = __BUILD_TIME__ || ''
 
 // 配置
