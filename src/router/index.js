@@ -4,8 +4,9 @@ import { DEVICE_SERIES } from '@/utils/config/constants'
 
 const SITE_NAME = '超赞壁纸'
 const SITE_URL = 'https://wall.202597.xyz'
-const DEFAULT_TITLE = '4K高清壁纸下载_电脑桌面壁纸_手机壁纸 - 超赞壁纸'
-const DEFAULT_DESCRIPTION = '超赞壁纸 提供 4K 高清壁纸免费下载，涵盖电脑桌面壁纸、手机壁纸、动漫头像和每日 Bing 壁纸等分类，适配 Windows、Mac、iPhone 和 Android 设备，支持高清预览。'
+const DEFAULT_TITLE = '超赞壁纸 - 4K高清壁纸免费下载_电脑桌面_手机锁屏壁纸'
+const DEFAULT_DESCRIPTION = '超赞壁纸提供海量4K高清壁纸免费下载，涵盖电脑桌面壁纸、手机锁屏壁纸、动漫头像和每日Bing壁纸，风景、动漫、游戏、人像、萌宠等分类每日更新，适配Windows、Mac、iPhone、Android全设备。'
+const DEFAULT_KEYWORDS = '4K壁纸,高清壁纸,电脑壁纸,手机壁纸,锁屏壁纸,动漫壁纸,免费壁纸下载,超赞壁纸'
 
 // ========================================
 // 路由配置（使用标准懒加载，骨架屏由 App.vue Suspense 处理）
@@ -19,6 +20,7 @@ const routes = [
     meta: {
       title: DEFAULT_TITLE,
       description: DEFAULT_DESCRIPTION,
+      keywords: DEFAULT_KEYWORDS,
       canonicalPath: '/',
     },
   },
@@ -28,8 +30,9 @@ const routes = [
     name: 'Desktop',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '4K电脑桌面壁纸_高清电脑背景图片下载 - 超赞壁纸',
-      description: '精选 4K 电脑桌面壁纸免费下载，涵盖风景、动漫、游戏、人像等高清电脑背景图片，适配 Windows 和 Mac 大屏显示器。',
+      title: '4K电脑桌面壁纸_高清电脑背景图片免费下载 - 超赞壁纸',
+      description: '精选4K电脑桌面壁纸免费下载，涵盖风景、动漫、游戏、人像、插画等高清电脑背景图片，适配Windows和Mac大屏显示器，每日更新超清壁纸资源。',
+      keywords: '电脑壁纸,桌面壁纸,4K壁纸,电脑背景,高清壁纸,Windows壁纸,Mac壁纸,风景壁纸,动漫壁纸',
       canonicalPath: '/desktop',
       series: 'desktop',
       aspectType: 'landscape',
@@ -41,8 +44,9 @@ const routes = [
     name: 'Video',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '动态壁纸下载_电脑动态壁纸_视频壁纸 - 超赞壁纸',
-      description: '精选电脑动态壁纸、视频壁纸与动态背景资源，支持高清预览、播放与下载。',
+      title: '动态壁纸下载_电脑视频壁纸_动态桌面背景 - 超赞壁纸',
+      description: '精选电脑动态壁纸、视频壁纸与动态背景资源，支持高清预览、播放与下载，让桌面动起来。',
+      keywords: '动态壁纸,视频壁纸,电脑动态背景,动态桌面,wallpaper engine,视频背景',
       canonicalPath: '/video',
       series: 'video',
       aspectType: 'landscape',
@@ -54,8 +58,9 @@ const routes = [
     name: 'Bing',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: 'Bing每日壁纸_必应高清壁纸下载 - 超赞壁纸',
-      description: '汇集每日 Bing 高清壁纸，提供必应精选图片大图预览与下载，适合电脑桌面和宽屏设备使用。',
+      title: 'Bing每日壁纸_必应高清壁纸大图免费下载 - 超赞壁纸',
+      description: '汇集每日Bing高清壁纸，提供必应精选图片大图预览与免费下载，适合电脑桌面和宽屏设备使用，每日更新全球精选风景。',
+      keywords: 'Bing壁纸,必应壁纸,Bing每日壁纸,必应高清图片,Bing背景,每日壁纸',
       canonicalPath: '/bing',
       series: 'bing',
       aspectType: 'landscape',
@@ -67,8 +72,9 @@ const routes = [
     name: 'Mobile',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '4K手机壁纸_高清手机锁屏壁纸下载 - 超赞壁纸',
-      description: '提供海量 4K 手机壁纸和高清锁屏壁纸，适配 iPhone 与 Android 机型，支持竖屏预览与免费下载。',
+      title: '4K手机壁纸_高清手机锁屏壁纸免费下载 - 超赞壁纸',
+      description: '提供海量4K手机壁纸和高清锁屏壁纸，涵盖风景、动漫、人像、萌宠等分类，适配iPhone与Android机型，支持竖屏预览与免费下载。',
+      keywords: '手机壁纸,锁屏壁纸,iPhone壁纸,Android壁纸,手机背景,竖屏壁纸,高清手机壁纸',
       canonicalPath: '/mobile',
       series: 'mobile',
       aspectType: 'portrait',
@@ -80,8 +86,9 @@ const routes = [
     name: 'Avatar',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '高清头像_动漫头像_个性头像下载 - 超赞壁纸',
-      description: '精选高清头像、动漫头像和个性头像资源，适合微信、QQ、社交平台使用，支持正方形头像预览与下载。',
+      title: '高清头像_动漫头像_微信QQ个性头像免费下载 - 超赞壁纸',
+      description: '精选高清头像、动漫头像和个性头像资源，适合微信、QQ、社交平台使用，涵盖动漫、人像、萌宠、表情包等分类，支持正方形头像预览与下载。',
+      keywords: '头像,动漫头像,微信头像,QQ头像,个性头像,高清头像,表情包头像',
       canonicalPath: '/avatar',
       series: 'avatar',
       aspectType: 'square',
@@ -93,8 +100,9 @@ const routes = [
     name: 'About',
     component: () => import('@/views/About.vue'),
     meta: {
-      title: '关于 超赞壁纸 - 4K 高清壁纸站',
-      description: '了解 Wallpaper Gallery 的项目定位、特色功能与壁纸资源分类，查看更多关于 4K 高清壁纸站的信息。',
+      title: '关于超赞壁纸 - 4K高清壁纸站',
+      description: '了解超赞壁纸的项目定位、特色功能与壁纸资源分类，查看更多关于4K高清壁纸站的信息。',
+      keywords: '超赞壁纸,关于我们,壁纸网站,4K壁纸站',
       canonicalPath: '/about',
       hideHeader: true,
     },
@@ -232,6 +240,7 @@ function updateLinkTag(selector, attributes) {
 function applyRouteSeo(to) {
   const title = to.meta.title || DEFAULT_TITLE
   const description = to.meta.description || DEFAULT_DESCRIPTION
+  const keywords = to.meta.keywords || DEFAULT_KEYWORDS
   const canonicalPath = to.meta.canonicalPath || to.path || '/'
   const url = new URL(canonicalPath, SITE_URL).toString()
 
@@ -240,6 +249,11 @@ function applyRouteSeo(to) {
   updateMetaTag('meta[name="description"]', {
     name: 'description',
     content: description,
+  })
+
+  updateMetaTag('meta[name="keywords"]', {
+    name: 'keywords',
+    content: keywords,
   })
 
   updateMetaTag('meta[property="og:title"]', {

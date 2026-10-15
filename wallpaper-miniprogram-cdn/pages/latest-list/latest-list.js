@@ -174,7 +174,8 @@ Page({
 
   extractDateFromWallpaper: function(wp) {
     if (wp.createdAt) {
-      var utcMs = new Date(wp.createdAt).getTime();
+      var dateStr = wp.createdAt.replace(/ /g, "T");
+      var utcMs = new Date(dateStr).getTime();
       var bjDate = new Date(utcMs + 8 * 60 * 60 * 1000);
       var y = bjDate.getUTCFullYear();
       var m = bjDate.getUTCMonth() + 1;

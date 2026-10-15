@@ -37,6 +37,16 @@ const interactionStore = useInteractionStore()
 const authStore = useAuthStore()
 
 const currentSeries = computed(() => seriesStore.currentSeries)
+const seriesTitle = computed(() => {
+  const titles = {
+    desktop: '4K电脑桌面壁纸免费下载',
+    mobile: '4K手机锁屏壁纸免费下载',
+    avatar: '高清动漫头像免费下载',
+    bing: 'Bing每日壁纸免费下载',
+    video: '动态视频壁纸免费下载',
+  }
+  return titles[currentSeries.value] || '4K高清壁纸免费下载'
+})
 const showMobileSeriesNotice = computed(() => isMobile.value && ['desktop', 'bing'].includes(currentSeries.value))
 const isSeriesContentReady = computed(() => wallpaperStore.currentRenderedSeries === currentSeries.value)
 const visibleWallpapers = computed(() => isSeriesContentReady.value ? wallpaperStore.wallpapers : [])
@@ -337,8 +347,9 @@ function handleAvatarMakerClose() {
 </script>
 
 <template>
-  <div class="home-page">
+  <main class="home-page">
     <div class="container">
+      <h1 class="seo-h1">{{ seriesTitle }}</h1>
       <AnnouncementBanner />
 
       <MobileSeriesNotice
@@ -425,10 +436,22 @@ function handleAvatarMakerClose() {
       :is-open="isAvatarMakerOpen"
       @close="handleAvatarMakerClose"
     />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
+.seo-h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .home-page {
   padding: $spacing-md 0 $spacing-2xl;
 

@@ -43,6 +43,17 @@
   border-radius: 16rpx;
 }
 
+.category-gradient-bg {
+  position: absolute;
+  top: 8rpx;
+  left: 8rpx;
+  right: 8rpx;
+  bottom: 8rpx;
+  width: calc(100% - 16rpx);
+  height: calc(100% - 16rpx);
+  border-radius: 16rpx;
+}
+
 .category-overlay {
   position: absolute;
   top: 8rpx;
@@ -147,7 +158,18 @@
   to { transform: rotate(360deg); }
 }
 
-.loading-text,
+.loading-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 28rpx;
+}
+
+.loading-sub-text {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 22rpx;
+  margin-top: 12rpx;
+  letter-spacing: 0.5rpx;
+}
+
 .empty-text {
   color: #444;
   font-size: 28rpx;

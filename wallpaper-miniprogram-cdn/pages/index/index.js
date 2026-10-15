@@ -16,6 +16,7 @@ Page({
     animeWallpapers: [],
     desktopWallpapers: [],
     loading: true,
+    showDisclaimerModal: false,
     statusBarHeight: 44,
     navBarHeight: 44
   },
@@ -178,5 +179,13 @@ Page({
     wx.switchTab({
       url: "/pages/category/category"
     });
+  },
+
+  showDisclaimer: function() {
+    this.setData({ showDisclaimerModal: true });
+  },
+
+  closeDisclaimer: function() {
+    this.setData({ showDisclaimerModal: false });
   }
 });

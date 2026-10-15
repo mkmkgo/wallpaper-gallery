@@ -54,6 +54,18 @@ const compactMain = computed(() => route.meta?.compactMain === true)
 
       <!-- 版本更新提示 -->
       <UpdateNotification v-if="!hideHeader" />
+
+      <footer v-if="!hideHeader" class="seo-footer">
+        <nav class="seo-footer-links" aria-label="站点底部导航">
+          <a href="/desktop">电脑壁纸</a>
+          <a href="/mobile">手机壁纸</a>
+          <a href="/avatar">高清头像</a>
+          <a href="/bing">Bing壁纸</a>
+          <a href="/video">视频壁纸</a>
+          <a href="/about">关于我们</a>
+        </nav>
+        <p class="seo-footer-copy">&copy; 2024-2026 超赞壁纸 - 4K高清壁纸免费下载</p>
+      </footer>
     </div>
   </ElConfigProvider>
 </template>
@@ -91,5 +103,37 @@ const compactMain = computed(() => route.meta?.compactMain === true)
   &.no-padding {
     padding-top: 0;
   }
+}
+
+.seo-footer {
+  padding: 32px 16px 24px;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.seo-footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 12px;
+
+  a {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.seo-footer-copy {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  opacity: 0.6;
 }
 </style>

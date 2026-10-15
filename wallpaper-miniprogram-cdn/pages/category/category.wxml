@@ -9,7 +9,8 @@
     </view>
     <view wx:else class="category-grid">
       <view wx:for="{{categories}}" wx:key="name" class="category-item" bindtap="onCategoryTap" data-name="{{item.name}}">
-        <image wx:if="{{item.coverUrl}}" class="category-bg-img" src="{{item.coverUrl}}" mode="aspectFill" lazy-load></image>
+        <view wx:if="{{!item.coverUrl}}" class="category-gradient-bg" style="background: linear-gradient(135deg, {{item.gradientFrom}}, {{item.gradientTo}});"></view>
+        <image wx:else class="category-bg-img" src="{{item.coverUrl}}" mode="aspectFill" lazy-load></image>
         <view class="category-overlay"></view>
         <view class="category-info">
           <text class="category-name">{{item.name}}</text>
@@ -26,7 +27,8 @@
     </view>
     <view wx:if="{{loading}}" class="loading-box">
       <view class="loading-spinner"></view>
-      <text class="loading-text">加载中...</text>
+      <text class="loading-text">正在加载壁纸数据...</text>
+      <text class="loading-sub-text">图片数据较大，首次加载可能较慢，请耐心等待</text>
     </view>
     <view wx:elif="{{wallpapers.length === 0}}" class="empty-box">
       <text class="empty-text">暂无壁纸</text>
