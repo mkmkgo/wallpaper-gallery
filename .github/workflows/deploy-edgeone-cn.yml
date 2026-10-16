@@ -25,18 +25,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 见 scripts/get-latest-cdn-tag.js：逐级降级取版本号，避免 API 限流时
+      # jq 对错误对象取下标崩溃（Cannot index object with number, exit 5）。
       - name: Get latest CDN version
         id: cdn_version
         run: |
-          LATEST_TAG=$(curl -s "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags" | jq -r '.[0].name // "v1.2.18"')
-          echo "version=$LATEST_TAG" >> $GITHUB_OUTPUT
-          echo "✅ Got latest CDN version: $LATEST_TAG"
+          LATEST_TAG=$(node scripts/get-latest-cdn-tag.js)
+          echo "version=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+          echo "✅ CDN version: $LATEST_TAG"
 
       - name: Update CDN version in constants.js
         run: |
           CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
           sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
+          grep -q "export const CDN_VERSION = '$CDN_VERSION'" src/utils/config/constants.js \
+            || { echo "::error::constants.js 的 CDN_VERSION 未能更新为 $CDN_VERSION"; exit 1; }
 
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4

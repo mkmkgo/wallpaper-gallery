@@ -23,19 +23,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 取图床仓库最新 tag 作为 CDN_VERSION。
+      # 走 scripts/get-latest-cdn-tag.js：git ls-remote（无鉴权、无 API 配额）
+      # → GitHub API（带类型守卫）→ 本地 constants.js → 硬兜底，逐级降级，
+      # 不会像旧的 `curl api.github.com | jq '.[0].name'` 那样在 API 限流
+      # 返回错误对象时以 `Cannot index object with number` 崩溃、拖垮整条流水线。
       - name: Get latest CDN version
         id: cdn_version
         run: |
-          LATEST_TAG=$(curl -s "https://api.github.com/repos/mkmkgo/nuanXinProPic/tags" | jq -r '.[0].name // "v1.3.35"')
-          VERSION=${LATEST_TAG#v}
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "✅ Got latest CDN version: $VERSION (tag: $LATEST_TAG)"
+          LATEST_TAG=$(node scripts/get-latest-cdn-tag.js)
+          echo "version=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+          echo "✅ CDN version: $LATEST_TAG"
 
       - name: Update CDN version in constants.js
         run: |
-          CDN_VERSION="v${{ steps.cdn_version.outputs.version }}"
+          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
           sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
+          grep -q "export const CDN_VERSION = '$CDN_VERSION'" src/utils/config/constants.js \
+            || { echo "::error::constants.js 的 CDN_VERSION 未能更新为 $CDN_VERSION"; exit 1; }
 
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
