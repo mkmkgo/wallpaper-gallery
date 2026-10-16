@@ -33,6 +33,9 @@ const scrollLock = useScrollLock()
 
 // 待执行的「延迟加锁」rAF 句柄
 let lockRafId = null
+// 组件是否已卸载：await 续体可能晚于 onUnmounted 才恢复执行，
+// 卸载后必须彻底禁止再安排加锁，否则会留下无人解锁的锁
+let unmounted = false
 
 function cancelPendingLock() {
   if (lockRafId !== null) {
@@ -46,15 +49,15 @@ watch(() => props.show, async (val) => {
   if (val) {
     // 延迟锁定滚动，让动画先开始，避免 position: fixed 导致的重排卡顿
     await nextTick()
-    // 等待期间可能已经关闭：此时绝不能再安排加锁，
+    // 等待期间可能已经关闭或组件已卸载：此时绝不能再安排加锁，
     // 否则「开 →（同帧）关」会让 rAF 在 unlock 之后补一次 lock，使计数永久卡在 1
-    if (!props.show)
+    if (unmounted || !props.show)
       return
     cancelPendingLock()
     lockRafId = requestAnimationFrame(() => {
       lockRafId = null
-      // 真正加锁前再确认一次仍处于打开状态，杜绝任何时序下留下未配对的锁
-      if (props.show)
+      // 真正加锁前再确认：仍处于打开状态且组件未卸载
+      if (!unmounted && props.show)
         scrollLock.lock()
     })
     // 如果当前是"全部"，默认选中第一个分类
@@ -74,7 +77,10 @@ watch(() => props.show, async (val) => {
   }
 })
 
-onUnmounted(cancelPendingLock)
+onUnmounted(() => {
+  unmounted = true
+  cancelPendingLock()
+})
 
 // 当前选中分类的二级分类列表
 const currentSubcategories = computed(() => {
