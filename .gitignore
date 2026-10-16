@@ -113,3 +113,6 @@ docs/requirements/
 
 # CDN warmup state
 .warmup-state/
+# 小程序源码独立存放（开发未完成，暂不入库；未来单独建仓）
+wallpaper-miniprogram/
+wallpaper-miniprogram-cdn/
