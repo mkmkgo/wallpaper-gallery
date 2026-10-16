@@ -1,5 +1,5 @@
 <script setup>
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onUnmounted, ref, watch } from 'vue'
 
 import { useScrollLock } from '@/composables/useScrollLock'
 
@@ -31,13 +31,31 @@ const tempSubcategory = ref(props.subcategoryFilter)
 // 使用滚动锁定 composable
 const scrollLock = useScrollLock()
 
+// 待执行的「延迟加锁」rAF 句柄
+let lockRafId = null
+
+function cancelPendingLock() {
+  if (lockRafId !== null) {
+    cancelAnimationFrame(lockRafId)
+    lockRafId = null
+  }
+}
+
 // 同步外部值
 watch(() => props.show, async (val) => {
   if (val) {
     // 延迟锁定滚动，让动画先开始，避免 position: fixed 导致的重排卡顿
     await nextTick()
-    requestAnimationFrame(() => {
-      scrollLock.lock()
+    // 等待期间可能已经关闭：此时绝不能再安排加锁，
+    // 否则「开 →（同帧）关」会让 rAF 在 unlock 之后补一次 lock，使计数永久卡在 1
+    if (!props.show)
+      return
+    cancelPendingLock()
+    lockRafId = requestAnimationFrame(() => {
+      lockRafId = null
+      // 真正加锁前再确认一次仍处于打开状态，杜绝任何时序下留下未配对的锁
+      if (props.show)
+        scrollLock.lock()
     })
     // 如果当前是"全部"，默认选中第一个分类
     if (props.categoryFilter === 'all') {
@@ -50,10 +68,13 @@ watch(() => props.show, async (val) => {
     tempSubcategory.value = props.subcategoryFilter
   }
   else {
-    // 解锁滚动
+    // 关闭：先取消尚未执行的加锁，再解锁（避免 unlock 先跑、lock 后补的竞态）
+    cancelPendingLock()
     scrollLock.unlock()
   }
 })
+
+onUnmounted(cancelPendingLock)
 
 // 当前选中分类的二级分类列表
 const currentSubcategories = computed(() => {

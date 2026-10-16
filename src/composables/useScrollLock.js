@@ -60,6 +60,13 @@ export function useScrollLock() {
   }
 
   function unlock() {
+    // 与 lock() 对称的实例级守卫：本次实例没有锁过就直接返回。
+    // 否则 N 个实例各 lock 一次后，若某个实例被 unlock 两次，
+    // 第二次会把全局计数减到 0 而误释放「别人仍持有的锁」。
+    if (!isLocked.value)
+      return
+    // 必须先落 isLocked，再判计数，否则守卫形同虚设
+    isLocked.value = false
     // 计数为 0 时直接返回，保证不会变成负数
     if (lockCount === 0)
       return
@@ -67,7 +74,6 @@ export function useScrollLock() {
     // 仅在计数归零时真正解锁并恢复滚动位置
     if (lockCount === 0)
       releaseLock()
-    isLocked.value = false
   }
 
   onUnmounted(() => {
