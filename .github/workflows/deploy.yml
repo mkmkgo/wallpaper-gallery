@@ -88,11 +88,26 @@ jobs:
             pnpm sync
           fi
 
+      # Supabase 资产同步失败**不阻断部署**。
+      # 背景（2026-10-16）：上游 v5.1.0 新增视频壁纸系列后，sync:assets 会写
+      # duration_seconds 列；旧表缺该列时这一步硬失败，连带 Build/Publish/Deploy
+      # 全部 skipped，线上卡在旧版本。而 Supabase 在本项目是渐进增强能力，
+      # 核心浏览/预览/下载走 CDN 静态 JSON，零 Supabase 依赖，因此不该阻断部署。
       - name: Sync wallpaper assets to Supabase
+        id: sync_assets
+        continue-on-error: true
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: pnpm sync:assets
+
+      - name: Report Supabase sync failure
+        if: steps.sync_assets.outcome == 'failure'
+        run: |
+          echo "::warning::wallpaper_assets 同步失败，已跳过，不阻断部署。"
+          echo "::warning::常见原因：表缺列（如 v5.1.0 新增的 duration_seconds）、series 约束未放行 'video'、PostgREST schema 缓存未刷新。"
+          echo "::warning::修复手册：docs/supabase-schema-fix-2026-10-16.md"
+          echo "::warning::影响范围：仅后台资产表不再更新；壁纸浏览/预览/下载不受影响。"
 
       - name: Refresh recent hot tags from deployed metadata
         run: pnpm export:hot-tags

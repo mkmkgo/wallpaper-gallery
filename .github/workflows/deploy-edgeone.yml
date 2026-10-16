@@ -95,11 +95,22 @@ jobs:
             echo "✅ collections.json preserved"
           fi
 
+      # 失败不阻断部署（理由同 deploy.yml，见该文件注释）
       - name: Sync wallpaper assets to Supabase
+        id: sync_assets
+        continue-on-error: true
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: pnpm sync:assets
+
+      - name: Report Supabase sync failure
+        if: steps.sync_assets.outcome == 'failure'
+        run: |
+          echo "::warning::wallpaper_assets 同步失败，已跳过，不阻断部署。"
+          echo "::warning::常见原因：表缺列（如 v5.1.0 新增的 duration_seconds）、series 约束未放行 'video'、PostgREST schema 缓存未刷新。"
+          echo "::warning::修复手册：docs/supabase-schema-fix-2026-10-16.md"
+          echo "::warning::影响范围：仅后台资产表不再更新；壁纸浏览/预览/下载不受影响。"
 
       # 5. 执行 Vite 打包构建
       - name: Build
