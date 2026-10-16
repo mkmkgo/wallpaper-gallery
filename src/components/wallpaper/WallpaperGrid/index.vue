@@ -3,6 +3,7 @@ import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import { useDevice } from '@/composables/useDevice'
+import { isPageScrollLocked } from '@/composables/useScrollLock'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import WallpaperCard from '../card/index.vue'
@@ -115,12 +116,19 @@ function handleResetFilters() {
   emit('resetFilters')
 }
 
+// 滚动回调：弹窗打开期间直接跳过，避免误判触底而白触发 loadMore
+function handleWindowScroll() {
+  if (isPageScrollLocked())
+    return
+  handleScroll()
+}
+
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('scroll', handleWindowScroll, { passive: true })
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', handleWindowScroll)
 })
 
 // 监听 wallpapers 变化（筛选/搜索/分类切换时）

@@ -1,4 +1,5 @@
 import { computed, onUnmounted, ref } from 'vue'
+import { isPageScrollLocked } from '@/composables/useScrollLock'
 
 const INITIAL_PAGE_SIZE = 30
 const PAGE_SIZE = 20
@@ -16,7 +17,8 @@ export function useGridPagination({ wallpapers }) {
   const hasMoreData = computed(() => displayCount.value < wallpapers.value.length)
 
   function loadMore() {
-    if (isLoadingMore.value || !hasMoreData.value)
+    // 并发保护：上一次加载未完成 / 已无更多数据时直接跳过
+    if (isLoadingMore.value || loadRafId !== null || !hasMoreData.value)
       return
 
     isLoadingMore.value = true
@@ -30,6 +32,11 @@ export function useGridPagination({ wallpapers }) {
 
   function checkScroll() {
     scrollRafId = null
+
+    // 弹窗打开时 body 变为 position:fixed，文档高度瞬间塌缩，
+    // 滚动监听会误判「已触底」而白触发 loadMore —— 锁定期间直接跳过
+    if (isPageScrollLocked())
+      return
 
     if (isLoadingMore.value || !hasMoreData.value)
       return

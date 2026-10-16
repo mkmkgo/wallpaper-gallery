@@ -6,6 +6,7 @@
 import { computed, onUnmounted, ref, toRef, watch } from 'vue'
 import { useDevice } from '@/composables/useDevice'
 import { useInteraction } from '@/composables/useInteraction'
+import { useProgressiveImage } from '@/composables/useProgressiveImage'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
@@ -103,6 +104,17 @@ const displayImageUrl = computed(() => {
   return props.wallpaper.url
 })
 
+// 低清占位图；降级到回退地址后不再使用，避免展示损坏的占位
+const previewImageUrl = computed(() => props.wallpaper?.previewUrl || props.wallpaper?.thumbnailUrl || '')
+
+// 渐进式加载：先占位图秒出，后台加载原图后再切换（最终画质不变）
+const { displaySrc, load: loadFullImage, release: releaseImage } = useProgressiveImage({
+  preview: () => (fallbackStage.value === 'none' ? previewImageUrl.value : ''),
+  full: () => displayImageUrl.value,
+  enabled: () => props.isOpen,
+  onFullError: () => handleImageError(),
+})
+
 // 派生状态
 const canUseDeviceMode = computed(() => effectiveSeries.value === 'mobile')
 const isAvatarSeries = computed(() => effectiveSeries.value === 'avatar')
@@ -142,6 +154,9 @@ function handleOpen() {
 
   // 显示弹窗（触发 Transition）
   isVisible.value = true
+
+  // 启动原图渐进式加载
+  loadFullImage()
 }
 
 // 关闭弹窗
@@ -159,6 +174,8 @@ function handleClose() {
 
 // 弹窗关闭动画完成后
 function onModalAfterLeave() {
+  // 关闭后释放原图解码内存
+  releaseImage()
   // 恢复背景滚动
   document.body.classList.remove('modal-open')
   document.body.style.top = ''
@@ -345,7 +362,7 @@ onUnmounted(() => {
             <ModalContent
               v-show="!deviceMode.isDeviceMode.value"
               ref="contentRef"
-              :src="displayImageUrl"
+              :src="displaySrc"
               :alt="wallpaper.filename"
               :is-avatar="isAvatarSeries"
               @load="handleImageLoad"

@@ -71,6 +71,7 @@ defineExpose({ isLoaded, hasError })
         :src="src"
         :alt="alt"
         class="modal-content__image"
+        decoding="async"
         :class="{ 'is-avatar': isAvatar }"
         @load="handleLoad"
         @error="handleError"

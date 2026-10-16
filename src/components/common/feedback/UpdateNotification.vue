@@ -72,7 +72,9 @@ const versionDisplay = computed(() => {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  // 必须低于弹窗（z-index: 1000），否则会覆盖弹窗底部区域，
+  // 而本组件「立即刷新」按钮会整页重载（带 ?_t= 参数）——用户开图时误点会丢上下文
+  z-index: 900;
   width: calc(100% - 32px);
   max-width: 480px;
 

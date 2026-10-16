@@ -9,6 +9,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCardActions.vue'
+import { useProgressiveImage } from '@/composables/useProgressiveImage'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
@@ -163,6 +164,17 @@ const optimizedImageUrl = computed(() => {
   return props.wallpaper.url
 })
 
+// 低清占位图；降级到回退地址后不再使用，避免展示损坏的占位
+const previewImageUrl = computed(() => props.wallpaper?.previewUrl || props.wallpaper?.thumbnailUrl || '')
+
+// 渐进式加载：先占位图秒出，后台加载原图后再切换（最终画质不变）
+const { displaySrc, load: loadFullImage, release: releaseImage } = useProgressiveImage({
+  preview: () => (fallbackStage.value === 'none' ? previewImageUrl.value : ''),
+  full: () => optimizedImageUrl.value,
+  enabled: () => props.isOpen,
+  onFullError: () => handleImageError(),
+})
+
 // 监听
 watch(() => props.isOpen, async (isOpen) => {
   if (isOpen && props.wallpaper) {
@@ -185,6 +197,9 @@ function handleOpen() {
 
   // 滚动锁定由父组件处理，这里只需要显示弹窗
   isVisible.value = true
+
+  // 启动原图渐进式加载
+  loadFullImage()
 
   // 启动时钟更新（仅在弹窗打开时运行）
   updateTime()
@@ -211,6 +226,8 @@ function handleClose() {
 }
 
 function onModalAfterLeave() {
+  // 关闭后释放原图解码内存
+  releaseImage()
   // 滚动恢复由父组件处理，这里只需要通知关闭
   emit('close')
 }
@@ -307,8 +324,9 @@ onUnmounted(() => {
                   <LoadingSpinner size="md" />
                 </div>
                 <img
-                  :src="optimizedImageUrl"
+                  :src="displaySrc"
                   :alt="wallpaper.filename"
+                  decoding="async"
                   :class="{ loaded: imageLoaded }"
                   @load="handleImageLoad"
                   @error="handleImageError"

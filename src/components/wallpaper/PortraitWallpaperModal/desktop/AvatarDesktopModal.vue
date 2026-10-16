@@ -9,6 +9,7 @@ import { computed, ref, watch } from 'vue'
 
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCardActions.vue'
+import { useProgressiveImage } from '@/composables/useProgressiveImage'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/common/analytics'
@@ -99,6 +100,17 @@ const optimizedImageUrl = computed(() => {
   return props.wallpaper.url
 })
 
+// 低清占位图；降级到回退地址后不再使用，避免展示损坏的占位
+const previewImageUrl = computed(() => props.wallpaper?.previewUrl || props.wallpaper?.thumbnailUrl || '')
+
+// 渐进式加载：先占位图秒出，后台加载原图后再切换（最终画质不变）
+const { displaySrc, load: loadFullImage, release: releaseImage } = useProgressiveImage({
+  preview: () => (fallbackStage.value === 'none' ? previewImageUrl.value : ''),
+  full: () => optimizedImageUrl.value,
+  enabled: () => props.isOpen,
+  onFullError: () => handleImageError(),
+})
+
 // 监听
 watch(() => props.isOpen, (isOpen) => {
   if (isOpen && props.wallpaper)
@@ -116,14 +128,18 @@ function handleOpen() {
   trackWallpaperPreview(props.wallpaper)
   recordView(props.wallpaper, effectiveSeries.value)
   isVisible.value = true
+  loadFullImage()
 }
 
 function handleClose() {
   isVisible.value = false
 }
 
-// eslint-disable-next-line style/max-statements-per-line
-function onModalAfterLeave() { emit('close') }
+function onModalAfterLeave() {
+  // 关闭后释放原图解码内存
+  releaseImage()
+  emit('close')
+}
 
 async function handleDownload() {
   if (!props.wallpaper || downloading.value)
@@ -201,8 +217,9 @@ function resetState() {
                       <LoadingSpinner size="md" />
                     </div>
                     <img
-                      :src="optimizedImageUrl"
+                      :src="displaySrc"
                       :alt="wallpaper.filename"
+                      decoding="async"
                       :class="{ loaded: imageLoaded }"
                       @load="handleImageLoad"
                       @error="handleImageError"

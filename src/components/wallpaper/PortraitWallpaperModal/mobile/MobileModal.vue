@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/feedback/LoadingSpinner.vue'
 import WallpaperCardActions from '@/components/wallpaper/card/shared/WallpaperCardActions.vue'
+import { useProgressiveImage } from '@/composables/useProgressiveImage'
 import { useScrollLock } from '@/composables/useScrollLock'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { usePopularityStore } from '@/stores/popularity'
@@ -57,6 +58,17 @@ const displayImageUrl = computed(() => {
     return buildRawImageUrl(props.wallpaper.url)
 
   return props.wallpaper.url
+})
+
+// 低清占位图；降级到回退地址后不再使用，避免展示损坏的占位
+const previewImageUrl = computed(() => props.wallpaper?.previewUrl || props.wallpaper?.thumbnailUrl || '')
+
+// 渐进式加载：先占位图秒出，后台加载原图后再切换（最终画质不变）
+const { displaySrc, load: loadFullImage, release: releaseImage } = useProgressiveImage({
+  preview: () => (fallbackStage.value === 'none' ? previewImageUrl.value : ''),
+  full: () => displayImageUrl.value,
+  enabled: () => props.isOpen,
+  onFullError: () => handleImageError(),
 })
 
 // 计算属性 - 优先使用 AI 生成的 displayTitle
@@ -125,6 +137,7 @@ function openModal() {
   recordView(props.wallpaper, effectiveSeries.value)
   scrollLock.lock()
   isVisible.value = true
+  loadFullImage()
 }
 
 function closeModal() {
@@ -136,6 +149,8 @@ function closeModal() {
 }
 
 function onAfterLeave() {
+  // 关闭后释放原图解码内存
+  releaseImage()
   scrollLock.unlock()
   emit('close')
 }
@@ -217,8 +232,9 @@ function resetState() {
                   <LoadingSpinner size="lg" />
                 </div>
                 <img
-                  :src="displayImageUrl"
+                  :src="displaySrc"
                   :alt="wallpaper.filename"
+                  decoding="async"
                   :class="{ loaded: imageLoaded }"
                   @load="handleImageLoad"
                   @error="handleImageError"
