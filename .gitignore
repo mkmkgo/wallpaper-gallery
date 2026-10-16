@@ -116,3 +116,8 @@ docs/requirements/
 # 小程序源码独立存放（开发未完成，暂不入库；未来单独建仓）
 wallpaper-miniprogram/
 wallpaper-miniprogram-cdn/
+# 小程序 CDN 产物压缩包（历史上被误提交过，含 project.private.config.json，
+# 绝不能再入库）
+wallpaper-miniprogram-cdn.zip
+wallpaper-miniprogram*.zip
+__MACOSX/
