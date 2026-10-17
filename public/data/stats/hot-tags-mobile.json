@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-16T20:02:35.185Z",
+  "generatedAt": "2026-10-17T19:34:51.148Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-07-18T20:02:35.185Z",
+  "windowStart": "2026-07-19T19:34:51.148Z",
   "series": "mobile",
   "total": 0,
   "tags": []
