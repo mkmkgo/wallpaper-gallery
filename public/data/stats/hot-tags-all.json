@@ -1,660 +1,775 @@
 {
-  "generatedAt": "2026-10-20T20:46:06.894Z",
+  "generatedAt": "2026-10-21T20:46:01.491Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-07-22T20:46:06.894Z",
+  "windowStart": "2026-07-23T20:46:01.491Z",
   "series": "all",
-  "total": 88,
+  "total": 272,
   "tags": [
     {
-      "tag": "慢节奏生活",
-      "score": 0.980205,
-      "views": 0,
+      "tag": "人像",
+      "score": 45.528022,
+      "views": 5,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 45,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-20.jpg"
+        "a96f499896a5412193f44b24fb030af7.jpeg",
+        "aa27ca76d92547cdb6ff2856af1524ac.jpeg",
+        "b724d38b19104d41a854e0f79e80d217.jpeg",
+        "ddb786cc26bc4f78bdb265d568154022.jpeg",
+        "004c63dc3e8b44b09a88f7f87b7e16e9.jpeg"
       ]
     },
     {
-      "tag": "水上通衢",
-      "score": 0.957817,
-      "views": 0,
+      "tag": "魅力",
+      "score": 24.300438,
+      "views": 3,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 24,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-19.jpg"
+        "a96f499896a5412193f44b24fb030af7.jpeg",
+        "aa27ca76d92547cdb6ff2856af1524ac.jpeg",
+        "004c63dc3e8b44b09a88f7f87b7e16e9.jpeg",
+        "0d8c091d3c6c42638465659f0f9fd2a3.jpeg",
+        "21b40a54f20b4f86846c8de126045f98.jpeg"
       ]
     },
     {
-      "tag": "75载，风华正茂",
-      "score": 0.93594,
-      "views": 0,
+      "tag": "清新",
+      "score": 18.235926,
+      "views": 2,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 18,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-18.jpg"
+        "b724d38b19104d41a854e0f79e80d217.jpeg",
+        "ddb786cc26bc4f78bdb265d568154022.jpeg",
+        "1a5ea4c7fcdc4f03a736b6867ff043a7.jpeg",
+        "269ba0f14bbb4d83b7ddd318b9c2812d.jpeg",
+        "28cda2d4b81f4fa2ae279d8de588bd60.jpeg"
       ]
     },
     {
-      "tag": "发掘尘封的过去",
-      "score": 0.914563,
+      "tag": "动漫",
+      "score": 15.955508,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 16,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-17.jpg"
+        "156dad5d08dc460bb2747d2b91bb8e2d.jpeg",
+        "1b3c22e578764ab4868c5c04859b2e82.jpeg",
+        "2a696e88b67a4797a5c54414772a6a3b.jpeg",
+        "46c6aaff4ae34a4388371e6fd33c6591.jpeg",
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg"
       ]
     },
     {
-      "tag": "一窥科罗拉多群峰",
-      "score": 0.893675,
-      "views": 0,
+      "tag": "长发",
+      "score": 13.336923,
+      "views": 3,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 13,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-16.jpg"
+        "a96f499896a5412193f44b24fb030af7.jpeg",
+        "ddb786cc26bc4f78bdb265d568154022.jpeg",
+        "004c63dc3e8b44b09a88f7f87b7e16e9.jpeg",
+        "1a5ea4c7fcdc4f03a736b6867ff043a7.jpeg",
+        "3d60d0cacdd14fe69cf4108fcae18e79.jpeg"
       ]
     },
     {
-      "tag": "桥梁、屋顶与暮色",
-      "score": 0.873263,
-      "views": 0,
+      "tag": "优雅",
+      "score": 11.199495,
+      "views": 2,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 11,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-15.jpg"
+        "a96f499896a5412193f44b24fb030af7.jpeg",
+        "004c63dc3e8b44b09a88f7f87b7e16e9.jpeg",
+        "499922dc65f44baf9683af0f833933b7.jpeg",
+        "611b581c8ad947f79fb4cd7bc7fc5190.jpeg",
+        "669fa505475e453986930e62e771c6e4.jpeg"
       ]
     },
     {
-      "tag": "穿越时间的螺旋",
-      "score": 0.853318,
-      "views": 0,
+      "tag": "阳光",
+      "score": 10.115182,
+      "views": 1,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 10,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-14.jpg"
+        "b724d38b19104d41a854e0f79e80d217.jpeg",
+        "269ba0f14bbb4d83b7ddd318b9c2812d.jpeg",
+        "28cda2d4b81f4fa2ae279d8de588bd60.jpeg",
+        "2cc0e71b33d24edc83de6cbcd4d0815f.jpeg",
+        "422502ecec074d1189147ffabc374f7a.jpeg"
       ]
     },
     {
-      "tag": "蓝与绿的交响曲",
-      "score": 0.833828,
+      "tag": "风景",
+      "score": 8.974973,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 9,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-13.jpg"
+        "12c94cbb6c9644da8b14af4681229c34.jpeg",
+        "159fcfa1a3a04e3fb9f3214bc3df990c.jpeg",
+        "15e2d0e1deb242e6ba5823c88d282612.jpeg",
+        "354d15ed1e5443b2a115e86bf226b512.jpeg",
+        "422502ecec074d1189147ffabc374f7a.jpeg"
       ]
     },
     {
-      "tag": "从铁轨到潮汐",
-      "score": 0.814783,
-      "views": 0,
+      "tag": "夜晚",
+      "score": 8.207837,
+      "views": 2,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 8,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-12.jpg"
+        "a96f499896a5412193f44b24fb030af7.jpeg",
+        "004c63dc3e8b44b09a88f7f87b7e16e9.jpeg",
+        "274bfe9a0ead4cdc9400b3e97e722e26.jpeg",
+        "28e3636fc2224bc5b94d0c878bf0b42a.jpeg",
+        "a5ffd321b7044cda9b03014cde33b56d.jpeg"
       ]
     },
     {
-      "tag": "秋色中转动的水轮",
-      "score": 0.796173,
+      "tag": "七龙珠",
+      "score": 7.977754,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 8,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-11.jpg"
+        "1b3c22e578764ab4868c5c04859b2e82.jpeg",
+        "46c6aaff4ae34a4388371e6fd33c6591.jpeg",
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg",
+        "4a1d2a95dc214e26bc17f4881809b807.jpeg",
+        "5ed70c3992eb41138e0d7a7c390f746b.jpeg"
       ]
     },
     {
-      "tag": "迁飞路线上的生命",
-      "score": 0.777989,
-      "views": 0,
+      "tag": "黑丝",
+      "score": 7.123525,
+      "views": 1,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 7,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-10.jpg"
+        "aa27ca76d92547cdb6ff2856af1524ac.jpeg",
+        "0d8c091d3c6c42638465659f0f9fd2a3.jpeg",
+        "274bfe9a0ead4cdc9400b3e97e722e26.jpeg",
+        "410cc04b5dd6469395aab0e93e198712.png",
+        "8391_0e23f80c86444bb385a406e00042d3b2.png"
       ]
     },
     {
-      "tag": "科西嘉岛的岩石前哨",
-      "score": 0.76022,
+      "tag": "创意",
+      "score": 6.980535,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 7,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-09.jpg"
+        "3ac71c6578de4571a35663abc20958e7.jpeg",
+        "3d9867ca6c854dc3a5aed88c801e88f5.jpeg",
+        "4785_a8448211036647209eb0613bc13f4310.jpeg",
+        "7543_f0f16c87c7314d9888f53885d2d6ae67.jpeg",
+        "9783178815974723998b5443fdcd1b1d.jpeg"
       ]
     },
     {
-      "tag": "现在你“海”能看见我……",
-      "score": 0.742856,
+      "tag": "插画",
+      "score": 5.983316,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 6,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-08.jpg"
+        "217451d1ee4c49cc8b5af685a77675b8.jpeg",
+        "24a91ab7cfff4c0c8da6519b6913c96c.jpeg",
+        "3ac71c6578de4571a35663abc20958e7.jpeg",
+        "3d9867ca6c854dc3a5aed88c801e88f5.jpeg",
+        "7543_f0f16c87c7314d9888f53885d2d6ae67.jpeg"
       ]
     },
     {
-      "tag": "迷惑不解？沿着小径走",
-      "score": 0.725889,
+      "tag": "二次元",
+      "score": 4.986096,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 5,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-07.jpg"
+        "156dad5d08dc460bb2747d2b91bb8e2d.jpeg",
+        "2a696e88b67a4797a5c54414772a6a3b.jpeg",
+        "a5ffd321b7044cda9b03014cde33b56d.jpeg",
+        "f3f59c1612ef415485578868ac12345b.jpeg",
+        "fa21dcd6928844e7b8a6380ea72c6d28.jpeg"
       ]
     },
     {
-      "tag": "条纹中的地球故事",
-      "score": 0.70931,
+      "tag": "高跟鞋",
+      "score": 4.986096,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 5,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-06.jpg"
+        "274bfe9a0ead4cdc9400b3e97e722e26.jpeg",
+        "7543_f0f16c87c7314d9888f53885d2d6ae67.jpeg",
+        "8391_0e23f80c86444bb385a406e00042d3b2.png",
+        "e9d52c09a10f46669c90356f0033cc72.jpeg",
+        "fee5ad4328e64d69b5dff40fb85239e8.jpeg"
       ]
     },
     {
-      "tag": "纵身一跃，一次一课",
-      "score": 0.693109,
+      "tag": "微笑",
+      "score": 4.986096,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 5,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-05.jpg"
+        "1a5ea4c7fcdc4f03a736b6867ff043a7.jpeg",
+        "28cda2d4b81f4fa2ae279d8de588bd60.jpeg",
+        "2cc0e71b33d24edc83de6cbcd4d0815f.jpeg",
+        "4e6b7b021cdc431b8985a055c64b61e6.jpeg",
+        "7ef7b51249fb4226bb7d25cd540ce603.jpeg"
       ]
     },
     {
-      "tag": "宇宙在召唤",
-      "score": 0.677279,
+      "tag": "夜景",
+      "score": 4.986096,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 5,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-04.jpg"
+        "0d8c091d3c6c42638465659f0f9fd2a3.jpeg",
+        "669fa505475e453986930e62e771c6e4.jpeg",
+        "8391_0e23f80c86444bb385a406e00042d3b2.png",
+        "98ca580bf8e94c759be7eeb1d7b211ee.jpeg",
+        "f182f6f1560645ad9b91071b5e633ac1.jpeg"
       ]
     },
     {
-      "tag": "捕捉、进食、重复",
-      "score": 0.66181,
+      "tag": "海滨",
+      "score": 3.988877,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 4,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-03.jpg"
+        "12c94cbb6c9644da8b14af4681229c34.jpeg",
+        "159fcfa1a3a04e3fb9f3214bc3df990c.jpeg",
+        "15e2d0e1deb242e6ba5823c88d282612.jpeg",
+        "8078f2da3654499f9edc9c7b9e6256dd.jpeg"
       ]
     },
     {
-      "tag": "一条值得保护的河流",
-      "score": 0.646694,
+      "tag": "冒险",
+      "score": 3.988877,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 4,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-02.jpg"
+        "46c6aaff4ae34a4388371e6fd33c6591.jpeg",
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg",
+        "5ed70c3992eb41138e0d7a7c390f746b.jpeg",
+        "d5b96c86844d41ceb4b93c750805c674.jpeg"
       ]
     },
     {
-      "tag": "在花岗岩中读懂时间",
-      "score": 0.631923,
+      "tag": "萌宠",
+      "score": 3.988877,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 4,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-10-01.jpg"
+        "8ccc94f9da524253be8a7eea877277a4.jpeg",
+        "b398564c1cc94df484286a8e9ff44b76.jpeg",
+        "b7c1fdef2b0441adaf9ff1d6bf43cca8.jpeg",
+        "d9f604ff22db47c987cd9b89fb143288.jpeg"
       ]
     },
     {
-      "tag": "一张令人过目难忘的脸",
-      "score": 0.61749,
+      "tag": "性感",
+      "score": 3.988877,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 4,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-30.jpg"
+        "0d8c091d3c6c42638465659f0f9fd2a3.jpeg",
+        "274bfe9a0ead4cdc9400b3e97e722e26.jpeg",
+        "6c26c2a56c314c488a6035a48cfc8489.jpeg",
+        "cf953f9faf644788838da048fd13df49.jpeg"
       ]
     },
     {
-      "tag": "冰川孕育之河",
-      "score": 0.603387,
+      "tag": "暗夜",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-29.jpg"
+        "359365ace2094a3ba0f0b7967a79bdf4.jpeg",
+        "6c26c2a56c314c488a6035a48cfc8489.jpeg",
+        "c0d8678beb7f47e09a9775823473a7a6.jpeg"
       ]
     },
     {
-      "tag": "可览美景的历史胜地",
-      "score": 0.589605,
+      "tag": "草地",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-28.jpg"
+        "422502ecec074d1189147ffabc374f7a.jpeg",
+        "b7c1fdef2b0441adaf9ff1d6bf43cca8.jpeg",
+        "d6d70610c8c14ce8a2958b15f90f6c8f.jpeg"
       ]
     },
     {
-      "tag": "深海夜花园",
-      "score": 0.576139,
+      "tag": "超级赛亚人",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-27.jpg"
+        "4a1d2a95dc214e26bc17f4881809b807.jpeg",
+        "60ada3bc1c044357888f25179a1f803f.jpeg",
+        "6d67a02d196b44cc87e2d1dd3ff786e5.jpeg"
       ]
     },
     {
-      "tag": "写在大地上的故事",
-      "score": 0.56298,
+      "tag": "古装",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-26.jpg"
+        "47ec467ee81f4aaabedb14b30f997063.jpeg",
+        "626c2626e0ab4ddb83883e08c5e09ef4.jpeg",
+        "6fd1d69d7ebc411e9e892c01a1a61e0b.jpeg"
       ]
     },
     {
-      "tag": "当月亮也来赴会",
-      "score": 0.550121,
+      "tag": "海滩",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-25.jpg"
+        "159fcfa1a3a04e3fb9f3214bc3df990c.jpeg",
+        "15e2d0e1deb242e6ba5823c88d282612.jpeg",
+        "499922dc65f44baf9683af0f833933b7.jpeg"
       ]
     },
     {
-      "tag": "火山灰与浪花相遇",
-      "score": 0.537556,
+      "tag": "花朵",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-24.jpg"
+        "24a91ab7cfff4c0c8da6519b6913c96c.jpeg",
+        "422502ecec074d1189147ffabc374f7a.jpeg",
+        "b7c1fdef2b0441adaf9ff1d6bf43cca8.jpeg"
       ]
     },
     {
-      "tag": "金秋平分，地坛染黄",
-      "score": 0.525279,
+      "tag": "宁静",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-23.jpg"
+        "be403d1324e04684b958d377c19f6160.jpeg",
+        "d9ae0223dec847b4a26c4145c15d18a5.jpeg",
+        "dc5eaa051b5046608f94f2b00df04947.jpeg"
       ]
     },
     {
-      "tag": "金色时节",
-      "score": 0.513281,
+      "tag": "清晨",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-22.jpg"
+        "1a5ea4c7fcdc4f03a736b6867ff043a7.jpeg",
+        "8bc47e51747243a9b8530686107c3ba6.jpeg",
+        "dc5eaa051b5046608f94f2b00df04947.jpeg"
       ]
     },
     {
-      "tag": "皮毛与海洋之间的生命",
-      "score": 0.501558,
+      "tag": "时尚",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-21.jpg"
+        "49d2e8846af940c5b0af4766796c4851.jpeg",
+        "f71c4ce0ab4d47d79f18b2f4760e1d12.jpeg",
+        "fee5ad4328e64d69b5dff40fb85239e8.jpeg"
       ]
     },
     {
-      "tag": "终获巴黎青睐的铁塔",
-      "score": 0.490102,
+      "tag": "悟空",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-20.jpg"
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg",
+        "5ed70c3992eb41138e0d7a7c390f746b.jpeg",
+        "6a27a3809ab047fc8686317f3f763fcd.jpeg"
       ]
     },
     {
-      "tag": "慕尼黑啤酒节的阿尔卑斯之声",
-      "score": 0.478908,
+      "tag": "校服",
+      "score": 2.991658,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 3,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-19.jpg"
+        "2cc0e71b33d24edc83de6cbcd4d0815f.jpeg",
+        "4e6b7b021cdc431b8985a055c64b61e6.jpeg",
+        "7ef7b51249fb4226bb7d25cd540ce603.jpeg"
       ]
     },
     {
-      "tag": "穿越山口腹地",
-      "score": 0.46797,
-      "views": 0,
+      "tag": "月光",
+      "score": 2.137428,
+      "views": 1,
       "downloads": 0,
-      "wallpaperCount": 1,
+      "wallpaperCount": 2,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-09-18.jpg"
+        "aa27ca76d92547cdb6ff2856af1524ac.jpeg",
+        "669fa505475e453986930e62e771c6e4.jpeg"
       ]
     },
     {
-      "tag": "为丰收举杯",
-      "score": 0.457282,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-17.jpg"
-      ]
-    },
-    {
-      "tag": "北极的新晋探索者",
-      "score": 0.446837,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-16.jpg"
-      ]
-    },
-    {
-      "tag": "最炫者生存",
-      "score": 0.436631,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-15.jpg"
-      ]
-    },
-    {
-      "tag": "坚韧在此扎根",
-      "score": 0.426659,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-14.jpg"
-      ]
-    },
-    {
-      "tag": "高处的珊瑚礁",
-      "score": 0.416914,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-13.jpg"
-      ]
-    },
-    {
-      "tag": "海浪与海岸的高手",
-      "score": 0.407392,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-12.jpg"
-      ]
-    },
-    {
-      "tag": "地中海风情尽显",
-      "score": 0.398087,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-11.jpg"
-      ]
-    },
-    {
-      "tag": "俯瞰大地拼图",
-      "score": 0.388994,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-10.jpg"
-      ]
-    },
-    {
-      "tag": "印度西海岸的生活",
-      "score": 0.38011,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-09.jpg"
-      ]
-    },
-    {
-      "tag": "金色田野",
-      "score": 0.371428,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-08.jpg"
-      ]
-    },
-    {
-      "tag": "历史沿运河流淌之地",
-      "score": 0.362945,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-07.jpg"
-      ]
-    },
-    {
-      "tag": "倒影满湖的水库",
-      "score": 0.354655,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-06.jpg"
-      ]
-    },
-    {
-      "tag": "小小鸟儿，巨大影响",
-      "score": 0.346555,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-05.jpg"
-      ]
-    },
-    {
-      "tag": "地平线上的红与白",
-      "score": 0.338639,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-04.jpg"
-      ]
-    },
-    {
-      "tag": "一部守护荒野的法案",
-      "score": 0.330905,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-03.jpg"
-      ]
-    },
-    {
-      "tag": "海岸边的缤纷色彩",
-      "score": 0.323347,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "bing"
-      ],
-      "topWallpapers": [
-        "bing-2026-09-02.jpg"
-      ]
-    },
-    {
-      "tag": "色彩鲜艳的船只，历久弥新的传统",
-      "score": 0.319654,
+      "tag": "动漫风格",
+      "score": 1.994439,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
       "series": [
-        "bing"
+        "mobile"
       ],
       "topWallpapers": [
-        "bing-2026-08-03.jpg",
-        "bing-2026-08-02.jpg"
+        "2a696e88b67a4797a5c54414772a6a3b.jpeg",
+        "49d2e8846af940c5b0af4766796c4851.jpeg"
+      ]
+    },
+    {
+      "tag": "湖泊",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "12c94cbb6c9644da8b14af4681229c34.jpeg",
+        "3d60d0cacdd14fe69cf4108fcae18e79.jpeg"
+      ]
+    },
+    {
+      "tag": "龙珠",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg",
+        "4a1d2a95dc214e26bc17f4881809b807.jpeg"
+      ]
+    },
+    {
+      "tag": "猫咪",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "b398564c1cc94df484286a8e9ff44b76.jpeg",
+        "d9f604ff22db47c987cd9b89fb143288.jpeg"
+      ]
+    },
+    {
+      "tag": "日出",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "6866f0ad450943bea1ab5de0bf675bf3.jpeg",
+        "be403d1324e04684b958d377c19f6160.jpeg"
+      ]
+    },
+    {
+      "tag": "神秘",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "6fd1d69d7ebc411e9e892c01a1a61e0b.jpeg",
+        "98ca580bf8e94c759be7eeb1d7b211ee.jpeg"
+      ]
+    },
+    {
+      "tag": "悟饭",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "46f313ce23fa45e7978d83a6c68fbf63.jpeg",
+        "5ed70c3992eb41138e0d7a7c390f746b.jpeg"
+      ]
+    },
+    {
+      "tag": "夕阳",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "1b3c22e578764ab4868c5c04859b2e82.jpeg",
+        "fa21dcd6928844e7b8a6380ea72c6d28.jpeg"
+      ]
+    },
+    {
+      "tag": "夏日风情",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "8f43e6c74ead49028936a22cc279ffdc.jpeg",
+        "98f0a802c3404d58965ca8b0bc24e38c.jpeg"
+      ]
+    },
+    {
+      "tag": "战斗",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "6a27a3809ab047fc8686317f3f763fcd.jpeg",
+        "f3f59c1612ef415485578868ac12345b.jpeg"
+      ]
+    },
+    {
+      "tag": "自然",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "422502ecec074d1189147ffabc374f7a.jpeg",
+        "62322d22ce164f42958cb2ed0f39e6ce.jpeg"
+      ]
+    },
+    {
+      "tag": "自然风光",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "12c94cbb6c9644da8b14af4681229c34.jpeg",
+        "5c3ff10eb1b143efb19b625b0532218f.jpeg"
+      ]
+    },
+    {
+      "tag": "自然光",
+      "score": 1.994439,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "b2f4ed0fae054a889c90c848b38a8e50.jpeg",
+        "d9ae0223dec847b4a26c4145c15d18a5.jpeg"
+      ]
+    },
+    {
+      "tag": "黑色连衣裙",
+      "score": 1.227302,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "a96f499896a5412193f44b24fb030af7.jpeg"
+      ]
+    },
+    {
+      "tag": "晨光",
+      "score": 1.140209,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ddb786cc26bc4f78bdb265d568154022.jpeg"
+      ]
+    },
+    {
+      "tag": "花瓣",
+      "score": 1.140209,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "b724d38b19104d41a854e0f79e80d217.jpeg"
+      ]
+    },
+    {
+      "tag": "梦境",
+      "score": 1.140209,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "b724d38b19104d41a854e0f79e80d217.jpeg"
       ]
     }
   ]
