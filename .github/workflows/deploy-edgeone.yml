@@ -52,6 +52,15 @@ jobs:
           path: nuanXinProPic
           fetch-depth: 10
 
+      # [LOCAL] desktop 分仓：从 nuanXinProPic-desktop 取 desktop 数据
+      - name: Checkout nuanXinProPic-desktop (desktop shard)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: mkmkgo/nuanXinProPic-desktop
+          path: nuanXinProPic-desktop
+          fetch-depth: 10
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -72,8 +81,8 @@ jobs:
           mkdir -p public/data
           if [ -d "nuanXinProPic/data" ]; then
             echo "📦 Copying data from nuanXinProPic/data..."
-            # 同步主系列
-            for series in desktop mobile avatar; do
+            # 同步主系列（desktop 已迁至分仓 nuanXinProPic-desktop）
+            for series in mobile avatar; do
               if [ -d "nuanXinProPic/data/$series" ]; then
                 cp -r "nuanXinProPic/data/$series" public/data/
               fi
@@ -86,11 +95,19 @@ jobs:
               mkdir -p public/data/bing
               cp -r nuanXinProPic/bing/meta/* public/data/bing/
             fi
-            echo "✅ Data copied successfully"
           else
             echo "⚠️ Data directory not found, fallback to pnpm sync"
             pnpm sync
           fi
+          # desktop 数据来自分仓仓库
+          if [ -d "nuanXinProPic-desktop/data/desktop" ]; then
+            echo "📦 Copying desktop data from nuanXinProPic-desktop..."
+            cp -r "nuanXinProPic-desktop/data/desktop" public/data/
+            if [ -f "nuanXinProPic-desktop/data/desktop.json" ]; then
+              cp "nuanXinProPic-desktop/data/desktop.json" public/data/
+            fi
+          fi
+          echo "✅ Data copied successfully"
           if [ -f "public/data/collections.json" ]; then
             echo "✅ collections.json preserved"
           fi
@@ -117,6 +134,7 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_CDN_DOMAIN: img.202486.xyz
         run: pnpm build:seo
 
       # 5.1 自动生成站点地图

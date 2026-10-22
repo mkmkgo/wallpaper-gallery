@@ -50,6 +50,15 @@ jobs:
           path: nuanXinProPic
           fetch-depth: 0
 
+      # [LOCAL] desktop 分仓：从 nuanXinProPic-desktop 取 desktop 数据
+      - name: Checkout nuanXinProPic-desktop (desktop shard)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: mkmkgo/nuanXinProPic-desktop
+          path: nuanXinProPic-desktop
+          fetch-depth: 0
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -69,8 +78,8 @@ jobs:
           mkdir -p public/data
           if [ -d "nuanXinProPic/data" ]; then
             echo "📦 Copying data from nuanXinProPic/data..."
-            # 同步主系列
-            for series in desktop mobile avatar video; do
+            # 同步主系列（desktop 已迁至分仓 nuanXinProPic-desktop）
+            for series in mobile avatar video; do
               if [ -d "nuanXinProPic/data/$series" ]; then
                 cp -r "nuanXinProPic/data/$series" public/data/
               fi
@@ -82,10 +91,17 @@ jobs:
               mkdir -p public/data/bing
               cp -r nuanXinProPic/bing/meta/* public/data/bing/
             fi
-            echo "✅ Data copied successfully"
           else
             echo "⚠️ Data directory not found, fallback to pnpm sync"
             pnpm sync
+          fi
+          # desktop 数据来自分仓仓库
+          if [ -d "nuanXinProPic-desktop/data/desktop" ]; then
+            echo "📦 Copying desktop data from nuanXinProPic-desktop..."
+            cp -r "nuanXinProPic-desktop/data/desktop" public/data/
+            if [ -f "nuanXinProPic-desktop/data/desktop.json" ]; then
+              cp "nuanXinProPic-desktop/data/desktop.json" public/data/
+            fi
           fi
 
       # Supabase 资产同步失败**不阻断部署**。
@@ -155,7 +171,7 @@ jobs:
             "$BASE/data/collections.json"
             "$BASE/data/stats/hot-mobile.json"
           )
-          for series in mobile desktop avatar; do
+          for series in mobile avatar; do
             if [ -d "nuanXinProPic/data/$series" ]; then
               for f in nuanXinProPic/data/$series/*.json; do
                 fname=$(basename "$f")
@@ -163,6 +179,12 @@ jobs:
               done
             fi
           done
+          if [ -d "nuanXinProPic-desktop/data/desktop" ]; then
+            for f in nuanXinProPic-desktop/data/desktop/*.json; do
+              fname=$(basename "$f")
+              PURGE_PATHS+=("$BASE/data/desktop/$fname")
+            done
+          fi
           echo "🗑️ Purging ${#PURGE_PATHS[@]} CDN files..."
           for path in "${PURGE_PATHS[@]}"; do
             echo "  Purging $path..."

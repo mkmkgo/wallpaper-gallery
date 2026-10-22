@@ -29,19 +29,22 @@ const GENERIC_WALLPAPER_NAME_PATTERNS = [
  * 动态构建图片 URL（支持 cdnTag 缓存优化）
  * @param {string} path - 相对路径，如 /wallpaper/desktop/xxx.png
  * @param {string} [cdnTag] - 可选的 CDN tag (用于精准缓存控制)
+ * @param {string} [repo] - 可选的仓库名 (分仓路由，默认主仓 nuanXinProPic)
  * @returns {string} 完整 URL
  *
  * @example
- * // 使用默认 CDN_VERSION
+ * // 使用默认 CDN_VERSION + 主仓
  * buildImageUrl('/wallpaper/desktop/xxx.png')
  *
- * // 使用图片专属 tag (推荐)
- * buildImageUrl('/wallpaper/desktop/xxx.png', 'v1.0.5')
+ * // 使用图片专属 tag + 指定分仓 (推荐)
+ * buildImageUrl('/wallpaper/desktop/xxx.png', 'v2.0.0', 'nuanXinProPic-desktop'
  */
-export function buildImageUrl(path, cdnTag) {
+export function buildImageUrl(path, cdnTag, repo) {
   const { p, h, g } = _urlParts
   const tag = cdnTag || CDN_VERSION
-  const r = `/nuanXinProPic@${tag}`
+  // [LOCAL] 分仓：repo 由每条数据自带（默认主仓 nuanXinProPic），
+  // 前端按条目 O(1) 路由到不同仓，支持无损扩建 N 个分仓、无需 EdgeOne 重写规则。
+  const r = `/${repo || 'nuanXinProPic'}@${tag}`
   return `${p}${h}${g}${r}${path}`
 }
 
@@ -417,14 +420,34 @@ export async function downloadFile(url, filename) {
  * @param {string} cdnUrl - jsDelivr CDN URL
  * @returns {string} GitHub Raw CDN URL
  */
+// [LOCAL] 图床分仓：按路径前缀把兜底请求路由到对应仓库（与 EdgeOne 重写规则一致）。
+// 仅 desktop 系列迁到 nuanXinProPic-desktop；其余仍在主仓 nuanXinProPic。
+const SHARD_REPOS_BY_PREFIX = [
+  { prefix: '/wallpaper/desktop', repo: 'nuanXinProPic-desktop' },
+  { prefix: '/thumbnail/desktop', repo: 'nuanXinProPic-desktop' },
+  { prefix: '/preview/desktop', repo: 'nuanXinProPic-desktop' },
+]
+
+function resolveImageRepoByPath(imagePath) {
+  for (const shard of SHARD_REPOS_BY_PREFIX) {
+    if (imagePath.startsWith(shard.prefix)) {
+      return shard.repo
+    }
+  }
+  return 'nuanXinProPic'
+}
+
 export function buildRawImageUrl(cdnUrl) {
   for (const domain of CDN_DOMAINS.ALL) {
-    const regex = new RegExp(`https://${domain.replace(/\./g, '\\.')}/gh/mkmkgo/nuanXinProPic@([^/]+)(/.*)`)
+    const regex = new RegExp(`https://${domain.replace(/\./g, '\\.')}/gh/mkmkgo/(nuanXinProPic(?:-[a-z]+)?)@([^/]+)(/.*)`)
     const match = cdnUrl.match(regex)
     if (match) {
-      const version = match[1]
-      const path = match[2]
-      return `https://raw.githubusercontent.com/mkmkgo/nuanXinProPic/${version}${path}`
+      const repo = match[1]
+      const version = match[2]
+      const path = match[3]
+      // 兜底：URL 里仍是主仓但路径属于已分仓系列时，纠正到分仓仓库
+      const resolvedRepo = repo === 'nuanXinProPic' ? resolveImageRepoByPath(path) : repo
+      return `https://raw.githubusercontent.com/mkmkgo/${resolvedRepo}/${version}${path}`
     }
   }
   return cdnUrl

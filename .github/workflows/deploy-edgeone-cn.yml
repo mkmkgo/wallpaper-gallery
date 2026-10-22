@@ -49,6 +49,16 @@ jobs:
           path: nuanXinProPic
           fetch-depth: 10
 
+      # [LOCAL] 桌面壁纸分仓：从独立仓库 nuanXinProPic-desktop 取 desktop 数据。
+      # continue-on-error 保证分仓仓库尚未创建时主站部署不中断（仅缺 desktop 数据）。
+      - name: Checkout nuanXinProPic-desktop (desktop shard)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: mkmkgo/nuanXinProPic-desktop
+          path: nuanXinProPic-desktop
+          fetch-depth: 10
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -66,25 +76,29 @@ jobs:
       - name: Copy data from image repository
         run: |
           mkdir -p public/data
-          if [ -d "nuanXinProPic/data" ]; then
-            echo "📦 Copying data from nuanXinProPic/data..."
-            for series in desktop mobile avatar; do
-              if [ -d "nuanXinProPic/data/$series" ]; then
-                cp -r "nuanXinProPic/data/$series" public/data/
-              fi
-              if [ -f "nuanXinProPic/data/$series.json" ]; then
-                cp "nuanXinProPic/data/$series.json" public/data/
-              fi
-            done
-            if [ -d "nuanXinProPic/bing/meta" ]; then
-              mkdir -p public/data/bing
-              cp -r nuanXinProPic/bing/meta/* public/data/bing/
+          # mobile / avatar 数据来自主仓 nuanXinProPic；desktop 数据来自分仓仓库 nuanXinProPic-desktop
+          for series in mobile avatar; do
+            if [ -d "nuanXinProPic/data/$series" ]; then
+              cp -r "nuanXinProPic/data/$series" public/data/
             fi
-            echo "✅ Data copied successfully"
+            if [ -f "nuanXinProPic/data/$series.json" ]; then
+              cp "nuanXinProPic/data/$series.json" public/data/
+            fi
+          done
+          if [ -d "nuanXinProPic-desktop/data/desktop" ]; then
+            echo "📦 Copying desktop data from nuanXinProPic-desktop..."
+            cp -r "nuanXinProPic-desktop/data/desktop" public/data/
+            if [ -f "nuanXinProPic-desktop/data/desktop.json" ]; then
+              cp "nuanXinProPic-desktop/data/desktop.json" public/data/
+            fi
           else
-            echo "⚠️ Data directory not found, fallback to pnpm sync"
-            pnpm sync
+            echo "⚠️ nuanXinProPic-desktop 未检出，跳过 desktop 数据（其余系列不受影响）"
           fi
+          if [ -d "nuanXinProPic/bing/meta" ]; then
+            mkdir -p public/data/bing
+            cp -r nuanXinProPic/bing/meta/* public/data/bing/
+          fi
+          echo "✅ Data copied successfully"
 
       # 失败不阻断部署（理由同 deploy.yml，见该文件注释）
       - name: Sync wallpaper assets to Supabase
@@ -107,6 +121,7 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_CDN_DOMAIN: img.202486.xyz
         run: pnpm build:seo
 
       - name: Generate sitemap

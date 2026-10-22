@@ -62,10 +62,10 @@ export function transformWallpaperUrls(wallpaper) {
 
   return {
     ...wallpaper,
-    url: wallpaper.path ? buildImageUrl(wallpaper.path, cdnTag) : (wallpaper.url || ''),
-    thumbnailUrl: wallpaper.thumbnailPath ? buildImageUrl(wallpaper.thumbnailPath, cdnTag) : (wallpaper.thumbnailUrl || ''),
-    previewUrl: wallpaper.previewPath ? buildImageUrl(wallpaper.previewPath, cdnTag) : (wallpaper.previewUrl || null),
-    downloadUrl: wallpaper.path ? buildImageUrl(wallpaper.path, cdnTag) : (wallpaper.downloadUrl || ''),
+    url: wallpaper.path ? buildImageUrl(wallpaper.path, cdnTag, wallpaper.repo) : (wallpaper.url || ''),
+    thumbnailUrl: wallpaper.thumbnailPath ? buildImageUrl(wallpaper.thumbnailPath, cdnTag, wallpaper.repo) : (wallpaper.thumbnailUrl || ''),
+    previewUrl: wallpaper.previewPath ? buildImageUrl(wallpaper.previewPath, cdnTag, wallpaper.repo) : (wallpaper.previewUrl || null),
+    downloadUrl: wallpaper.path ? buildImageUrl(wallpaper.path, cdnTag, wallpaper.repo) : (wallpaper.downloadUrl || ''),
   }
 }
 

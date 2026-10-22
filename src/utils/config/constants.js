@@ -8,10 +8,16 @@
 // - jsdelivr 缓存策略：@main 分支有缓存，@tag 版本无缓存
 export const CDN_VERSION = 'v1.3.3'
 
+// [LOCAL] 允许构建期用 VITE_CDN_DOMAIN 覆盖主 CDN 域名。
+// 分仓后把它指向自有备案域名，由 EdgeOne 边缘规则按路径前缀把请求重写到对应
+// 图床分仓（如 /wallpaper/desktop/* → nuanXinProPic-desktop）。
+// 默认仍是 cdn.jsdmirror.com，不设置时与上游行为完全一致，不影响后续同步上游代码。
+const _PRIMARY_CDN = import.meta.env.VITE_CDN_DOMAIN || 'cdn.jsdmirror.com'
+
 export const CDN_DOMAINS = {
-  PRIMARY: 'cdn.jsdmirror.com',
+  PRIMARY: _PRIMARY_CDN,
   ALL: [
-    'cdn.jsdmirror.com',
+    _PRIMARY_CDN,
     'testingcf.jsdelivr.net',
     'cdn.jsdelivr.net',
   ],
@@ -23,7 +29,7 @@ export const DATA_CACHE_BUSTER = `?v=${CDN_VERSION}`
 
 const _cdnParts = {
   p: 'https:/',
-  h: `/cdn.jsdmirror.com`,
+  h: `/${_PRIMARY_CDN}`,
   g: '/gh/mkmkgo',
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
