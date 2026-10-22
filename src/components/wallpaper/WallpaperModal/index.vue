@@ -417,7 +417,7 @@ async function handleDownload() {
 
   downloading.value = true
   try {
-    await downloadFile(props.wallpaper.url, buildWallpaperDownloadFilename(props.wallpaper))
+    await downloadFile(props.wallpaper.url, buildWallpaperDownloadFilename(props.wallpaper), props.wallpaper)
     // 追踪下载事件,包含系列信息
     trackWallpaperDownload(props.wallpaper, effectiveSeries.value)
     // 记录到 Supabase 统计（异步 RPC）

@@ -11,6 +11,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useInteractionStore } from '@/stores/interaction'
 import { useWallpaperStore } from '@/stores/wallpaper'
 import { getAvatarInitial, getAvatarStyle } from '@/utils/auth/avatarAppearance'
+import { buildImageUrl, resolveImageRepoByPath } from '@/utils/common/format'
 import { SERIES_CONFIG } from '@/utils/config/constants'
 import { resolveWallpaperSeries } from '@/utils/wallpaper/identity'
 
@@ -313,12 +314,18 @@ function createMinimalWallpaper(assetKey, filename, series) {
     }
   }
 
+  // [LOCAL] 多仓分片：不再用 SERIES_CONFIG 里写死主仓的 thumbnailBaseUrl / imageBaseUrl
+  // 静态前缀，改走 buildImageUrl 按「路径 → 仓」映射路由，分仓系列才不会 404。
+  const thumbnailPath = `/thumbnail/${series}/${filename}`
+  const imagePath = `/wallpaper/${series}/${filename}`
+  const repo = resolveImageRepoByPath(imagePath)
+
   return {
     id: filename,
     filename,
-    thumbnailUrl: `${config.thumbnailBaseUrl}/${filename}`,
-    previewUrl: `${config.thumbnailBaseUrl}/${filename}`,
-    url: `${config.imageBaseUrl}/${filename}`,
+    thumbnailUrl: buildImageUrl(thumbnailPath, undefined, repo),
+    previewUrl: buildImageUrl(thumbnailPath, undefined, repo),
+    url: buildImageUrl(imagePath, undefined, repo),
     category: '',
     subcategory: '',
     _assetKey: assetKey,

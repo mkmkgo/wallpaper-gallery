@@ -238,7 +238,7 @@ async function handleDownload() {
 
   downloading.value = true
   try {
-    await downloadFile(props.wallpaper.url, buildWallpaperDownloadFilename(props.wallpaper))
+    await downloadFile(props.wallpaper.url, buildWallpaperDownloadFilename(props.wallpaper), props.wallpaper)
     trackWallpaperDownload(props.wallpaper, effectiveSeries.value)
     recordDownload(props.wallpaper, effectiveSeries.value)
   }

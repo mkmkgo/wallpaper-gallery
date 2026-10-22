@@ -1,4 +1,4 @@
-import { CDN_DOMAINS } from '@/utils/config/constants'
+import { buildImageUrl } from '@/utils/common/format'
 
 const preloadedUrls = new Set()
 
@@ -26,13 +26,12 @@ export function usePreload() {
     })
   }
 
-  function preloadCdnImages(paths, cdnTag, limit = 6) {
-    const primaryDomain = CDN_DOMAINS.PRIMARY
+  function preloadCdnImages(paths, cdnTag, limit = 6, repo) {
     const urls = paths
       .slice(0, limit)
       .map((path) => {
         const tag = cdnTag || 'main'
-        return `https://${primaryDomain}/gh/mkmkgo/nuanXinProPic@${tag}${path}`
+        return buildImageUrl(path, tag, repo)
       })
     preloadImages(urls, limit)
   }

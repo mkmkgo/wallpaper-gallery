@@ -1,5 +1,4 @@
 import { buildBingPreviewUrl, buildBingThumbnailUrl, buildBingUHDUrl, buildImageUrl } from '@/utils/common/format'
-import { SERIES_CONFIG } from '@/utils/config/constants'
 
 export function formatWallpaperStatistics(items) {
   const jpgCount = items.filter(w => w.format === 'JPG' || w.format === 'JPEG').length
@@ -34,7 +33,6 @@ export function formatBytes(totalSize) {
 export function transformWallpaperUrls(wallpaper) {
   const cdnTag = wallpaper.cdnTag
   const isVideo = wallpaper?.mediaType === 'video' || wallpaper?.usage || wallpaper?.series === 'video'
-  const videoBaseUrl = SERIES_CONFIG.video?.resourceBaseUrl || ''
 
   if (isVideo) {
     const buildVideoUrl = (resourcePath) => {
@@ -42,10 +40,10 @@ export function transformWallpaperUrls(wallpaper) {
         return ''
       if (/^https?:\/\//i.test(resourcePath))
         return resourcePath
-      if (!videoBaseUrl)
-        return resourcePath
       const normalizedPath = resourcePath.startsWith('/') ? resourcePath : `/${resourcePath}`
-      return `${videoBaseUrl}${normalizedPath}`
+      // [LOCAL] 多仓分片：走 buildImageUrl 带上该条目的 cdnTag / repo，
+      // 不再用 SERIES_CONFIG.video.resourceBaseUrl（写死主仓的静态前缀）。
+      return buildImageUrl(normalizedPath, cdnTag, wallpaper?.repo)
     }
 
     return {

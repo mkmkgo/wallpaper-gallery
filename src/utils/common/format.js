@@ -14,6 +14,13 @@ const _urlParts = {
   r: `/nuanXinProPic@${CDN_VERSION}`,
 }
 
+// [LOCAL] 图床主仓（分仓名的前缀基准）
+export const DEFAULT_IMAGE_REPO = 'nuanXinProPic'
+// repo 白名单：主仓，或主仓后跟 `-` + 小写字母/数字/连字符 的分仓名。
+// 例如 nuanXinProPic-desktop、nuanXinProPic-video-2、nuanXinProPic-4k。
+// 严禁出现 /、..、空格等字符，否则会被拼进 URL 造成路径注入或静默 404。
+const REPO_PATTERN = /^nuanXinProPic(?:-[a-z0-9-]+)?$/
+
 const IMAGE_EXTENSION_PATTERN = /\.(?:jpg|jpeg|png|gif|bmp|webp|svg|tiff|tif|ico|heic|heif|mp4|webm|mov|m4v)$/i
 const VIDEO_EXTENSION_PATTERN = /\.(?:mp4|webm|mov|m4v)(?:[?#].*)?$/i
 const GENERIC_WALLPAPER_NAME_PATTERNS = [
@@ -44,8 +51,23 @@ export function buildImageUrl(path, cdnTag, repo) {
   const tag = cdnTag || CDN_VERSION
   // [LOCAL] 分仓：repo 由每条数据自带（默认主仓 nuanXinProPic），
   // 前端按条目 O(1) 路由到不同仓，支持无损扩建 N 个分仓、无需 EdgeOne 重写规则。
-  const r = `/${repo || 'nuanXinProPic'}@${tag}`
+  const r = `/${resolveImageRepo(repo)}@${tag}`
   return `${p}${h}${g}${r}${path}`
+}
+
+/**
+ * 校验并归一化图床仓库名
+ * @param {string} [repo] - 仓库名，空值时回退主仓
+ * @returns {string} 合法的仓库名（非法时回退主仓并打印告警）
+ */
+export function resolveImageRepo(repo) {
+  if (!repo)
+    return DEFAULT_IMAGE_REPO
+  if (REPO_PATTERN.test(repo))
+    return repo
+  // 脏数据只告警，不抛异常：生产环境不能因为一条脏数据白屏
+  console.warn(`[buildImageUrl] 非法 repo 名 "${repo}"，已回退到主仓 ${DEFAULT_IMAGE_REPO}`)
+  return DEFAULT_IMAGE_REPO
 }
 
 export function buildFallbackImageUrl(originalUrl, fallbackDomain) {
@@ -360,14 +382,17 @@ function triggerBrowserBlobDownload(blob, filename) {
  * 浏览器使用 Blob 下载；Pake/Tauri 桌面端直接调用原生下载命令写入系统 Downloads。
  * @param {string} url - 文件 URL
  * @param {string} filename - 保存的文件名
+ * @param {object} [wallpaper] - 壁纸对象，用于重建旧链时带上该条目的 cdnTag / repo
  */
-export async function downloadFile(url, filename) {
+export async function downloadFile(url, filename, wallpaper = null) {
   try {
     // 动态重建 URL（如果是 CDN 链接）
+    // [LOCAL] 多仓分片：必须带上该条目的 cdnTag 与 repo，否则旧链会被重建成
+    // 「主仓 + 全局 tag」，分仓壁纸必然 404。
     let finalUrl = url
     if (url.includes('@main')) {
       const path = extractPathFromUrl(url)
-      finalUrl = buildImageUrl(path)
+      finalUrl = buildImageUrl(path, wallpaper?.cdnTag, wallpaper?.repo)
     }
 
     // Pake 已内置跨平台原生下载能力。直接交给 Rust 下载真实 HTTP(S)
@@ -428,25 +453,25 @@ const SHARD_REPOS_BY_PREFIX = [
   { prefix: '/preview/desktop', repo: 'nuanXinProPic-desktop' },
 ]
 
-function resolveImageRepoByPath(imagePath) {
+export function resolveImageRepoByPath(imagePath) {
   for (const shard of SHARD_REPOS_BY_PREFIX) {
     if (imagePath.startsWith(shard.prefix)) {
       return shard.repo
     }
   }
-  return 'nuanXinProPic'
+  return DEFAULT_IMAGE_REPO
 }
 
 export function buildRawImageUrl(cdnUrl) {
   for (const domain of CDN_DOMAINS.ALL) {
-    const regex = new RegExp(`https://${domain.replace(/\./g, '\\.')}/gh/mkmkgo/(nuanXinProPic(?:-[a-z]+)?)@([^/]+)(/.*)`)
+    const regex = new RegExp(`https://${domain.replace(/\./g, '\\.')}/gh/mkmkgo/(nuanXinProPic(?:-[a-z0-9-]+)?)@([^/]+)(/.*)`)
     const match = cdnUrl.match(regex)
     if (match) {
       const repo = match[1]
       const version = match[2]
       const path = match[3]
       // 兜底：URL 里仍是主仓但路径属于已分仓系列时，纠正到分仓仓库
-      const resolvedRepo = repo === 'nuanXinProPic' ? resolveImageRepoByPath(path) : repo
+      const resolvedRepo = repo === DEFAULT_IMAGE_REPO ? resolveImageRepoByPath(path) : repo
       return `https://raw.githubusercontent.com/mkmkgo/${resolvedRepo}/${version}${path}`
     }
   }

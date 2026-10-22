@@ -96,7 +96,7 @@ const previewClass = computed(() => {
 function getThumbnailUrl(wp) {
   if (!wp || typeof wp === 'string')
     return ''
-  return buildImageUrl(wp.thumbnail, wp.cdnTag || undefined)
+  return buildImageUrl(wp.thumbnail, wp.cdnTag || undefined, wp.repo)
 }
 
 function getPreviewStyle(tag) {
