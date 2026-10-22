@@ -154,11 +154,24 @@ function hasSameLeadingItems(listA, listB, count = PAGE_SIZE) {
   return true
 }
 
+// 旧列表每一项是否都仍在新列表中（顺序无关）。
+// store 后台分批补数据时按 createdAt 倒序重排全列表（stores/wallpaper.js:663），
+// 新图会插到最前，旧列表不再是前缀，因此不能用前缀判断追加。
+function isSubsetByIds(oldList, newList) {
+  if (!Array.isArray(oldList) || !Array.isArray(newList))
+    return false
+  if (oldList.length === 0 || newList.length < oldList.length)
+    return false
+  const newIds = new Set(newList.map(w => w.id))
+  return oldList.every(w => newIds.has(w.id))
+}
+
 watch(() => props.wallpapers, (newVal, oldVal) => {
   // 追加数据不重置已展开列表；筛选和切系列直接显示最终结果。
-  const isAppend = oldVal?.length >= PAGE_SIZE
+  const isAppend = Array.isArray(oldVal)
+    && oldVal.length > 0
     && newVal.length > oldVal.length
-    && hasSameLeadingItems(newVal, oldVal)
+    && isSubsetByIds(oldVal, newVal)
   if (!isAppend && !(newVal.length === oldVal?.length && hasSameLeadingItems(newVal, oldVal))) {
     resetDisplayCount()
   }
