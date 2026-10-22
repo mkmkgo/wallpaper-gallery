@@ -65,7 +65,9 @@ const wallpapersRef = computed(() => props.wallpapers)
 const {
   displayedItems,
   handleScroll,
+  hasMoreData,
   isLoadingMore,
+  loadMoreManual,
   resetDisplayCount,
 } = useGridPagination({
   wallpapers: wallpapersRef,
@@ -222,6 +224,17 @@ const skeletonCount = computed(() => isMobile.value ? 6 : 12)
           <span>加载中...</span>
         </div>
       </div>
+
+      <!-- 滚动自动加载已达封顶（MAX_DISPLAY），保留手动加载更多入口 -->
+      <div v-else-if="!hasMoreData && displayedItems.length < wallpapers.length" class="mobile-load-more">
+        <button
+          type="button"
+          class="load-more-button"
+          @click="loadMoreManual"
+        >
+          已展示 {{ displayedItems.length }}/{{ wallpapers.length }}，点击加载更多
+        </button>
+      </div>
     </template>
   </div>
 </template>
@@ -247,6 +260,28 @@ const skeletonCount = computed(() => isMobile.value ? 6 : 12)
   gap: $spacing-sm;
   color: var(--color-text-muted);
   font-size: $font-size-sm;
+}
+
+.load-more-button {
+  padding: $spacing-sm $spacing-lg;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  // 该按钮主要为移动端长文档场景设计，小屏下占满一行便于点击
+  @include mobile-only {
+    width: 100%;
+  }
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
 }
 
 .wallpaper-grid-item {
