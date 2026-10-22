@@ -65,9 +65,7 @@ const wallpapersRef = computed(() => props.wallpapers)
 const {
   displayedItems,
   handleScroll,
-  hasMoreData,
   isLoadingMore,
-  loadMoreManual,
   resetDisplayCount,
 } = useGridPagination({
   wallpapers: wallpapersRef,
@@ -154,24 +152,11 @@ function hasSameLeadingItems(listA, listB, count = PAGE_SIZE) {
   return true
 }
 
-// 旧列表每一项是否都仍在新列表中（顺序无关）。
-// store 后台分批补数据时按 createdAt 倒序重排全列表（stores/wallpaper.js:663），
-// 新图会插到最前，旧列表不再是前缀，因此不能用前缀判断追加。
-function isSubsetByIds(oldList, newList) {
-  if (!Array.isArray(oldList) || !Array.isArray(newList))
-    return false
-  if (oldList.length === 0 || newList.length < oldList.length)
-    return false
-  const newIds = new Set(newList.map(w => w.id))
-  return oldList.every(w => newIds.has(w.id))
-}
-
 watch(() => props.wallpapers, (newVal, oldVal) => {
   // 追加数据不重置已展开列表；筛选和切系列直接显示最终结果。
-  const isAppend = Array.isArray(oldVal)
-    && oldVal.length > 0
+  const isAppend = oldVal?.length >= PAGE_SIZE
     && newVal.length > oldVal.length
-    && isSubsetByIds(oldVal, newVal)
+    && hasSameLeadingItems(newVal, oldVal)
   if (!isAppend && !(newVal.length === oldVal?.length && hasSameLeadingItems(newVal, oldVal))) {
     resetDisplayCount()
   }
@@ -237,17 +222,6 @@ const skeletonCount = computed(() => isMobile.value ? 6 : 12)
           <span>加载中...</span>
         </div>
       </div>
-
-      <!-- 滚动自动加载已达封顶（MAX_DISPLAY），保留手动加载更多入口 -->
-      <div v-else-if="!hasMoreData && displayedItems.length < wallpapers.length" class="mobile-load-more">
-        <button
-          type="button"
-          class="load-more-button"
-          @click="loadMoreManual"
-        >
-          已展示 {{ displayedItems.length }}/{{ wallpapers.length }}，点击加载更多
-        </button>
-      </div>
     </template>
   </div>
 </template>
@@ -273,28 +247,6 @@ const skeletonCount = computed(() => isMobile.value ? 6 : 12)
   gap: $spacing-sm;
   color: var(--color-text-muted);
   font-size: $font-size-sm;
-}
-
-.load-more-button {
-  padding: $spacing-sm $spacing-lg;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: var(--color-bg-secondary);
-  color: var(--color-text-secondary);
-  font-size: $font-size-sm;
-  cursor: pointer;
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease;
-
-  // 该按钮主要为移动端长文档场景设计，小屏下占满一行便于点击
-  @include mobile-only {
-    width: 100%;
-  }
-
-  &:hover {
-    color: var(--color-text-primary);
-  }
 }
 
 .wallpaper-grid-item {
