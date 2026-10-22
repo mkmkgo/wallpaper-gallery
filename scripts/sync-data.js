@@ -17,25 +17,45 @@ import { decodeData } from '../src/utils/common/codec.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// 图床已分仓：desktop 迁到 nuanXinProPic-desktop，其余（mobile / avatar / video / bing）
+// 仍在 nuanXinProPic。因此数据源按「系列 → 仓库」解析，而不是全局硬编码一个仓库。
+//
+// 可用环境变量覆盖仓库列表（逗号分隔，第 1 个是主仓、第 2 个是 desktop 分仓）：
+//   WALLPAPER_DATA_REPOS="mkmkgo/nuanXinProPic,mkmkgo/nuanXinProPic-desktop"
+// 后续继续拆第 3/4/5 个仓时，给 SERIES 对应项加 repo 字段即可。
+const DEFAULT_REPOS = ['mkmkgo/nuanXinProPic', 'mkmkgo/nuanXinProPic-desktop']
+const [MAIN_REPO = DEFAULT_REPOS[0], DESKTOP_REPO = DEFAULT_REPOS[1]] = (process.env.WALLPAPER_DATA_REPOS || '')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean)
+
 // 配置
 const CONFIG = {
-  // 线上数据源（使用 GitHub Raw，避免 jsDelivr @main 缓存延迟）
-  ONLINE_DATA_BASE_URL: 'https://raw.githubusercontent.com/mkmkgo/nuanXinProPic/main/data',
-
-  // Bing 系列特殊路径（使用 /bing/meta 而不是 /data/bing）
-  BING_DATA_BASE_URL: 'https://raw.githubusercontent.com/mkmkgo/nuanXinProPic/main/bing/meta',
+  // 线上数据源分支（使用 GitHub Raw，避免 jsDelivr @main 缓存延迟）
+  DATA_BRANCH: 'main',
 
   // 输出目录
   OUTPUT_DIR: path.resolve(__dirname, '../public/data'),
 
-  // 系列配置
+  // 系列配置（repo 决定该系列从哪个仓取；Bing 走 /bing/meta 而不是 /data/bing）
   SERIES: {
-    desktop: { name: '电脑壁纸', isBing: false },
-    mobile: { name: '手机壁纸', isBing: false },
-    avatar: { name: '头像', isBing: false },
-    video: { name: '动态壁纸', isBing: false },
-    bing: { name: '每日Bing', isBing: true },
+    desktop: { name: '电脑壁纸', isBing: false, repo: DESKTOP_REPO },
+    mobile: { name: '手机壁纸', isBing: false, repo: MAIN_REPO },
+    avatar: { name: '头像', isBing: false, repo: MAIN_REPO },
+    video: { name: '动态壁纸', isBing: false, repo: MAIN_REPO },
+    bing: { name: '每日Bing', isBing: true, repo: MAIN_REPO },
   },
+}
+
+/**
+ * 某个系列的线上数据目录 URL
+ */
+function seriesBaseUrl(seriesId, seriesConfig) {
+  const repo = seriesConfig.repo || MAIN_REPO
+  // Bing 系列特殊路径（使用 /bing/meta 而不是 /data/bing）
+  return seriesConfig.isBing
+    ? `https://raw.githubusercontent.com/${repo}/${CONFIG.DATA_BRANCH}/bing/meta`
+    : `https://raw.githubusercontent.com/${repo}/${CONFIG.DATA_BRANCH}/data/${seriesId}`
 }
 
 /**
@@ -107,10 +127,7 @@ async function syncSeries(seriesId, seriesConfig) {
 
   const seriesDir = path.join(CONFIG.OUTPUT_DIR, seriesId)
 
-  // Bing 系列使用特殊路径
-  const baseUrl = seriesConfig.isBing
-    ? CONFIG.BING_DATA_BASE_URL
-    : `${CONFIG.ONLINE_DATA_BASE_URL}/${seriesId}`
+  const baseUrl = seriesBaseUrl(seriesId, seriesConfig)
 
   // 创建输出目录
   if (!fs.existsSync(seriesDir)) {
@@ -194,7 +211,8 @@ async function syncSeries(seriesId, seriesConfig) {
       // 5. 下载传统单文件（向后兼容）
       try {
         const legacyPath = path.join(CONFIG.OUTPUT_DIR, `${seriesId}.json`)
-        await downloadFile(`${CONFIG.ONLINE_DATA_BASE_URL}/${seriesId}.json`, legacyPath)
+        const legacyUrl = `https://raw.githubusercontent.com/${seriesConfig.repo || MAIN_REPO}/${CONFIG.DATA_BRANCH}/data/${seriesId}.json`
+        await downloadFile(legacyUrl, legacyPath)
         downloadedCount++
         console.log(`  ✅ ${seriesId}.json (兼容格式)`)
       }
@@ -220,7 +238,7 @@ async function main() {
   console.log('='.repeat(60))
   console.log('📦 数据同步工具')
   console.log('='.repeat(60))
-  console.log(`\n来源: ${CONFIG.ONLINE_DATA_BASE_URL}`)
+  console.log(`\n主仓: ${MAIN_REPO}  desktop 分仓: ${DESKTOP_REPO}`)
   console.log(`输出: ${CONFIG.OUTPUT_DIR}`)
 
   // 确保输出目录存在

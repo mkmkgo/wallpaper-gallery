@@ -25,19 +25,43 @@ jobs:
         with:
           node-version: '22'
 
+      # 只取数据目录：这个仓的工作区含全部壁纸原图（数 GB），stats 只需要 JSON 元数据。
+      # ⚠️ bing/meta 在 data/ 之外，必须与 data 一并列出，否则 Bing 数据会静默丢失。
       - name: Checkout latest wallpaper metadata
         uses: actions/checkout@v4
         with:
           repository: mkmkgo/nuanXinProPic
           path: nuanXinProPic
           fetch-depth: 1
+          sparse-checkout: |
+            data
+            bing/meta
+          sparse-checkout-cone-mode: false
+
+      # desktop 已迁至分仓 nuanXinProPic-desktop，主仓 data/ 下不再有 desktop/。
+      - name: Checkout desktop shard metadata
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: mkmkgo/nuanXinProPic-desktop
+          path: nuanXinProPic-desktop
+          fetch-depth: 1
+          sparse-checkout: data
+          sparse-checkout-cone-mode: false
 
       - name: Copy latest wallpaper metadata
         run: |
-          for series in desktop mobile avatar video; do
+          for series in mobile avatar video; do
             mkdir -p "public/data/$series"
             cp -R "nuanXinProPic/data/$series/." "public/data/$series/"
           done
+          # desktop 来自分仓；分仓未就绪时跳过而不是让整个 job 失败
+          if [ -d "nuanXinProPic-desktop/data/desktop" ]; then
+            mkdir -p "public/data/desktop"
+            cp -R "nuanXinProPic-desktop/data/desktop/." "public/data/desktop/"
+          else
+            echo "⚠️ 未取到 desktop 分仓数据，跳过（其余系列不受影响）"
+          fi
           mkdir -p public/data/bing
           cp -R "nuanXinProPic/bing/meta/." "public/data/bing/"
 

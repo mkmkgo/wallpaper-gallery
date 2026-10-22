@@ -43,23 +43,39 @@ jobs:
           grep -q "export const CDN_VERSION = '$CDN_VERSION'" src/utils/config/constants.js \
             || { echo "::error::constants.js 的 CDN_VERSION 未能更新为 $CDN_VERSION"; exit 1; }
 
-      # 3. 克隆图床仓库数据
-      # fetch-depth: 10 获取最近10次提交，用于 git diff 查找新增图片
+      # 3. 克隆图床仓库数据（只取数据目录，不取图片二进制）
+      # sparse-checkout 把下行从 ~4.85GB 降到 ~5MB（data/ 4.2M + bing/meta 0.86M）。
+      # 原 fetch-depth: 10 的注释称「用于 git diff 查找新增图片」，脚本里并未实现该用途。
+      # ⚠️ bing/meta 在 data/ 之外，必须与 data 一并列出，否则 Bing 系列数据会静默丢失。
       - name: Checkout nuanXinProPic (wallpaper source)
         uses: actions/checkout@v4
         with:
           repository: mkmkgo/nuanXinProPic
           path: nuanXinProPic
-          fetch-depth: 10
+          fetch-depth: 1
+          sparse-checkout: |
+            data
+            bing/meta
+          sparse-checkout-cone-mode: false
 
       # [LOCAL] desktop 分仓：从 nuanXinProPic-desktop 取 desktop 数据
+      # continue-on-error 保证分仓仓库尚未创建时主站部署不中断（仅缺 desktop 数据）。
+      #
+      # ➕ 新增第 3 / 4 / 5 个仓库：整体复制下面这个 step，只改 2 处——
+      #   1) repository: mkmkgo/nuanXinProPic-<新系列>
+      #   2) path:       nuanXinProPic-<新系列>
+      #   其余（fetch-depth: 1 / sparse-checkout: data / continue-on-error）保持原样。
+      #   每个仓 sparse 后只有几 MB，5 个仓串行 checkout 也就 ~15s，无需 matrix。
+      #   再在下方 "Copy data from image repository" 步骤按同样路径加一段 cp 即可。
       - name: Checkout nuanXinProPic-desktop (desktop shard)
         uses: actions/checkout@v4
         continue-on-error: true
         with:
           repository: mkmkgo/nuanXinProPic-desktop
           path: nuanXinProPic-desktop
-          fetch-depth: 10
+          fetch-depth: 1
+          sparse-checkout: data
+          sparse-checkout-cone-mode: false
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
