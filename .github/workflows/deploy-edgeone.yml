@@ -98,7 +98,10 @@ jobs:
           if [ -d "nuanXinProPic/data" ]; then
             echo "📦 Copying data from nuanXinProPic/data..."
             # 同步主系列（desktop 已迁至分仓 nuanXinProPic-desktop）
-            for series in mobile avatar; do
+            # video 必须在此列表中：constants.js SERIES_CONFIG.video 有 PC 端入口，
+            # 缺了它会静默沿用 git 里的旧快照（public/data/video/ 被 gallery 仓跟踪），
+            # 表现为线上视频壁纸数据停留在旧 generatedAt。
+            for series in mobile avatar video; do
               if [ -d "nuanXinProPic/data/$series" ]; then
                 cp -r "nuanXinProPic/data/$series" public/data/
               fi
