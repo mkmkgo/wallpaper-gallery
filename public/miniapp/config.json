@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "ad": {
+    "enabled": false,
+    "rewardedAdUnitId": "",
+    "requireFor": ["original", "preview"]
+  }
+}
