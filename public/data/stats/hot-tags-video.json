@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-22T20:39:22.573Z",
+  "generatedAt": "2026-10-23T20:32:43.895Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-07-24T20:39:22.573Z",
+  "windowStart": "2026-07-25T20:32:43.895Z",
   "series": "video",
   "total": 0,
   "tags": []
