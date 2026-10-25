@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-22T20:39:22.573Z",
+  "generatedAt": "2026-10-24T19:35:52.878Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-07-24T20:39:22.573Z",
+  "windowStart": "2026-07-26T19:35:52.878Z",
   "series": "mobile",
   "total": 184,
   "tags": [
     {
       "tag": "人像",
-      "score": 44.639275,
+      "score": 42.666883,
       "views": 6,
       "downloads": 0,
       "wallpaperCount": 45,
@@ -41,7 +41,7 @@
     },
     {
       "tag": "魅力",
-      "score": 23.894316,
+      "score": 22.838543,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 24,
@@ -74,7 +74,7 @@
     },
     {
       "tag": "清新",
-      "score": 17.821318,
+      "score": 17.033881,
       "views": 2,
       "downloads": 0,
       "wallpaperCount": 18,
@@ -107,8 +107,8 @@
     },
     {
       "tag": "动漫",
-      "score": 15.592747,
-      "views": 0,
+      "score": 15.04368,
+      "views": 1,
       "downloads": 0,
       "wallpaperCount": 16,
       "latestCreatedAt": "2026-10-21T17:52:28.557Z",
@@ -116,6 +116,10 @@
         "mobile"
       ],
       "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/二次元/fa21dcd6928844e7b8a6380ea72c6d28.webp",
+          "cdnTag": "v1.5.2"
+        },
         {
           "thumbnail": "/thumbnail/mobile/动漫/二次元/156dad5d08dc460bb2747d2b91bb8e2d.webp",
           "cdnTag": "v1.5.2"
@@ -131,16 +135,12 @@
         {
           "thumbnail": "/thumbnail/mobile/动漫/七龙珠/46c6aaff4ae34a4388371e6fd33c6591.webp",
           "cdnTag": "v1.5.2"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/46f313ce23fa45e7978d83a6c68fbf63.webp",
-          "cdnTag": "v1.5.2"
         }
       ]
     },
     {
       "tag": "长发",
-      "score": 13.180066,
+      "score": 12.597703,
       "views": 4,
       "downloads": 0,
       "wallpaperCount": 13,
@@ -173,7 +173,7 @@
     },
     {
       "tag": "优雅",
-      "score": 11.091233,
+      "score": 10.601166,
       "views": 3,
       "downloads": 0,
       "wallpaperCount": 11,
@@ -206,7 +206,7 @@
     },
     {
       "tag": "阳光",
-      "score": 9.885206,
+      "score": 9.448427,
       "views": 1,
       "downloads": 0,
       "wallpaperCount": 10,
@@ -239,7 +239,7 @@
     },
     {
       "tag": "风景",
-      "score": 8.77092,
+      "score": 8.383376,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 9,
@@ -272,7 +272,7 @@
     },
     {
       "tag": "夜晚",
-      "score": 8.167593,
+      "score": 7.806707,
       "views": 3,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -305,7 +305,7 @@
     },
     {
       "tag": "七龙珠",
-      "score": 7.796374,
+      "score": 7.45189,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 8,
@@ -338,7 +338,7 @@
     },
     {
       "tag": "黑丝",
-      "score": 6.961566,
+      "score": 6.653968,
       "views": 1,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -371,7 +371,7 @@
     },
     {
       "tag": "创意",
-      "score": 6.821827,
+      "score": 6.520404,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 7,
@@ -404,7 +404,7 @@
     },
     {
       "tag": "插画",
-      "score": 5.84728,
+      "score": 5.588917,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 6,
@@ -437,8 +437,8 @@
     },
     {
       "tag": "二次元",
-      "score": 4.872734,
-      "views": 0,
+      "score": 4.797332,
+      "views": 1,
       "downloads": 0,
       "wallpaperCount": 5,
       "latestCreatedAt": "2026-10-21T17:52:28.557Z",
@@ -446,6 +446,10 @@
         "mobile"
       ],
       "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/二次元/fa21dcd6928844e7b8a6380ea72c6d28.webp",
+          "cdnTag": "v1.5.2"
+        },
         {
           "thumbnail": "/thumbnail/mobile/动漫/二次元/156dad5d08dc460bb2747d2b91bb8e2d.webp",
           "cdnTag": "v1.5.2"
@@ -461,16 +465,12 @@
         {
           "thumbnail": "/thumbnail/mobile/动漫/二次元/f3f59c1612ef415485578868ac12345b.webp",
           "cdnTag": "v1.5.2"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/fa21dcd6928844e7b8a6380ea72c6d28.webp",
-          "cdnTag": "v1.5.2"
         }
       ]
     },
     {
       "tag": "高跟鞋",
-      "score": 4.872734,
+      "score": 4.657431,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -503,7 +503,7 @@
     },
     {
       "tag": "微笑",
-      "score": 4.872734,
+      "score": 4.657431,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -536,7 +536,7 @@
     },
     {
       "tag": "夜景",
-      "score": 4.872734,
+      "score": 4.657431,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 5,
@@ -569,7 +569,7 @@
     },
     {
       "tag": "海滨",
-      "score": 3.898187,
+      "score": 3.725945,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -598,7 +598,7 @@
     },
     {
       "tag": "冒险",
-      "score": 3.898187,
+      "score": 3.725945,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -627,7 +627,7 @@
     },
     {
       "tag": "萌宠",
-      "score": 3.898187,
+      "score": 3.725945,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -656,7 +656,7 @@
     },
     {
       "tag": "性感",
-      "score": 3.898187,
+      "score": 3.725945,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 4,
@@ -685,7 +685,7 @@
     },
     {
       "tag": "暗夜",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -710,7 +710,7 @@
     },
     {
       "tag": "草地",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -735,7 +735,7 @@
     },
     {
       "tag": "超级赛亚人",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -760,7 +760,7 @@
     },
     {
       "tag": "古装",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -785,7 +785,7 @@
     },
     {
       "tag": "海滩",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -810,7 +810,7 @@
     },
     {
       "tag": "花朵",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -835,7 +835,7 @@
     },
     {
       "tag": "宁静",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -860,7 +860,7 @@
     },
     {
       "tag": "清晨",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -885,7 +885,7 @@
     },
     {
       "tag": "时尚",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -910,7 +910,7 @@
     },
     {
       "tag": "悟空",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -935,7 +935,7 @@
     },
     {
       "tag": "校服",
-      "score": 2.92364,
+      "score": 2.794459,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 3,
@@ -959,8 +959,29 @@
       ]
     },
     {
+      "tag": "夕阳",
+      "score": 2.002873,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 2,
+      "latestCreatedAt": "2026-10-21T17:52:28.557Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/二次元/fa21dcd6928844e7b8a6380ea72c6d28.webp",
+          "cdnTag": "v1.5.2"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/1b3c22e578764ab4868c5c04859b2e82.webp",
+          "cdnTag": "v1.5.2"
+        }
+      ]
+    },
+    {
       "tag": "月光",
-      "score": 2.088832,
+      "score": 1.996537,
       "views": 1,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -981,7 +1002,7 @@
     },
     {
       "tag": "动漫风格",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1002,7 +1023,7 @@
     },
     {
       "tag": "湖泊",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1023,7 +1044,7 @@
     },
     {
       "tag": "龙珠",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1044,7 +1065,7 @@
     },
     {
       "tag": "猫咪",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1065,7 +1086,7 @@
     },
     {
       "tag": "日出",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1086,7 +1107,7 @@
     },
     {
       "tag": "神秘",
-      "score": 1.949093,
+      "score": 1.862972,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 2,
@@ -1101,27 +1122,6 @@
         },
         {
           "thumbnail": "/thumbnail/mobile/人像/魅力/98ca580bf8e94c759be7eeb1d7b211ee.webp",
-          "cdnTag": "v1.5.2"
-        }
-      ]
-    },
-    {
-      "tag": "悟饭",
-      "score": 1.949093,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 2,
-      "latestCreatedAt": "2026-10-21T17:52:28.557Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/46f313ce23fa45e7978d83a6c68fbf63.webp",
-          "cdnTag": "v1.5.2"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/5ed70c3992eb41138e0d7a7c390f746b.webp",
           "cdnTag": "v1.5.2"
         }
       ]

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-22T20:39:22.573Z",
+  "generatedAt": "2026-10-24T19:35:52.878Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-07-24T20:39:22.573Z",
+  "windowStart": "2026-07-26T19:35:52.878Z",
   "series": "desktop",
   "total": 0,
   "tags": []
