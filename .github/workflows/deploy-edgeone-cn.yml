@@ -6,6 +6,12 @@ on:
   schedule:
     - cron: '0 18 * * *'
   workflow_dispatch:
+  # 图仓处理完新壁纸后由 wallpaper-gallery-workflow 的
+  # process-wallpapers.yml / rollback.yml 发来 wallpaper-updated，
+  # 用于实时刷新站点数据与小程序远程下发的 cdnTag（否则要等凌晨的定时任务）。
+  # ⚠️ 小程序 DATA_BASE 指向本站（wall.202486.xyz），此流水线必须保持该触发，
+  #    否则 miniapp/config.json 的 cdnTag 不会实时更新。
+  # client_payload: { shard, repo, tag, source }
   repository_dispatch:
     types: [wallpaper-updated]
 
