@@ -42,6 +42,17 @@ jobs:
           grep -q "export const CDN_VERSION = '$CDN_VERSION'" src/utils/config/constants.js \
             || { echo "::error::constants.js 的 CDN_VERSION 未能更新为 $CDN_VERSION"; exit 1; }
 
+      # 同一个版本号也写进小程序的远程配置 public/miniapp/config.json（cdnTag 字段）。
+      # 小程序启动时会拉取该文件，用 cdnTag 覆盖代码内置的兜底版本号——
+      # 于是「图仓发布新 tag → 站点部署」之后，已经上线的小程序不必重新发版
+      # 就能取到新上传的图片。脚本取不到合法版本号时原样跳过，保留仓库内已有值。
+      - name: Sync cdnTag to miniapp config
+        run: |
+          CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
+          node scripts/set-miniapp-cdn-tag.js "$CDN_VERSION"
+          grep -q "\"cdnTag\": \"$CDN_VERSION\"" public/miniapp/config.json \
+            || echo "::warning::miniapp/config.json 的 cdnTag 未同步，沿用仓库内已有值"
+
       # 图床仓只取数据目录，不取图片二进制（图片走 CDN，构建期用不到）。
       # sparse-checkout 把下行从 ~4.85GB 降到 ~5MB（data/ 4.2M + bing/meta 0.86M）。
       # ⚠️ bing/meta 在 data/ 之外，必须与 data 一并列出，否则 Bing 系列数据会静默丢失。

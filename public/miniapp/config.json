@@ -1,8 +1,12 @@
 {
   "version": 1,
+  "cdnTag": "v1.5.11",
   "ad": {
     "enabled": false,
     "rewardedAdUnitId": "",
-    "requireFor": ["original", "preview"]
+    "requireFor": [
+      "original",
+      "preview"
+    ]
   }
 }
