@@ -1,0 +1,53 @@
+name: Watch CDN Tag
+
+# cdnTag 同步的**保底保险**（主路径见 wallpaper-gallery-workflow 的通知步骤）。
+#
+# 主路径依赖图仓侧的 REPO_TOKEN 对本站有写权限；若该 PAT 未覆盖本站，
+# GitHub 会返回 401/404，而图仓流水线为不影响发布只会打 warning ——
+# 结果就是 cdnTag 静默停在旧值，只能等本站的每日 schedule 才恢复。
+#
+# 本工作流从反方向兜底：每 15 分钟查一次图仓最新 tag，与**线上实际生效的**
+# cdnTag 比对，滞后就给自己发 repository_dispatch 触发三站重建。
+#
+# 为何可行且安全：
+#   · 图仓公开，`git ls-remote` 匿名可读，不需要任何额外凭据；
+#   · 只使用 Actions 内置 GITHUB_TOKEN 对本仓库发 dispatch
+#     （GitHub 明确允许 GITHUB_TOKEN 触发 repository_dispatch）；
+#   · 比对的是线上 URL 的返回值而非仓库源码 —— 仓库里那份是静态的，
+#     部署时才动态改写产物、不 commit 回仓库，拿它比对会恒判为滞后；
+#   · 线上读不到就跳过本轮，宁可不触发也不误判刷部署；
+#   · 不 commit 任何文件，零 git 历史污染。
+#
+# 成本：本站为公开仓库，Actions 免费无限额度；单次检查约 20~40 秒。
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  # POST /repos/{owner}/{repo}/dispatches 需要 contents 写权限
+  contents: write
+
+concurrency:
+  group: "watch-cdn-tag"
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Compare live cdnTag with latest image-repo tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/watch-cdn-tag.js
