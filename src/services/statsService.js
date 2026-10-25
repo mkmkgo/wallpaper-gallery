@@ -3,6 +3,7 @@
 // ========================================
 // 负责：静态数据加载、RPC 写入
 
+import { isBlockedWallpaper } from '@/utils/wallpaper/blocklist'
 import { normalizeWallpaperFilename } from '@/utils/wallpaper/identity'
 import {
   getCachedStats,
@@ -23,6 +24,10 @@ function normalizeStatsImageId(imageId, series) {
 function mergeStatsEntry(statsMap, imageId, stats, series) {
   const normalizedId = normalizeStatsImageId(imageId, series)
   if (!normalizedId)
+    return
+
+  // 兜底过滤：黑名单条目的统计数据不进入 Map
+  if (isBlockedWallpaper({ filename: normalizedId }))
     return
 
   const prev = statsMap.get(normalizedId) || { views: 0, downloads: 0, likes: 0, collects: 0 }
@@ -133,6 +138,10 @@ export function recordView(wallpaper, series) {
   if (!isSupabaseConfigured())
     return
 
+  // 兜底过滤：黑名单条目不写统计
+  if (isBlockedWallpaper(wallpaper))
+    return
+
   const imageId = normalizeStatsImageId(wallpaper.filename || wallpaper.id, series)
 
   // 异步写入 Supabase（静默失败）
@@ -154,6 +163,10 @@ export function recordView(wallpaper, series) {
  */
 export function recordDownload(wallpaper, series) {
   if (!isSupabaseConfigured())
+    return
+
+  // 兜底过滤：黑名单条目不写统计
+  if (isBlockedWallpaper(wallpaper))
     return
 
   const imageId = normalizeStatsImageId(wallpaper.filename || wallpaper.id, series)
@@ -233,7 +246,8 @@ export async function loadLikeCollectCounts(series) {
     if (Array.isArray(data)) {
       data.forEach((item) => {
         const normalizedId = normalizeStatsImageId(item.image_id, series)
-        if (normalizedId) {
+        // 兜底过滤：黑名单条目的点赞/收藏计数不进入 Map
+        if (normalizedId && !isBlockedWallpaper({ filename: normalizedId })) {
           countsMap.set(normalizedId, {
             likes: item.total_likes || 0,
             collects: item.total_collects || 0,

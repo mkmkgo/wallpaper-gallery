@@ -8,6 +8,7 @@ import { decodeDataWithWorker } from '@/services/wallpaper/decoder'
 import { delay, fetchWithRetry } from '@/services/wallpaper/fetch'
 import { LRUCache } from '@/utils/cache/LRUCache'
 import { DATA_CACHE_BUSTER, SERIES_CONFIG } from '@/utils/config/constants'
+import { filterBlockedCategories, filterBlockedWallpapers } from '@/utils/wallpaper/blocklist'
 import { classifyWallpaperError, getWallpaperErrorMessage } from '@/utils/wallpaper/errors'
 import { normalizeWallpaperFilename } from '@/utils/wallpaper/identity'
 import { formatWallpaperStatistics, transformBingWallpaper, transformWallpaperUrls } from '@/utils/wallpaper/transformers'
@@ -178,6 +179,12 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
         throw err
       }
 
+      // 兜底过滤：黑名单分类不进入索引缓存（覆盖解码路径与解码失败回退路径）
+      indexData = {
+        ...indexData,
+        categories: filterBlockedCategories(indexData.categories),
+      }
+
       // 存入缓存
       seriesIndexCache.value[seriesId] = indexData
       return indexData
@@ -251,8 +258,8 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
         throw err
       }
 
-      // 转换 URL
-      const transformedList = wallpaperList.map(w => transformWallpaperUrls(w))
+      // 兜底过滤：黑名单条目在进缓存前剔除，再转换 URL
+      const transformedList = filterBlockedWallpapers(wallpaperList).map(w => transformWallpaperUrls(w))
 
       // 存入缓存（LRU 会自动淘汰旧数据）
       categoryCache.set(cacheKey, transformedList)
@@ -312,7 +319,8 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
         throw new TypeError(`Invalid latest slice format for ${seriesId}`)
       }
 
-      const transformedList = sortWallpapers(wallpaperList.map(w => transformWallpaperUrls(w)))
+      // 兜底过滤：黑名单条目在进最新缓存前剔除
+      const transformedList = sortWallpapers(filterBlockedWallpapers(wallpaperList).map(w => transformWallpaperUrls(w)))
       seriesLatestCache.value[seriesId] = transformedList
       return transformedList
     }
@@ -398,8 +406,8 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
         }
 
         if (yearData.items && Array.isArray(yearData.items)) {
-          // 转换数据格式
-          const transformedItems = yearData.items.map((item, index) =>
+          // 转换数据格式（Bing 外部数据顺带过黑名单，title/category 命中即剔除）
+          const transformedItems = filterBlockedWallpapers(yearData.items).map((item, index) =>
             transformBingWallpaper(item, index),
           )
 
@@ -501,8 +509,8 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
         )
 
         if (newItems.length > 0) {
-          // 转换数据格式
-          const transformedItems = newItems.map((item, index) =>
+          // 转换数据格式（黑名单条目不过 transform、不进列表）
+          const transformedItems = filterBlockedWallpapers(newItems).map((item, index) =>
             transformBingWallpaper(item, wallpapers.value.length + index),
           )
 
@@ -562,7 +570,7 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
     const yearResponse = await fetchWithRetry(yearUrl, {}, retryConfig)
     const yearData = await yearResponse.json()
     const transformedItems = Array.isArray(yearData.items)
-      ? yearData.items.map(item => transformBingWallpaper(item))
+      ? filterBlockedWallpapers(yearData.items).map(item => transformBingWallpaper(item))
       : []
 
     bingYearLookupCache.value[year] = transformedItems
