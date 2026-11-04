@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-03T22:24:36.205Z",
+  "generatedAt": "2026-11-04T22:43:45.369Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-08-05T22:24:36.205Z",
+  "windowStart": "2026-08-06T22:43:45.369Z",
   "series": "avatar",
   "total": 0,
   "tags": []
