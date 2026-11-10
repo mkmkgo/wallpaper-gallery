@@ -1,381 +1,513 @@
 {
-  "generatedAt": "2026-11-08T21:15:31.554Z",
+  "generatedAt": "2026-11-10T00:45:36.236Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-08-10T21:15:31.554Z",
+  "windowStart": "2026-08-12T00:45:36.236Z",
   "series": "mobile",
-  "total": 703,
+  "total": 1180,
   "tags": [
     {
       "tag": "人像",
-      "score": 339.302457,
+      "score": 1040.850747,
       "views": 25,
       "downloads": 0,
-      "wallpaperCount": 465,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 1176,
+      "latestCreatedAt": "2026-11-10 00:40:38",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/13437413975958513.webp",
-          "cdnTag": "v1.5.10"
+          "thumbnail": "/thumbnail/mobile/人像/清新/18008045d7ec440684a831a5f8f0826e.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/019887b6a8bf4c49b80dc3ce1680db18.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/082975162b3040d9a8c95eb47e1b1856.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/126813c0bfcf4362bf0ecbce51ef5989.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a3ef109dbcfc497fa7d7839cded1dee5.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/14232898c1864f68b9089f12764fb701.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/17768385ef3d4f7d8debc5f431ea28b5.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "魅力",
-      "score": 228.868477,
+      "score": 682.50872,
       "views": 18,
       "downloads": 0,
-      "wallpaperCount": 312,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 772,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/13437413975958513.webp",
-          "cdnTag": "v1.5.10"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/082975162b3040d9a8c95eb47e1b1856.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/019887b6a8bf4c49b80dc3ce1680db18.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/126813c0bfcf4362bf0ecbce51ef5989.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/1936930dc9c442ad9015b988136a91ef.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a3ef109dbcfc497fa7d7839cded1dee5.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/238825151dd246e8a44b6527519a4eea.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2576779ba674462c97bd8b88ff655bac.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "清新",
-      "score": 105.129189,
+      "score": 344.881741,
       "views": 7,
       "downloads": 0,
-      "wallpaperCount": 145,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 388,
+      "latestCreatedAt": "2026-11-10 00:40:38",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/插画/清新/009351f468034e2f88434d4b2b829014.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/18008045d7ec440684a831a5f8f0826e.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/c8da7278b06745d4ad4ec31afa8dead7.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/14232898c1864f68b9089f12764fb701.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/dc963a501f2e4b6dbd8c9b271ab9dd2a.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/17768385ef3d4f7d8debc5f431ea28b5.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e4d61303553940ad89b46984f3bcea6f.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/25067382ac204f03a8e1e1ae9d988ad7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/299f71897c7f40198bc4975722a9a8eb.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/373346ff277b45509aa0c76544070672.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "优雅",
-      "score": 100.564191,
+      "score": 282.880925,
       "views": 8,
       "downloads": 0,
-      "wallpaperCount": 136,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 322,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/082975162b3040d9a8c95eb47e1b1856.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a3ef109dbcfc497fa7d7839cded1dee5.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3484507a808e450c870ae67d5e98bb95.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/bc34ae7590ee42238bd61fe0fad29d66.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/6179010db7e14fb2a2e6d328fb6683a7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d2569a44edc7425d9b288893acfaabbc.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/65902dc6c2474acab40c08a256c8f8d9.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d4b2fb20cd2845c8b4bbfd6b921c4df1.webp",
-          "cdnTag": "v1.5.25"
-        }
-      ]
-    },
-    {
-      "tag": "阳光",
-      "score": 81.164974,
-      "views": 4,
-      "downloads": 0,
-      "wallpaperCount": 112,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/清新/009351f468034e2f88434d4b2b829014.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/通用/fe53706fb097441e854bbf50068a42e2.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/299f71897c7f40198bc4975722a9a8eb.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/3e7d374de4e443b5abd819d96f9e0e2c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/f611fc2158f143efbb8b7be81684c566.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/67296f436d214c5cb87a4de6e8a4f039.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "长发",
-      "score": 69.830198,
+      "score": 248.157736,
       "views": 7,
       "downloads": 0,
-      "wallpaperCount": 95,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 275,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a3ef109dbcfc497fa7d7839cded1dee5.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/126813c0bfcf4362bf0ecbce51ef5989.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d2569a44edc7425d9b288893acfaabbc.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/14232898c1864f68b9089f12764fb701.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/插画/通用/d88e2d4b22b842c1987d29d5307396d2.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2576779ba674462c97bd8b88ff655bac.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e7f3815820724d72b0c460dc47b6bf6c.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3350525ddf8242058db0bbeef9b5cbd7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/31bb8473ec974aea926c5f2aad1196fa.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/435318a5ec664acdaf599a91f1af9903.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "阳光",
+      "score": 228.522658,
+      "views": 4,
+      "downloads": 0,
+      "wallpaperCount": 261,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/17768385ef3d4f7d8debc5f431ea28b5.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/519309cf9bcc435fb30d85fd0c584a1f.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/61690d7181024848958c9cf9fc1b45ff.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/763727a885d249f195c47b0205691d19.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/92169818c80e40da8fca6e8c2091d02e.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "夜晚",
-      "score": 65.766734,
+      "score": 200.838187,
       "views": 3,
       "downloads": 0,
-      "wallpaperCount": 91,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 227,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d2569a44edc7425d9b288893acfaabbc.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2576779ba674462c97bd8b88ff655bac.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d6b7830e3c8c410ab8600420aa5258d1.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3484507a808e450c870ae67d5e98bb95.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/风景/星空/9cebbb1a797843b480a8080d84b7ef60.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/星空/73205b45fb9d4715acbd3fe4f552bfeb.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/f24795488bb74385bf93e15d6407a907.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/80249a69db4b4c4e88b2649f077ea5fc.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/ed6d3eb1abff445791619d9b23bd4cff.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/83132df7f56c45369276ebf68f14949d.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "黑丝",
-      "score": 63.267232,
+      "score": 136.455187,
       "views": 6,
       "downloads": 0,
-      "wallpaperCount": 87,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 161,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3484507a808e450c870ae67d5e98bb95.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/bcdeed01378e4d8cb6e2fdf1d393d53b.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5934331b4c564740ba13b6e6b7195b1a.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d2569a44edc7425d9b288893acfaabbc.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/63844b0568694636aebd893ee6c46ed6.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/f24795488bb74385bf93e15d6407a907.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/67779ff539874d898d78fb4ada95f4bb.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/fc0e866602d2427cba56a0e588e15c1e.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "动漫",
-      "score": 54.410189,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 72,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/Hello Kitty/15308e3f16394b84930403c41db62433.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/多啦A梦/32496_d7114996e063405599d79170429caf22.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/皮卡丘/6399e3156c5846e5b168a0cbd7277d6c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/西游记/721379651eb347e9bf5a7f571e21c3ed.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/781201392f6049bf9a5339d4853c7f20.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/76642c7dff0e4ddaa5f55ae544e86a43.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "月光",
-      "score": 48.771403,
+      "score": 130.224908,
       "views": 10,
       "downloads": 0,
-      "wallpaperCount": 64,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 148,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/13437413975958513.webp",
-          "cdnTag": "v1.5.10"
+          "thumbnail": "/thumbnail/mobile/人像/清新/25067382ac204f03a8e1e1ae9d988ad7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3350525ddf8242058db0bbeef9b5cbd7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/bc34ae7590ee42238bd61fe0fad29d66.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5119584d4a864333be53967280d711de.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/bcdeed01378e4d8cb6e2fdf1d393d53b.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5934331b4c564740ba13b6e6b7195b1a.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/dc963a501f2e4b6dbd8c9b271ab9dd2a.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/69421d5eb99b4eeb9861d1d468ac9e40.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "动漫",
+      "score": 102.947262,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 122,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/IP形象/55150147efba4a7e86678dd30e61bf52.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/动漫/60483657d7e94807978714e31bc07113.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/动漫/724145a7c8004302b5e4033430942457.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/IP形象/83557664b790436e8e759c0e2816f3c9.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/动漫/009351f468034e2f88434d4b2b829014.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "暗夜",
+      "score": 91.215291,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 102,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/67296f436d214c5cb87a4de6e8a4f039.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0657e383b234431eb12d43497900c75b.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/12301_4023607da98b4ce699026a39bcf1bf1c.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/16793ff0443949c6aab2ae0e1e0e539a.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2432b2de6fa04b0089602bda944153cd.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "风景",
-      "score": 41.767509,
+      "score": 79.643995,
       "views": 1,
       "downloads": 0,
-      "wallpaperCount": 56,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 95,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/风景/日落/719383ceab124d56b49faf85b708b7c4.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/星空/73205b45fb9d4715acbd3fe4f552bfeb.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/风景/通用/964e0db40f674a469466cecc2700b2c0.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/日落/11773_026098e031234789a77d2a35605fac7c.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/风景/建筑/ab34f2c77f59406fb44bd5b65eac16af.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/海滨/21298_ddcfe8a7676a4d3980a4628178f1abbd.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/风景/通用/cd0074ce8904497da06aee2ce23c341d.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/星空/268dd047fd8c4ca3abbfc36fef2020dd.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/风景/通用/6e55994353494be798e63d76b85591f8.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/风景/花卉/2844c9b294d84ad1ba1d2d7153360625.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "少女",
+      "score": 78.205993,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 89,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/7049021d33df4e77b2f16eedd85ed488.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/763727a885d249f195c47b0205691d19.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/7900370cac8643a0ab0d0715e77d42ab.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/92169818c80e40da8fca6e8c2091d02e.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/13561_79651fb8cde64073a0d8a689ec442a7b.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "性感",
+      "score": 76.523614,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 87,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/082975162b3040d9a8c95eb47e1b1856.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3350525ddf8242058db0bbeef9b5cbd7.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5119584d4a864333be53967280d711de.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5934331b4c564740ba13b6e6b7195b1a.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/80249a69db4b4c4e88b2649f077ea5fc.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "时尚",
+      "score": 69.63291,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 79,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/698416c239e24641a2f93d0f06a05f43.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/74169b8d62ff4959a289f56ec297faa8.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/84928aa8cd084f97b0114a80e171e4bb.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/92601454c50147a3840bbbb015b27c59.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/97511c85046640ef85357fdc5a9a6b02.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "插画",
-      "score": 40.849128,
+      "score": 67.758693,
       "views": 1,
       "downloads": 0,
-      "wallpaperCount": 53,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 81,
+      "latestCreatedAt": "2026-11-09T23:54:07.207Z",
       "series": [
         "mobile"
       ],
@@ -385,944 +517,812 @@
           "cdnTag": "v1.5.25"
         },
         {
-          "thumbnail": "/thumbnail/mobile/插画/清新/009351f468034e2f88434d4b2b829014.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/插画/国风/27493_ff6c719c4eca4b34b4358e734ca3d7b9.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/插画/古装/1829746f20c248c89f9f87b0bcaa77f6.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/插画/清新/4327ca2414894215802393447a06fead.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/插画/古装/2054_39963904c959438f8b217d6f5e1552a1.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/插画/通用/5051_cb4e187c9e154dd8ac7e15c5759423a3.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/插画/通用/b966e56684e946d2953e8d56acb69389.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/插画/福禄双全/709_a77917ca20d441c9985595785a71639e.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "高跟鞋",
-      "score": 29.10751,
+      "score": 67.314779,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 41,
-      "latestCreatedAt": "2026-10-25T11:59:30.250Z",
+      "wallpaperCount": 80,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/fdbac68be1474036a39a20c215733ee4.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/238825151dd246e8a44b6527519a4eea.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d54284dbeed247ce94e242bb47bd09be.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2576779ba674462c97bd8b88ff655bac.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/dc328b08a33f492b8f4f9cd564d76ef2.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/7157960cd42c43ba8cdc26988534d87d.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/defa673d910947cca602d8fd48c5fb0e.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/844696db05bf480fa02cabe71e273150.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e33a22c517f645058946ffbba22f6dd4.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "夜景",
-      "score": 24.873645,
-      "views": 3,
-      "downloads": 0,
-      "wallpaperCount": 34,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/432c7aa77dcd40bd80fa33f8378102ca.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e011d807eea441ae9ff1cbebf17b6685.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/dff4d61b448c48919f15a6af3d32a166.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/fdbac68be1474036a39a20c215733ee4.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "暗夜",
-      "score": 24.822116,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 34,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e7f3815820724d72b0c460dc47b6bf6c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e238683234e84bde995a7503e8709db7.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d809a2801c044ddd83f89c3bbc4716c1.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e0672076abd34806ab19d127a58ebfff.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "少女",
-      "score": 24.746843,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 34,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/Hello Kitty/15308e3f16394b84930403c41db62433.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/fa31d5fbc6e94b299454139b0d7577fc.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/da6b62af1c5a490d99d31f95b52c07dd.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e67d493891fe4781981aa9ecb3738bba.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/2652421e2126443d93eff154b9e22edf.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "性感",
-      "score": 24.508445,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 34,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/bcdeed01378e4d8cb6e2fdf1d393d53b.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e238683234e84bde995a7503e8709db7.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/f550fc64245e4cd1a052a1c1d6e69f2c.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/fcf408d086a7476992610fbbff1f0a5c.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/fde0c8c3d5494454982c226b881d976a.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "夏日",
-      "score": 24.37046,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 33,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/c1a8b002fd79446fb9c4a78090e38dcd.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e4d61303553940ad89b46984f3bcea6f.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/多啦A梦/1dbadbf5adbe4da99341d1c7c97ae3c8.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/森林/f60f921ae6ca4edf83e59a57b9c56de6.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/de512766ed6444e59545fedaf2efa6c1.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "时尚",
-      "score": 22.562776,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 31,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/创意/通用/a761fa3a52fd4429b79931c10946bee9.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d4b2fb20cd2845c8b4bbfd6b921c4df1.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e8f07337f3d34bde904de390fc6d3d30.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/3343588c6e6e4dc7928a02849df16971.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a5ce4f832b48450a80d2921b2ee3c93f.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "创意",
-      "score": 21.398104,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 29,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/创意/通用/4327ca2414894215802393447a06fead.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/创意/通用/a761fa3a52fd4429b79931c10946bee9.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/创意/095ab21b82a849f5a82951f6d9f56826.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/创意/4e88c05c4e064eed80baa7959436ae9c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/创意/通用/ef20426810604949884cad00c551ce58.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 18.663068,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 26,
-      "latestCreatedAt": "2026-11-07T14:59:15.496Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/3e7d374de4e443b5abd819d96f9e0e2c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/f3966817768145b898376892c72e3d45.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/f4a1e42a91554ae9941b53725e80f66d.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/e1744d32dcc54bf2b4bb8dbe20a4e978.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/e4d0b6bb96ed4255827fdcd72c876b43.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "黑色长裙",
-      "score": 17.559178,
-      "views": 2,
-      "downloads": 0,
-      "wallpaperCount": 24,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a96f499896a5412193f44b24fb030af7.webp",
-          "cdnTag": "v1.5.0"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/4066808cb54d47babe6876f179ad1b5c.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a4df82ad74fd45c382706d6b14c712b7.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/aad7819219b44ee781d153a82b14b331.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0396ab143d6949a9a3a131ff105cabac.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "微笑",
-      "score": 17.169053,
+      "score": 66.67917,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 24,
-      "latestCreatedAt": "2026-11-07T14:59:15.496Z",
+      "wallpaperCount": 74,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/299f71897c7f40198bc4975722a9a8eb.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/17768385ef3d4f7d8debc5f431ea28b5.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/e4d0b6bb96ed4255827fdcd72c876b43.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/88522f597f1f47e1aa92377ae4b11481.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e6260bc35ef545d2928fdfe37efb587d.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/9137542dfe16470d8c5bea48af95dd6b.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/eabae16da5f44df6a458a5af89aeb887.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/02105d0bee5f4d3392e389e5fa89d796.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/c4850725dc0f4c8ea5009cb580775a5c.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/1240acc9c1994b3cabdab744b1fcd1d4.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "黑色长裙",
+      "score": 64.662991,
+      "views": 2,
+      "downloads": 0,
+      "wallpaperCount": 71,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2576779ba674462c97bd8b88ff655bac.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0657e383b234431eb12d43497900c75b.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/23350e3978a54a9e978c1d916ce65b2e.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/277dd66451a34ea0bedf7c2019687b26.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3613fcbb42174f81a51bc07e38d87679.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "夏日",
+      "score": 61.40162,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 71,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/763727a885d249f195c47b0205691d19.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/7900370cac8643a0ab0d0715e77d42ab.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/88522f597f1f47e1aa92377ae4b11481.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/17591_72526aab09ae45a0af3d9817f358764e.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/25667_ec38c14aa505493893d8f0c64b162af3.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "夜景",
+      "score": 58.496373,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 68,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/238825151dd246e8a44b6527519a4eea.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/435318a5ec664acdaf599a91f1af9903.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/63844b0568694636aebd893ee6c46ed6.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/67779ff539874d898d78fb4ada95f4bb.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/76642c7dff0e4ddaa5f55ae544e86a43.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "诱惑",
-      "score": 16.42218,
+      "score": 46.666794,
       "views": 6,
       "downloads": 0,
-      "wallpaperCount": 22,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 53,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/13437413975958513.webp",
-          "cdnTag": "v1.5.10"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/67296f436d214c5cb87a4de6e8a4f039.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a84f3ba6c1034de99f61a7b2915bd307.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/69421d5eb99b4eeb9861d1d468ac9e40.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e238683234e84bde995a7503e8709db7.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/76642c7dff0e4ddaa5f55ae544e86a43.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/f8898cd6198943759c9394e6213411e7.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/23747_68191ff311bc4dc780aa4ab8d4881680.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d809a2801c044ddd83f89c3bbc4716c1.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "猫咪",
-      "score": 16.167508,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 22,
-      "latestCreatedAt": "2026-11-07T14:59:15.496Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/3e7d374de4e443b5abd819d96f9e0e2c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/卡通角色/690d3f28dd584198b47e5bbd10ea5994.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/f3966817768145b898376892c72e3d45.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/e1744d32dcc54bf2b4bb8dbe20a4e978.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/e4d0b6bb96ed4255827fdcd72c876b43.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "神秘",
-      "score": 15.958442,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 21,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/03981038bfb449cb8d79ec24548122d4.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/通用/b966e56684e946d2953e8d56acb69389.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/通用/fe53706fb097441e854bbf50068a42e2.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/825de7f662e64c9aa8aeb8fa771a34f7.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d68517216c304438a3f551fa02dc7ac3.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "可爱",
-      "score": 14.837697,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 19,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/Hello Kitty/15308e3f16394b84930403c41db62433.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/皮卡丘/6399e3156c5846e5b168a0cbd7277d6c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/卡通角色/bdd5ef6af52546ae97734608d8508e64.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/卡通角色/4caaf8c915ee4d3d84df052fa6f44e4c.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/卡通角色/690d3f28dd584198b47e5bbd10ea5994.webp",
-          "cdnTag": "v1.5.25"
-        }
-      ]
-    },
-    {
-      "tag": "宁静",
-      "score": 13.239078,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 18,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/多啦A梦/a9731d98bd2a414e9405034ef4dee460.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/通用/cd0074ce8904497da06aee2ce23c341d.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/ecd39cf548e04e9c970629c8a70e4845.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/蜡笔小新/a9731d98bd2a414e9405034ef4dee460.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/c593715525794e3a802813085d443b48.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "古装",
-      "score": 11.849668,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 15,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/古装/1829746f20c248c89f9f87b0bcaa77f6.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/古装/2054_39963904c959438f8b217d6f5e1552a1.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/299f71897c7f40198bc4975722a9a8eb.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/古装/36d5584838c343b6b81320e77d8b684e.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/影视/古装/9cfd8bd0554e4bb5b4555ee99bf91d93.webp",
-          "cdnTag": "v1.5.25"
-        }
-      ]
-    },
-    {
-      "tag": "白色上衣",
-      "score": 10.743518,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 14,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/019887b6a8bf4c49b80dc3ce1680db18.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d4b2fb20cd2845c8b4bbfd6b921c4df1.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/3e7e977d089442d0b5f6803be4246fef.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/de512766ed6444e59545fedaf2efa6c1.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/ac59a555e5464c4b8c9c31177a85e1fa.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "清晨",
-      "score": 9.969824,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 14,
-      "latestCreatedAt": "2026-10-25T11:59:30.250Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/花卉/fb0890248bdd40e6b1b44cb125886dab.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/ecd39cf548e04e9c970629c8a70e4845.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/ba7f9d418a154843aaaecfd051c9dee4.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/c593715525794e3a802813085d443b48.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/雨景/42002f48b9a84072ba976165983bcf9b.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "蓝天",
-      "score": 9.817245,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 12,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/清新/009351f468034e2f88434d4b2b829014.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/创意/通用/4327ca2414894215802393447a06fead.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/影视/黑帮题材/a280733e26b949738a6e74c0a7d3b574.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/插画/创意/095ab21b82a849f5a82951f6d9f56826.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/通用/6e55994353494be798e63d76b85591f8.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2550_d7583a9a97f04de1a94ffbdd83092331.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "玫瑰",
-      "score": 9.323697,
+      "score": 42.052837,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 13,
-      "latestCreatedAt": "2026-10-25T11:59:30.249Z",
+      "wallpaperCount": 46,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d809a2801c044ddd83f89c3bbc4716c1.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/3350525ddf8242058db0bbeef9b5cbd7.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e57c7a5ff6d84eae8e360ee01f1188ac.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/69421d5eb99b4eeb9861d1d468ac9e40.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/4066808cb54d47babe6876f179ad1b5c.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0443eb92532740469707ca0d394a4db8.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a19bc72385b6471e94eaf61e7e31949b.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/232a6627409040308cb5a7ba8c598c7c.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a1d20bfc6f304d51a48f58e7d8f3bbaa.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "二次元",
-      "score": 8.915401,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 12,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/781201392f6049bf9a5339d4853c7f20.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/c1a8b002fd79446fb9c4a78090e38dcd.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/fa21dcd6928844e7b8a6380ea72c6d28.webp",
-          "cdnTag": "v1.5.2"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/f4a1e42a91554ae9941b53725e80f66d.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/动漫/二次元/f623adc44824466db9f61abac224d928.webp",
-          "cdnTag": "v1.5.8"
-        }
-      ]
-    },
-    {
-      "tag": "森林",
-      "score": 8.860561,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 12,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/日落/719383ceab124d56b49faf85b708b7c4.webp",
-          "cdnTag": "v1.5.25"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/森林/f60f921ae6ca4edf83e59a57b9c56de6.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/森林/df609c5dabe74e7299d5e28f2c9a05a3.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/风景/森林/e313b13609444a79bdd72cf36f040b74.webp",
-          "cdnTag": "v1.5.8"
-        },
-        {
-          "thumbnail": "/thumbnail/mobile/人像/清新/b3438d09df814c8f8db548fd27ae915b.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/2432b2de6fa04b0089602bda944153cd.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "夏日风情",
-      "score": 8.703025,
+      "score": 37.75239,
       "views": 2,
       "downloads": 0,
-      "wallpaperCount": 11,
-      "latestCreatedAt": "2026-11-07T14:59:15.496Z",
+      "wallpaperCount": 40,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/3e7e977d089442d0b5f6803be4246fef.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/1936930dc9c442ad9015b988136a91ef.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/74a9f0d7caa24ce6b3a8405464bf5c9f.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/409078be9e1e4991b750c44a3407c35f.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/7a2961c4f0584c87854432bc2173d7d7.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/65902dc6c2474acab40c08a256c8f8d9.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e156bb0ca4e4427c8af2be330992e012.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/25059_b63dccdcb8af44348bf07641c66d74be.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/d18c1918705740349562b679a2597aaf.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/284e00970f28400793210aeb0611568a.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
-      "tag": "白色连衣裙",
-      "score": 8.54689,
+      "tag": "神秘",
+      "score": 33.924375,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 12,
-      "latestCreatedAt": "2026-10-25T11:59:30.250Z",
+      "wallpaperCount": 40,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/f8c824c2890944c68b967eeb19d44f02.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/动漫/IP形象/55150147efba4a7e86678dd30e61bf52.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/864240ec3057405fb425b30d8f3b9d86.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/动漫/动漫/60483657d7e94807978714e31bc07113.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/071c5bef5c2d4a8b89026df220bbb981.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/动漫/动漫/724145a7c8004302b5e4033430942457.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/128d560a64de4280bad32997ae33940a.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/风景/星空/73205b45fb9d4715acbd3fe4f552bfeb.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/759a9554125f4ec680eba272cbdd91b2.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0657e383b234431eb12d43497900c75b.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
-      "tag": "七龙珠",
-      "score": 7.520204,
-      "views": 1,
+      "tag": "创意",
+      "score": 30.830753,
+      "views": 0,
       "downloads": 0,
-      "wallpaperCount": 11,
-      "latestCreatedAt": "2026-10-25T11:59:30.249Z",
+      "wallpaperCount": 39,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/e34181834505440ca12ba2fe59daceab.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/创意/抽象/121538f324054103b35319dbb4b0a70c.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/781201392f6049bf9a5339d4853c7f20.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/创意/通用/44873191d87445ea898adc1f03c09526.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/83557664b790436e8e759c0e2816f3c9.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/插画/创意/6ad8bf8ba1de48aab669c4a515560be8.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/1b3c22e578764ab4868c5c04859b2e82.webp",
-          "cdnTag": "v1.5.2"
+          "thumbnail": "/thumbnail/mobile/插画/创意/6d3f18edf82f418ab4edb7d9dfdab2f4.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/动漫/七龙珠/46c6aaff4ae34a4388371e6fd33c6591.webp",
-          "cdnTag": "v1.5.2"
+          "thumbnail": "/thumbnail/mobile/插画/创意/15f6e5dd176b43eaab35a0a40b408b4f.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "宁静",
+      "score": 30.781246,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 35,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/519309cf9bcc435fb30d85fd0c584a1f.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/风景/海滨/21298_ddcfe8a7676a4d3980a4628178f1abbd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/风景/星空/268dd047fd8c4ca3abbfc36fef2020dd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/535d2481633a4b0fbb70ad4da8a6a2cf.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/693b9fc495a14f919f6a890281e957a7.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 28.167178,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 36,
+      "latestCreatedAt": "2026-11-09T23:54:07.207Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/478d09a6503d45afae1a41782ae29563.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/通用/645caecd2ebf415cb6439aa67a3715bd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/963f5ae451be44dcbf8ee65d76fbe211.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/6ea2bb05cfaf4281b02390d930f282e8.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/9ad3e994147742a48fc1fab29158762d.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "白色上衣",
+      "score": 26.148891,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 30,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5119584d4a864333be53967280d711de.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/82468de6f247451eb89249de229454c5.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/31597ec3bf5445d4878868ce2df0ce8b.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/34170e3531674e4ea89af2fbd639099c.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5192c2a3595842b5b9b85e2f8987671e.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
       "tag": "晨光",
-      "score": 7.46084,
+      "score": 25.949506,
       "views": 1,
       "downloads": 0,
-      "wallpaperCount": 10,
-      "latestCreatedAt": "2026-11-07T14:59:15.497Z",
+      "wallpaperCount": 29,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/c8da7278b06745d4ad4ec31afa8dead7.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/清新/9137542dfe16470d8c5bea48af95dd6b.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/ddb786cc26bc4f78bdb265d568154022.webp",
-          "cdnTag": "v1.5.0"
+          "thumbnail": "/thumbnail/mobile/人像/清新/1240acc9c1994b3cabdab744b1fcd1d4.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/e5cb730f3b9f43209a26b48d5d561ea1.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/12546_a10e8c4266c9488bb18a23447f380eba.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/e7f3815820724d72b0c460dc47b6bf6c.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/5503c01d47fc4bdd9143b1c41ab17f4e.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/魅力/a1d20bfc6f304d51a48f58e7d8f3bbaa.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/清新/5622e0a38ac94361bd8b598f3285bb16.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     },
     {
-      "tag": "海滩",
-      "score": 7.355065,
-      "views": 1,
+      "tag": "黑色连衣裙",
+      "score": 25.774881,
+      "views": 0,
       "downloads": 0,
-      "wallpaperCount": 10,
-      "latestCreatedAt": "2026-11-07T14:59:15.496Z",
+      "wallpaperCount": 27,
+      "latestCreatedAt": "2026-11-09T23:54:07.207Z",
       "series": [
         "mobile"
       ],
       "topWallpapers": [
         {
-          "thumbnail": "/thumbnail/mobile/动漫/多啦A梦/1dbadbf5adbe4da99341d1c7c97ae3c8.webp",
-          "cdnTag": "v1.5.25"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/381e0b4eb6204a1390b41db6a8e11763.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/f611fc2158f143efbb8b7be81684c566.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/494d5e0f977a4fb4933827a7ac3cb2d6.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/5890235798a248f0af10b71459667113.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/602b25b2201c48329fe09a966c16d4be.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/45d6ec7264594013bf783e801e052dc1.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/869b7498c04646149416905b9115415b.webp",
+          "cdnTag": "v1.5.29"
         },
         {
-          "thumbnail": "/thumbnail/mobile/人像/清新/0f9149efef58488883ef0446c526a2bb.webp",
-          "cdnTag": "v1.5.8"
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0175c319879c4fd3847d370517bb4eda.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "清晨",
+      "score": 25.696119,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 30,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/14232898c1864f68b9089f12764fb701.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/260d3070f01e4707b059899a8ec23783.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/3565dfd256424cdd916c08723b9d774a.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/369b0e16c28c42b0a9d375d276078010.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/815d552e61e84712ae42993f40360209.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "夜色",
+      "score": 25.173469,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 27,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/126813c0bfcf4362bf0ecbce51ef5989.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/27110_e24688f186d247679e8a2ff43f72fbe8.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/635c99d3c0cc4b1db7a102448ecde148.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/9683fc47e18d4d9f945064d550b711bd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/0175c319879c4fd3847d370517bb4eda.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "暗夜玫瑰",
+      "score": 24.81472,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 27,
+      "latestCreatedAt": "2026-11-09T23:54:07.207Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/1972bc2c00bb4678b668f04bedbf06c2.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/372ef23a9ed845bc9732b0a478fe30a1.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/473b0c7afddf437c87a1c9e22461351a.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/5900_9732bedfa4704a35846cb6999a7363cd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/596e45c60d734c04a53b53609fb71208.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "可爱",
+      "score": 24.194325,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 29,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/763727a885d249f195c47b0205691d19.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/478d09a6503d45afae1a41782ae29563.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/动漫/IP形象/6399e3156c5846e5b168a0cbd7277d6c.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/30c430b0c2424de8bdb43baec473ed99.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/9f45e1affdd941dbbfe99027905c6316.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "古装",
+      "score": 23.530149,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 27,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/古装/3779616eb7cc4b8595e742c7f066aa54.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/古装/96026e3623484b68a725e3e3f4e24827.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/古装/960415b3121c453f996d8717c51818e7.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/古装/344e676ec96245068de8d116c0fa5818.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/古装/37153b641ad94044b7a1df08aaa33e37.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "猫咪",
+      "score": 23.437768,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 30,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/25067382ac204f03a8e1e1ae9d988ad7.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/创意/通用/44873191d87445ea898adc1f03c09526.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/229e2b0c231c47ea8ba485feafb0cbaa.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/478d09a6503d45afae1a41782ae29563.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/萌宠/猫咪/963f5ae451be44dcbf8ee65d76fbe211.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "黑色",
+      "score": 23.095603,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 25,
+      "latestCreatedAt": "2026-11-09T23:54:07.207Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/349d702d55a549a7969ddcd0e9ec0933.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/510bb9999e4b4c03986336d9525eaa95.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/27e816ef2f0d4cdfafabb0eaea5f32dd.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/47d6d66fb1504550a6e8240829835afc.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/51be232031994b4ba561f69564eaf561.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "温柔",
+      "score": 22.573708,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 25,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/9137542dfe16470d8c5bea48af95dd6b.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/5622e0a38ac94361bd8b598f3285bb16.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/693b9fc495a14f919f6a890281e957a7.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/050aba11255048879a6099837641ce49.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/清新/16fd23ec88c64b13bb4ef70358d9382d.webp",
+          "cdnTag": "v1.5.29"
+        }
+      ]
+    },
+    {
+      "tag": "背影",
+      "score": 21.117038,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 25,
+      "latestCreatedAt": "2026-11-09T23:54:07.208Z",
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/780140ce71924068872684b16987e45f.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/12301_4023607da98b4ce699026a39bcf1bf1c.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/9074bf1713024732b97f9250e4b7a5f6.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/16f20675e2a041038d3eef3f17450b40.webp",
+          "cdnTag": "v1.5.29"
+        },
+        {
+          "thumbnail": "/thumbnail/mobile/人像/魅力/17cce42531e1410c98ef34bdf5b2ec7a.webp",
+          "cdnTag": "v1.5.29"
         }
       ]
     }
