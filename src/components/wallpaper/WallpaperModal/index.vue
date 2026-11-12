@@ -131,6 +131,30 @@ const isVideoWallpaper = computed(() => props.wallpaper?.mediaType === 'video')
 // 是否有预览图（仅 desktop 系列）
 const hasPreview = computed(() => !!props.wallpaper?.previewUrl)
 
+// 缩略图即时首帧 URL（无预览图层级的分系列，利用浏览器已缓存的缩略图）
+const thumbnailBackdropUrl = computed(() => {
+  if (!props.wallpaper)
+    return ''
+  // 仅在没有预览图层级时使用缩略图作为即时首帧（mobile/avatar 等分系列）
+  if (!hasPreview.value && props.wallpaper.thumbnailUrl) {
+    return props.wallpaper.thumbnailUrl
+  }
+  return ''
+})
+
+// 是否显示缩略图即时首帧（原图尚未加载完成时）
+const showThumbnailBackdrop = computed(() => {
+  return thumbnailBackdropUrl.value && !imageLoaded.value && !imageError.value
+})
+
+// 缩略图背景样式（CSS 变量供 :before 使用）
+const thumbnailBackdropStyle = computed(() => {
+  if (thumbnailBackdropUrl.value) {
+    return { '--thumb-bg': `url(${thumbnailBackdropUrl.value})` }
+  }
+  return {}
+})
+
 // 当前显示的图片 URL
 const baseDisplayUrl = computed(() => {
   if (!props.wallpaper)
@@ -533,7 +557,7 @@ onUnmounted(() => {
         </button>
 
         <!-- Image Container -->
-        <div class="modal-image-container" :class="{ 'modal-image-container--video': isVideoWallpaper }">
+        <div class="modal-image-container" :class="{ 'modal-image-container--video': isVideoWallpaper, 'modal-image-container--thumb': showThumbnailBackdrop }" :style="thumbnailBackdropStyle">
           <template v-if="isVideoWallpaper">
             <div v-if="videoError" class="modal-error">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -553,10 +577,13 @@ onUnmounted(() => {
 
           <template v-else>
             <!-- Loading -->
-            <div v-if="!imageLoaded" class="modal-loading">
+            <div v-if="!imageLoaded" class="modal-loading" :class="{ 'modal-loading--backdrop': thumbnailBackdropUrl }">
               <LoadingSpinner size="lg" />
               <p v-if="loadingOriginal" class="loading-text">
                 正在加载原图...
+              </p>
+              <p v-else-if="thumbnailBackdropUrl" class="loading-text">
+                原图加载中，先看缩略图
               </p>
             </div>
 
@@ -580,6 +607,15 @@ onUnmounted(() => {
               @load="handleImageLoad"
               @error="handleImageError"
             >
+
+            <!-- 预览中标识（缩略图首帧模式，提示正在加载原图） -->
+            <div v-if="thumbnailBackdropUrl && !imageLoaded" class="preview-badge preview-badge--thumbnail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span>预览中</span>
+            </div>
 
             <!-- 预览图标识 -->
             <div v-if="hasPreview && imageLoaded && !imageError && !showOriginal" class="preview-badge">
@@ -973,6 +1009,7 @@ onUnmounted(() => {
 
 .modal-image-container {
   position: relative;
+  z-index: 0; // 建立堆叠上下文，使 :before 缩略图背景在 children 之下
   display: flex;
   align-items: center;
   justify-content: center;
@@ -982,6 +1019,30 @@ onUnmounted(() => {
   background: linear-gradient(180deg, rgba(8, 13, 24, 0.98), rgba(11, 18, 32, 0.94));
   overflow: hidden;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+
+  // 缩略图即时首帧背景（无预览图层级的分系列，利用浏览器已缓存的缩略图）
+  // z-index:-1 确保在 loading/img 之下、容器背景之上
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--thumb-bg, none);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  // 显示缩略图首帧（原图加载完成前）
+  &--thumb {
+    &:before {
+      opacity: 1;
+    }
+  }
 
   // 平板竖屏：稍大的图片区域
   @include tablet-only {
@@ -1092,9 +1153,25 @@ onUnmounted(() => {
   color: white;
 }
 
+.preview-badge--thumbnail {
+  background: rgba(245, 158, 11, 0.9);
+  color: white;
+}
+
 .original-badge {
   background: rgba(16, 185, 129, 0.9);
   color: white;
+}
+
+// 缩略图首帧模式下的加载提示（半透明遮罩，避免 spinner 与缩略图抢视觉）
+.modal-loading--backdrop {
+  background: rgba(8, 13, 24, 0.45);
+  backdrop-filter: blur(1px);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+
+  .loading-text {
+    color: var(--color-text-primary);
+  }
 }
 
 .modal-info {
