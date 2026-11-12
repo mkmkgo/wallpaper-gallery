@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-11-10T22:26:35.597Z",
+  "generatedAt": "2026-11-11T23:33:23.638Z",
   "windowDays": 90,
   "halfLifeDays": 30,
-  "windowStart": "2026-08-12T22:26:35.597Z",
+  "windowStart": "2026-08-13T23:33:23.638Z",
   "series": "all",
-  "total": 1270,
+  "total": 1409,
   "tags": [
     {
       "tag": "人像",
-      "score": 1019.348742,
-      "views": 25,
+      "score": 1409.500147,
+      "views": 20,
       "downloads": 0,
-      "wallpaperCount": 1176,
+      "wallpaperCount": 1600,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "18008045d7ec440684a831a5f8f0826e.jpeg",
-        "082975162b3040d9a8c95eb47e1b1856.jpeg",
-        "126813c0bfcf4362bf0ecbce51ef5989.jpg",
-        "14232898c1864f68b9089f12764fb701.jpeg",
-        "17768385ef3d4f7d8debc5f431ea28b5.jpeg"
+        "ff09751b0c0a41d18bbecd46b7230723.png",
+        "ff13e771b94a4e78a536425f621c7cc4.jpeg",
+        "ff918ab6347b44199abe36538863aa16.jpeg",
+        "ffb058f3d0794037be4176ff717cc99f.jpeg",
+        "ffc69b32b63f4844b17bfb14640429f0.jpeg"
       ]
     },
     {
       "tag": "魅力",
-      "score": 668.409383,
-      "views": 18,
+      "score": 652.142367,
+      "views": 15,
       "downloads": 0,
       "wallpaperCount": 772,
       "series": [
@@ -41,26 +41,43 @@
       ]
     },
     {
-      "tag": "清新",
-      "score": 337.757137,
-      "views": 7,
+      "tag": "长发",
+      "score": 651.862015,
+      "views": 6,
       "downloads": 0,
-      "wallpaperCount": 388,
+      "wallpaperCount": 700,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
+        "ff09751b0c0a41d18bbecd46b7230723.png",
+        "ff13e771b94a4e78a536425f621c7cc4.jpeg",
+        "ff918ab6347b44199abe36538863aa16.jpeg",
+        "ffb058f3d0794037be4176ff717cc99f.jpeg",
+        "ffc69b32b63f4844b17bfb14640429f0.jpeg"
+      ]
+    },
+    {
+      "tag": "清新",
+      "score": 331.446187,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 390,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "be228032fde24932b6434b337cf20447.jpeg",
+        "b0d42e0984bb4ad8a0ce32bb27072f4b.jpeg",
         "18008045d7ec440684a831a5f8f0826e.jpeg",
         "14232898c1864f68b9089f12764fb701.jpeg",
-        "17768385ef3d4f7d8debc5f431ea28b5.jpeg",
-        "25067382ac204f03a8e1e1ae9d988ad7.jpeg",
-        "373346ff277b45509aa0c76544070672.jpeg"
+        "17768385ef3d4f7d8debc5f431ea28b5.jpeg"
       ]
     },
     {
       "tag": "优雅",
-      "score": 277.037141,
-      "views": 8,
+      "score": 270.219043,
+      "views": 6,
       "downloads": 0,
       "wallpaperCount": 322,
       "series": [
@@ -75,42 +92,42 @@
       ]
     },
     {
-      "tag": "长发",
-      "score": 243.031267,
-      "views": 7,
+      "tag": "全身构图",
+      "score": 216.666526,
+      "views": 0,
       "downloads": 0,
-      "wallpaperCount": 275,
+      "wallpaperCount": 222,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "126813c0bfcf4362bf0ecbce51ef5989.jpg",
-        "14232898c1864f68b9089f12764fb701.jpeg",
-        "2576779ba674462c97bd8b88ff655bac.jpeg",
-        "3350525ddf8242058db0bbeef9b5cbd7.jpeg",
-        "435318a5ec664acdaf599a91f1af9903.jpeg"
+        "ff09751b0c0a41d18bbecd46b7230723.png",
+        "ff13e771b94a4e78a536425f621c7cc4.jpeg",
+        "ffc69b32b63f4844b17bfb14640429f0.jpeg",
+        "fe5304398380421295fa998cd5ddd081.jpeg",
+        "ff00af8f6e4b472db8ec80af4cf98b94.jpeg"
       ]
     },
     {
       "tag": "阳光",
-      "score": 223.801813,
-      "views": 4,
+      "score": 216.563316,
+      "views": 2,
       "downloads": 0,
-      "wallpaperCount": 261,
+      "wallpaperCount": 258,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
+        "da43d04cbf9f45e58918737ada0dbfc5.jpeg",
         "17768385ef3d4f7d8debc5f431ea28b5.jpeg",
         "519309cf9bcc435fb30d85fd0c584a1f.jpeg",
         "61690d7181024848958c9cf9fc1b45ff.png",
-        "763727a885d249f195c47b0205691d19.jpg",
-        "92169818c80e40da8fca6e8c2091d02e.jpeg"
+        "763727a885d249f195c47b0205691d19.jpg"
       ]
     },
     {
       "tag": "夜晚",
-      "score": 196.68925,
+      "score": 191.990971,
       "views": 3,
       "downloads": 0,
       "wallpaperCount": 227,
@@ -126,9 +143,26 @@
       ]
     },
     {
+      "tag": "动漫",
+      "score": 143.436065,
+      "views": 5,
+      "downloads": 0,
+      "wallpaperCount": 168,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ff2ddb8559564de4b1f3371779cf7d30.jpeg",
+        "f809ed16f1ba4345a0cf4b004a2ceb80.jpeg",
+        "f726dfcb2bac451db34937a923570f75.jpeg",
+        "f757c7860fc946b6b1727f6a400e58a3.jpeg",
+        "f623adc44824466db9f61abac224d928.jpeg"
+      ]
+    },
+    {
       "tag": "黑丝",
-      "score": 133.636282,
-      "views": 6,
+      "score": 130.343855,
+      "views": 5,
       "downloads": 0,
       "wallpaperCount": 161,
       "series": [
@@ -144,8 +178,8 @@
     },
     {
       "tag": "月光",
-      "score": 127.534708,
-      "views": 10,
+      "score": 124.388028,
+      "views": 9,
       "downloads": 0,
       "wallpaperCount": 148,
       "series": [
@@ -160,26 +194,77 @@
       ]
     },
     {
-      "tag": "动漫",
-      "score": 100.820566,
-      "views": 5,
+      "tag": "插画",
+      "score": 115.670271,
+      "views": 1,
       "downloads": 0,
-      "wallpaperCount": 122,
+      "wallpaperCount": 133,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "55150147efba4a7e86678dd30e61bf52.jpeg",
-        "60483657d7e94807978714e31bc07113.jpeg",
-        "724145a7c8004302b5e4033430942457.jpeg",
-        "83557664b790436e8e759c0e2816f3c9.jpeg",
-        "009351f468034e2f88434d4b2b829014.jpeg"
+        "d4216d63c71547c9b002864b81bd6e0e.jpeg",
+        "ff2ddb8559564de4b1f3371779cf7d30.jpeg",
+        "fd2aad659a344b4691a5265496f4d2e1.jpeg",
+        "fb19467f9f984c05ae1e59bde88fb8a5.jpeg",
+        "faf5aeeede654eaeb8185d67ba0f6260.jpg"
+      ]
+    },
+    {
+      "tag": "连衣裙",
+      "score": 107.711106,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 111,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ffee078624b3417ba43673a3252a3a7e.jpeg",
+        "ff1e59e97e0f4baaa3983e75bc9ddabf.jpeg",
+        "fde0c8c3d5494454982c226b881d976a.jpeg",
+        "fce4ed2a14a14562a900a7081b903afb.jpeg",
+        "fbb42ee9b1504fe080e424548cbd6661.jpg"
+      ]
+    },
+    {
+      "tag": "风景",
+      "score": 104.520118,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 124,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "fd2aad659a344b4691a5265496f4d2e1.jpeg",
+        "f7e32ec0979348d58d64609ceecf2958.jpeg",
+        "f8c32a07854c4f4b8dd46a9fedbc605e.jpeg",
+        "ed97413c3b184f1a995c2140e79bab0f.jpeg",
+        "ebf9995fcef74a3c8755e6ad222f81a0.jpeg"
+      ]
+    },
+    {
+      "tag": "背影",
+      "score": 100.135507,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 107,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "faf5aeeede654eaeb8185d67ba0f6260.jpg",
+        "f628738ebfa74085b5ee27c476ca5467.jpeg",
+        "f665466d6d1944ad8c196ef00215d2af.jpeg",
+        "f875f8546a404291bbf30a72a8c0f140.jpeg",
+        "f80b72f5013840e0aec76c1407c5a75a.jpeg"
       ]
     },
     {
       "tag": "暗夜",
-      "score": 89.330955,
-      "views": 1,
+      "score": 87.096842,
+      "views": 0,
       "downloads": 0,
       "wallpaperCount": 102,
       "series": [
@@ -194,28 +279,45 @@
       ]
     },
     {
-      "tag": "风景",
-      "score": 77.998701,
-      "views": 1,
+      "tag": "高跟鞋",
+      "score": 86.861355,
+      "views": 0,
       "downloads": 0,
-      "wallpaperCount": 95,
+      "wallpaperCount": 103,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "73205b45fb9d4715acbd3fe4f552bfeb.jpeg",
-        "11773_026098e031234789a77d2a35605fac7c.jpeg",
-        "21298_ddcfe8a7676a4d3980a4628178f1abbd.jpeg",
-        "268dd047fd8c4ca3abbfc36fef2020dd.jpeg",
-        "2844c9b294d84ad1ba1d2d7153360625.jpeg"
+        "ff09751b0c0a41d18bbecd46b7230723.png",
+        "fcf0b96722c74393a8e261ba7920a091.jpeg",
+        "f64f7321f0b14e9c83cb13a44e950403.jpeg",
+        "f72a338aebc4462cbb66b0af1ba60bf7.jpeg",
+        "f95d1d968c4743979e0fb0ca7a8e7906.jpeg"
+      ]
+    },
+    {
+      "tag": "半身",
+      "score": 86.776532,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 89,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ff918ab6347b44199abe36538863aa16.jpeg",
+        "ffb058f3d0794037be4176ff717cc99f.jpeg",
+        "ff5a2aaa6cd840efbc2e931f3d5fca3a.jpeg",
+        "fce4ed2a14a14562a900a7081b903afb.jpeg",
+        "fd6d28bf84bf4dd4b7cd3f2c58327d73.jpeg"
       ]
     },
     {
       "tag": "少女",
-      "score": 76.590405,
+      "score": 74.093205,
       "views": 1,
       "downloads": 0,
-      "wallpaperCount": 89,
+      "wallpaperCount": 88,
       "series": [
         "mobile"
       ],
@@ -229,8 +331,8 @@
     },
     {
       "tag": "性感",
-      "score": 74.942781,
-      "views": 1,
+      "score": 73.052355,
+      "views": 0,
       "downloads": 0,
       "wallpaperCount": 87,
       "series": [
@@ -246,7 +348,7 @@
     },
     {
       "tag": "时尚",
-      "score": 68.194426,
+      "score": 66.565478,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 79,
@@ -262,42 +364,8 @@
       ]
     },
     {
-      "tag": "插画",
-      "score": 66.358926,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 81,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "d4216d63c71547c9b002864b81bd6e0e.jpeg",
-        "27493_ff6c719c4eca4b34b4358e734ca3d7b9.JPG",
-        "4327ca2414894215802393447a06fead.jpeg",
-        "5051_cb4e187c9e154dd8ac7e15c5759423a3.jpeg",
-        "709_a77917ca20d441c9985595785a71639e.jpeg"
-      ]
-    },
-    {
-      "tag": "高跟鞋",
-      "score": 65.924183,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 80,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "238825151dd246e8a44b6527519a4eea.jpeg",
-        "2576779ba674462c97bd8b88ff655bac.jpeg",
-        "7157960cd42c43ba8cdc26988534d87d.jpeg",
-        "844696db05bf480fa02cabe71e273150.jpeg",
-        "0396ab143d6949a9a3a131ff105cabac.jpg"
-      ]
-    },
-    {
       "tag": "微笑",
-      "score": 65.301705,
+      "score": 63.741856,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 74,
@@ -313,8 +381,25 @@
       ]
     },
     {
+      "tag": "夜景",
+      "score": 62.770967,
+      "views": 3,
+      "downloads": 0,
+      "wallpaperCount": 75,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "fbbc956a2d354a1fa5fde95747a9cf03.jpeg",
+        "f7e32ec0979348d58d64609ceecf2958.jpeg",
+        "f8c32a07854c4f4b8dd46a9fedbc605e.jpeg",
+        "ea31a8081c8043fd8205177c7ea8b72c.jpeg",
+        "eaa47a8bcca04e0ca021ef6bffcdd86d.jpeg"
+      ]
+    },
+    {
       "tag": "黑色长裙",
-      "score": 63.327176,
+      "score": 61.814492,
       "views": 2,
       "downloads": 0,
       "wallpaperCount": 71,
@@ -331,10 +416,10 @@
     },
     {
       "tag": "夏日",
-      "score": 60.133179,
+      "score": 57.36139,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 71,
+      "wallpaperCount": 69,
       "series": [
         "mobile"
       ],
@@ -347,26 +432,94 @@
       ]
     },
     {
-      "tag": "夜景",
-      "score": 57.287949,
-      "views": 3,
+      "tag": "侧颜",
+      "score": 56.769115,
+      "views": 0,
       "downloads": 0,
-      "wallpaperCount": 68,
+      "wallpaperCount": 58,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "238825151dd246e8a44b6527519a4eea.jpeg",
-        "435318a5ec664acdaf599a91f1af9903.jpeg",
-        "63844b0568694636aebd893ee6c46ed6.png",
-        "67779ff539874d898d78fb4ada95f4bb.jpeg",
-        "76642c7dff0e4ddaa5f55ae544e86a43.jpg"
+        "ffee078624b3417ba43673a3252a3a7e.jpeg",
+        "f009975de3c24605851d8754aa0609e3.jpeg",
+        "f877b9754bc64e5987a85fa425f8c3e4.jpg",
+        "f694c0ebbab949919db32649d876f55b.jpeg",
+        "f757c7860fc946b6b1727f6a400e58a3.jpeg"
+      ]
+    },
+    {
+      "tag": "明星",
+      "score": 55.45564,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 57,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ffb058f3d0794037be4176ff717cc99f.jpeg",
+        "ff5a2aaa6cd840efbc2e931f3d5fca3a.jpeg",
+        "fb45498a14e843b1a250b66e633a4aaf.jpeg",
+        "f733114251674f1497c39bce05dffe25.jpeg",
+        "f6353597e01b4a2791f511b82dee659d.jpeg"
+      ]
+    },
+    {
+      "tag": "古装",
+      "score": 48.920613,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 54,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "fb19467f9f984c05ae1e59bde88fb8a5.jpeg",
+        "f480e352777a440ab801143dff9d72cc.jpeg",
+        "f2acb06413ff48b78d65d1ef84e9c377.jpeg",
+        "e676875a67784eba81fec79d6a8cfd17.jpeg",
+        "e112d968ef2947ac8c930ba2b0f5dbd6.jpeg"
+      ]
+    },
+    {
+      "tag": "创意",
+      "score": 47.090614,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 57,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "f1759b5805514fbea4bae55693e3dde5.jpeg",
+        "f5c9666e76844a93ac122e65c2445c5d.jpeg",
+        "e58a09c4e14d4c64af2233123feab50e.jpeg",
+        "e9ceeb1a543a42438f9bb2268ba33b54.jpeg",
+        "d62c059caea5469c99eb58e45160fe46.jpeg"
+      ]
+    },
+    {
+      "tag": "白色上衣",
+      "score": 44.572551,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 50,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ffb058f3d0794037be4176ff717cc99f.jpeg",
+        "ff00af8f6e4b472db8ec80af4cf98b94.jpeg",
+        "eb5c0c0ea5b941699af903882271683d.jpg",
+        "ebc6d74046cc4f9cbf624c4ddfa94307.jpeg",
+        "e7f0d70a52ca4ec899134e743f622b2a.jpg"
       ]
     },
     {
       "tag": "诱惑",
-      "score": 45.702746,
-      "views": 6,
+      "score": 44.510771,
+      "views": 5,
       "downloads": 0,
       "wallpaperCount": 53,
       "series": [
@@ -381,8 +534,25 @@
       ]
     },
     {
+      "tag": "牛仔裤",
+      "score": 43.94714,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 47,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ff13e771b94a4e78a536425f621c7cc4.jpeg",
+        "f9487d5bc0ac4390a84909c6213d24f4.jpeg",
+        "f875f8546a404291bbf30a72a8c0f140.jpeg",
+        "f19a787ed24c4e739701d722393f14a9.jpg",
+        "efd8d81c32824a5c9d5cc040380c7cb0.jpeg"
+      ]
+    },
+    {
       "tag": "玫瑰",
-      "score": 41.184105,
+      "score": 40.200348,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 46,
@@ -399,7 +569,7 @@
     },
     {
       "tag": "夏日风情",
-      "score": 36.972498,
+      "score": 36.089342,
       "views": 2,
       "downloads": 0,
       "wallpaperCount": 40,
@@ -415,11 +585,79 @@
       ]
     },
     {
-      "tag": "神秘",
-      "score": 33.223562,
+      "tag": "自然光",
+      "score": 35.767418,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 40,
+      "wallpaperCount": 38,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ffc69b32b63f4844b17bfb14640429f0.jpeg",
+        "fa80d7ab4ffc4f629f3d28b76691e283.jpg",
+        "f397bfcef2184440aa66e276f070e06e.jpeg",
+        "f52f15c9e5fd4c039a8c6d1d5b79a7bf.jpeg",
+        "f0be0623d9334714a06c1805666aa143.jpeg"
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 34.756595,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 44,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "f14350ee5a4942079c74d6f903898f4a.jpeg",
+        "f6aacf165f934cdebed0b63e47f5a9d6.jpeg",
+        "dd70f97aef3243448626fe54df4ab5b9.jpeg",
+        "dcaa5b1951c64b89bbb8f7a21006e9cc.jpeg",
+        "db262c4780ce49cebd14702ebf45bc27.jpeg"
+      ]
+    },
+    {
+      "tag": "氛围感",
+      "score": 32.916743,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 36,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "ff918ab6347b44199abe36538863aa16.jpeg",
+        "ffee078624b3417ba43673a3252a3a7e.jpeg",
+        "fbf7a8befcf141c0ae9097d5a7858819.jpeg",
+        "faf5aeeede654eaeb8185d67ba0f6260.jpg",
+        "f5881fd12afc4713b9862197f2a1c791.jpeg"
+      ]
+    },
+    {
+      "tag": "运动装",
+      "score": 31.630275,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 33,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "f009975de3c24605851d8754aa0609e3.jpeg",
+        "f4776ff5ef92440bbc3554df0c0ac9bf.jpeg",
+        "f757c7860fc946b6b1727f6a400e58a3.jpeg",
+        "ef7bf5aaad8045ebaabd66a5c4447846.png",
+        "ef5daaba308547a98e1ae9daef0e16c3.jpeg"
+      ]
+    },
+    {
+      "tag": "神秘",
+      "score": 30.426858,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 37,
       "series": [
         "mobile"
       ],
@@ -432,28 +670,28 @@
       ]
     },
     {
-      "tag": "创意",
-      "score": 30.193848,
+      "tag": "黑色连衣裙",
+      "score": 29.533349,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 39,
+      "wallpaperCount": 32,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "121538f324054103b35319dbb4b0a70c.jpeg",
-        "44873191d87445ea898adc1f03c09526.jpeg",
-        "6ad8bf8ba1de48aab669c4a515560be8.jpeg",
-        "6d3f18edf82f418ab4edb7d9dfdab2f4.jpeg",
-        "15f6e5dd176b43eaab35a0a40b408b4f.jpeg"
+        "fcf0b96722c74393a8e261ba7920a091.jpeg",
+        "e9670e66dc634277ade1b4002990b1ff.jpeg",
+        "d0db6a3660f4400db236988fc62ce6b4.jpeg",
+        "b7b080b0847f4238bf30bf2fa08b527f.jpeg",
+        "91752629098e4cbab4c1a6f6f130631d.jpeg"
       ]
     },
     {
       "tag": "宁静",
-      "score": 30.145364,
+      "score": 28.521055,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 35,
+      "wallpaperCount": 34,
       "series": [
         "mobile"
       ],
@@ -466,8 +704,8 @@
       ]
     },
     {
-      "tag": "萌宠",
-      "score": 27.585297,
+      "tag": "猫咪",
+      "score": 28.277967,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 36,
@@ -475,33 +713,50 @@
         "mobile"
       ],
       "topWallpapers": [
-        "478d09a6503d45afae1a41782ae29563.jpeg",
-        "645caecd2ebf415cb6439aa67a3715bd.jpeg",
-        "963f5ae451be44dcbf8ee65d76fbe211.jpeg",
-        "6ea2bb05cfaf4281b02390d930f282e8.jpeg",
-        "9ad3e994147742a48fc1fab29158762d.jpeg"
+        "f14350ee5a4942079c74d6f903898f4a.jpeg",
+        "dd70f97aef3243448626fe54df4ab5b9.jpeg",
+        "dcaa5b1951c64b89bbb8f7a21006e9cc.jpeg",
+        "db262c4780ce49cebd14702ebf45bc27.jpeg",
+        "b44a974a54a1423b8915c24e85e2e610.jpeg"
       ]
     },
     {
-      "tag": "白色上衣",
-      "score": 25.608705,
-      "views": 0,
+      "tag": "黑色",
+      "score": 27.950875,
+      "views": 5,
       "downloads": 0,
-      "wallpaperCount": 30,
+      "wallpaperCount": 31,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "5119584d4a864333be53967280d711de.jpg",
-        "82468de6f247451eb89249de229454c5.jpeg",
-        "31597ec3bf5445d4878868ce2df0ce8b.jpg",
-        "34170e3531674e4ea89af2fbd639099c.jpg",
-        "5192c2a3595842b5b9b85e2f8987671e.jpeg"
+        "f9008b82a05c47939a5b3a57a82b4141.jpeg",
+        "d9527b489aa3437abebcef63c1a4e6f9.jpeg",
+        "d6dcb5a173814a979a59a6040a2a196e.jpeg",
+        "b42121afd2474434afba104550311233.jpeg",
+        "ac24e1501d7741f6bf92ecade6f333fc.jpeg"
+      ]
+    },
+    {
+      "tag": "吊带连衣裙",
+      "score": 27.40578,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 28,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "fbbc956a2d354a1fa5fde95747a9cf03.jpeg",
+        "f5881fd12afc4713b9862197f2a1c791.jpeg",
+        "f8803ad97a3740a798eb23dcf84389c2.jpeg",
+        "f0981e9dc9144aba9b4c0cd6f7a4543d.jpeg",
+        "f611fc2158f143efbb8b7be81684c566.jpeg"
       ]
     },
     {
       "tag": "晨光",
-      "score": 25.413439,
+      "score": 24.806393,
       "views": 1,
       "downloads": 0,
       "wallpaperCount": 29,
@@ -517,42 +772,8 @@
       ]
     },
     {
-      "tag": "黑色连衣裙",
-      "score": 25.242421,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 27,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "381e0b4eb6204a1390b41db6a8e11763.jpeg",
-        "494d5e0f977a4fb4933827a7ac3cb2d6.jpeg",
-        "602b25b2201c48329fe09a966c16d4be.jpg",
-        "869b7498c04646149416905b9115415b.jpeg",
-        "0175c319879c4fd3847d370517bb4eda.jpeg"
-      ]
-    },
-    {
-      "tag": "清晨",
-      "score": 25.165286,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 30,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "14232898c1864f68b9089f12764fb701.jpeg",
-        "260d3070f01e4707b059899a8ec23783.jpeg",
-        "3565dfd256424cdd916c08723b9d774a.jpeg",
-        "369b0e16c28c42b0a9d375d276078010.jpeg",
-        "815d552e61e84712ae42993f40360209.jpeg"
-      ]
-    },
-    {
       "tag": "夜色",
-      "score": 24.653432,
+      "score": 24.064541,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 27,
@@ -568,8 +789,25 @@
       ]
     },
     {
+      "tag": "清晨",
+      "score": 23.796186,
+      "views": 0,
+      "downloads": 0,
+      "wallpaperCount": 29,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "14232898c1864f68b9089f12764fb701.jpeg",
+        "260d3070f01e4707b059899a8ec23783.jpeg",
+        "3565dfd256424cdd916c08723b9d774a.jpeg",
+        "369b0e16c28c42b0a9d375d276078010.jpeg",
+        "815d552e61e84712ae42993f40360209.jpeg"
+      ]
+    },
+    {
       "tag": "暗夜玫瑰",
-      "score": 24.302095,
+      "score": 23.721596,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 27,
@@ -585,110 +823,8 @@
       ]
     },
     {
-      "tag": "可爱",
-      "score": 23.694516,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 29,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "763727a885d249f195c47b0205691d19.jpg",
-        "478d09a6503d45afae1a41782ae29563.jpeg",
-        "6399e3156c5846e5b168a0cbd7277d6c.jpeg",
-        "30c430b0c2424de8bdb43baec473ed99.jpeg",
-        "9f45e1affdd941dbbfe99027905c6316.jpeg"
-      ]
-    },
-    {
-      "tag": "古装",
-      "score": 23.044061,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 27,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "3779616eb7cc4b8595e742c7f066aa54.jpeg",
-        "96026e3623484b68a725e3e3f4e24827.jpeg",
-        "960415b3121c453f996d8717c51818e7.png",
-        "344e676ec96245068de8d116c0fa5818.jpeg",
-        "37153b641ad94044b7a1df08aaa33e37.jpeg"
-      ]
-    },
-    {
-      "tag": "猫咪",
-      "score": 22.953588,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 30,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "25067382ac204f03a8e1e1ae9d988ad7.jpeg",
-        "44873191d87445ea898adc1f03c09526.jpeg",
-        "229e2b0c231c47ea8ba485feafb0cbaa.jpeg",
-        "478d09a6503d45afae1a41782ae29563.jpeg",
-        "963f5ae451be44dcbf8ee65d76fbe211.jpeg"
-      ]
-    },
-    {
-      "tag": "黑色",
-      "score": 22.618491,
-      "views": 5,
-      "downloads": 0,
-      "wallpaperCount": 25,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "349d702d55a549a7969ddcd0e9ec0933.jpeg",
-        "510bb9999e4b4c03986336d9525eaa95.jpg",
-        "27e816ef2f0d4cdfafabb0eaea5f32dd.jpeg",
-        "47d6d66fb1504550a6e8240829835afc.jpeg",
-        "51be232031994b4ba561f69564eaf561.jpeg"
-      ]
-    },
-    {
-      "tag": "温柔",
-      "score": 22.107378,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 25,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "9137542dfe16470d8c5bea48af95dd6b.jpeg",
-        "5622e0a38ac94361bd8b598f3285bb16.jpeg",
-        "693b9fc495a14f919f6a890281e957a7.jpeg",
-        "050aba11255048879a6099837641ce49.jpeg",
-        "16fd23ec88c64b13bb4ef70358d9382d.jpeg"
-      ]
-    },
-    {
-      "tag": "背影",
-      "score": 20.6808,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 25,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "780140ce71924068872684b16987e45f.jpg",
-        "12301_4023607da98b4ce699026a39bcf1bf1c.jpg",
-        "9074bf1713024732b97f9250e4b7a5f6.jpg",
-        "16f20675e2a041038d3eef3f17450b40.jpeg",
-        "17cce42531e1410c98ef34bdf5b2ec7a.jpeg"
-      ]
-    },
-    {
-      "tag": "白色连衣裙",
-      "score": 19.894025,
+      "tag": "针织衫",
+      "score": 23.17959,
       "views": 0,
       "downloads": 0,
       "wallpaperCount": 24,
@@ -696,164 +832,28 @@
         "mobile"
       ],
       "topWallpapers": [
-        "780140ce71924068872684b16987e45f.jpg",
-        "5061c2a17fc84addb4dd6cf71eb73cfe.jpeg",
-        "626fe9b0dcab43108c863949e3d57be0.jpg",
-        "6745_dbb2251405644e20bea20c358e40f234.jpeg",
-        "915a053661d7414099a8962b71487d0a.jpeg"
-      ]
-    },
-    {
-      "tag": "海滩",
-      "score": 19.051811,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 22,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "7900370cac8643a0ab0d0715e77d42ab.jpeg",
-        "17591_72526aab09ae45a0af3d9817f358764e.jpeg",
-        "1867_a8a70f39855e40c2a2f3a5b6ab27992e.jpg",
-        "578b5b5654bd46f1a25a2900939806a7.jpeg",
-        "838a559b74a14d848269377adae1bdeb.jpeg"
+        "ffc69b32b63f4844b17bfb14640429f0.jpeg",
+        "f0734a22a6694b81a1d863d64250d7c5.jpeg",
+        "f694c0ebbab949919db32649d876f55b.jpeg",
+        "f175b7771a7f4bb490ebfd25dcacaf5b.jpeg",
+        "f397bfcef2184440aa66e276f070e06e.jpeg"
       ]
     },
     {
       "tag": "森林",
-      "score": 18.236123,
+      "score": 22.694409,
       "views": 0,
       "downloads": 0,
-      "wallpaperCount": 22,
+      "wallpaperCount": 27,
       "series": [
         "mobile"
       ],
       "topWallpapers": [
-        "60483657d7e94807978714e31bc07113.jpeg",
-        "29338_df609c5dabe74e7299d5e28f2c9a05a3.jpeg",
-        "31294_38244f8d5794470a9008e9432ec6ab01.jpeg",
-        "725a377170674a93831f12b301813a8b.jpeg",
-        "066cc131bb884b809d777d638c7846df.png"
-      ]
-    },
-    {
-      "tag": "校园",
-      "score": 17.157868,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 20,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "2162e55ce1b64db0ae94a1efdaed28d9.png",
-        "908d1f0f96de4d588ed5cc70c23d1c65.jpeg",
-        "18e92dc7ca684e0ab8fb7aa7e6a44d20.jpg",
-        "36f327a14d984e32aeb2c897adcc34ec.jpeg",
-        "3f551f0b467341a8843c93bf9dffec8b.jpeg"
-      ]
-    },
-    {
-      "tag": "花朵",
-      "score": 16.168385,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 19,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "2844c9b294d84ad1ba1d2d7153360625.jpeg",
-        "465aaa67538b4cc19920e16a028ad843.jpeg",
-        "7754ca2790234a939f1a1a32dab9c7c0.jpeg",
-        "11f075ce556942b099941afeb4dd9bb4.jpeg",
-        "27b34c93d8854f6cb82d1bfccacf8fc9.jpeg"
-      ]
-    },
-    {
-      "tag": "时尚穿搭",
-      "score": 15.309864,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 16,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "1936930dc9c442ad9015b988136a91ef.jpeg",
-        "409078be9e1e4991b750c44a3407c35f.jpeg",
-        "3112_f7e46d1c1d9c4cae948d9e855ef31803.jpg",
-        "5196e006c4b448c0ae209c995aeab26e.jpeg",
-        "721cbc035e614fd4bcb292a39d55872d.png"
-      ]
-    },
-    {
-      "tag": "黑裙",
-      "score": 15.257645,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 18,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "98892945d0a449b584eb7855f8beb490.jpeg",
-        "10630_c8f862ce166f4a13ad8140d9865f8802.jpeg",
-        "379cc6ba7a85483593652bfa222dab56.jpeg",
-        "5900_9732bedfa4704a35846cb6999a7363cd.jpeg",
-        "81d038c705824286b748c08f8b33ba98.jpeg"
-      ]
-    },
-    {
-      "tag": "休闲",
-      "score": 15.160984,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 17,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "2162e55ce1b64db0ae94a1efdaed28d9.png",
-        "229e2b0c231c47ea8ba485feafb0cbaa.jpeg",
-        "811ecbec6bff4238b3a4b5d04c2f6a9b.jpeg",
-        "1fbe181b84734c0e869b18ec7009c96c.jpeg",
-        "2a2b628fd53b45f2a6be658718691ba4.jpg"
-      ]
-    },
-    {
-      "tag": "自然风光",
-      "score": 14.113252,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 17,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "29338_df609c5dabe74e7299d5e28f2c9a05a3.jpeg",
-        "31294_38244f8d5794470a9008e9432ec6ab01.jpeg",
-        "394b6ea66a7746fbbebd86d67525617a.jpeg",
-        "535d2481633a4b0fbb70ad4da8a6a2cf.jpeg",
-        "53f18df569ba4b3ca2fc47921c1eda03.jpeg"
-      ]
-    },
-    {
-      "tag": "蓝天",
-      "score": 12.98287,
-      "views": 0,
-      "downloads": 0,
-      "wallpaperCount": 16,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "2844c9b294d84ad1ba1d2d7153360625.jpeg",
-        "4327ca2414894215802393447a06fead.jpeg",
-        "6b6491aba4e04eee849b2b6d1f38ddc1.jpeg",
-        "009351f468034e2f88434d4b2b829014.jpeg",
-        "4327ca2414894215802393447a06fead.jpeg"
+        "e7a574b837b341bd8987dce80472959a.jpeg",
+        "da6b62af1c5a490d99d31f95b52c07dd.jpg",
+        "bdcb90b8645742fa91e4ce785cbe7aad.jpeg",
+        "b40ecbf76f314cb4b2bb0e09335dc415.jpeg",
+        "a22d3e8bda9f4abda0eb3575be1a8328.jpeg"
       ]
     }
   ]
