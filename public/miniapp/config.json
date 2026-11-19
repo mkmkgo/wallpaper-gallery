@@ -8,5 +8,11 @@
       "original",
       "preview"
     ]
+  },
+  "auditMode": {
+    "enabled": true,
+    "hiddenCategories": [
+      "人像"
+    ]
   }
 }
