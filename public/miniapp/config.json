@@ -11,8 +11,10 @@
   },
   "auditMode": {
     "enabled": true,
-    "hiddenCategories": [
-      "人像"
+    "allowedCategories": [
+      "风景",
+      "创意",
+      "萌宠"
     ]
   }
 }
