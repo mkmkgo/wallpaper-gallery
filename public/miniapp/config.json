@@ -10,11 +10,7 @@
     ]
   },
   "auditMode": {
-    "enabled": true,
-    "allowedCategories": [
-      "风景",
-      "创意",
-      "萌宠"
-    ]
+    "enabled": false,
+    "allowedCategories": []
   }
 }
