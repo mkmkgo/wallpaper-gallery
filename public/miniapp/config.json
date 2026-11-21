@@ -2,8 +2,8 @@
   "version": 1,
   "cdnTag": "v1.5.45",
   "ad": {
-    "enabled": false,
-    "rewardedAdUnitId": "",
+    "enabled": true,
+    "rewardedAdUnitId": "adunit-4b62f67495a2e5a3",
     "requireFor": [
       "original",
       "preview"
